@@ -55,7 +55,7 @@
             // 
             // panelBarraTitulo
             // 
-            panelBarraTitulo.BackColor = System.Drawing.Color.Black;
+            panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             panelBarraTitulo.Controls.Add(this.lblNombre);
             panelBarraTitulo.Controls.Add(this.btnMinimizar);
             panelBarraTitulo.Controls.Add(this.btnCerrar);
@@ -70,11 +70,11 @@
             // 
             this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Myanmar Text", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Font = new System.Drawing.Font("Eras Demi ITC", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(3, 4);
+            this.lblNombre.Location = new System.Drawing.Point(3, 3);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(218, 37);
+            this.lblNombre.Size = new System.Drawing.Size(213, 24);
             this.lblNombre.TabIndex = 1;
             this.lblNombre.Text = "Gestor de Inventario";
             // 
@@ -126,8 +126,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::LavadoraLubricadora.Properties.Resources.Lavadora_y_Lubricadora_Negritos;
-            this.pictureBox1.Location = new System.Drawing.Point(175, 143);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(137, 137);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(481, 280);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -155,7 +155,7 @@
             this.btnBusquedaVehiculo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.btnBusquedaVehiculo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
             this.btnBusquedaVehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBusquedaVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBusquedaVehiculo.Font = new System.Drawing.Font("Eras Demi ITC", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBusquedaVehiculo.Location = new System.Drawing.Point(0, 185);
             this.btnBusquedaVehiculo.Name = "btnBusquedaVehiculo";
             this.btnBusquedaVehiculo.Size = new System.Drawing.Size(250, 30);
@@ -169,7 +169,7 @@
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Font = new System.Drawing.Font("Eras Demi ITC", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(0, 332);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(250, 30);
@@ -183,7 +183,7 @@
             this.btnGestionProveedores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.btnGestionProveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
             this.btnGestionProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionProveedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionProveedores.Font = new System.Drawing.Font("Eras Demi ITC", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionProveedores.Location = new System.Drawing.Point(0, 296);
             this.btnGestionProveedores.Name = "btnGestionProveedores";
             this.btnGestionProveedores.Size = new System.Drawing.Size(250, 30);
@@ -197,7 +197,7 @@
             this.btnGestionEmpleados.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.btnGestionEmpleados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
             this.btnGestionEmpleados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionEmpleados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionEmpleados.Font = new System.Drawing.Font("Eras Demi ITC", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionEmpleados.Location = new System.Drawing.Point(0, 257);
             this.btnGestionEmpleados.Name = "btnGestionEmpleados";
             this.btnGestionEmpleados.Size = new System.Drawing.Size(250, 30);
@@ -211,7 +211,7 @@
             this.btnAdminProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.btnAdminProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
             this.btnAdminProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdminProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminProductos.Font = new System.Drawing.Font("Eras Demi ITC", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdminProductos.Location = new System.Drawing.Point(0, 221);
             this.btnAdminProductos.Name = "btnAdminProductos";
             this.btnAdminProductos.Size = new System.Drawing.Size(250, 30);
@@ -225,7 +225,7 @@
             this.btnBuscarProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.btnBuscarProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
             this.btnBuscarProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProductos.Font = new System.Drawing.Font("Eras Demi ITC", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarProductos.Location = new System.Drawing.Point(0, 149);
             this.btnBuscarProductos.Name = "btnBuscarProductos";
             this.btnBuscarProductos.Size = new System.Drawing.Size(250, 30);
@@ -244,6 +244,7 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Principal_Load);
             panelBarraTitulo.ResumeLayout(false);
             panelBarraTitulo.PerformLayout();
