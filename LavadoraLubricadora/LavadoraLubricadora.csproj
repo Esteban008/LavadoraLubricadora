@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="btnGestionProveedores.cs">
+    <Compile Include="frmGestionProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="btnGestionProveedores.Designer.cs">
-      <DependentUpon>btnGestionProveedores.cs</DependentUpon>
+    <Compile Include="frmGestionProveedores.Designer.cs">
+      <DependentUpon>frmGestionProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAdminProductos.cs">
       <SubType>Form</SubType>
@@ -96,8 +96,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="btnGestionProveedores.resx">
-      <DependentUpon>btnGestionProveedores.cs</DependentUpon>
+    <EmbeddedResource Include="frmGestionProveedores.resx">
+      <DependentUpon>frmGestionProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminProductos.resx">
       <DependentUpon>frmAdminProductos.cs</DependentUpon>

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LavadoraLubricadora
 {
-    public partial class frmGestionEmpleados : Form
+    public partial class frmGestionProveedores : Form
     {
-        public frmGestionEmpleados()
+        public frmGestionProveedores()
         {
             InitializeComponent();
         }

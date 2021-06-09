@@ -77,18 +77,18 @@ namespace LavadoraLubricadora
         private void CloseForms(object sender, FormClosedEventArgs e)
         {
             
-            if (Application.OpenForms["frmActualizarFactura"] == null)
-                btnBuscarProductos.BackColor = Color.FromArgb(244, 232, 50);
-            /*
-            if (Application.OpenForms["frmBorrarFacturas"] == null)
-                btnBorrarFacturas.BackColor = Color.FromArgb(4, 41, 68);
-            if (Application.OpenForms["frmBuscarFactura"] == null)
-                btnBuscarFactura.BackColor = Color.FromArgb(4, 41, 68);
-            if (Application.OpenForms["frmCrearFactura"] == null)
-                btnCrearFactura.BackColor = Color.FromArgb(4, 41, 68);
-            if (Application.OpenForms["frmListarFacturas"] == null)
-                btnListarFactura.BackColor = Color.FromArgb(4, 41, 68);
-            */
+            if (Application.OpenForms["frmBusquedaProductos"] == null)
+                btnBuscarProductos.BackColor = Color.FromArgb(244, 232, 50);          
+            if (Application.OpenForms["frmBusquedaVehiculo"] == null)
+                btnBusquedaVehiculo.BackColor = Color.FromArgb(244, 232, 50);
+            if (Application.OpenForms["frmAdminProductos"] == null)
+                btnAdminProductos.BackColor = Color.FromArgb(244, 232, 50);
+            if (Application.OpenForms["frmGestionEmpleados"] == null)
+                btnGestionEmpleados.BackColor = Color.FromArgb(244, 232, 50);
+            if (Application.OpenForms["frmGestionProveedores"] == null)
+                btnGestionProveedores.BackColor = Color.FromArgb(244, 232, 50);
+            if (Application.OpenForms["frmCaja"] == null)
+                btnCaja.BackColor = Color.FromArgb(244, 232, 50);
         }
 
         private void btnBuscarProductos_Click(object sender, EventArgs e)
@@ -99,27 +99,32 @@ namespace LavadoraLubricadora
 
         private void btnBusquedaVehiculo_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario<frmBusquedaVehiculo>();
+            btnBusquedaVehiculo.BackColor = Color.FromArgb(253, 250, 218);
         }
 
         private void btnAdminProductos_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario<frmAdminProductos>();
+            btnAdminProductos.BackColor = Color.FromArgb(253, 250, 218);
         }
 
         private void btnGestionEmpleados_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario<frmGestionEmpleados>();
+            btnGestionEmpleados.BackColor = Color.FromArgb(253, 250, 218);
         }
 
         private void btnGestionProveedores_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario<frmGestionProveedores>();
+            btnGestionProveedores.BackColor = Color.FromArgb(253, 250, 218);
         }
 
         private void btnCaja_Click(object sender, EventArgs e)
         {
-
+            AbrirFormulario<frmCaja>();
+            btnCaja.BackColor = Color.FromArgb(253, 250, 218);
         }
     }
 }
