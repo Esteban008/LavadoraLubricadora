@@ -96,5 +96,30 @@ namespace LavadoraLubricadora
             AbrirFormulario<frmBusquedaProductos>();
             btnBuscarProductos.BackColor = Color.FromArgb(253, 250, 218);
         }
+
+        private void btnBusquedaVehiculo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdminProductos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGestionEmpleados_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGestionProveedores_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCaja_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

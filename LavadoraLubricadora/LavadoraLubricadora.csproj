@@ -46,11 +46,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="btnGestionProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="btnGestionProveedores.Designer.cs">
+      <DependentUpon>btnGestionProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdminProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminProductos.Designer.cs">
+      <DependentUpon>frmAdminProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBusquedaProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmBusquedaProductos.Designer.cs">
       <DependentUpon>frmBusquedaProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBusquedaVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBusquedaVehiculo.Designer.cs">
+      <DependentUpon>frmBusquedaVehiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCaja.Designer.cs">
+      <DependentUpon>frmCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionEmpleados.Designer.cs">
+      <DependentUpon>frmGestionEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -66,8 +96,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="btnGestionProveedores.resx">
+      <DependentUpon>btnGestionProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdminProductos.resx">
+      <DependentUpon>frmAdminProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBusquedaProductos.resx">
       <DependentUpon>frmBusquedaProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBusquedaVehiculo.resx">
+      <DependentUpon>frmBusquedaVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCaja.resx">
+      <DependentUpon>frmCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionEmpleados.resx">
+      <DependentUpon>frmGestionEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

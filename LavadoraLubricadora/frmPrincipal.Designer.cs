@@ -38,7 +38,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnBusquedaVehiculo = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnCaja = new System.Windows.Forms.Button();
             this.btnGestionProveedores = new System.Windows.Forms.Button();
             this.btnGestionEmpleados = new System.Windows.Forms.Button();
             this.btnAdminProductos = new System.Windows.Forms.Button();
@@ -138,7 +138,7 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(232)))), ((int)(((byte)(50)))));
             this.panelMenu.Controls.Add(this.btnBusquedaVehiculo);
-            this.panelMenu.Controls.Add(this.button5);
+            this.panelMenu.Controls.Add(this.btnCaja);
             this.panelMenu.Controls.Add(this.btnGestionProveedores);
             this.panelMenu.Controls.Add(this.btnGestionEmpleados);
             this.panelMenu.Controls.Add(this.btnAdminProductos);
@@ -162,20 +162,22 @@
             this.btnBusquedaVehiculo.TabIndex = 5;
             this.btnBusquedaVehiculo.Text = "Busqueda por Vehículo";
             this.btnBusquedaVehiculo.UseVisualStyleBackColor = true;
+            this.btnBusquedaVehiculo.Click += new System.EventHandler(this.btnBusquedaVehiculo_Click);
             // 
-            // button5
+            // btnCaja
             // 
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Eras Demi ITC", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(0, 332);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(250, 30);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Caja";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnCaja.FlatAppearance.BorderSize = 0;
+            this.btnCaja.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.btnCaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
+            this.btnCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCaja.Font = new System.Drawing.Font("Eras Demi ITC", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCaja.Location = new System.Drawing.Point(0, 332);
+            this.btnCaja.Name = "btnCaja";
+            this.btnCaja.Size = new System.Drawing.Size(250, 30);
+            this.btnCaja.TabIndex = 4;
+            this.btnCaja.Text = "Caja";
+            this.btnCaja.UseVisualStyleBackColor = true;
+            this.btnCaja.Click += new System.EventHandler(this.btnCaja_Click);
             // 
             // btnGestionProveedores
             // 
@@ -190,6 +192,7 @@
             this.btnGestionProveedores.TabIndex = 3;
             this.btnGestionProveedores.Text = "Gestión de Proveedores";
             this.btnGestionProveedores.UseVisualStyleBackColor = true;
+            this.btnGestionProveedores.Click += new System.EventHandler(this.btnGestionProveedores_Click);
             // 
             // btnGestionEmpleados
             // 
@@ -204,6 +207,7 @@
             this.btnGestionEmpleados.TabIndex = 2;
             this.btnGestionEmpleados.Text = "Gestión de Empleados";
             this.btnGestionEmpleados.UseVisualStyleBackColor = true;
+            this.btnGestionEmpleados.Click += new System.EventHandler(this.btnGestionEmpleados_Click);
             // 
             // btnAdminProductos
             // 
@@ -218,6 +222,7 @@
             this.btnAdminProductos.TabIndex = 1;
             this.btnAdminProductos.Text = "Administrar Productos";
             this.btnAdminProductos.UseVisualStyleBackColor = true;
+            this.btnAdminProductos.Click += new System.EventHandler(this.btnAdminProductos_Click);
             // 
             // btnBuscarProductos
             // 
@@ -269,7 +274,7 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnBuscarProductos;
         private System.Windows.Forms.Button btnBusquedaVehiculo;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnCaja;
         private System.Windows.Forms.Button btnGestionProveedores;
         private System.Windows.Forms.Button btnGestionEmpleados;
         private System.Windows.Forms.Button btnAdminProductos;
