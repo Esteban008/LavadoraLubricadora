@@ -26,5 +26,45 @@ namespace LavadoraLubricadora
                 this.Close();
             }
         }
+
+        private void frmBusquedaProductos_Load(object sender, EventArgs e)
+        {
+            cbxTipoProducto.Items.AddRange(new string[] { "Aceite", "Filtro", "Otro" });
+            cbxTipoProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxTipoProducto.SelectedIndex = 0;
+            cbxViscocidad.Visible = false;
+            txtBusqueda.Visible = false;
+            lblCriterioBusqueda.Visible = false;
+        }
+
+        private void cbxTipoProducto_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //Si el usuario selecciona
+            if (cbxTipoProducto.SelectedItem.Equals("Aceite"))
+            {
+                txtBusqueda.Visible = false;
+                lblCriterioBusqueda.Visible = true;
+                lblCriterioBusqueda.Text = "Seleccione Viscosidad (SAE):";
+                cbxViscocidad.Visible = true;
+                cbxViscocidad.DropDownStyle = ComboBoxStyle.DropDownList;
+                //cbxViscocidad.SelectedIndex = 0;              
+            }
+            //Si el usuario selecciona
+            if (cbxTipoProducto.SelectedItem.Equals("Filtro"))
+            {
+                cbxViscocidad.Visible = false;
+                lblCriterioBusqueda.Visible = true;
+                lblCriterioBusqueda.Text = "Ingrese Codigo:";
+                txtBusqueda.Visible = true;
+            }
+            
+            if (cbxTipoProducto.SelectedItem.Equals("Otro"))
+            {
+                cbxViscocidad.Visible = false;
+                lblCriterioBusqueda.Visible = true;
+                lblCriterioBusqueda.Text = "Ingrese el Nombre:";
+                txtBusqueda.Visible = true;
+            }
+        }
     }
 }
