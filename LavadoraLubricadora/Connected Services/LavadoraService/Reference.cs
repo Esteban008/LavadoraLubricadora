@@ -15,51 +15,6 @@ namespace LavadoraLubricadora.LavadoraService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ListaAceite", Namespace="http://schemas.datacontract.org/2004/07/BusinessLayer")]
-    [System.SerializableAttribute()]
-    public partial class ListaAceite : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private LavadoraLubricadora.LavadoraService.Aceite[] AceitesField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public LavadoraLubricadora.LavadoraService.Aceite[] Aceites {
-            get {
-                return this.AceitesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AceitesField, value) != true)) {
-                    this.AceitesField = value;
-                    this.RaisePropertyChanged("Aceites");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Aceite", Namespace="http://schemas.datacontract.org/2004/07/BusinessLayer")]
     [System.SerializableAttribute()]
     public partial class Aceite : LavadoraLubricadora.LavadoraService.Producto {
@@ -356,10 +311,10 @@ namespace LavadoraLubricadora.LavadoraService {
     public interface ILavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetAceite", ReplyAction="http://tempuri.org/ILavadoraService/GetAceiteResponse")]
-        LavadoraLubricadora.LavadoraService.ListaAceite GetAceite();
+        LavadoraLubricadora.LavadoraService.Aceite[] GetAceite();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetAceite", ReplyAction="http://tempuri.org/ILavadoraService/GetAceiteResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ListaAceite> GetAceiteAsync();
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> GetAceiteAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetProducto", ReplyAction="http://tempuri.org/ILavadoraService/GetProductoResponse")]
         LavadoraLubricadora.LavadoraService.Producto GetProducto(int id);
@@ -395,11 +350,11 @@ namespace LavadoraLubricadora.LavadoraService {
                 base(binding, remoteAddress) {
         }
         
-        public LavadoraLubricadora.LavadoraService.ListaAceite GetAceite() {
+        public LavadoraLubricadora.LavadoraService.Aceite[] GetAceite() {
             return base.Channel.GetAceite();
         }
         
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ListaAceite> GetAceiteAsync() {
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> GetAceiteAsync() {
             return base.Channel.GetAceiteAsync();
         }
         

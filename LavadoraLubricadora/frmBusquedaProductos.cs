@@ -52,16 +52,11 @@ namespace LavadoraLubricadora
                 cbxViscocidad.DropDownStyle = ComboBoxStyle.DropDownList;
                 //cbxViscocidad.SelectedIndex = 0;            
                 //Necesitamos una clase que llame lista de aceites para importar aca
-                LavadoraService.Aceite aceite = new LavadoraService.Aceite();
-
-                LavadoraService.ListaAceite aceites = new LavadoraService.ListaAceite();
-                aceites = cliente.GetAceite();
-
-                for (int i = 0; i < aceites.Aceites.Length; i++)
+                List<LavadoraService.Aceite> aceites = new List<LavadoraService.Aceite>(cliente.GetAceite());
+                foreach (LavadoraService.Aceite item in aceites)
                 {
-                    Console.WriteLine(aceites.Aceites.);
+                    Console.WriteLine(item.Descripcion);
                 }
-                           
             }
             //Si el usuario selecciona
             if (cbxTipoProducto.SelectedItem.Equals("Filtro"))
