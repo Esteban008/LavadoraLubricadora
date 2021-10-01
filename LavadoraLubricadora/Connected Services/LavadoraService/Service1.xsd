@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:59447/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BusinessLayer" />
+  <xs:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" />
   <xs:element name="GetAceite">
     <xs:complexType>
       <xs:sequence />
@@ -9,7 +9,7 @@
   <xs:element name="GetAceiteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BusinessLayer" minOccurs="0" name="GetAceiteResult" nillable="true" type="q1:ArrayOfAceite" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" minOccurs="0" name="GetAceiteResult" nillable="true" type="q1:ArrayOfAceite" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -23,7 +23,7 @@
   <xs:element name="GetProductoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BusinessLayer" minOccurs="0" name="GetProductoResult" nillable="true" type="q2:Producto" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" minOccurs="0" name="GetProductoResult" nillable="true" type="q2:Producto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

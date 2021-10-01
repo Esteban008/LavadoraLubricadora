@@ -15,7 +15,7 @@ namespace LavadoraLubricadora.LavadoraService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Aceite", Namespace="http://schemas.datacontract.org/2004/07/BusinessLayer")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Aceite", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
     [System.SerializableAttribute()]
     public partial class Aceite : LavadoraLubricadora.LavadoraService.Producto {
         
@@ -102,7 +102,7 @@ namespace LavadoraLubricadora.LavadoraService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Producto", Namespace="http://schemas.datacontract.org/2004/07/BusinessLayer")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Producto", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(LavadoraLubricadora.LavadoraService.Aceite))]
     public partial class Producto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {

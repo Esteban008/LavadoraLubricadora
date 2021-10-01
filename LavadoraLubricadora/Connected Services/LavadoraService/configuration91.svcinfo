@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="VYjg5dquerZ1nE84xBKcFNhZFskMoAs6rwMpsMINNGY=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="LxETcXm1C//rNIMxqk933Oqtx2sjJTWyCs9orraJm6s=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_ILavadoraService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_ILavadoraService" contract="LavadoraService.ILavadoraService" bindingType="basicHttpBinding" address="http://localhost:59447/Service1.svc" bindingConfiguration="BasicHttpBinding_ILavadoraService">
+    <endpoint name="BasicHttpBinding_ILavadoraService" contract="LavadoraService.ILavadoraService" bindingType="basicHttpBinding" address="http://localhost:53640/Service1.svc" bindingConfiguration="BasicHttpBinding_ILavadoraService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:59447/Service1.svc</serializedValue>
+          <serializedValue>http://localhost:53640/Service1.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
