@@ -89,6 +89,12 @@
     <Compile Include="frmGestionEmpleados.Designer.cs">
       <DependentUpon>frmGestionEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmIngresarVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIngresarVehiculo.Designer.cs">
+      <DependentUpon>frmIngresarVehiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionEmpleados.resx">
       <DependentUpon>frmGestionEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIngresarVehiculo.resx">
+      <DependentUpon>frmIngresarVehiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

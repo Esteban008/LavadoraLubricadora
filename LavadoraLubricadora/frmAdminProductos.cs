@@ -26,5 +26,11 @@ namespace LavadoraLubricadora
                 this.Close();
             }
         }
+
+        private void btnAgregarVehiculo_Click(object sender, EventArgs e)
+        {
+            frmIngresarVehiculo ingresarVehiculo = new frmIngresarVehiculo();
+            ingresarVehiculo.ShowDialog();
+        }
     }
 }

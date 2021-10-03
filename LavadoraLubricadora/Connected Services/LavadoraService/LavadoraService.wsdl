@@ -32,6 +32,30 @@
   <wsdl:message name="ILavadoraService_ObtenerSAE_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerSAEResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerMarcaVehiculo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMarcaVehiculo" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerMarcaVehiculo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMarcaVehiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerModeloVehiculo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerModeloVehiculo" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerModeloVehiculo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerModeloVehiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerAnioVehiculo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAnioVehiculo" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerAnioVehiculo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAnioVehiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerMotorVehiculo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMotorVehiculo" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerMotorVehiculo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMotorVehiculoResponse" />
+  </wsdl:message>
   <wsdl:portType name="ILavadoraService">
     <wsdl:operation name="GetAceite">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/GetAceite" message="tns:ILavadoraService_GetAceite_InputMessage" />
@@ -48,6 +72,22 @@
     <wsdl:operation name="ObtenerSAE">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerSAE" message="tns:ILavadoraService_ObtenerSAE_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerSAEResponse" message="tns:ILavadoraService_ObtenerSAE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMarcaVehiculo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerMarcaVehiculo" message="tns:ILavadoraService_ObtenerMarcaVehiculo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerMarcaVehiculoResponse" message="tns:ILavadoraService_ObtenerMarcaVehiculo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerModeloVehiculo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerModeloVehiculo" message="tns:ILavadoraService_ObtenerModeloVehiculo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerModeloVehiculoResponse" message="tns:ILavadoraService_ObtenerModeloVehiculo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAnioVehiculo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerAnioVehiculo" message="tns:ILavadoraService_ObtenerAnioVehiculo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerAnioVehiculoResponse" message="tns:ILavadoraService_ObtenerAnioVehiculo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMotorVehiculo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculo" message="tns:ILavadoraService_ObtenerMotorVehiculo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculoResponse" message="tns:ILavadoraService_ObtenerMotorVehiculo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILavadoraService" type="tns:ILavadoraService">
@@ -81,6 +121,42 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerSAE">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerSAE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMarcaVehiculo">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerMarcaVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerModeloVehiculo">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerModeloVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAnioVehiculo">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerAnioVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMotorVehiculo">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -333,6 +333,30 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerSAEResponse")]
         System.Threading.Tasks.Task<string[]> ObtenerSAEAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerMarcaVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerMarcaVehiculoResponse")]
+        string[] ObtenerMarcaVehiculo();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerMarcaVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerMarcaVehiculoResponse")]
+        System.Threading.Tasks.Task<string[]> ObtenerMarcaVehiculoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerModeloVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerModeloVehiculoResponse")]
+        string[] ObtenerModeloVehiculo(string marca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerModeloVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerModeloVehiculoResponse")]
+        System.Threading.Tasks.Task<string[]> ObtenerModeloVehiculoAsync(string marca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAnioVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAnioVehiculoResponse")]
+        string[] ObtenerAnioVehiculo(string marca, string modelo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAnioVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAnioVehiculoResponse")]
+        System.Threading.Tasks.Task<string[]> ObtenerAnioVehiculoAsync(string marca, string modelo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculoResponse")]
+        string[] ObtenerMotorVehiculo(string marca, string modelo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculoResponse")]
+        System.Threading.Tasks.Task<string[]> ObtenerMotorVehiculoAsync(string marca, string modelo);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -392,6 +416,38 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<string[]> ObtenerSAEAsync() {
             return base.Channel.ObtenerSAEAsync();
+        }
+        
+        public string[] ObtenerMarcaVehiculo() {
+            return base.Channel.ObtenerMarcaVehiculo();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ObtenerMarcaVehiculoAsync() {
+            return base.Channel.ObtenerMarcaVehiculoAsync();
+        }
+        
+        public string[] ObtenerModeloVehiculo(string marca) {
+            return base.Channel.ObtenerModeloVehiculo(marca);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ObtenerModeloVehiculoAsync(string marca) {
+            return base.Channel.ObtenerModeloVehiculoAsync(marca);
+        }
+        
+        public string[] ObtenerAnioVehiculo(string marca, string modelo) {
+            return base.Channel.ObtenerAnioVehiculo(marca, modelo);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ObtenerAnioVehiculoAsync(string marca, string modelo) {
+            return base.Channel.ObtenerAnioVehiculoAsync(marca, modelo);
+        }
+        
+        public string[] ObtenerMotorVehiculo(string marca, string modelo) {
+            return base.Channel.ObtenerMotorVehiculo(marca, modelo);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ObtenerMotorVehiculoAsync(string marca, string modelo) {
+            return base.Channel.ObtenerMotorVehiculoAsync(marca, modelo);
         }
     }
 }
