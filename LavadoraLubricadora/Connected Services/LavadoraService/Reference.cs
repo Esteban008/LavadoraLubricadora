@@ -316,11 +316,23 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetAceite", ReplyAction="http://tempuri.org/ILavadoraService/GetAceiteResponse")]
         System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> GetAceiteAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetAceiteSAE", ReplyAction="http://tempuri.org/ILavadoraService/GetAceiteSAEResponse")]
+        LavadoraLubricadora.LavadoraService.Aceite[] GetAceiteSAE(string sae);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetAceiteSAE", ReplyAction="http://tempuri.org/ILavadoraService/GetAceiteSAEResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> GetAceiteSAEAsync(string sae);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetProducto", ReplyAction="http://tempuri.org/ILavadoraService/GetProductoResponse")]
         LavadoraLubricadora.LavadoraService.Producto GetProducto(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetProducto", ReplyAction="http://tempuri.org/ILavadoraService/GetProductoResponse")]
         System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Producto> GetProductoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerSAEResponse")]
+        string[] ObtenerSAE();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerSAEResponse")]
+        System.Threading.Tasks.Task<string[]> ObtenerSAEAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -358,12 +370,28 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.GetAceiteAsync();
         }
         
+        public LavadoraLubricadora.LavadoraService.Aceite[] GetAceiteSAE(string sae) {
+            return base.Channel.GetAceiteSAE(sae);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> GetAceiteSAEAsync(string sae) {
+            return base.Channel.GetAceiteSAEAsync(sae);
+        }
+        
         public LavadoraLubricadora.LavadoraService.Producto GetProducto(int id) {
             return base.Channel.GetProducto(id);
         }
         
         public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Producto> GetProductoAsync(int id) {
             return base.Channel.GetProductoAsync(id);
+        }
+        
+        public string[] ObtenerSAE() {
+            return base.Channel.ObtenerSAE();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ObtenerSAEAsync() {
+            return base.Channel.ObtenerSAEAsync();
         }
     }
 }

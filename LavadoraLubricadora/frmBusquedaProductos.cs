@@ -36,6 +36,7 @@ namespace LavadoraLubricadora
             cbxViscocidad.Visible = false;
             txtBusqueda.Visible = false;
             lblCriterioBusqueda.Visible = false;
+            cbxViscocidad.Items.Add("Todas");
 
             cliente = new LavadoraService.LavadoraServiceClient();
         }
@@ -45,6 +46,7 @@ namespace LavadoraLubricadora
             //Si el usuario selecciona
             if (cbxTipoProducto.SelectedItem.Equals("Aceite"))
             {
+                dgvProductos.Columns.Clear();
                 txtBusqueda.Visible = false;
                 lblCriterioBusqueda.Visible = true;
                 lblCriterioBusqueda.Text = "Seleccione Viscosidad (SAE):";
@@ -53,10 +55,10 @@ namespace LavadoraLubricadora
                 //cbxViscocidad.SelectedIndex = 0;            
                 //Necesitamos una clase que llame lista de aceites para importar aca
                 List<LavadoraService.Aceite> aceites = new List<LavadoraService.Aceite>(cliente.GetAceite());
-                foreach (LavadoraService.Aceite item in aceites)
-                {
-                    Console.WriteLine(item.Descripcion);
-                }
+                dgvProductos.DataSource = aceites;
+
+                cbxViscocidad.Items.AddRange(cliente.ObtenerSAE());
+
             }
             //Si el usuario selecciona
             if (cbxTipoProducto.SelectedItem.Equals("Filtro"))
@@ -74,6 +76,24 @@ namespace LavadoraLubricadora
                 lblCriterioBusqueda.Text = "Ingrese el Nombre:";
                 txtBusqueda.Visible = true;
             }
+        }
+
+        private void cbxViscocidad_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+            if (cbxViscocidad.SelectedItem.Equals("Todas"))
+            {
+                dgvProductos.Columns.Clear();
+                List<LavadoraService.Aceite> aceitesSAE = new List<LavadoraService.Aceite>(cliente.GetAceite());
+                dgvProductos.DataSource = aceitesSAE;
+            }
+            else
+            {
+                dgvProductos.Columns.Clear();
+                List<LavadoraService.Aceite> aceites = new List<LavadoraService.Aceite>(cliente.GetAceiteSAE(cbxViscocidad.Text));
+                dgvProductos.DataSource = aceites;
+
+            }            
         }
     }
 }

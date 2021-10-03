@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:53640/Service1.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="b359fbe6-b9e3-4579-bb42-871ba5b35d6e" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="012cd92b-d461-4fab-b033-ab1f0c2e4171" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="c6c3ec7b-498e-498c-b119-e21893a420d7" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?xsd=xsd1" />
+    <MetadataFile FileName="LavadoraService.wsdl" MetadataType="Wsdl" ID="95d2ee4b-f04e-4004-8c30-3817aafc6e84" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?wsdl" />
     <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="77ee4382-bd08-4757-af65-2cc4adbee310" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?disco" />
     <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="e9d684c5-ae12-45ec-9f94-5263917a8d25" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?xsd=xsd0" />
-    <MetadataFile FileName="LavadoraService.wsdl" MetadataType="Wsdl" ID="95d2ee4b-f04e-4004-8c30-3817aafc6e84" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?wsdl" />
-    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="b359fbe6-b9e3-4579-bb42-871ba5b35d6e" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?xsd=xsd2" />
-    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="c6c3ec7b-498e-498c-b119-e21893a420d7" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

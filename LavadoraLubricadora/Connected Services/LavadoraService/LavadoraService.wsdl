@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" />
+      <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ILavadoraService_GetAceite_InputMessage">
@@ -13,20 +14,40 @@
   <wsdl:message name="ILavadoraService_GetAceite_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAceiteResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_GetAceiteSAE_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAceiteSAE" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_GetAceiteSAE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAceiteSAEResponse" />
+  </wsdl:message>
   <wsdl:message name="ILavadoraService_GetProducto_InputMessage">
     <wsdl:part name="parameters" element="tns:GetProducto" />
   </wsdl:message>
   <wsdl:message name="ILavadoraService_GetProducto_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProductoResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerSAE_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerSAE" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerSAE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerSAEResponse" />
+  </wsdl:message>
   <wsdl:portType name="ILavadoraService">
     <wsdl:operation name="GetAceite">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/GetAceite" message="tns:ILavadoraService_GetAceite_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/GetAceiteResponse" message="tns:ILavadoraService_GetAceite_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAceiteSAE">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/GetAceiteSAE" message="tns:ILavadoraService_GetAceiteSAE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/GetAceiteSAEResponse" message="tns:ILavadoraService_GetAceiteSAE_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetProducto">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/GetProducto" message="tns:ILavadoraService_GetProducto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/GetProductoResponse" message="tns:ILavadoraService_GetProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSAE">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerSAE" message="tns:ILavadoraService_ObtenerSAE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerSAEResponse" message="tns:ILavadoraService_ObtenerSAE_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILavadoraService" type="tns:ILavadoraService">
@@ -40,8 +61,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAceiteSAE">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/GetAceiteSAE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetProducto">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/GetProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSAE">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerSAE" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

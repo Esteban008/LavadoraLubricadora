@@ -38,7 +38,6 @@
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.cbxViscocidad = new System.Windows.Forms.ComboBox();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,9 +111,13 @@
             // 
             // dgvProductos
             // 
+            this.dgvProductos.AllowUserToOrderColumns = true;
+            this.dgvProductos.AllowUserToResizeColumns = false;
+            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Location = new System.Drawing.Point(15, 261);
             this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.ReadOnly = true;
             this.dgvProductos.Size = new System.Drawing.Size(825, 219);
             this.dgvProductos.TabIndex = 14;
             // 
@@ -126,6 +129,7 @@
             this.cbxViscocidad.Size = new System.Drawing.Size(158, 21);
             this.cbxViscocidad.TabIndex = 16;
             this.cbxViscocidad.Visible = false;
+            this.cbxViscocidad.SelectedValueChanged += new System.EventHandler(this.cbxViscocidad_SelectedValueChanged);
             // 
             // txtBusqueda
             // 
@@ -135,19 +139,11 @@
             this.txtBusqueda.TabIndex = 19;
             this.txtBusqueda.Visible = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(554, 111);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 20;
-            // 
             // frmBusquedaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 611);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.cbxViscocidad);
             this.Controls.Add(this.dgvProductos);
@@ -179,6 +175,5 @@
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.ComboBox cbxViscocidad;
         private System.Windows.Forms.TextBox txtBusqueda;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

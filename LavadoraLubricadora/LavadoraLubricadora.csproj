@@ -153,6 +153,9 @@
     <None Include="Connected Services\LavadoraService\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\LavadoraService\Service13.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
