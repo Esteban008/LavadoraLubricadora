@@ -306,6 +306,115 @@ namespace LavadoraLubricadora.LavadoraService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Vehiculo", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
+    [System.SerializableAttribute()]
+    public partial class Vehiculo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AnioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MarcaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModeloField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] TipoMotorField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Anio {
+            get {
+                return this.AnioField;
+            }
+            set {
+                if ((this.AnioField.Equals(value) != true)) {
+                    this.AnioField = value;
+                    this.RaisePropertyChanged("Anio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdVehiculo {
+            get {
+                return this.IdVehiculoField;
+            }
+            set {
+                if ((this.IdVehiculoField.Equals(value) != true)) {
+                    this.IdVehiculoField = value;
+                    this.RaisePropertyChanged("IdVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Marca {
+            get {
+                return this.MarcaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MarcaField, value) != true)) {
+                    this.MarcaField = value;
+                    this.RaisePropertyChanged("Marca");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Modelo {
+            get {
+                return this.ModeloField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModeloField, value) != true)) {
+                    this.ModeloField = value;
+                    this.RaisePropertyChanged("Modelo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] TipoMotor {
+            get {
+                return this.TipoMotorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoMotorField, value) != true)) {
+                    this.TipoMotorField = value;
+                    this.RaisePropertyChanged("TipoMotor");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LavadoraService.ILavadoraService")]
     public interface ILavadoraService {
@@ -327,6 +436,12 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetProducto", ReplyAction="http://tempuri.org/ILavadoraService/GetProductoResponse")]
         System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Producto> GetProductoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/GetVehiculoResponse")]
+        LavadoraLubricadora.LavadoraService.Vehiculo[] GetVehiculo();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/GetVehiculoResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Vehiculo[]> GetVehiculoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerSAEResponse")]
         string[] ObtenerSAE();
@@ -408,6 +523,14 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Producto> GetProductoAsync(int id) {
             return base.Channel.GetProductoAsync(id);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.Vehiculo[] GetVehiculo() {
+            return base.Channel.GetVehiculo();
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Vehiculo[]> GetVehiculoAsync() {
+            return base.Channel.GetVehiculoAsync();
         }
         
         public string[] ObtenerSAE() {

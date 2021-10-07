@@ -152,6 +152,9 @@
     <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.Producto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.Vehiculo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\LavadoraService\LavadoraService.wsdl" />
     <None Include="Connected Services\LavadoraService\Service1.xsd">
       <SubType>Designer</SubType>

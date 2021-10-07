@@ -48,6 +48,8 @@
             this.cbxMotorVehiculo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtIngresarMotor = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtIgresarMarca
@@ -121,7 +123,7 @@
             // lblIngresarAnio
             // 
             this.lblIngresarAnio.AutoSize = true;
-            this.lblIngresarAnio.Location = new System.Drawing.Point(331, 207);
+            this.lblIngresarAnio.Location = new System.Drawing.Point(331, 151);
             this.lblIngresarAnio.Name = "lblIngresarAnio";
             this.lblIngresarAnio.Size = new System.Drawing.Size(70, 13);
             this.lblIngresarAnio.TabIndex = 11;
@@ -130,7 +132,7 @@
             // cbxAnioVehiculo
             // 
             this.cbxAnioVehiculo.FormattingEnabled = true;
-            this.cbxAnioVehiculo.Location = new System.Drawing.Point(94, 204);
+            this.cbxAnioVehiculo.Location = new System.Drawing.Point(94, 148);
             this.cbxAnioVehiculo.Name = "cbxAnioVehiculo";
             this.cbxAnioVehiculo.Size = new System.Drawing.Size(217, 21);
             this.cbxAnioVehiculo.TabIndex = 10;
@@ -139,7 +141,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(39, 207);
+            this.label5.Location = new System.Drawing.Point(39, 151);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 9;
@@ -147,7 +149,7 @@
             // 
             // txtIngresarAnio
             // 
-            this.txtIngresarAnio.Location = new System.Drawing.Point(423, 203);
+            this.txtIngresarAnio.Location = new System.Drawing.Point(423, 147);
             this.txtIngresarAnio.Name = "txtIngresarAnio";
             this.txtIngresarAnio.Size = new System.Drawing.Size(204, 20);
             this.txtIngresarAnio.TabIndex = 8;
@@ -189,7 +191,7 @@
             this.btnCancelarAnio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarAnio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarAnio.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancelarAnio.Location = new System.Drawing.Point(651, 199);
+            this.btnCancelarAnio.Location = new System.Drawing.Point(651, 143);
             this.btnCancelarAnio.Name = "btnCancelarAnio";
             this.btnCancelarAnio.Size = new System.Drawing.Size(137, 26);
             this.btnCancelarAnio.TabIndex = 14;
@@ -204,7 +206,7 @@
             this.btnCancelarMotor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarMotor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarMotor.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancelarMotor.Location = new System.Drawing.Point(651, 148);
+            this.btnCancelarMotor.Location = new System.Drawing.Point(651, 188);
             this.btnCancelarMotor.Name = "btnCancelarMotor";
             this.btnCancelarMotor.Size = new System.Drawing.Size(137, 26);
             this.btnCancelarMotor.TabIndex = 19;
@@ -215,7 +217,7 @@
             // lblIngresarMotor
             // 
             this.lblIngresarMotor.AutoSize = true;
-            this.lblIngresarMotor.Location = new System.Drawing.Point(331, 156);
+            this.lblIngresarMotor.Location = new System.Drawing.Point(331, 196);
             this.lblIngresarMotor.Name = "lblIngresarMotor";
             this.lblIngresarMotor.Size = new System.Drawing.Size(78, 13);
             this.lblIngresarMotor.TabIndex = 18;
@@ -224,7 +226,7 @@
             // cbxMotorVehiculo
             // 
             this.cbxMotorVehiculo.FormattingEnabled = true;
-            this.cbxMotorVehiculo.Location = new System.Drawing.Point(94, 153);
+            this.cbxMotorVehiculo.Location = new System.Drawing.Point(94, 193);
             this.cbxMotorVehiculo.Name = "cbxMotorVehiculo";
             this.cbxMotorVehiculo.Size = new System.Drawing.Size(217, 21);
             this.cbxMotorVehiculo.TabIndex = 17;
@@ -233,7 +235,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 156);
+            this.label4.Location = new System.Drawing.Point(39, 196);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 16;
@@ -241,16 +243,48 @@
             // 
             // txtIngresarMotor
             // 
-            this.txtIngresarMotor.Location = new System.Drawing.Point(423, 152);
+            this.txtIngresarMotor.Location = new System.Drawing.Point(423, 192);
             this.txtIngresarMotor.Name = "txtIngresarMotor";
             this.txtIngresarMotor.Size = new System.Drawing.Size(204, 20);
             this.txtIngresarMotor.TabIndex = 15;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnGuardar.Location = new System.Drawing.Point(174, 309);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(137, 26);
+            this.btnGuardar.TabIndex = 21;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCancelar.Location = new System.Drawing.Point(423, 309);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(137, 26);
+            this.btnCancelar.TabIndex = 22;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // frmIngresarVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelarMotor);
             this.Controls.Add(this.lblIngresarMotor);
             this.Controls.Add(this.cbxMotorVehiculo);
@@ -301,5 +335,7 @@
         private System.Windows.Forms.ComboBox cbxMotorVehiculo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtIngresarMotor;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
