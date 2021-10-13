@@ -419,29 +419,29 @@ namespace LavadoraLubricadora.LavadoraService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LavadoraService.ILavadoraService")]
     public interface ILavadoraService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetAceite", ReplyAction="http://tempuri.org/ILavadoraService/GetAceiteResponse")]
-        LavadoraLubricadora.LavadoraService.Aceite[] GetAceite();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAceite", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAceiteResponse")]
+        LavadoraLubricadora.LavadoraService.Aceite[] ObtenerAceite();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetAceite", ReplyAction="http://tempuri.org/ILavadoraService/GetAceiteResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> GetAceiteAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAceite", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAceiteResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> ObtenerAceiteAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetAceiteSAE", ReplyAction="http://tempuri.org/ILavadoraService/GetAceiteSAEResponse")]
-        LavadoraLubricadora.LavadoraService.Aceite[] GetAceiteSAE(string sae);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAceiteSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAceiteSAEResponse")]
+        LavadoraLubricadora.LavadoraService.Aceite[] ObtenerAceiteSAE(string sae);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetAceiteSAE", ReplyAction="http://tempuri.org/ILavadoraService/GetAceiteSAEResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> GetAceiteSAEAsync(string sae);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAceiteSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAceiteSAEResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> ObtenerAceiteSAEAsync(string sae);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetProducto", ReplyAction="http://tempuri.org/ILavadoraService/GetProductoResponse")]
-        LavadoraLubricadora.LavadoraService.Producto GetProducto(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProducto", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProductoResponse")]
+        LavadoraLubricadora.LavadoraService.Producto ObtenerProducto(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetProducto", ReplyAction="http://tempuri.org/ILavadoraService/GetProductoResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Producto> GetProductoAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProducto", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProductoResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Producto> ObtenerProductoAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/GetVehiculoResponse")]
-        LavadoraLubricadora.LavadoraService.Vehiculo[] GetVehiculo();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerVehiculoResponse")]
+        LavadoraLubricadora.LavadoraService.Vehiculo[] ObtenerVehiculo();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GetVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/GetVehiculoResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Vehiculo[]> GetVehiculoAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerVehiculoResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Vehiculo[]> ObtenerVehiculoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerSAEResponse")]
         string[] ObtenerSAE();
@@ -501,36 +501,36 @@ namespace LavadoraLubricadora.LavadoraService {
                 base(binding, remoteAddress) {
         }
         
-        public LavadoraLubricadora.LavadoraService.Aceite[] GetAceite() {
-            return base.Channel.GetAceite();
+        public LavadoraLubricadora.LavadoraService.Aceite[] ObtenerAceite() {
+            return base.Channel.ObtenerAceite();
         }
         
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> GetAceiteAsync() {
-            return base.Channel.GetAceiteAsync();
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> ObtenerAceiteAsync() {
+            return base.Channel.ObtenerAceiteAsync();
         }
         
-        public LavadoraLubricadora.LavadoraService.Aceite[] GetAceiteSAE(string sae) {
-            return base.Channel.GetAceiteSAE(sae);
+        public LavadoraLubricadora.LavadoraService.Aceite[] ObtenerAceiteSAE(string sae) {
+            return base.Channel.ObtenerAceiteSAE(sae);
         }
         
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> GetAceiteSAEAsync(string sae) {
-            return base.Channel.GetAceiteSAEAsync(sae);
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> ObtenerAceiteSAEAsync(string sae) {
+            return base.Channel.ObtenerAceiteSAEAsync(sae);
         }
         
-        public LavadoraLubricadora.LavadoraService.Producto GetProducto(int id) {
-            return base.Channel.GetProducto(id);
+        public LavadoraLubricadora.LavadoraService.Producto ObtenerProducto(int id) {
+            return base.Channel.ObtenerProducto(id);
         }
         
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Producto> GetProductoAsync(int id) {
-            return base.Channel.GetProductoAsync(id);
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Producto> ObtenerProductoAsync(int id) {
+            return base.Channel.ObtenerProductoAsync(id);
         }
         
-        public LavadoraLubricadora.LavadoraService.Vehiculo[] GetVehiculo() {
-            return base.Channel.GetVehiculo();
+        public LavadoraLubricadora.LavadoraService.Vehiculo[] ObtenerVehiculo() {
+            return base.Channel.ObtenerVehiculo();
         }
         
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Vehiculo[]> GetVehiculoAsync() {
-            return base.Channel.GetVehiculoAsync();
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Vehiculo[]> ObtenerVehiculoAsync() {
+            return base.Channel.ObtenerVehiculoAsync();
         }
         
         public string[] ObtenerSAE() {

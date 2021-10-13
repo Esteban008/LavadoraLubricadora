@@ -54,7 +54,7 @@ namespace LavadoraLubricadora
                 cbxViscocidad.DropDownStyle = ComboBoxStyle.DropDownList;
                 //cbxViscocidad.SelectedIndex = 0;            
                 //Necesitamos una clase que llame lista de aceites para importar aca
-                List<LavadoraService.Aceite> aceites = new List<LavadoraService.Aceite>(cliente.GetAceite());
+                List<LavadoraService.Aceite> aceites = new List<LavadoraService.Aceite>(cliente.ObtenerAceite());
                 dgvProductos.DataSource = aceites;
 
                 cbxViscocidad.Items.AddRange(cliente.ObtenerSAE());
@@ -84,13 +84,13 @@ namespace LavadoraLubricadora
             if (cbxViscocidad.SelectedItem.Equals("Todas"))
             {
                 dgvProductos.Columns.Clear();
-                List<LavadoraService.Aceite> aceitesSAE = new List<LavadoraService.Aceite>(cliente.GetAceite());
+                List<LavadoraService.Aceite> aceitesSAE = new List<LavadoraService.Aceite>(cliente.ObtenerAceite());
                 dgvProductos.DataSource = aceitesSAE;
             }
             else
             {
                 dgvProductos.Columns.Clear();
-                List<LavadoraService.Aceite> aceites = new List<LavadoraService.Aceite>(cliente.GetAceiteSAE(cbxViscocidad.Text));
+                List<LavadoraService.Aceite> aceites = new List<LavadoraService.Aceite>(cliente.ObtenerAceiteSAE(cbxViscocidad.Text));
                 dgvProductos.DataSource = aceites;
 
             }            

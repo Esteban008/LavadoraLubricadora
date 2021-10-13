@@ -238,7 +238,7 @@ namespace LavadoraLubricadora
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            List<LavadoraService.Vehiculo> vehiculos = new List<LavadoraService.Vehiculo>(cliente.GetVehiculo());
+            List<LavadoraService.Vehiculo> vehiculos = new List<LavadoraService.Vehiculo>(cliente.ObtenerVehiculo());
 
             if (cbxMarcasVehiculos.SelectedItem.Equals("Otra Marca"))
             {
@@ -263,14 +263,18 @@ namespace LavadoraLubricadora
                     //Se verifica que el modelo no existe
                     foreach (LavadoraService.Vehiculo vehiculo in vehiculos)
                     {
-                        if (vehiculo.Modelo.Equals(txtIngresarModelo.Text))
+                        if (vehiculo.Marca.Equals(cbxMarcasVehiculos.SelectedItem.ToString()))
                         {
-                            DialogResult dialogResult = MessageBox.Show("¡El modelo ya existe!", "Aviso", MessageBoxButtons.OK);
+                            if (vehiculo.Modelo.Equals(txtIngresarModelo.Text))
+                            {
+                                DialogResult dialogResult = MessageBox.Show("¡El modelo ya existe!", "Aviso", MessageBoxButtons.OK);
+                            }
+                            else
+                            {
+                                //Se crea un NUEVO vehiculo 
+                            }
                         }
-                        else
-                        {
-                            //Se crea un NUEVO vehiculo 
-                        }
+                        
                     }
                     //Si el usuario selecciono otro modelo se crea un NUEVO vehiculo de marca existente
 
