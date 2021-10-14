@@ -251,7 +251,8 @@ namespace LavadoraLubricadora
                     }
                     else
                     {
-                        //Se crea un NUEVO vehiculo 
+                        //Se crea un NUEVO vehiculo
+                        cliente.IngresarVehiculo(txtIgresarMarca.Text, txtIngresarModelo.Text, Convert.ToInt32(txtIngresarAnio.Text) , txtIngresarMotor.Text);
                     }
                 }               
             }

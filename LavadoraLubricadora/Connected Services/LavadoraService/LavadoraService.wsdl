@@ -62,6 +62,12 @@
   <wsdl:message name="ILavadoraService_ObtenerMotorVehiculo_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerMotorVehiculoResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarVehiculo_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarVehiculo" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarVehiculo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarVehiculoResponse" />
+  </wsdl:message>
   <wsdl:portType name="ILavadoraService">
     <wsdl:operation name="ObtenerAceite">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerAceite" message="tns:ILavadoraService_ObtenerAceite_InputMessage" />
@@ -98,6 +104,10 @@
     <wsdl:operation name="ObtenerMotorVehiculo">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculo" message="tns:ILavadoraService_ObtenerMotorVehiculo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculoResponse" message="tns:ILavadoraService_ObtenerMotorVehiculo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarVehiculo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarVehiculo" message="tns:ILavadoraService_IngresarVehiculo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarVehiculoResponse" message="tns:ILavadoraService_IngresarVehiculo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILavadoraService" type="tns:ILavadoraService">
@@ -176,6 +186,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerMotorVehiculo">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarVehiculo">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarVehiculo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -472,6 +472,12 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculoResponse")]
         System.Threading.Tasks.Task<string[]> ObtenerMotorVehiculoAsync(string marca, string modelo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarVehiculoResponse")]
+        void IngresarVehiculo(string marca, string modelo, int anio, string tipoMotor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarVehiculoResponse")]
+        System.Threading.Tasks.Task IngresarVehiculoAsync(string marca, string modelo, int anio, string tipoMotor);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -571,6 +577,14 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<string[]> ObtenerMotorVehiculoAsync(string marca, string modelo) {
             return base.Channel.ObtenerMotorVehiculoAsync(marca, modelo);
+        }
+        
+        public void IngresarVehiculo(string marca, string modelo, int anio, string tipoMotor) {
+            base.Channel.IngresarVehiculo(marca, modelo, anio, tipoMotor);
+        }
+        
+        public System.Threading.Tasks.Task IngresarVehiculoAsync(string marca, string modelo, int anio, string tipoMotor) {
+            return base.Channel.IngresarVehiculoAsync(marca, modelo, anio, tipoMotor);
         }
     }
 }
