@@ -137,4 +137,19 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="IngresarMotorVehiculo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="marca" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="modelo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="anio" type="xs:int" />
+        <xs:element minOccurs="0" name="tipoMotor" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IngresarMotorVehiculoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
