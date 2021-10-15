@@ -484,6 +484,12 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarMotorVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarMotorVehiculoResponse")]
         System.Threading.Tasks.Task IngresarMotorVehiculoAsync(string marca, string modelo, int anio, string tipoMotor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/Login", ReplyAction="http://tempuri.org/ILavadoraService/LoginResponse")]
+        bool Login(string correo, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/Login", ReplyAction="http://tempuri.org/ILavadoraService/LoginResponse")]
+        System.Threading.Tasks.Task<bool> LoginAsync(string correo, string clave);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -599,6 +605,14 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task IngresarMotorVehiculoAsync(string marca, string modelo, int anio, string tipoMotor) {
             return base.Channel.IngresarMotorVehiculoAsync(marca, modelo, anio, tipoMotor);
+        }
+        
+        public bool Login(string correo, string clave) {
+            return base.Channel.Login(correo, clave);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LoginAsync(string correo, string clave) {
+            return base.Channel.LoginAsync(correo, clave);
         }
     }
 }

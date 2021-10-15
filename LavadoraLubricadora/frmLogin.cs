@@ -13,6 +13,7 @@ namespace LavadoraLubricadora
 {
     public partial class frmLogin : Form
     {
+         LavadoraService.LavadoraServiceClient cliente;
         public frmLogin()
         {
             InitializeComponent();
@@ -40,26 +41,21 @@ namespace LavadoraLubricadora
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void panelContenedor_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void txtUser_Enter(object sender, EventArgs e)
         {
-            if (txtUser.Text == "USUARIO")
+            if (txtCorreo.Text == "CORREO")
             {
-                txtUser.Text = "";
-                txtUser.ForeColor = Color.Black;
+                txtCorreo.Text = "";
+                txtCorreo.ForeColor = Color.Black;
             }
         }
 
         private void txtUser_Leave(object sender, EventArgs e)
         {
-            if (txtUser.Text == "")
+            if (txtCorreo.Text == "")
             {
-                txtUser.Text = "USUARIO";
-                txtUser.ForeColor = Color.DimGray;
+                txtCorreo.Text = "CORREO";
+                txtCorreo.ForeColor = Color.DimGray;
             }
         }
 
@@ -81,6 +77,46 @@ namespace LavadoraLubricadora
                 txtPassword.ForeColor = Color.DimGray;
                 txtPassword.UseSystemPasswordChar = false;
             }
+        }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            if (txtCorreo.Text != "CORREO")
+            {
+                if (txtPassword.Text != "CONTRASEÑA")
+                {
+                    if (cliente.Login(txtCorreo.Text,txtPassword.Text)) 
+                    {
+                        frmPrincipal frmPrincipal = new frmPrincipal();
+                        frmPrincipal.Show();
+                        this.Hide();
+                        lblMensajeError.Text = "";
+                        txtCorreo.Clear();
+                        txtPassword.Clear();
+                    }
+                    else
+                    {
+                        lblMensajeError.Text = "       Usuario o Contraseña incorrecta \n        Intente de nuevo";
+                        lblMensajeError.Visible = true;
+                    
+                    }
+                }
+                else
+                {
+                    lblMensajeError.Text = "       Ingrese su clave";
+                    lblMensajeError.Visible = true;
+                }
+            }
+            else
+            {
+                lblMensajeError.Text = "       Ingrese su correo";
+                lblMensajeError.Visible = true;
+            }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            cliente = new LavadoraService.LavadoraServiceClient();
         }
     }
 }

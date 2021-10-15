@@ -83,6 +83,16 @@ namespace LavadoraLubricadora.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_warning_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-warning-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lavadora_y_Lubricadora_Negritos {
             get {
                 object obj = ResourceManager.GetObject("Lavadora y Lubricadora Negritos", resourceCulture);

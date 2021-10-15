@@ -74,6 +74,12 @@
   <wsdl:message name="ILavadoraService_IngresarMotorVehiculo_OutputMessage">
     <wsdl:part name="parameters" element="tns:IngresarMotorVehiculoResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
   <wsdl:portType name="ILavadoraService">
     <wsdl:operation name="ObtenerAceite">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerAceite" message="tns:ILavadoraService_ObtenerAceite_InputMessage" />
@@ -118,6 +124,10 @@
     <wsdl:operation name="IngresarMotorVehiculo">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarMotorVehiculo" message="tns:ILavadoraService_IngresarMotorVehiculo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarMotorVehiculoResponse" message="tns:ILavadoraService_IngresarMotorVehiculo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/Login" message="tns:ILavadoraService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/LoginResponse" message="tns:ILavadoraService_Login_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILavadoraService" type="tns:ILavadoraService">
@@ -214,6 +224,15 @@
     </wsdl:operation>
     <wsdl:operation name="IngresarMotorVehiculo">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarMotorVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/Login" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
