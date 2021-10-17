@@ -6,6 +6,7 @@
       <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" />
       <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ILavadoraService_ObtenerAceite_InputMessage">
@@ -80,6 +81,18 @@
   <wsdl:message name="ILavadoraService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerProveedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProveedor" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerProveedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProveedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarProveedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarProveedor" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarProveedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarProveedorResponse" />
+  </wsdl:message>
   <wsdl:portType name="ILavadoraService">
     <wsdl:operation name="ObtenerAceite">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerAceite" message="tns:ILavadoraService_ObtenerAceite_InputMessage" />
@@ -128,6 +141,14 @@
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/Login" message="tns:ILavadoraService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/LoginResponse" message="tns:ILavadoraService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProveedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerProveedor" message="tns:ILavadoraService_ObtenerProveedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerProveedorResponse" message="tns:ILavadoraService_ObtenerProveedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarProveedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProveedor" message="tns:ILavadoraService_IngresarProveedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProveedorResponse" message="tns:ILavadoraService_IngresarProveedor_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILavadoraService" type="tns:ILavadoraService">
@@ -233,6 +254,24 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProveedor">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerProveedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarProveedor">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarProveedor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

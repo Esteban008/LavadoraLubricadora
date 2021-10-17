@@ -490,6 +490,18 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/Login", ReplyAction="http://tempuri.org/ILavadoraService/LoginResponse")]
         System.Threading.Tasks.Task<bool> LoginAsync(string correo, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProveedorResponse")]
+        System.Data.DataTable ObtenerProveedor();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProveedorResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerProveedorAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProveedorResponse")]
+        void IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProveedorResponse")]
+        System.Threading.Tasks.Task IngresarProveedorAsync(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -613,6 +625,22 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<bool> LoginAsync(string correo, string clave) {
             return base.Channel.LoginAsync(correo, clave);
+        }
+        
+        public System.Data.DataTable ObtenerProveedor() {
+            return base.Channel.ObtenerProveedor();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerProveedorAsync() {
+            return base.Channel.ObtenerProveedorAsync();
+        }
+        
+        public void IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
+            base.Channel.IngresarProveedor(ruc, nombre, apellido, telefono, correo, direccion, empresa);
+        }
+        
+        public System.Threading.Tasks.Task IngresarProveedorAsync(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
+            return base.Channel.IngresarProveedorAsync(ruc, nombre, apellido, telefono, correo, direccion, empresa);
         }
     }
 }
