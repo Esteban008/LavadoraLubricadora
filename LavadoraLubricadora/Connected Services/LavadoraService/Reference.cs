@@ -15,96 +15,8 @@ namespace LavadoraLubricadora.LavadoraService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Aceite", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
-    [System.SerializableAttribute()]
-    public partial class Aceite : LavadoraLubricadora.LavadoraService.Producto {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ApiField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PresentacionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SaeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TipoAceiteField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TipoCombustibleField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Api {
-            get {
-                return this.ApiField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ApiField, value) != true)) {
-                    this.ApiField = value;
-                    this.RaisePropertyChanged("Api");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Presentacion {
-            get {
-                return this.PresentacionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PresentacionField, value) != true)) {
-                    this.PresentacionField = value;
-                    this.RaisePropertyChanged("Presentacion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Sae {
-            get {
-                return this.SaeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SaeField, value) != true)) {
-                    this.SaeField = value;
-                    this.RaisePropertyChanged("Sae");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TipoAceite {
-            get {
-                return this.TipoAceiteField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TipoAceiteField, value) != true)) {
-                    this.TipoAceiteField = value;
-                    this.RaisePropertyChanged("TipoAceite");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TipoCombustible {
-            get {
-                return this.TipoCombustibleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TipoCombustibleField, value) != true)) {
-                    this.TipoCombustibleField = value;
-                    this.RaisePropertyChanged("TipoCombustible");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Producto", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(LavadoraLubricadora.LavadoraService.Aceite))]
     public partial class Producto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -420,16 +332,16 @@ namespace LavadoraLubricadora.LavadoraService {
     public interface ILavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAceite", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAceiteResponse")]
-        LavadoraLubricadora.LavadoraService.Aceite[] ObtenerAceite();
+        System.Data.DataTable ObtenerAceite();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAceite", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAceiteResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> ObtenerAceiteAsync();
+        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerAceiteAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAceiteSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAceiteSAEResponse")]
-        LavadoraLubricadora.LavadoraService.Aceite[] ObtenerAceiteSAE(string sae);
+        System.Data.DataTable ObtenerAceiteSAE(string sae);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAceiteSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAceiteSAEResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> ObtenerAceiteSAEAsync(string sae);
+        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerAceiteSAEAsync(string sae);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProducto", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProductoResponse")]
         LavadoraLubricadora.LavadoraService.Producto ObtenerProducto(int id);
@@ -514,6 +426,30 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EliminarProveedorResponse")]
         System.Threading.Tasks.Task EliminarProveedorAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerUsuarios", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerUsuariosResponse")]
+        System.Data.DataTable ObtenerUsuarios();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerUsuarios", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerUsuariosResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerUsuariosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/IngresarUsuarioResponse")]
+        void IngresarUsuario(string nombre, string apellido, string telefono, string correo, string rol, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/IngresarUsuarioResponse")]
+        System.Threading.Tasks.Task IngresarUsuarioAsync(string nombre, string apellido, string telefono, string correo, string rol, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EditarUsuarioResponse")]
+        void EditarUsuario(int id, string nombre, string apellido, string telefono, string correo, string rol, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EditarUsuarioResponse")]
+        System.Threading.Tasks.Task EditarUsuarioAsync(int id, string nombre, string apellido, string telefono, string correo, string rol, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse")]
+        void EliminarUsuario(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse")]
+        System.Threading.Tasks.Task EliminarUsuarioAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -543,19 +479,19 @@ namespace LavadoraLubricadora.LavadoraService {
                 base(binding, remoteAddress) {
         }
         
-        public LavadoraLubricadora.LavadoraService.Aceite[] ObtenerAceite() {
+        public System.Data.DataTable ObtenerAceite() {
             return base.Channel.ObtenerAceite();
         }
         
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> ObtenerAceiteAsync() {
+        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerAceiteAsync() {
             return base.Channel.ObtenerAceiteAsync();
         }
         
-        public LavadoraLubricadora.LavadoraService.Aceite[] ObtenerAceiteSAE(string sae) {
+        public System.Data.DataTable ObtenerAceiteSAE(string sae) {
             return base.Channel.ObtenerAceiteSAE(sae);
         }
         
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Aceite[]> ObtenerAceiteSAEAsync(string sae) {
+        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerAceiteSAEAsync(string sae) {
             return base.Channel.ObtenerAceiteSAEAsync(sae);
         }
         
@@ -669,6 +605,38 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task EliminarProveedorAsync(int id) {
             return base.Channel.EliminarProveedorAsync(id);
+        }
+        
+        public System.Data.DataTable ObtenerUsuarios() {
+            return base.Channel.ObtenerUsuarios();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerUsuariosAsync() {
+            return base.Channel.ObtenerUsuariosAsync();
+        }
+        
+        public void IngresarUsuario(string nombre, string apellido, string telefono, string correo, string rol, string clave) {
+            base.Channel.IngresarUsuario(nombre, apellido, telefono, correo, rol, clave);
+        }
+        
+        public System.Threading.Tasks.Task IngresarUsuarioAsync(string nombre, string apellido, string telefono, string correo, string rol, string clave) {
+            return base.Channel.IngresarUsuarioAsync(nombre, apellido, telefono, correo, rol, clave);
+        }
+        
+        public void EditarUsuario(int id, string nombre, string apellido, string telefono, string correo, string rol, string clave) {
+            base.Channel.EditarUsuario(id, nombre, apellido, telefono, correo, rol, clave);
+        }
+        
+        public System.Threading.Tasks.Task EditarUsuarioAsync(int id, string nombre, string apellido, string telefono, string correo, string rol, string clave) {
+            return base.Channel.EditarUsuarioAsync(id, nombre, apellido, telefono, correo, rol, clave);
+        }
+        
+        public void EliminarUsuario(int id) {
+            base.Channel.EliminarUsuario(id);
+        }
+        
+        public System.Threading.Tasks.Task EliminarUsuarioAsync(int id) {
+            return base.Channel.EliminarUsuarioAsync(id);
         }
     }
 }

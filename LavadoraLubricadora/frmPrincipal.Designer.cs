@@ -39,12 +39,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnGestionClientes = new System.Windows.Forms.Button();
             this.btnBusquedaVehiculo = new System.Windows.Forms.Button();
             this.btnCaja = new System.Windows.Forms.Button();
             this.btnGestionProveedores = new System.Windows.Forms.Button();
             this.btnGestionEmpleados = new System.Windows.Forms.Button();
             this.btnAdminProductos = new System.Windows.Forms.Button();
             this.btnBuscarProductos = new System.Windows.Forms.Button();
+            this.btnComprobante = new System.Windows.Forms.Button();
             panelBarraTitulo = new System.Windows.Forms.Panel();
             panelBarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -164,6 +166,8 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(232)))), ((int)(((byte)(50)))));
+            this.panelMenu.Controls.Add(this.btnComprobante);
+            this.panelMenu.Controls.Add(this.btnGestionClientes);
             this.panelMenu.Controls.Add(this.btnBusquedaVehiculo);
             this.panelMenu.Controls.Add(this.btnCaja);
             this.panelMenu.Controls.Add(this.btnGestionProveedores);
@@ -175,6 +179,20 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(250, 560);
             this.panelMenu.TabIndex = 1;
+            // 
+            // btnGestionClientes
+            // 
+            this.btnGestionClientes.FlatAppearance.BorderSize = 0;
+            this.btnGestionClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.btnGestionClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
+            this.btnGestionClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionClientes.Font = new System.Drawing.Font("Eras Demi ITC", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionClientes.Location = new System.Drawing.Point(0, 363);
+            this.btnGestionClientes.Name = "btnGestionClientes";
+            this.btnGestionClientes.Size = new System.Drawing.Size(250, 30);
+            this.btnGestionClientes.TabIndex = 6;
+            this.btnGestionClientes.Text = "Gestion de Clientes";
+            this.btnGestionClientes.UseVisualStyleBackColor = true;
             // 
             // btnBusquedaVehiculo
             // 
@@ -266,6 +284,20 @@
             this.btnBuscarProductos.UseVisualStyleBackColor = true;
             this.btnBuscarProductos.Click += new System.EventHandler(this.btnBuscarProductos_Click);
             // 
+            // btnComprobante
+            // 
+            this.btnComprobante.FlatAppearance.BorderSize = 0;
+            this.btnComprobante.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.btnComprobante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(250)))), ((int)(((byte)(218)))));
+            this.btnComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComprobante.Font = new System.Drawing.Font("Eras Demi ITC", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComprobante.Location = new System.Drawing.Point(0, 399);
+            this.btnComprobante.Name = "btnComprobante";
+            this.btnComprobante.Size = new System.Drawing.Size(250, 30);
+            this.btnComprobante.TabIndex = 7;
+            this.btnComprobante.Text = "Comprobante de Venta";
+            this.btnComprobante.UseVisualStyleBackColor = true;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,6 +341,8 @@
         private System.Windows.Forms.Button btnAdminProductos;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnGestionClientes;
+        private System.Windows.Forms.Button btnComprobante;
     }
 }
 

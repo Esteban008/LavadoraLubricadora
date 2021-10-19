@@ -38,11 +38,13 @@ namespace LavadoraLubricadora
                 cliente.IngresarProveedor(txtRuc.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtDireccion.Text, txtEmpresa.Text);
                 ActualizarDgvProveedor();
                 LimpiarCampos();
+                DeshabilitarCampos();
             }
             else if(estado == 2){
                 cliente.EditarProveedor(Convert.ToInt32(dgvProveedores.SelectedCells[0].Value), txtRuc.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtDireccion.Text, txtEmpresa.Text);
                 ActualizarDgvProveedor();
                 LimpiarCampos();
+                DeshabilitarCampos();
             }
         }
 
