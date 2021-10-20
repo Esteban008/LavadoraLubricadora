@@ -37,6 +37,7 @@ namespace LavadoraLubricadora
             MostrarClaveNueva();
             estado = 1;
             btnGuardar.Enabled = false;
+            dgvUsuarios.Enabled = false;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -54,16 +55,28 @@ namespace LavadoraLubricadora
                 ActualizarDgvUsuario();
                 LimpiarCampos();
                 DeshabilitarCampos();
+                OcultarClave();
+                dgvUsuarios.Enabled = true;
             }
             else if (estado == 2)
             {
+                if (cliente.ValidarClave(Convert.ToInt32(dgvUsuarios.SelectedCells[0].Value), txtCactual.Text))
+                {
+                    cliente.EditarUsuario(Convert.ToInt32(dgvUsuarios.SelectedCells[0].Value), txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtRol.Text, txtCnueva.Text);
+                    ActualizarDgvUsuario();
+                    LimpiarCampos();
+                    DeshabilitarCampos();
+                    OcultarClave();
+                }
                 
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            cliente.EliminarUsuario(Convert.ToInt32(dgvUsuarios.SelectedCells[0].Value));
+            LimpiarCampos();
+            ActualizarDgvUsuario();
         }
 
         private void frmGestionEmpleados_Load(object sender, EventArgs e)
@@ -92,6 +105,9 @@ namespace LavadoraLubricadora
             txtCnueva.Visible = false;
             lblCrepetir.Visible = false;
             txtCrepetir.Visible = false;
+            cbxCactual.Visible = false;
+            cbxCnueva.Visible = false;
+            cbxCrepetir.Visible = false;
         }
 
         public void MostrarClave()
@@ -102,6 +118,9 @@ namespace LavadoraLubricadora
             txtCnueva.Visible = true;
             lblCrepetir.Visible = true;
             txtCrepetir.Visible = true;
+            cbxCactual.Visible = true;
+            cbxCnueva.Visible = true;
+            cbxCrepetir.Visible = true;
         }
 
         public void MostrarClaveNueva()
@@ -111,6 +130,8 @@ namespace LavadoraLubricadora
             txtCnueva.Visible = true;
             lblCrepetir.Visible = true;
             txtCrepetir.Visible = true;
+            cbxCnueva.Visible = true;
+            cbxCrepetir.Visible = true;
         }
 
         private void DeshabilitarCampos()
@@ -120,7 +141,7 @@ namespace LavadoraLubricadora
             txtTelefono.Enabled = false;
             txtCorreo.Enabled = false;
             txtRol.Enabled = false;
-            //txtEmpresa.Enabled = false;
+            
         }
 
         private void HabilitarCampos()
@@ -130,18 +151,19 @@ namespace LavadoraLubricadora
             txtTelefono.Enabled = true;
             txtCorreo.Enabled = true;
             txtRol.Enabled = true;
-            //txtEmpresa.Enabled = true;
+            
         }
 
         private void LimpiarCampos()
         {
             txtNombre.Clear();
-            txtApellido.Clear();
-            //txtRuc.Clear();
+            txtApellido.Clear();         
             txtTelefono.Clear();
             txtCorreo.Clear();
             txtRol.Clear();
-            //txtEmpresa.Clear();
+            txtCactual.Clear();
+            txtCnueva.Clear();
+            txtCrepetir.Clear();
         }
 
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)

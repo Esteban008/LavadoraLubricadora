@@ -39,6 +39,7 @@ namespace LavadoraLubricadora
                 ActualizarDgvProveedor();
                 LimpiarCampos();
                 DeshabilitarCampos();
+                dgvProveedores.Enabled = true;
             }
             else if(estado == 2){
                 cliente.EditarProveedor(Convert.ToInt32(dgvProveedores.SelectedCells[0].Value), txtRuc.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtDireccion.Text, txtEmpresa.Text);
@@ -112,6 +113,7 @@ namespace LavadoraLubricadora
             LimpiarCampos();
             HabilitarCampos();
             estado = 1;
+            dgvProveedores.Enabled = false;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
