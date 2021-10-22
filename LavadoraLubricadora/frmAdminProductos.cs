@@ -12,6 +12,8 @@ namespace LavadoraLubricadora
 {
     public partial class frmAdminProductos : Form
     {
+
+        LavadoraService.LavadoraServiceClient cliente;
         public frmAdminProductos()
         {
             InitializeComponent();
@@ -31,6 +33,30 @@ namespace LavadoraLubricadora
         {
             frmIngresarVehiculo ingresarVehiculo = new frmIngresarVehiculo();
             ingresarVehiculo.ShowDialog();
+        }
+
+        private void frmAdminProductos_Load(object sender, EventArgs e)
+        {
+            cbxTipoProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cliente = new LavadoraService.LavadoraServiceClient();
+        }
+
+        private void cbxTipoProducto_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //Si el usuario selecciona
+            if (cbxTipoProducto.SelectedItem.Equals("Aceite"))
+            {
+                dgvProductos.Columns.Clear();
+                //cbxViscocidad.SelectedIndex = 0;            
+                //Necesitamos una clase que llame lista de aceites para importar aca
+                DataTable aceites = cliente.ObtenerAceite();
+                dgvProductos.DataSource = aceites;
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
