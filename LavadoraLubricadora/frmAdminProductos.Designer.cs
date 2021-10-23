@@ -60,20 +60,22 @@
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.txtApi = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.cbxPresentacion = new System.Windows.Forms.ComboBox();
             this.cbxTipoAceite = new System.Windows.Forms.ComboBox();
             this.cbxTipoCombustible = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.cbxSae = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.cbxApi = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(289, 9);
+            this.label1.Location = new System.Drawing.Point(412, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(281, 13);
             this.label1.TabIndex = 1;
@@ -101,7 +103,7 @@
             this.btnAgregarVehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarVehiculo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAgregarVehiculo.Location = new System.Drawing.Point(990, 582);
+            this.btnAgregarVehiculo.Location = new System.Drawing.Point(990, 579);
             this.btnAgregarVehiculo.Name = "btnAgregarVehiculo";
             this.btnAgregarVehiculo.Size = new System.Drawing.Size(137, 26);
             this.btnAgregarVehiculo.TabIndex = 3;
@@ -342,23 +344,16 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(427, 509);
+            this.label15.Location = new System.Drawing.Point(651, 507);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(79, 13);
             this.label15.TabIndex = 36;
             this.label15.Text = "Tipo de Aceite:";
             // 
-            // txtApi
-            // 
-            this.txtApi.Location = new System.Drawing.Point(300, 502);
-            this.txtApi.Name = "txtApi";
-            this.txtApi.Size = new System.Drawing.Size(100, 20);
-            this.txtApi.TabIndex = 35;
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(263, 509);
+            this.label16.Location = new System.Drawing.Point(457, 507);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(27, 13);
             this.label16.TabIndex = 34;
@@ -384,7 +379,7 @@
             // cbxTipoAceite
             // 
             this.cbxTipoAceite.FormattingEnabled = true;
-            this.cbxTipoAceite.Location = new System.Drawing.Point(512, 502);
+            this.cbxTipoAceite.Location = new System.Drawing.Point(736, 500);
             this.cbxTipoAceite.Name = "cbxTipoAceite";
             this.cbxTipoAceite.Size = new System.Drawing.Size(121, 21);
             this.cbxTipoAceite.TabIndex = 39;
@@ -392,7 +387,7 @@
             // cbxTipoCombustible
             // 
             this.cbxTipoCombustible.FormattingEnabled = true;
-            this.cbxTipoCombustible.Location = new System.Drawing.Point(773, 502);
+            this.cbxTipoCombustible.Location = new System.Drawing.Point(997, 500);
             this.cbxTipoCombustible.Name = "cbxTipoCombustible";
             this.cbxTipoCombustible.Size = new System.Drawing.Size(121, 21);
             this.cbxTipoCombustible.TabIndex = 41;
@@ -400,23 +395,50 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(661, 509);
+            this.label18.Location = new System.Drawing.Point(885, 507);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(106, 13);
             this.label18.TabIndex = 40;
             this.label18.Text = "Tipo de Combustible:";
+            // 
+            // cbxSae
+            // 
+            this.cbxSae.FormattingEnabled = true;
+            this.cbxSae.Location = new System.Drawing.Point(300, 500);
+            this.cbxSae.Name = "cbxSae";
+            this.cbxSae.Size = new System.Drawing.Size(121, 21);
+            this.cbxSae.TabIndex = 43;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(248, 508);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(31, 13);
+            this.label19.TabIndex = 42;
+            this.label19.Text = "SAE:";
+            // 
+            // cbxApi
+            // 
+            this.cbxApi.FormattingEnabled = true;
+            this.cbxApi.Location = new System.Drawing.Point(490, 500);
+            this.cbxApi.Name = "cbxApi";
+            this.cbxApi.Size = new System.Drawing.Size(121, 21);
+            this.cbxApi.TabIndex = 44;
             // 
             // frmAdminProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1139, 659);
+            this.Controls.Add(this.cbxApi);
+            this.Controls.Add(this.cbxSae);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.cbxTipoCombustible);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.cbxTipoAceite);
             this.Controls.Add(this.cbxPresentacion);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.txtApi);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.txtCantidadMin);
@@ -493,12 +515,14 @@
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtApi;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox cbxPresentacion;
         private System.Windows.Forms.ComboBox cbxTipoAceite;
         private System.Windows.Forms.ComboBox cbxTipoCombustible;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox cbxSae;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox cbxApi;
     }
 }

@@ -135,6 +135,12 @@
   <wsdl:message name="ILavadoraService_ValidarClave_OutputMessage">
     <wsdl:part name="parameters" element="tns:ValidarClaveResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerVehiculos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerVehiculos" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerVehiculos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerVehiculosResponse" />
+  </wsdl:message>
   <wsdl:portType name="ILavadoraService">
     <wsdl:operation name="ObtenerAceite">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerAceite" message="tns:ILavadoraService_ObtenerAceite_InputMessage" />
@@ -219,6 +225,10 @@
     <wsdl:operation name="ValidarClave">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarClave" message="tns:ILavadoraService_ValidarClave_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarClaveResponse" message="tns:ILavadoraService_ValidarClave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerVehiculos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerVehiculos" message="tns:ILavadoraService_ObtenerVehiculos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerVehiculosResponse" message="tns:ILavadoraService_ObtenerVehiculos_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILavadoraService" type="tns:ILavadoraService">
@@ -405,6 +415,15 @@
     </wsdl:operation>
     <wsdl:operation name="ValidarClave">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarClave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerVehiculos">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerVehiculos" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
