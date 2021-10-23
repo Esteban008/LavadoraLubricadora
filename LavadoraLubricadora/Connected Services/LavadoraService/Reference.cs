@@ -391,6 +391,12 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarVehiculoResponse")]
         System.Threading.Tasks.Task IngresarVehiculoAsync(string marca, string modelo, int anio, string tipoMotor);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/EditarVehiculoResponse")]
+        void EditarVehiculo(int id, string marca, string modelo, int anio, string tipoMotor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/EditarVehiculoResponse")]
+        System.Threading.Tasks.Task EditarVehiculoAsync(int id, string marca, string modelo, int anio, string tipoMotor);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarMotorVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarMotorVehiculoResponse")]
         void IngresarMotorVehiculo(string marca, string modelo, int anio, string tipoMotor);
         
@@ -569,6 +575,14 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task IngresarVehiculoAsync(string marca, string modelo, int anio, string tipoMotor) {
             return base.Channel.IngresarVehiculoAsync(marca, modelo, anio, tipoMotor);
+        }
+        
+        public void EditarVehiculo(int id, string marca, string modelo, int anio, string tipoMotor) {
+            base.Channel.EditarVehiculo(id, marca, modelo, anio, tipoMotor);
+        }
+        
+        public System.Threading.Tasks.Task EditarVehiculoAsync(int id, string marca, string modelo, int anio, string tipoMotor) {
+            return base.Channel.EditarVehiculoAsync(id, marca, modelo, anio, tipoMotor);
         }
         
         public void IngresarMotorVehiculo(string marca, string modelo, int anio, string tipoMotor) {
