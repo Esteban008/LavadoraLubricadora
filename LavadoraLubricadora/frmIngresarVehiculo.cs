@@ -45,6 +45,13 @@ namespace LavadoraLubricadora
 
             cbxMarcasVehiculos.Items.AddRange(cliente.ObtenerMarcaVehiculo());
             cbxMarcasVehiculos.Items.Add("Otra Marca");
+            ActualizarDgvVehiculos();
+        }
+
+        public void ActualizarDgvVehiculos()
+        {
+            DataTable vehiculos = cliente.ObtenerVehiculos();
+            dgvVehiculos.DataSource = vehiculos;
         }
 
         #region btnCancelar
@@ -397,7 +404,28 @@ namespace LavadoraLubricadora
                     }
                 }
             }
+
+            ActualizarDgvVehiculos();
+        }
+
+        private void dgvVehiculos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MostrartxtVehiculo();
+            txtIgresarMarca.Text = dgvVehiculos.SelectedCells[1].Value.ToString();
+            txtIngresarModelo.Text = dgvVehiculos.SelectedCells[2].Value.ToString();
+            txtIngresarAnio.Text = dgvVehiculos.SelectedCells[3].Value.ToString();
+            txtIngresarMotor.Text = dgvVehiculos.SelectedCells[4].Value.ToString();
             
         }
+
+
+        public void MostrartxtVehiculo()
+        {
+            txtIgresarMarca.Visible = true;
+            txtIngresarModelo.Visible = true; 
+            txtIngresarAnio.Visible = true;
+            txtIngresarMotor.Visible = true;
+        }
+
     }
 }

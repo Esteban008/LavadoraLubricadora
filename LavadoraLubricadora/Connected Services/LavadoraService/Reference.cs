@@ -456,6 +456,12 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarClave", ReplyAction="http://tempuri.org/ILavadoraService/ValidarClaveResponse")]
         System.Threading.Tasks.Task<bool> ValidarClaveAsync(int id, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerVehiculosResponse")]
+        System.Data.DataTable ObtenerVehiculos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerVehiculosResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerVehiculosAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -651,6 +657,14 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<bool> ValidarClaveAsync(int id, string clave) {
             return base.Channel.ValidarClaveAsync(id, clave);
+        }
+        
+        public System.Data.DataTable ObtenerVehiculos() {
+            return base.Channel.ObtenerVehiculos();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerVehiculosAsync() {
+            return base.Channel.ObtenerVehiculosAsync();
         }
     }
 }
