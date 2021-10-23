@@ -20,32 +20,37 @@ namespace LavadoraLubricadora
 
         private void frmIngresarVehiculo_Load(object sender, EventArgs e)
         {
-            lblIngresarMarca.Visible = false;
-            txtIgresarMarca.Visible = false;
-            cbxMarcasVehiculos.DropDownStyle = ComboBoxStyle.DropDownList;
-            btnCancelarMarca.Visible = false;
-
-            lblIngresarModelo.Visible = false;
-            txtIngresarModelo.Visible = false;
-            cbxModeloVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
-            btnCancelarModelo.Visible = false;
-
-
-            lblIngresarAnio.Visible = false;
-            txtIngresarAnio.Visible = false;
-            cbxAnioVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
-            btnCancelarAnio.Visible = false;
-
-            lblIngresarMotor.Visible = false;
-            txtIngresarMotor.Visible = false;
-            cbxMotorVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
-            btnCancelarMotor.Visible = false;
 
             cliente = new LavadoraService.LavadoraServiceClient();
 
+            BloquearEdicionCombos();
+            OcultartxtVehiculo();
+            LlenarCombos();
+            ActualizarDgvVehiculos();
+            btnCancelarIngreso.Visible = false;
+        }
+
+
+        public void BloquearEdicionCombos()
+        {
+            cbxMarcasVehiculos.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxModeloVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxAnioVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxMotorVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        public void MostrarCombos()
+        {
+            cbxMarcasVehiculos.Enabled = true;
+            cbxModeloVehiculo.Enabled = true;
+            cbxAnioVehiculo.Enabled = true;
+            cbxMotorVehiculo.Enabled = true;
+        }
+
+        public void LlenarCombos()
+        {
             cbxMarcasVehiculos.Items.AddRange(cliente.ObtenerMarcaVehiculo());
             cbxMarcasVehiculos.Items.Add("Otra Marca");
-            ActualizarDgvVehiculos();
         }
 
         public void ActualizarDgvVehiculos()
@@ -54,116 +59,59 @@ namespace LavadoraLubricadora
             dgvVehiculos.DataSource = vehiculos;
         }
 
-        #region btnCancelar
+        public void HabilitarCamposMarca()
+        {
+            lblIngresarMarca.Visible = true;
+            txtIngresarMarca.Visible = true;
+            cbxMarcasVehiculos.Enabled = false;
+        }
+
+        public void HabilitarCamposModelo()
+        {
+            lblIngresarModelo.Visible = true;
+            txtIngresarModelo.Visible = true;
+            cbxModeloVehiculo.Enabled = false;
+        }
+
+        public void HabilitarCamposAnio()
+        {
+            lblIngresarAnio.Visible = true;
+            txtIngresarAnio.Visible = true;
+            cbxAnioVehiculo.Enabled = false;
+        }
+
+        public void HabilitarCamposMotor()
+        {
+            lblIngresarMotor.Visible = true;
+            txtIngresarMotor.Visible = true;
+            cbxMotorVehiculo.Enabled = false;
+        }
+
         // Acciones del Boton Cancelar de todos los parametros
-        private void btnCancelarMarca_Click(object sender, EventArgs e)
-        {          
-            btnCancelarMarca.Visible = false;
 
-            //Activacion de los combobox
-            cbxMarcasVehiculos.Enabled = true;
-            cbxModeloVehiculo.Enabled = true;
-            cbxAnioVehiculo.Enabled = true;
-            cbxMotorVehiculo.Enabled = true;
-
-            //Limpieza de los text box y labels
-            txtIgresarMarca.Text = "";
-            lblIngresarMarca.Visible = false;
-            txtIgresarMarca.Visible = false;
-
-            txtIngresarModelo.Text = "";
-            lblIngresarModelo.Visible = false;
-            txtIngresarModelo.Visible = false;
-
-            txtIngresarAnio.Text = "";
-            lblIngresarAnio.Visible = false;
-            txtIngresarAnio.Visible = false;
-
-            txtIngresarMotor.Text = "";
-            lblIngresarMotor.Visible = false;
-            txtIngresarMotor.Visible = false;
-
-        }
-
-        private void btnCancelarModelo_Click(object sender, EventArgs e)
-        {            
-            btnCancelarModelo.Visible = false;
-
-            //Activacion de los combobox
-            cbxModeloVehiculo.Enabled = true;
-            cbxAnioVehiculo.Enabled = true;
-            cbxMotorVehiculo.Enabled = true;
-
-            //Limpieza de los text box y labels
-            txtIngresarModelo.Text = "";
-            lblIngresarModelo.Visible = false;
-            txtIngresarModelo.Visible = false;
-
-            txtIngresarAnio.Text = "";
-            lblIngresarAnio.Visible = false;
-            txtIngresarAnio.Visible = false;
-
-            txtIngresarMotor.Text = "";
-            lblIngresarMotor.Visible = false;
-            txtIngresarMotor.Visible = false;
-        }
-
-        private void btnCancelarAnio_Click(object sender, EventArgs e)
-        {
-            txtIngresarAnio.Text = "";
-            lblIngresarAnio.Visible = false;
-            txtIngresarAnio.Visible = false;
-            btnCancelarAnio.Visible = false;
-            cbxAnioVehiculo.Enabled = true;
-
-            cbxAnioVehiculo.Items.Clear();
-            cbxAnioVehiculo.Items.AddRange(cliente.ObtenerAnioVehiculo(cbxMarcasVehiculos.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
-            cbxAnioVehiculo.Items.Add("Otro Año");
-        }
-
-        private void btnCancelarMotor_Click(object sender, EventArgs e)
-        {
-            txtIngresarMotor.Text = "";
-            lblIngresarMotor.Visible = false;
-            txtIngresarMotor.Visible = false;
-            btnCancelarMotor.Visible = false;
-            cbxMotorVehiculo.Enabled = true;
-
-            cbxMotorVehiculo.Items.Clear();
-            cbxMotorVehiculo.Items.AddRange(cliente.ObtenerMotorVehiculo(cbxMarcasVehiculos.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
-            cbxMotorVehiculo.Items.Add("Otro Motor");
-        }
-        #endregion
 
         #region ComboSelectedValuerChanged
         private void cbxMarcasVehiculos_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cbxMarcasVehiculos.SelectedItem.Equals("Otra Marca"))
             {
-                //Campos de Marca
-                lblIngresarMarca.Visible = true;
-                txtIgresarMarca.Visible = true;
-                cbxMarcasVehiculos.Enabled = false;
-                btnCancelarMarca.Visible = true;
-                cbxModeloVehiculo.Items.Clear();
-                cbxAnioVehiculo.Items.Clear();
-                cbxMotorVehiculo.Items.Clear();
+
+                HabilitarCamposMarca();
 
                 //Campos de Modelo
-                lblIngresarModelo.Visible = true;
-                txtIngresarModelo.Visible = true;
-                cbxModeloVehiculo.Enabled = false;
+                HabilitarCamposModelo();
+                cbxModeloVehiculo.Items.Clear();
 
                 //Campos de Anio
-                lblIngresarAnio.Visible = true;
-                txtIngresarAnio.Visible = true;
-                cbxAnioVehiculo.Enabled = false;
+                HabilitarCamposAnio();
+                cbxAnioVehiculo.Items.Clear();
 
                 //Campos de Motor
-                lblIngresarMotor.Visible = true;
-                txtIngresarMotor.Visible = true;
-                cbxMotorVehiculo.Enabled = false;
+                HabilitarCamposMotor();
                 cbxMotorVehiculo.Items.Clear();
+
+                btnCancelarIngreso.Visible = true;
+
             }
             else
             {
@@ -178,23 +126,18 @@ namespace LavadoraLubricadora
             if (cbxModeloVehiculo.SelectedItem.Equals("Otro Modelo"))
             {
                 //Campo Modelo 
-                lblIngresarModelo.Visible = true;
-                txtIngresarModelo.Visible = true;
-                cbxModeloVehiculo.Enabled = false;
-                btnCancelarModelo.Visible = true;
-                cbxAnioVehiculo.Items.Clear();
-                cbxMotorVehiculo.Items.Clear();
+                HabilitarCamposModelo();
+
 
                 //Campos de Anio
-                lblIngresarAnio.Visible = true;
-                txtIngresarAnio.Visible = true;
-                cbxAnioVehiculo.Enabled = false;
+                HabilitarCamposAnio();
+                cbxAnioVehiculo.Items.Clear();
 
                 //Campos de Motor
-                lblIngresarMotor.Visible = true;
-                txtIngresarMotor.Visible = true;
-                cbxMotorVehiculo.Enabled = false;
+                HabilitarCamposMotor();
                 cbxMotorVehiculo.Items.Clear();
+
+                btnCancelarIngreso.Visible = true;
             }
             else
             {
@@ -213,10 +156,8 @@ namespace LavadoraLubricadora
         {
             if (cbxAnioVehiculo.SelectedItem.Equals("Otro Año"))
             {
-                lblIngresarAnio.Visible = true;
-                txtIngresarAnio.Visible = true;
-                cbxAnioVehiculo.Enabled = false;
-                btnCancelarAnio.Visible = true;         
+                HabilitarCamposAnio();
+                btnCancelarIngreso.Visible = true;
             }
         }
 
@@ -224,10 +165,8 @@ namespace LavadoraLubricadora
         {
             if (cbxMotorVehiculo.SelectedItem.Equals("Otro Motor"))
             {
-                lblIngresarMotor.Visible = true;
-                txtIngresarMotor.Visible = true;
-                cbxMotorVehiculo.Enabled = false;
-                btnCancelarMotor.Visible = true;
+                HabilitarCamposMotor();
+                btnCancelarIngreso.Visible = true;
             }
         }
 
@@ -253,7 +192,7 @@ namespace LavadoraLubricadora
                 //Se verifica que la marca no exista
                 foreach (LavadoraService.Vehiculo vehiculo in vehiculos)
                 {
-                    if (vehiculo.Marca.Equals(txtIgresarMarca.Text))
+                    if (vehiculo.Marca.Equals(txtIngresarMarca.Text))
                     {
                         validacionIngreso = false;
                     }
@@ -262,7 +201,7 @@ namespace LavadoraLubricadora
                 if (validacionIngreso)
                 {
                     //Se crea un NUEVO vehiculo
-                    cliente.IngresarVehiculo(txtIgresarMarca.Text, txtIngresarModelo.Text, Convert.ToInt32(txtIngresarAnio.Text), txtIngresarMotor.Text);
+                    cliente.IngresarVehiculo(txtIngresarMarca.Text, txtIngresarModelo.Text, Convert.ToInt32(txtIngresarAnio.Text), txtIngresarMotor.Text);
                     DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
                     this.Close();
                 }
@@ -411,7 +350,7 @@ namespace LavadoraLubricadora
         private void dgvVehiculos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             MostrartxtVehiculo();
-            txtIgresarMarca.Text = dgvVehiculos.SelectedCells[1].Value.ToString();
+            txtIngresarMarca.Text = dgvVehiculos.SelectedCells[1].Value.ToString();
             txtIngresarModelo.Text = dgvVehiculos.SelectedCells[2].Value.ToString();
             txtIngresarAnio.Text = dgvVehiculos.SelectedCells[3].Value.ToString();
             txtIngresarMotor.Text = dgvVehiculos.SelectedCells[4].Value.ToString();
@@ -421,11 +360,56 @@ namespace LavadoraLubricadora
 
         public void MostrartxtVehiculo()
         {
-            txtIgresarMarca.Visible = true;
+            //Mostrar textbox
+            txtIngresarMarca.Visible = true;
             txtIngresarModelo.Visible = true; 
             txtIngresarAnio.Visible = true;
             txtIngresarMotor.Visible = true;
+            //Mostrar labels
+            lblIngresarMarca.Visible = true;
+            lblIngresarModelo.Visible = true;
+            lblIngresarAnio.Visible = true;
+            lblIngresarMotor.Visible = true;
         }
 
+        public void OcultartxtVehiculo()
+        {
+            //Ocultar labels y limpiar los text box y labels
+            txtIngresarMarca.Text = "";
+            lblIngresarMarca.Visible = false;
+            txtIngresarMarca.Visible = false;
+
+
+            txtIngresarModelo.Text = "";
+            lblIngresarModelo.Visible = false;
+            txtIngresarModelo.Visible = false;
+
+            txtIngresarAnio.Text = "";
+            lblIngresarAnio.Visible = false;
+            txtIngresarAnio.Visible = false;
+
+            txtIngresarMotor.Text = "";
+            lblIngresarMotor.Visible = false;
+            txtIngresarMotor.Visible = false;
+        }
+
+        public void LimpiarCombos()
+        {
+            cbxMarcasVehiculos.Items.Clear();
+            cbxModeloVehiculo.Items.Clear();
+            cbxAnioVehiculo.Items.Clear();
+            cbxMotorVehiculo.Items.Clear();
+        }
+        
+
+        private void btnCancelarIngreso_Click(object sender, EventArgs e)
+        {
+            MostrarCombos();
+            LimpiarCombos();
+            LlenarCombos();
+            OcultartxtVehiculo();
+
+            btnCancelarIngreso.Visible = false;
+        }
     }
 }

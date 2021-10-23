@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtIgresarMarca = new System.Windows.Forms.TextBox();
+            this.txtIngresarMarca = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbxMarcasVehiculos = new System.Windows.Forms.ComboBox();
             this.lblIngresarMarca = new System.Windows.Forms.Label();
@@ -40,15 +40,11 @@
             this.cbxAnioVehiculo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtIngresarAnio = new System.Windows.Forms.TextBox();
-            this.btnCancelarMarca = new System.Windows.Forms.Button();
-            this.btnCancelarModelo = new System.Windows.Forms.Button();
-            this.btnCancelarAnio = new System.Windows.Forms.Button();
-            this.btnCancelarMotor = new System.Windows.Forms.Button();
+            this.btnCancelarIngreso = new System.Windows.Forms.Button();
             this.lblIngresarMotor = new System.Windows.Forms.Label();
             this.cbxMotorVehiculo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtIngresarMotor = new System.Windows.Forms.TextBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -60,12 +56,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtIgresarMarca
+            // txtIngresarMarca
             // 
-            this.txtIgresarMarca.Location = new System.Drawing.Point(431, 329);
-            this.txtIgresarMarca.Name = "txtIgresarMarca";
-            this.txtIgresarMarca.Size = new System.Drawing.Size(204, 20);
-            this.txtIgresarMarca.TabIndex = 0;
+            this.txtIngresarMarca.Location = new System.Drawing.Point(431, 329);
+            this.txtIngresarMarca.Name = "txtIngresarMarca";
+            this.txtIngresarMarca.Size = new System.Drawing.Size(204, 20);
+            this.txtIngresarMarca.TabIndex = 0;
             // 
             // label1
             // 
@@ -162,65 +158,20 @@
             this.txtIngresarAnio.Size = new System.Drawing.Size(204, 20);
             this.txtIngresarAnio.TabIndex = 8;
             // 
-            // btnCancelarMarca
+            // btnCancelarIngreso
             // 
-            this.btnCancelarMarca.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelarMarca.FlatAppearance.BorderSize = 0;
-            this.btnCancelarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarMarca.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancelarMarca.Location = new System.Drawing.Point(659, 325);
-            this.btnCancelarMarca.Name = "btnCancelarMarca";
-            this.btnCancelarMarca.Size = new System.Drawing.Size(73, 26);
-            this.btnCancelarMarca.TabIndex = 12;
-            this.btnCancelarMarca.Text = "Cancelar";
-            this.btnCancelarMarca.UseVisualStyleBackColor = false;
-            this.btnCancelarMarca.Click += new System.EventHandler(this.btnCancelarMarca_Click);
-            // 
-            // btnCancelarModelo
-            // 
-            this.btnCancelarModelo.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelarModelo.FlatAppearance.BorderSize = 0;
-            this.btnCancelarModelo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarModelo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancelarModelo.Location = new System.Drawing.Point(659, 378);
-            this.btnCancelarModelo.Name = "btnCancelarModelo";
-            this.btnCancelarModelo.Size = new System.Drawing.Size(137, 26);
-            this.btnCancelarModelo.TabIndex = 13;
-            this.btnCancelarModelo.Text = "Cancelar";
-            this.btnCancelarModelo.UseVisualStyleBackColor = false;
-            this.btnCancelarModelo.Click += new System.EventHandler(this.btnCancelarModelo_Click);
-            // 
-            // btnCancelarAnio
-            // 
-            this.btnCancelarAnio.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelarAnio.FlatAppearance.BorderSize = 0;
-            this.btnCancelarAnio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarAnio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarAnio.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancelarAnio.Location = new System.Drawing.Point(659, 426);
-            this.btnCancelarAnio.Name = "btnCancelarAnio";
-            this.btnCancelarAnio.Size = new System.Drawing.Size(137, 26);
-            this.btnCancelarAnio.TabIndex = 14;
-            this.btnCancelarAnio.Text = "Cancelar";
-            this.btnCancelarAnio.UseVisualStyleBackColor = false;
-            this.btnCancelarAnio.Click += new System.EventHandler(this.btnCancelarAnio_Click);
-            // 
-            // btnCancelarMotor
-            // 
-            this.btnCancelarMotor.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelarMotor.FlatAppearance.BorderSize = 0;
-            this.btnCancelarMotor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarMotor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarMotor.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancelarMotor.Location = new System.Drawing.Point(659, 471);
-            this.btnCancelarMotor.Name = "btnCancelarMotor";
-            this.btnCancelarMotor.Size = new System.Drawing.Size(137, 26);
-            this.btnCancelarMotor.TabIndex = 19;
-            this.btnCancelarMotor.Text = "Cancelar";
-            this.btnCancelarMotor.UseVisualStyleBackColor = false;
-            this.btnCancelarMotor.Click += new System.EventHandler(this.btnCancelarMotor_Click);
+            this.btnCancelarIngreso.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelarIngreso.FlatAppearance.BorderSize = 0;
+            this.btnCancelarIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarIngreso.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCancelarIngreso.Location = new System.Drawing.Point(549, 522);
+            this.btnCancelarIngreso.Name = "btnCancelarIngreso";
+            this.btnCancelarIngreso.Size = new System.Drawing.Size(86, 32);
+            this.btnCancelarIngreso.TabIndex = 12;
+            this.btnCancelarIngreso.Text = "Cancelar";
+            this.btnCancelarIngreso.UseVisualStyleBackColor = false;
+            this.btnCancelarIngreso.Click += new System.EventHandler(this.btnCancelarIngreso_Click);
             // 
             // lblIngresarMotor
             // 
@@ -256,21 +207,6 @@
             this.txtIngresarMotor.Size = new System.Drawing.Size(204, 20);
             this.txtIngresarMotor.TabIndex = 15;
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnGuardar.Location = new System.Drawing.Point(658, 506);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(137, 26);
-            this.btnGuardar.TabIndex = 21;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -278,7 +214,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCancelar.Location = new System.Drawing.Point(907, 506);
+            this.btnCancelar.Location = new System.Drawing.Point(898, 555);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(137, 26);
             this.btnCancelar.TabIndex = 22;
@@ -301,7 +237,7 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEliminar.Location = new System.Drawing.Point(830, 451);
+            this.btnEliminar.Location = new System.Drawing.Point(830, 457);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(86, 36);
             this.btnEliminar.TabIndex = 48;
@@ -315,7 +251,7 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEditar.Location = new System.Drawing.Point(830, 367);
+            this.btnEditar.Location = new System.Drawing.Point(830, 373);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(86, 36);
             this.btnEditar.TabIndex = 47;
@@ -329,7 +265,7 @@
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnNuevo.Location = new System.Drawing.Point(830, 325);
+            this.btnNuevo.Location = new System.Drawing.Point(830, 320);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(86, 36);
             this.btnNuevo.TabIndex = 46;
@@ -343,7 +279,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(830, 409);
+            this.button1.Location = new System.Drawing.Point(830, 415);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 36);
             this.button1.TabIndex = 45;
@@ -371,7 +307,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1103, 805);
+            this.ClientSize = new System.Drawing.Size(1103, 792);
             this.Controls.Add(this.dgvVehiculos);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
@@ -379,15 +315,11 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnCancelarMotor);
             this.Controls.Add(this.lblIngresarMotor);
             this.Controls.Add(this.cbxMotorVehiculo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtIngresarMotor);
-            this.Controls.Add(this.btnCancelarAnio);
-            this.Controls.Add(this.btnCancelarModelo);
-            this.Controls.Add(this.btnCancelarMarca);
+            this.Controls.Add(this.btnCancelarIngreso);
             this.Controls.Add(this.lblIngresarAnio);
             this.Controls.Add(this.cbxAnioVehiculo);
             this.Controls.Add(this.label5);
@@ -399,7 +331,7 @@
             this.Controls.Add(this.lblIngresarMarca);
             this.Controls.Add(this.cbxMarcasVehiculos);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtIgresarMarca);
+            this.Controls.Add(this.txtIngresarMarca);
             this.Name = "frmIngresarVehiculo";
             this.Text = "frmIngresarVehiculo";
             this.Load += new System.EventHandler(this.frmIngresarVehiculo_Load);
@@ -412,7 +344,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtIgresarMarca;
+        private System.Windows.Forms.TextBox txtIngresarMarca;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxMarcasVehiculos;
         private System.Windows.Forms.Label lblIngresarMarca;
@@ -424,15 +356,11 @@
         private System.Windows.Forms.ComboBox cbxAnioVehiculo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtIngresarAnio;
-        private System.Windows.Forms.Button btnCancelarMarca;
-        private System.Windows.Forms.Button btnCancelarModelo;
-        private System.Windows.Forms.Button btnCancelarAnio;
-        private System.Windows.Forms.Button btnCancelarMotor;
+        private System.Windows.Forms.Button btnCancelarIngreso;
         private System.Windows.Forms.Label lblIngresarMotor;
         private System.Windows.Forms.ComboBox cbxMotorVehiculo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtIngresarMotor;
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnEliminar;

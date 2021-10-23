@@ -135,9 +135,9 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(232)))), ((int)(((byte)(50)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1002, 0);
+            this.panel1.Location = new System.Drawing.Point(1192, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(248, 560);
+            this.panel1.Size = new System.Drawing.Size(58, 560);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -146,7 +146,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Eras Demi ITC", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(1, 15);
+            this.label1.Location = new System.Drawing.Point(-189, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 24);
             this.label1.TabIndex = 3;
