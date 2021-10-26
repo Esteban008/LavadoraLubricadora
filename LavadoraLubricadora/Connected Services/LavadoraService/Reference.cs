@@ -481,6 +481,24 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse")]
         System.Threading.Tasks.Task EliminarUsuarioAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioNombre", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioNombreResponse")]
+        System.Data.DataTable BuscarUsuarioNombre(string nombre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioNombre", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioNombreResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioNombreAsync(string nombre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioApellidoResponse")]
+        System.Data.DataTable BuscarUsuarioApellido(string apellido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioApellidoResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioApellidoAsync(string apellido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse")]
+        System.Data.DataTable BuscarUsuarioRol(string rol);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioRolAsync(string rol);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarClave", ReplyAction="http://tempuri.org/ILavadoraService/ValidarClaveResponse")]
         bool ValidarClave(int id, string clave);
         
@@ -719,6 +737,30 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task EliminarUsuarioAsync(int id) {
             return base.Channel.EliminarUsuarioAsync(id);
+        }
+        
+        public System.Data.DataTable BuscarUsuarioNombre(string nombre) {
+            return base.Channel.BuscarUsuarioNombre(nombre);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioNombreAsync(string nombre) {
+            return base.Channel.BuscarUsuarioNombreAsync(nombre);
+        }
+        
+        public System.Data.DataTable BuscarUsuarioApellido(string apellido) {
+            return base.Channel.BuscarUsuarioApellido(apellido);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioApellidoAsync(string apellido) {
+            return base.Channel.BuscarUsuarioApellidoAsync(apellido);
+        }
+        
+        public System.Data.DataTable BuscarUsuarioRol(string rol) {
+            return base.Channel.BuscarUsuarioRol(rol);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioRolAsync(string rol) {
+            return base.Channel.BuscarUsuarioRolAsync(rol);
         }
         
         public bool ValidarClave(int id, string clave) {

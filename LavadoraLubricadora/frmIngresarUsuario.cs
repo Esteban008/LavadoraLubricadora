@@ -10,36 +10,35 @@ using System.Windows.Forms;
 
 namespace LavadoraLubricadora
 {
-    public partial class frmIngresarProveedores : Form
+    public partial class frmIngresarUsuario : Form
     {
-
         LavadoraService.LavadoraServiceClient cliente;
-        public frmIngresarProveedores()
+        public frmIngresarUsuario()
         {
             InitializeComponent();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            cliente.IngresarProveedor(txtRuc.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtDireccion.Text, txtEmpresa.Text);
-            DialogResult dialogResult = MessageBox.Show("Proveedor guardado con éxito", "Aviso", MessageBoxButtons.OK);
-            LimpiarCampos();        
-        }
-
-        private void frmIngresarProveedores_Load(object sender, EventArgs e)
+        private void frmIngresarUsuario_Load(object sender, EventArgs e)
         {
             cliente = new LavadoraService.LavadoraServiceClient();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            cliente.IngresarUsuario(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtRol.Text, txtCnueva.Text);
+            DialogResult dialogResult = MessageBox.Show("Proveedor guardado con éxito", "Aviso", MessageBoxButtons.OK);
+            LimpiarCampos();
         }
 
         private void LimpiarCampos()
         {
             txtNombre.Clear();
             txtApellido.Clear();
-            txtRuc.Clear();
             txtTelefono.Clear();
             txtCorreo.Clear();
-            txtDireccion.Clear();
-            txtEmpresa.Clear();
+            txtRol.Clear();
+            txtCnueva.Clear();
+            txtCrepetir.Clear();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

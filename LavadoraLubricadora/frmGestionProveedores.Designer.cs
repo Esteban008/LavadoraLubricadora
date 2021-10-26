@@ -135,7 +135,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlPrincipal);
             this.Name = "frmGestionProveedores";
-            this.Text = "btnGestionProveedores";
+            this.Text = "frmGestionProveedores";
             this.Load += new System.EventHandler(this.frmGestionProveedores_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

@@ -13,29 +13,30 @@ namespace LavadoraLubricadora
     public partial class frmEliminarProveedor : Form
     {
         LavadoraService.LavadoraServiceClient cliente;
+        private static string busqueda;
+        private static string valor;
+
         public frmEliminarProveedor()
         {
             InitializeComponent();
-        }
+        }       
 
-        private static string busqueda;
-        private static string valor;
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             cliente.EliminarProveedor(Convert.ToInt32(dgvProveedores.SelectedCells[0].Value));
+            DialogResult dialogResult = MessageBox.Show("Proveedor eliminado con éxito", "Aviso", MessageBoxButtons.OK);
             ActualizarDgvProveedor();
         }
 
         private void frmEliminarProveedor_Load(object sender, EventArgs e)
         {
+            cbxCriBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             cliente = new LavadoraService.LavadoraServiceClient();
         }
 
 
         public void ActualizarDgvProveedor()
-        {
-            
-
+        {          
             if (busqueda.Equals("Nombre"))
             {
                 DataTable proveedores = cliente.BuscarProveedorNombre(valor);
@@ -108,7 +109,6 @@ namespace LavadoraLubricadora
 
             busqueda = cbxCriBusqueda.SelectedItem.ToString();
             valor = txtBusqueda.Text;
-
 
         }
     }

@@ -159,6 +159,24 @@
   <wsdl:message name="ILavadoraService_EliminarUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarUsuarioNombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioNombre" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarUsuarioNombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarUsuarioApellido_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioApellido" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarUsuarioApellido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioApellidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarUsuarioRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioRol" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarUsuarioRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioRolResponse" />
+  </wsdl:message>
   <wsdl:message name="ILavadoraService_ValidarClave_InputMessage">
     <wsdl:part name="parameters" element="tns:ValidarClave" />
   </wsdl:message>
@@ -271,6 +289,18 @@
     <wsdl:operation name="EliminarUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarUsuario" message="tns:ILavadoraService_EliminarUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse" message="tns:ILavadoraService_EliminarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioNombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioNombre" message="tns:ILavadoraService_BuscarUsuarioNombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioNombreResponse" message="tns:ILavadoraService_BuscarUsuarioNombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioApellido">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioApellido" message="tns:ILavadoraService_BuscarUsuarioApellido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioApellidoResponse" message="tns:ILavadoraService_BuscarUsuarioApellido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol" message="tns:ILavadoraService_BuscarUsuarioRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse" message="tns:ILavadoraService_BuscarUsuarioRol_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ValidarClave">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarClave" message="tns:ILavadoraService_ValidarClave_InputMessage" />
@@ -501,6 +531,33 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarUsuario">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioNombre">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarUsuarioNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioApellido">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarUsuarioApellido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioRol">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRol" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -15,20 +15,22 @@ namespace LavadoraLubricadora
         LavadoraService.LavadoraServiceClient cliente;
         public frmEditarProveedor()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             cliente.EditarProveedor(Convert.ToInt32(dgvProveedores.SelectedCells[0].Value), txtRuc.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtDireccion.Text, txtEmpresa.Text);
+            DialogResult dialogResult = MessageBox.Show("Proveedor guardado con éxito", "Aviso", MessageBoxButtons.OK);
             ActualizarDgvProveedor();
             LimpiarCampos();
-            DialogResult dialogResult = MessageBox.Show("Proveedor guardado con éxito", "Aviso", MessageBoxButtons.OK);
+            
         }
 
         private void frmEditarProveedor_Load(object sender, EventArgs e)
         {
             cliente = new LavadoraService.LavadoraServiceClient();
+            cbxCriBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
 
@@ -73,7 +75,33 @@ namespace LavadoraLubricadora
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            if (cbxCriBusqueda.SelectedItem.ToString().Equals("Nombre"))
+            {
+                DataTable proveedores = cliente.BuscarProveedorNombre(txtBusqueda.Text);
+                dgvProveedores.DataSource = proveedores;
 
+            }
+            else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Apellido"))
+            {
+                DataTable proveedores = cliente.BuscarProveedorApellido(txtBusqueda.Text);
+                dgvProveedores.DataSource = proveedores;
+
+            }
+            else if (cbxCriBusqueda.SelectedItem.ToString().Equals("RUC"))
+            {
+                DataTable proveedores = cliente.BuscarProveedorRuc(txtBusqueda.Text);
+                dgvProveedores.DataSource = proveedores;
+            }
+            else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Empresa"))
+            {
+                DataTable proveedores = cliente.BuscarProveedorEmpresa(txtBusqueda.Text);
+                dgvProveedores.DataSource = proveedores;
+            }
+            else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Mostrar Todos"))
+            {
+                DataTable proveedores = cliente.ObtenerProveedor();
+                dgvProveedores.DataSource = proveedores;
+            }
         }
     }
 }
