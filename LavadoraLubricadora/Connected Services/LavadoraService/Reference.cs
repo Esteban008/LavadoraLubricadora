@@ -415,6 +415,30 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProveedorResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> ObtenerProveedorAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorNombre", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorNombreResponse")]
+        System.Data.DataTable BuscarProveedorNombre(string nombre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorNombre", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorNombreResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorNombreAsync(string nombre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorApellidoResponse")]
+        System.Data.DataTable BuscarProveedorApellido(string apellido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorApellidoResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorApellidoAsync(string apellido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorRuc", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucResponse")]
+        System.Data.DataTable BuscarProveedorRuc(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorRuc", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorRucAsync(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresa", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresaResponse")]
+        System.Data.DataTable BuscarProveedorEmpresa(string empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresa", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorEmpresaAsync(string empresa);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProveedorResponse")]
         void IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
         
@@ -607,6 +631,38 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerProveedorAsync() {
             return base.Channel.ObtenerProveedorAsync();
+        }
+        
+        public System.Data.DataTable BuscarProveedorNombre(string nombre) {
+            return base.Channel.BuscarProveedorNombre(nombre);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorNombreAsync(string nombre) {
+            return base.Channel.BuscarProveedorNombreAsync(nombre);
+        }
+        
+        public System.Data.DataTable BuscarProveedorApellido(string apellido) {
+            return base.Channel.BuscarProveedorApellido(apellido);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorApellidoAsync(string apellido) {
+            return base.Channel.BuscarProveedorApellidoAsync(apellido);
+        }
+        
+        public System.Data.DataTable BuscarProveedorRuc(string ruc) {
+            return base.Channel.BuscarProveedorRuc(ruc);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorRucAsync(string ruc) {
+            return base.Channel.BuscarProveedorRucAsync(ruc);
+        }
+        
+        public System.Data.DataTable BuscarProveedorEmpresa(string empresa) {
+            return base.Channel.BuscarProveedorEmpresa(empresa);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorEmpresaAsync(string empresa) {
+            return base.Channel.BuscarProveedorEmpresaAsync(empresa);
         }
         
         public void IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {

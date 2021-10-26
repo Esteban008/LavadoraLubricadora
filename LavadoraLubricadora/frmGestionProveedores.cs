@@ -30,104 +30,78 @@ namespace LavadoraLubricadora
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            
-            if (estado == 1)
-            {
-                cliente.IngresarProveedor(txtRuc.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtDireccion.Text, txtEmpresa.Text);
-                ActualizarDgvProveedor();
-                LimpiarCampos();
-                DeshabilitarCampos();
-                dgvProveedores.Enabled = true;
-            }
-            else if(estado == 2){
-                cliente.EditarProveedor(Convert.ToInt32(dgvProveedores.SelectedCells[0].Value), txtRuc.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtDireccion.Text, txtEmpresa.Text);
-                ActualizarDgvProveedor();
-                LimpiarCampos();
-                DeshabilitarCampos();
-            }
-        }
+        
 
         private void frmGestionProveedores_Load(object sender, EventArgs e)
         {
-            cliente = new LavadoraService.LavadoraServiceClient();
-            //Necesitamos una clase que llame lista de aceites para importar aca
-            ActualizarDgvProveedor();
-            DeshabilitarCampos();
+           
+            
         }
 
 
 
-        public void ActualizarDgvProveedor()
-        {
-            DataTable proveedores = cliente.ObtenerProveedor();
-            dgvProveedores.DataSource = proveedores;
-        }
-
-        private void dgvProveedores_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtNombre.Text = dgvProveedores.SelectedCells[1].Value.ToString();
-            txtApellido.Text = dgvProveedores.SelectedCells[2].Value.ToString();
-            txtRuc.Text = dgvProveedores.SelectedCells[3].Value.ToString();
-            txtTelefono.Text = dgvProveedores.SelectedCells[4].Value.ToString();
-            txtCorreo.Text = dgvProveedores.SelectedCells[5].Value.ToString();
-            txtDireccion.Text = dgvProveedores.SelectedCells[6].Value.ToString();
-            txtEmpresa.Text = dgvProveedores.SelectedCells[7].Value.ToString();
-        }
-
-        private void DeshabilitarCampos()
-        {
-            txtNombre.Enabled = false;
-            txtApellido.Enabled = false;
-            txtRuc.Enabled = false;
-            txtTelefono.Enabled = false;
-            txtCorreo.Enabled = false;
-            txtDireccion.Enabled = false;
-            txtEmpresa.Enabled = false;
-        }
-
-        private void HabilitarCampos()
-        {
-            txtNombre.Enabled = true;
-            txtApellido.Enabled = true;
-            txtRuc.Enabled = true;
-            txtTelefono.Enabled = true;
-            txtCorreo.Enabled = true;
-            txtDireccion.Enabled = true;
-            txtEmpresa.Enabled = true;
-        }
-
-        private void LimpiarCampos()
-        {
-            txtNombre.Clear();
-            txtApellido.Clear();
-            txtRuc.Clear();
-            txtTelefono.Clear();
-            txtCorreo.Clear();
-            txtDireccion.Clear();
-            txtEmpresa.Clear();
-        }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
-            HabilitarCampos();
-            estado = 1;
-            dgvProveedores.Enabled = false;
+            AbrirFormulario<frmIngresarProveedores>();
+            btnNuevo.BackColor = Color.FromArgb(158, 158, 158);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            HabilitarCampos();
-            estado = 2;
-            
+            AbrirFormulario<frmEditarProveedor>();
+            btnEditar.BackColor = Color.FromArgb(158, 158, 158);
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            cliente.EliminarProveedor(Convert.ToInt32(dgvProveedores.SelectedCells[0].Value));
-            LimpiarCampos();
-            ActualizarDgvProveedor();
+            AbrirFormulario<frmEliminarProveedor>();
+            btnEliminar.BackColor = Color.FromArgb(158, 158, 158);
         }
+
+
+
+
+        //METODO PARA ABRIR FORMULARIOS DENTRO DEL PANEL
+        private void AbrirFormulario<MiForm>() where MiForm : Form, new()
+        {
+            Form formulario;
+            //Busca en la colecion el formulario
+            formulario = pnlPrincipal.Controls.OfType<MiForm>().FirstOrDefault();
+            //si el formulario instancia no existe
+            if (formulario == null)
+            {
+                formulario = new MiForm();
+                formulario.TopLevel = false;
+                formulario.FormBorderStyle = FormBorderStyle.None;
+                formulario.Dock = DockStyle.Fill;
+                pnlPrincipal.Controls.Add(formulario);
+                pnlPrincipal.Tag = formulario;
+                formulario.Show();
+                formulario.BringToFront();
+                formulario.FormClosed += new FormClosedEventHandler(CloseForms);
+            }
+            //si el formulario/instancia existe
+            else
+            {
+                formulario.BringToFront();
+            }
+        }
+
+        //Metodo que nos permite cerrar los Formularios del Panel
+        private void CloseForms(object sender, FormClosedEventArgs e)
+        {
+
+            if (Application.OpenForms["frmIngresarProveedor"] == null)
+                btnNuevo.BackColor = Color.FromArgb(0, 0, 0);
+            if (Application.OpenForms["frmEditarProveedor"] == null)
+                btnEditar.BackColor = Color.FromArgb(0, 0, 0);
+            if (Application.OpenForms["frmEliminarProveedor"] == null)
+                btnEliminar.BackColor = Color.FromArgb(0, 0, 0);
+            
+        }
+
+
+
     }
 }

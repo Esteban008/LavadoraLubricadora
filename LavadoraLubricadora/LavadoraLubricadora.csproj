@@ -53,6 +53,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarProveedor.Designer.cs">
+      <DependentUpon>frmEditarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEliminarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEliminarProveedor.Designer.cs">
+      <DependentUpon>frmEliminarProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGestionProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +101,12 @@
     <Compile Include="frmGestionEmpleados.Designer.cs">
       <DependentUpon>frmGestionEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmIngresarProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIngresarProveedores.Designer.cs">
+      <DependentUpon>frmIngresarProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIngresarVehiculo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +127,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmEditarProveedor.resx">
+      <DependentUpon>frmEditarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEliminarProveedor.resx">
+      <DependentUpon>frmEliminarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGestionProveedores.resx">
       <DependentUpon>frmGestionProveedores.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionEmpleados.resx">
       <DependentUpon>frmGestionEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIngresarProveedores.resx">
+      <DependentUpon>frmIngresarProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIngresarVehiculo.resx">
       <DependentUpon>frmIngresarVehiculo.cs</DependentUpon>
