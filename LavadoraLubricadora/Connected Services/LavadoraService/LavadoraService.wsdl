@@ -5,10 +5,22 @@
       <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" />
-      <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ILavadoraService_IngresarAceite_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarAceite" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarAceite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarAceiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarAceite_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarAceite" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarAceite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarAceiteResponse" />
+  </wsdl:message>
   <wsdl:message name="ILavadoraService_ObtenerAceite_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerAceite" />
   </wsdl:message>
@@ -21,6 +33,36 @@
   <wsdl:message name="ILavadoraService_ObtenerAceiteSAE_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerAceiteSAEResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerPresentacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPresentacion" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerPresentacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPresentacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerTipoAceite_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoAceite" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerTipoAceite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoAceiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerTipoCombustible_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoCombustible" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerTipoCombustible_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoCombustibleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerSAE_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerSAE" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerSAE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerSAEResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerApi_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerApi" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerApi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerApiResponse" />
+  </wsdl:message>
   <wsdl:message name="ILavadoraService_ObtenerProducto_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerProducto" />
   </wsdl:message>
@@ -32,12 +74,6 @@
   </wsdl:message>
   <wsdl:message name="ILavadoraService_ObtenerVehiculo_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerVehiculoResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ObtenerSAE_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerSAE" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ObtenerSAE_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerSAEResponse" />
   </wsdl:message>
   <wsdl:message name="ILavadoraService_ObtenerMarcaVehiculo_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerMarcaVehiculo" />
@@ -177,12 +213,6 @@
   <wsdl:message name="ILavadoraService_BuscarUsuarioRol_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarUsuarioRolResponse" />
   </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarClave_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarClave" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarClave_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarClaveResponse" />
-  </wsdl:message>
   <wsdl:message name="ILavadoraService_ObtenerVehiculos_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerVehiculos" />
   </wsdl:message>
@@ -190,6 +220,14 @@
     <wsdl:part name="parameters" element="tns:ObtenerVehiculosResponse" />
   </wsdl:message>
   <wsdl:portType name="ILavadoraService">
+    <wsdl:operation name="IngresarAceite">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarAceite" message="tns:ILavadoraService_IngresarAceite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarAceiteResponse" message="tns:ILavadoraService_IngresarAceite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarAceite">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarAceite" message="tns:ILavadoraService_ValidarAceite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarAceiteResponse" message="tns:ILavadoraService_ValidarAceite_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ObtenerAceite">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerAceite" message="tns:ILavadoraService_ObtenerAceite_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerAceiteResponse" message="tns:ILavadoraService_ObtenerAceite_OutputMessage" />
@@ -198,6 +236,26 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerAceiteSAE" message="tns:ILavadoraService_ObtenerAceiteSAE_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerAceiteSAEResponse" message="tns:ILavadoraService_ObtenerAceiteSAE_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ObtenerPresentacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerPresentacion" message="tns:ILavadoraService_ObtenerPresentacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerPresentacionResponse" message="tns:ILavadoraService_ObtenerPresentacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoAceite">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerTipoAceite" message="tns:ILavadoraService_ObtenerTipoAceite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerTipoAceiteResponse" message="tns:ILavadoraService_ObtenerTipoAceite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoCombustible">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerTipoCombustible" message="tns:ILavadoraService_ObtenerTipoCombustible_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerTipoCombustibleResponse" message="tns:ILavadoraService_ObtenerTipoCombustible_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSAE">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerSAE" message="tns:ILavadoraService_ObtenerSAE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerSAEResponse" message="tns:ILavadoraService_ObtenerSAE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerApi">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerApi" message="tns:ILavadoraService_ObtenerApi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerApiResponse" message="tns:ILavadoraService_ObtenerApi_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ObtenerProducto">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerProducto" message="tns:ILavadoraService_ObtenerProducto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerProductoResponse" message="tns:ILavadoraService_ObtenerProducto_OutputMessage" />
@@ -205,10 +263,6 @@
     <wsdl:operation name="ObtenerVehiculo">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerVehiculo" message="tns:ILavadoraService_ObtenerVehiculo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerVehiculoResponse" message="tns:ILavadoraService_ObtenerVehiculo_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerSAE">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerSAE" message="tns:ILavadoraService_ObtenerSAE_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerSAEResponse" message="tns:ILavadoraService_ObtenerSAE_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerMarcaVehiculo">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerMarcaVehiculo" message="tns:ILavadoraService_ObtenerMarcaVehiculo_InputMessage" />
@@ -302,10 +356,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol" message="tns:ILavadoraService_BuscarUsuarioRol_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse" message="tns:ILavadoraService_BuscarUsuarioRol_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ValidarClave">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarClave" message="tns:ILavadoraService_ValidarClave_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarClaveResponse" message="tns:ILavadoraService_ValidarClave_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ObtenerVehiculos">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerVehiculos" message="tns:ILavadoraService_ObtenerVehiculos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerVehiculosResponse" message="tns:ILavadoraService_ObtenerVehiculos_OutputMessage" />
@@ -313,6 +363,24 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILavadoraService" type="tns:ILavadoraService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IngresarAceite">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarAceite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarAceite">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarAceite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ObtenerAceite">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerAceite" style="document" />
       <wsdl:input>
@@ -331,6 +399,51 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ObtenerPresentacion">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerPresentacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoAceite">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerTipoAceite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoCombustible">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerTipoCombustible" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSAE">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerSAE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerApi">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerApi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ObtenerProducto">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerProducto" style="document" />
       <wsdl:input>
@@ -342,15 +455,6 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerVehiculo">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerVehiculo" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerSAE">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerSAE" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -558,15 +662,6 @@
     </wsdl:operation>
     <wsdl:operation name="BuscarUsuarioRol">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRol" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ValidarClave">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarClave" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -86,10 +86,6 @@ namespace LavadoraLubricadora
             
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {

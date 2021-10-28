@@ -36,8 +36,8 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -86,7 +86,6 @@
             this.cbxTipoProducto.Name = "cbxTipoProducto";
             this.cbxTipoProducto.Size = new System.Drawing.Size(214, 21);
             this.cbxTipoProducto.TabIndex = 5;
-            this.cbxTipoProducto.SelectedValueChanged += new System.EventHandler(this.cbxTipoProducto_SelectedValueChanged);
             // 
             // btnEditar
             // 
@@ -141,6 +140,14 @@
             this.panel1.Size = new System.Drawing.Size(1139, 659);
             this.panel1.TabIndex = 28;
             // 
+            // pnlPrincipal
+            // 
+            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPrincipal.Location = new System.Drawing.Point(0, 149);
+            this.pnlPrincipal.Name = "pnlPrincipal";
+            this.pnlPrincipal.Size = new System.Drawing.Size(1139, 510);
+            this.pnlPrincipal.TabIndex = 29;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnNuevo);
@@ -155,14 +162,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1139, 149);
             this.panel2.TabIndex = 28;
-            // 
-            // pnlPrincipal
-            // 
-            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrincipal.Location = new System.Drawing.Point(0, 149);
-            this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(1139, 510);
-            this.pnlPrincipal.TabIndex = 29;
             // 
             // frmAdminProductos
             // 

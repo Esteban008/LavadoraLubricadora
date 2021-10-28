@@ -47,13 +47,13 @@ namespace LavadoraLubricadora
             this.label11 = new System.Windows.Forms.Label();
             this.txtMargenMayor = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPrecioVMenor = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtPreCIva = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPreVMayor = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtPorMayor = new System.Windows.Forms.TextBox();
+            this.txtGananPorMayor = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPreSIva = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -99,6 +99,7 @@ namespace LavadoraLubricadora
             this.cbxTipoCombustible.Name = "cbxTipoCombustible";
             this.cbxTipoCombustible.Size = new System.Drawing.Size(121, 21);
             this.cbxTipoCombustible.TabIndex = 75;
+            this.cbxTipoCombustible.SelectedValueChanged += new System.EventHandler(this.cbxTipoCombustible_SelectedValueChanged);
             // 
             // label18
             // 
@@ -216,12 +217,14 @@ namespace LavadoraLubricadora
             this.label12.TabIndex = 61;
             this.label12.Text = "Margen Por Mayor:";
             // 
-            // textBox1
+            // txtPrecioVMenor
             // 
-            this.textBox1.Location = new System.Drawing.Point(428, 119);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 60;
+            this.txtPrecioVMenor.Location = new System.Drawing.Point(428, 119);
+            this.txtPrecioVMenor.Name = "txtPrecioVMenor";
+            this.txtPrecioVMenor.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecioVMenor.TabIndex = 60;
+            this.txtPrecioVMenor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioVMenor_KeyPress);
+            this.txtPrecioVMenor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPrecioVMenor_KeyUp);
             // 
             // label10
             // 
@@ -264,21 +267,23 @@ namespace LavadoraLubricadora
             this.label8.TabIndex = 55;
             this.label8.Text = "Precio Por Mayor:";
             // 
-            // txtPorMayor
+            // txtGananPorMayor
             // 
-            this.txtPorMayor.Location = new System.Drawing.Point(428, 67);
-            this.txtPorMayor.Name = "txtPorMayor";
-            this.txtPorMayor.Size = new System.Drawing.Size(100, 20);
-            this.txtPorMayor.TabIndex = 54;
+            this.txtGananPorMayor.Location = new System.Drawing.Point(428, 67);
+            this.txtGananPorMayor.Name = "txtGananPorMayor";
+            this.txtGananPorMayor.Size = new System.Drawing.Size(100, 20);
+            this.txtGananPorMayor.TabIndex = 54;
+            this.txtGananPorMayor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGananPorMayor_KeyPress);
+            this.txtGananPorMayor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtGananPorMayor_KeyUp);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(295, 71);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(123, 13);
+            this.label7.Size = new System.Drawing.Size(125, 13);
             this.label7.TabIndex = 53;
-            this.label7.Text = "% de ganancia al Mayor:";
+            this.label7.Text = "Ganancia al Mayor en %:";
             // 
             // txtPreSIva
             // 
@@ -286,6 +291,8 @@ namespace LavadoraLubricadora
             this.txtPreSIva.Name = "txtPreSIva";
             this.txtPreSIva.Size = new System.Drawing.Size(100, 20);
             this.txtPreSIva.TabIndex = 52;
+            this.txtPreSIva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPreSIva_KeyPress);
+            this.txtPreSIva.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPreSIva_KeyUp);
             // 
             // label6
             // 
@@ -357,6 +364,7 @@ namespace LavadoraLubricadora
             this.btnGuardar.TabIndex = 80;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnSalir
             // 
@@ -397,13 +405,13 @@ namespace LavadoraLubricadora
             this.Controls.Add(this.txtMargenMayor);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPrecioVMenor);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtPreCIva);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtPreVMayor);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtPorMayor);
+            this.Controls.Add(this.txtGananPorMayor);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtPreSIva);
             this.Controls.Add(this.label6);
@@ -415,6 +423,7 @@ namespace LavadoraLubricadora
             this.Controls.Add(this.label3);
             this.Name = "frmIngresarAceite";
             this.Text = "frmIngresarAceite";
+            this.Load += new System.EventHandler(this.frmIngresarAceite_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -440,13 +449,13 @@ namespace LavadoraLubricadora
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtMargenMayor;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPrecioVMenor;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtPreCIva;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPreVMayor;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtPorMayor;
+        private System.Windows.Forms.TextBox txtGananPorMayor;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtPreSIva;
         private System.Windows.Forms.Label label6;

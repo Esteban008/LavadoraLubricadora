@@ -331,6 +331,50 @@ namespace LavadoraLubricadora.LavadoraService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LavadoraService.ILavadoraService")]
     public interface ILavadoraService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceite", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteResponse")]
+        void IngresarAceite(
+                    string marca, 
+                    string descripcion, 
+                    string codigoBarras, 
+                    int cantidad, 
+                    int cantidadMin, 
+                    string presentacion, 
+                    string sae, 
+                    string tipoCombustible, 
+                    string api, 
+                    string tipoAceite, 
+                    double precioSinIva, 
+                    double precioConIva, 
+                    double precioMayor, 
+                    double precioMenor, 
+                    double margenMayor, 
+                    double margenMenor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceite", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteResponse")]
+        System.Threading.Tasks.Task IngresarAceiteAsync(
+                    string marca, 
+                    string descripcion, 
+                    string codigoBarras, 
+                    int cantidad, 
+                    int cantidadMin, 
+                    string presentacion, 
+                    string sae, 
+                    string tipoCombustible, 
+                    string api, 
+                    string tipoAceite, 
+                    double precioSinIva, 
+                    double precioConIva, 
+                    double precioMayor, 
+                    double precioMenor, 
+                    double margenMayor, 
+                    double margenMenor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarAceite", ReplyAction="http://tempuri.org/ILavadoraService/ValidarAceiteResponse")]
+        bool ValidarAceite(string codigoBarras);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarAceite", ReplyAction="http://tempuri.org/ILavadoraService/ValidarAceiteResponse")]
+        System.Threading.Tasks.Task<bool> ValidarAceiteAsync(string codigoBarras);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAceite", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAceiteResponse")]
         System.Data.DataTable ObtenerAceite();
         
@@ -343,6 +387,36 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAceiteSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAceiteSAEResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> ObtenerAceiteSAEAsync(string sae);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerPresentacion", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerPresentacionResponse")]
+        string[] ObtenerPresentacion();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerPresentacion", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerPresentacionResponse")]
+        System.Threading.Tasks.Task<string[]> ObtenerPresentacionAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerTipoAceite", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerTipoAceiteResponse")]
+        string[] ObtenerTipoAceite();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerTipoAceite", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerTipoAceiteResponse")]
+        System.Threading.Tasks.Task<string[]> ObtenerTipoAceiteAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerTipoCombustible", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerTipoCombustibleResponse")]
+        string[] ObtenerTipoCombustible();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerTipoCombustible", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerTipoCombustibleResponse")]
+        System.Threading.Tasks.Task<string[]> ObtenerTipoCombustibleAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerSAEResponse")]
+        string[] ObtenerSAE();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerSAEResponse")]
+        System.Threading.Tasks.Task<string[]> ObtenerSAEAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerApi", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerApiResponse")]
+        string[] ObtenerApi(int tipoCombustible);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerApi", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerApiResponse")]
+        System.Threading.Tasks.Task<string[]> ObtenerApiAsync(int tipoCombustible);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProducto", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProductoResponse")]
         LavadoraLubricadora.LavadoraService.Producto ObtenerProducto(int id);
         
@@ -354,12 +428,6 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerVehiculoResponse")]
         System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Vehiculo[]> ObtenerVehiculoAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerSAEResponse")]
-        string[] ObtenerSAE();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerSAEResponse")]
-        System.Threading.Tasks.Task<string[]> ObtenerSAEAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerMarcaVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerMarcaVehiculoResponse")]
         string[] ObtenerMarcaVehiculo();
@@ -499,12 +567,6 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioRolAsync(string rol);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarClave", ReplyAction="http://tempuri.org/ILavadoraService/ValidarClaveResponse")]
-        bool ValidarClave(int id, string clave);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarClave", ReplyAction="http://tempuri.org/ILavadoraService/ValidarClaveResponse")]
-        System.Threading.Tasks.Task<bool> ValidarClaveAsync(int id, string clave);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerVehiculosResponse")]
         System.Data.DataTable ObtenerVehiculos();
         
@@ -539,6 +601,54 @@ namespace LavadoraLubricadora.LavadoraService {
                 base(binding, remoteAddress) {
         }
         
+        public void IngresarAceite(
+                    string marca, 
+                    string descripcion, 
+                    string codigoBarras, 
+                    int cantidad, 
+                    int cantidadMin, 
+                    string presentacion, 
+                    string sae, 
+                    string tipoCombustible, 
+                    string api, 
+                    string tipoAceite, 
+                    double precioSinIva, 
+                    double precioConIva, 
+                    double precioMayor, 
+                    double precioMenor, 
+                    double margenMayor, 
+                    double margenMenor) {
+            base.Channel.IngresarAceite(marca, descripcion, codigoBarras, cantidad, cantidadMin, presentacion, sae, tipoCombustible, api, tipoAceite, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
+        }
+        
+        public System.Threading.Tasks.Task IngresarAceiteAsync(
+                    string marca, 
+                    string descripcion, 
+                    string codigoBarras, 
+                    int cantidad, 
+                    int cantidadMin, 
+                    string presentacion, 
+                    string sae, 
+                    string tipoCombustible, 
+                    string api, 
+                    string tipoAceite, 
+                    double precioSinIva, 
+                    double precioConIva, 
+                    double precioMayor, 
+                    double precioMenor, 
+                    double margenMayor, 
+                    double margenMenor) {
+            return base.Channel.IngresarAceiteAsync(marca, descripcion, codigoBarras, cantidad, cantidadMin, presentacion, sae, tipoCombustible, api, tipoAceite, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
+        }
+        
+        public bool ValidarAceite(string codigoBarras) {
+            return base.Channel.ValidarAceite(codigoBarras);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarAceiteAsync(string codigoBarras) {
+            return base.Channel.ValidarAceiteAsync(codigoBarras);
+        }
+        
         public System.Data.DataTable ObtenerAceite() {
             return base.Channel.ObtenerAceite();
         }
@@ -555,6 +665,46 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.ObtenerAceiteSAEAsync(sae);
         }
         
+        public string[] ObtenerPresentacion() {
+            return base.Channel.ObtenerPresentacion();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ObtenerPresentacionAsync() {
+            return base.Channel.ObtenerPresentacionAsync();
+        }
+        
+        public string[] ObtenerTipoAceite() {
+            return base.Channel.ObtenerTipoAceite();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ObtenerTipoAceiteAsync() {
+            return base.Channel.ObtenerTipoAceiteAsync();
+        }
+        
+        public string[] ObtenerTipoCombustible() {
+            return base.Channel.ObtenerTipoCombustible();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ObtenerTipoCombustibleAsync() {
+            return base.Channel.ObtenerTipoCombustibleAsync();
+        }
+        
+        public string[] ObtenerSAE() {
+            return base.Channel.ObtenerSAE();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ObtenerSAEAsync() {
+            return base.Channel.ObtenerSAEAsync();
+        }
+        
+        public string[] ObtenerApi(int tipoCombustible) {
+            return base.Channel.ObtenerApi(tipoCombustible);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ObtenerApiAsync(int tipoCombustible) {
+            return base.Channel.ObtenerApiAsync(tipoCombustible);
+        }
+        
         public LavadoraLubricadora.LavadoraService.Producto ObtenerProducto(int id) {
             return base.Channel.ObtenerProducto(id);
         }
@@ -569,14 +719,6 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Vehiculo[]> ObtenerVehiculoAsync() {
             return base.Channel.ObtenerVehiculoAsync();
-        }
-        
-        public string[] ObtenerSAE() {
-            return base.Channel.ObtenerSAE();
-        }
-        
-        public System.Threading.Tasks.Task<string[]> ObtenerSAEAsync() {
-            return base.Channel.ObtenerSAEAsync();
         }
         
         public string[] ObtenerMarcaVehiculo() {
@@ -761,14 +903,6 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioRolAsync(string rol) {
             return base.Channel.BuscarUsuarioRolAsync(rol);
-        }
-        
-        public bool ValidarClave(int id, string clave) {
-            return base.Channel.ValidarClave(id, clave);
-        }
-        
-        public System.Threading.Tasks.Task<bool> ValidarClaveAsync(int id, string clave) {
-            return base.Channel.ValidarClaveAsync(id, clave);
         }
         
         public System.Data.DataTable ObtenerVehiculos() {
