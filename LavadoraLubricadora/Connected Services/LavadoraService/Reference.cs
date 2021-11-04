@@ -369,6 +369,46 @@ namespace LavadoraLubricadora.LavadoraService {
                     double margenMayor, 
                     double margenMenor);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarAceite", ReplyAction="http://tempuri.org/ILavadoraService/EditarAceiteResponse")]
+        void EditarAceite(
+                    int id, 
+                    string marca, 
+                    string descripcion, 
+                    string codigoBarras, 
+                    int cantidad, 
+                    int cantidadMin, 
+                    string presentacion, 
+                    string sae, 
+                    string tipoCombustible, 
+                    string api, 
+                    string tipoAceite, 
+                    double precioSinIva, 
+                    double precioConIva, 
+                    double precioMayor, 
+                    double precioMenor, 
+                    double margenMayor, 
+                    double margenMenor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarAceite", ReplyAction="http://tempuri.org/ILavadoraService/EditarAceiteResponse")]
+        System.Threading.Tasks.Task EditarAceiteAsync(
+                    int id, 
+                    string marca, 
+                    string descripcion, 
+                    string codigoBarras, 
+                    int cantidad, 
+                    int cantidadMin, 
+                    string presentacion, 
+                    string sae, 
+                    string tipoCombustible, 
+                    string api, 
+                    string tipoAceite, 
+                    double precioSinIva, 
+                    double precioConIva, 
+                    double precioMayor, 
+                    double precioMenor, 
+                    double margenMayor, 
+                    double margenMenor);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarAceite", ReplyAction="http://tempuri.org/ILavadoraService/ValidarAceiteResponse")]
         bool ValidarAceite(string codigoBarras);
         
@@ -380,6 +420,24 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAceite", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAceiteResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> ObtenerAceiteAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarAceite", ReplyAction="http://tempuri.org/ILavadoraService/EliminarAceiteResponse")]
+        void EliminarAceite(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarAceite", ReplyAction="http://tempuri.org/ILavadoraService/EliminarAceiteResponse")]
+        System.Threading.Tasks.Task EliminarAceiteAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarAceiteMarca", ReplyAction="http://tempuri.org/ILavadoraService/BuscarAceiteMarcaResponse")]
+        System.Data.DataTable BuscarAceiteMarca(string marca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarAceiteMarca", ReplyAction="http://tempuri.org/ILavadoraService/BuscarAceiteMarcaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarAceiteMarcaAsync(string marca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarAceiteCodigo", ReplyAction="http://tempuri.org/ILavadoraService/BuscarAceiteCodigoResponse")]
+        System.Data.DataTable BuscarAceiteCodigo(string marca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarAceiteCodigo", ReplyAction="http://tempuri.org/ILavadoraService/BuscarAceiteCodigoResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarAceiteCodigoAsync(string marca);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerAceiteSAE", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerAceiteSAEResponse")]
         System.Data.DataTable ObtenerAceiteSAE(string sae);
@@ -641,6 +699,48 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.IngresarAceiteAsync(marca, descripcion, codigoBarras, cantidad, cantidadMin, presentacion, sae, tipoCombustible, api, tipoAceite, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
+        public void EditarAceite(
+                    int id, 
+                    string marca, 
+                    string descripcion, 
+                    string codigoBarras, 
+                    int cantidad, 
+                    int cantidadMin, 
+                    string presentacion, 
+                    string sae, 
+                    string tipoCombustible, 
+                    string api, 
+                    string tipoAceite, 
+                    double precioSinIva, 
+                    double precioConIva, 
+                    double precioMayor, 
+                    double precioMenor, 
+                    double margenMayor, 
+                    double margenMenor) {
+            base.Channel.EditarAceite(id, marca, descripcion, codigoBarras, cantidad, cantidadMin, presentacion, sae, tipoCombustible, api, tipoAceite, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
+        }
+        
+        public System.Threading.Tasks.Task EditarAceiteAsync(
+                    int id, 
+                    string marca, 
+                    string descripcion, 
+                    string codigoBarras, 
+                    int cantidad, 
+                    int cantidadMin, 
+                    string presentacion, 
+                    string sae, 
+                    string tipoCombustible, 
+                    string api, 
+                    string tipoAceite, 
+                    double precioSinIva, 
+                    double precioConIva, 
+                    double precioMayor, 
+                    double precioMenor, 
+                    double margenMayor, 
+                    double margenMenor) {
+            return base.Channel.EditarAceiteAsync(id, marca, descripcion, codigoBarras, cantidad, cantidadMin, presentacion, sae, tipoCombustible, api, tipoAceite, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
+        }
+        
         public bool ValidarAceite(string codigoBarras) {
             return base.Channel.ValidarAceite(codigoBarras);
         }
@@ -655,6 +755,30 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerAceiteAsync() {
             return base.Channel.ObtenerAceiteAsync();
+        }
+        
+        public void EliminarAceite(int id) {
+            base.Channel.EliminarAceite(id);
+        }
+        
+        public System.Threading.Tasks.Task EliminarAceiteAsync(int id) {
+            return base.Channel.EliminarAceiteAsync(id);
+        }
+        
+        public System.Data.DataTable BuscarAceiteMarca(string marca) {
+            return base.Channel.BuscarAceiteMarca(marca);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarAceiteMarcaAsync(string marca) {
+            return base.Channel.BuscarAceiteMarcaAsync(marca);
+        }
+        
+        public System.Data.DataTable BuscarAceiteCodigo(string marca) {
+            return base.Channel.BuscarAceiteCodigo(marca);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarAceiteCodigoAsync(string marca) {
+            return base.Channel.BuscarAceiteCodigoAsync(marca);
         }
         
         public System.Data.DataTable ObtenerAceiteSAE(string sae) {

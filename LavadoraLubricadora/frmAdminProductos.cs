@@ -13,7 +13,6 @@ namespace LavadoraLubricadora
     public partial class frmAdminProductos : Form
     {
 
-        LavadoraService.LavadoraServiceClient cliente;
         public frmAdminProductos()
         {
             InitializeComponent();
@@ -78,7 +77,7 @@ namespace LavadoraLubricadora
         private void frmAdminProductos_Load(object sender, EventArgs e)
         {
             cbxTipoProducto.DropDownStyle = ComboBoxStyle.DropDownList;
-            cliente = new LavadoraService.LavadoraServiceClient();
+            cbxTipoProducto.SelectedIndex = 0;
         }
 
         private void cbxTipoProducto_SelectedValueChanged(object sender, EventArgs e)
@@ -89,8 +88,65 @@ namespace LavadoraLubricadora
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<frmIngresarAceite>();
-            btnNuevo.BackColor = Color.FromArgb(158, 158, 158);
+            if (cbxTipoProducto.SelectedItem.ToString().Equals("Aceite"))
+            {
+                AbrirFormulario<frmIngresarAceite>();
+                btnNuevo.BackColor = Color.FromArgb(158, 158, 158);
+            }
+            else if (cbxTipoProducto.SelectedItem.ToString().Equals("Filtro"))
+            {
+
+            }
+            else if (cbxTipoProducto.SelectedItem.ToString().Equals("Otros"))
+            {
+
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Debe Seleccionar un Tipo de Producto", "Aviso", MessageBoxButtons.YesNo);
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (cbxTipoProducto.SelectedItem.ToString().Equals("Aceite"))
+            {
+                AbrirFormulario<frmEditarAceite>();
+                btnEditar.BackColor = Color.FromArgb(158, 158, 158);
+            }
+            else if (cbxTipoProducto.SelectedItem.ToString().Equals("Filtro"))
+            {
+
+            }
+            else if (cbxTipoProducto.SelectedItem.ToString().Equals("Otros"))
+            {
+
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Debe Seleccionar un Tipo de Producto", "Aviso", MessageBoxButtons.YesNo);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (cbxTipoProducto.SelectedItem.ToString().Equals("Aceite"))
+            {
+                AbrirFormulario<frmEliminarAceite>();
+                btnEliminar.BackColor = Color.FromArgb(158, 158, 158);
+            }
+            else if (cbxTipoProducto.SelectedItem.ToString().Equals("Filtro"))
+            {
+
+            }
+            else if (cbxTipoProducto.SelectedItem.ToString().Equals("Otros"))
+            {
+
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Debe Seleccionar un Tipo de Producto", "Aviso", MessageBoxButtons.YesNo);
+            }
         }
     }
 }

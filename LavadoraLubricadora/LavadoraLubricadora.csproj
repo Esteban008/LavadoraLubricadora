@@ -59,6 +59,12 @@
     <Compile Include="frmAgregarVehiculo.Designer.cs">
       <DependentUpon>frmAgregarVehiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarAceite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarAceite.Designer.cs">
+      <DependentUpon>frmEditarAceite.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditarProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,12 @@
     </Compile>
     <Compile Include="frmEditarUsuario.Designer.cs">
       <DependentUpon>frmEditarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEliminarAceite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEliminarAceite.Designer.cs">
+      <DependentUpon>frmEliminarAceite.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEliminarProveedor.cs">
       <SubType>Form</SubType>
@@ -166,11 +178,17 @@
     <EmbeddedResource Include="frmAgregarVehiculo.resx">
       <DependentUpon>frmAgregarVehiculo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarAceite.resx">
+      <DependentUpon>frmEditarAceite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditarProveedor.resx">
       <DependentUpon>frmEditarProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarUsuario.resx">
       <DependentUpon>frmEditarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEliminarAceite.resx">
+      <DependentUpon>frmEliminarAceite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEliminarProveedor.resx">
       <DependentUpon>frmEliminarProveedor.cs</DependentUpon>
