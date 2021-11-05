@@ -29,6 +29,7 @@ namespace LavadoraLubricadora
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -60,6 +61,8 @@ namespace LavadoraLubricadora
             this.label4 = new System.Windows.Forms.Label();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.rtxtCodigos = new System.Windows.Forms.RichTextBox();
+            this.toolTipMsj = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnNuevo
@@ -69,16 +72,17 @@ namespace LavadoraLubricadora
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnNuevo.Location = new System.Drawing.Point(253, 231);
+            this.btnNuevo.Location = new System.Drawing.Point(180, 511);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(86, 36);
             this.btnNuevo.TabIndex = 87;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(123, 231);
+            this.textBox2.Location = new System.Drawing.Point(827, 207);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 86;
@@ -113,7 +117,7 @@ namespace LavadoraLubricadora
             // 
             this.txtRosca.Location = new System.Drawing.Point(123, 166);
             this.txtRosca.Name = "txtRosca";
-            this.txtRosca.Size = new System.Drawing.Size(100, 20);
+            this.txtRosca.Size = new System.Drawing.Size(121, 20);
             this.txtRosca.TabIndex = 84;
             // 
             // label1
@@ -159,7 +163,7 @@ namespace LavadoraLubricadora
             // 
             // txtMargenMenor
             // 
-            this.txtMargenMenor.Location = new System.Drawing.Point(599, 44);
+            this.txtMargenMenor.Location = new System.Drawing.Point(472, 174);
             this.txtMargenMenor.Name = "txtMargenMenor";
             this.txtMargenMenor.Size = new System.Drawing.Size(100, 20);
             this.txtMargenMenor.TabIndex = 102;
@@ -167,7 +171,7 @@ namespace LavadoraLubricadora
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(498, 51);
+            this.label11.Location = new System.Drawing.Point(341, 182);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(95, 13);
             this.label11.TabIndex = 101;
@@ -175,7 +179,7 @@ namespace LavadoraLubricadora
             // 
             // txtMargenMayor
             // 
-            this.txtMargenMayor.Location = new System.Drawing.Point(599, 17);
+            this.txtMargenMayor.Location = new System.Drawing.Point(472, 147);
             this.txtMargenMayor.Name = "txtMargenMayor";
             this.txtMargenMayor.Size = new System.Drawing.Size(100, 20);
             this.txtMargenMayor.TabIndex = 100;
@@ -183,7 +187,7 @@ namespace LavadoraLubricadora
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(498, 24);
+            this.label12.Location = new System.Drawing.Point(341, 155);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(97, 13);
             this.label12.TabIndex = 99;
@@ -191,7 +195,7 @@ namespace LavadoraLubricadora
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(378, 121);
+            this.textBox1.Location = new System.Drawing.Point(472, 118);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 98;
@@ -199,7 +203,7 @@ namespace LavadoraLubricadora
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(249, 128);
+            this.label10.Location = new System.Drawing.Point(341, 126);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(89, 13);
             this.label10.TabIndex = 97;
@@ -207,7 +211,7 @@ namespace LavadoraLubricadora
             // 
             // txtPreCIva
             // 
-            this.txtPreCIva.Location = new System.Drawing.Point(378, 43);
+            this.txtPreCIva.Location = new System.Drawing.Point(472, 40);
             this.txtPreCIva.Name = "txtPreCIva";
             this.txtPreCIva.Size = new System.Drawing.Size(100, 20);
             this.txtPreCIva.TabIndex = 96;
@@ -215,7 +219,7 @@ namespace LavadoraLubricadora
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(249, 47);
+            this.label9.Location = new System.Drawing.Point(341, 45);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(120, 13);
             this.label9.TabIndex = 95;
@@ -223,7 +227,7 @@ namespace LavadoraLubricadora
             // 
             // txtPreVMayor
             // 
-            this.txtPreVMayor.Location = new System.Drawing.Point(378, 95);
+            this.txtPreVMayor.Location = new System.Drawing.Point(472, 92);
             this.txtPreVMayor.Name = "txtPreVMayor";
             this.txtPreVMayor.Size = new System.Drawing.Size(100, 20);
             this.txtPreVMayor.TabIndex = 94;
@@ -231,7 +235,7 @@ namespace LavadoraLubricadora
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(249, 101);
+            this.label8.Location = new System.Drawing.Point(341, 99);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 13);
             this.label8.TabIndex = 93;
@@ -239,7 +243,7 @@ namespace LavadoraLubricadora
             // 
             // txtPorMayor
             // 
-            this.txtPorMayor.Location = new System.Drawing.Point(378, 69);
+            this.txtPorMayor.Location = new System.Drawing.Point(472, 66);
             this.txtPorMayor.Name = "txtPorMayor";
             this.txtPorMayor.Size = new System.Drawing.Size(100, 20);
             this.txtPorMayor.TabIndex = 92;
@@ -247,7 +251,7 @@ namespace LavadoraLubricadora
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(249, 74);
+            this.label7.Location = new System.Drawing.Point(341, 72);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(123, 13);
             this.label7.TabIndex = 91;
@@ -255,7 +259,7 @@ namespace LavadoraLubricadora
             // 
             // txtPreSIva
             // 
-            this.txtPreSIva.Location = new System.Drawing.Point(378, 17);
+            this.txtPreSIva.Location = new System.Drawing.Point(472, 14);
             this.txtPreSIva.Name = "txtPreSIva";
             this.txtPreSIva.Size = new System.Drawing.Size(100, 20);
             this.txtPreSIva.TabIndex = 90;
@@ -263,7 +267,7 @@ namespace LavadoraLubricadora
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(249, 20);
+            this.label6.Location = new System.Drawing.Point(341, 18);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(115, 13);
             this.label6.TabIndex = 89;
@@ -317,11 +321,24 @@ namespace LavadoraLubricadora
             this.label3.TabIndex = 83;
             this.label3.Text = "Marca:";
             // 
+            // rtxtCodigos
+            // 
+            this.rtxtCodigos.Location = new System.Drawing.Point(123, 235);
+            this.rtxtCodigos.Name = "rtxtCodigos";
+            this.rtxtCodigos.Size = new System.Drawing.Size(121, 96);
+            this.rtxtCodigos.TabIndex = 107;
+            this.rtxtCodigos.Text = "";
+            // 
+            // toolTipMsj
+            // 
+            this.toolTipMsj.IsBalloon = true;
+            // 
             // frmingresarFiltro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1058, 698);
+            this.Controls.Add(this.rtxtCodigos);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txtCantidadMin);
@@ -355,6 +372,7 @@ namespace LavadoraLubricadora
             this.Controls.Add(this.label3);
             this.Name = "frmingresarFiltro";
             this.Text = "frmingresarFiltro";
+            this.Load += new System.EventHandler(this.frmingresarFiltro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,5 +411,7 @@ namespace LavadoraLubricadora
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RichTextBox rtxtCodigos;
+        private System.Windows.Forms.ToolTip toolTipMsj;
     }
 }

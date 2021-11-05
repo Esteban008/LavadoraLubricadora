@@ -95,11 +95,12 @@ namespace LavadoraLubricadora
             }
             else if (cbxTipoProducto.SelectedItem.ToString().Equals("Filtro"))
             {
-
+                AbrirFormulario<frmingresarFiltro>();
+                btnNuevo.BackColor = Color.FromArgb(158, 158, 158);
             }
             else if (cbxTipoProducto.SelectedItem.ToString().Equals("Otros"))
             {
-
+               
             }
             else
             {
