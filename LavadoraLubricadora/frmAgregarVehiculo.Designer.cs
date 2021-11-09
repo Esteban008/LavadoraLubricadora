@@ -38,6 +38,9 @@ namespace LavadoraLubricadora
             this.btnSalir = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnEliminarVehiculo = new System.Windows.Forms.Button();
+            this.btnAgregarVehiculo = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -61,14 +64,11 @@ namespace LavadoraLubricadora
             this.cbxMarcasVehiculos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIngresarMarca = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnAgregarVehiculo = new System.Windows.Forms.Button();
-            this.btnEliminarVehiculo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvVehiculos
@@ -84,7 +84,7 @@ namespace LavadoraLubricadora
             this.dgvVehiculos.Name = "dgvVehiculos";
             this.dgvVehiculos.ReadOnly = true;
             this.dgvVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVehiculos.Size = new System.Drawing.Size(580, 180);
+            this.dgvVehiculos.Size = new System.Drawing.Size(442, 180);
             this.dgvVehiculos.TabIndex = 50;
             // 
             // btnBuscar
@@ -187,6 +187,50 @@ namespace LavadoraLubricadora
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Agregar Vehículos";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminarVehiculo
+            // 
+            this.btnEliminarVehiculo.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEliminarVehiculo.FlatAppearance.BorderSize = 0;
+            this.btnEliminarVehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarVehiculo.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnEliminarVehiculo.Location = new System.Drawing.Point(500, 193);
+            this.btnEliminarVehiculo.Name = "btnEliminarVehiculo";
+            this.btnEliminarVehiculo.Size = new System.Drawing.Size(86, 36);
+            this.btnEliminarVehiculo.TabIndex = 59;
+            this.btnEliminarVehiculo.Text = "<";
+            this.btnEliminarVehiculo.UseVisualStyleBackColor = false;
+            // 
+            // btnAgregarVehiculo
+            // 
+            this.btnAgregarVehiculo.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAgregarVehiculo.FlatAppearance.BorderSize = 0;
+            this.btnAgregarVehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarVehiculo.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAgregarVehiculo.Location = new System.Drawing.Point(500, 151);
+            this.btnAgregarVehiculo.Name = "btnAgregarVehiculo";
+            this.btnAgregarVehiculo.Size = new System.Drawing.Size(86, 36);
+            this.btnAgregarVehiculo.TabIndex = 58;
+            this.btnAgregarVehiculo.Text = ">";
+            this.btnAgregarVehiculo.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(721, 105);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(389, 180);
+            this.dataGridView1.TabIndex = 57;
             // 
             // tabPage2
             // 
@@ -436,55 +480,11 @@ namespace LavadoraLubricadora
             this.txtIngresarMarca.Size = new System.Drawing.Size(204, 20);
             this.txtIngresarMarca.TabIndex = 49;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(721, 105);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(580, 180);
-            this.dataGridView1.TabIndex = 57;
-            // 
-            // btnAgregarVehiculo
-            // 
-            this.btnAgregarVehiculo.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAgregarVehiculo.FlatAppearance.BorderSize = 0;
-            this.btnAgregarVehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarVehiculo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAgregarVehiculo.Location = new System.Drawing.Point(615, 155);
-            this.btnAgregarVehiculo.Name = "btnAgregarVehiculo";
-            this.btnAgregarVehiculo.Size = new System.Drawing.Size(86, 36);
-            this.btnAgregarVehiculo.TabIndex = 58;
-            this.btnAgregarVehiculo.Text = ">";
-            this.btnAgregarVehiculo.UseVisualStyleBackColor = false;
-            // 
-            // btnEliminarVehiculo
-            // 
-            this.btnEliminarVehiculo.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnEliminarVehiculo.FlatAppearance.BorderSize = 0;
-            this.btnEliminarVehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarVehiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarVehiculo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEliminarVehiculo.Location = new System.Drawing.Point(615, 197);
-            this.btnEliminarVehiculo.Name = "btnEliminarVehiculo";
-            this.btnEliminarVehiculo.Size = new System.Drawing.Size(86, 36);
-            this.btnEliminarVehiculo.TabIndex = 59;
-            this.btnEliminarVehiculo.Text = "<";
-            this.btnEliminarVehiculo.UseVisualStyleBackColor = false;
-            // 
             // frmAgregarVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1348, 588);
+            this.ClientSize = new System.Drawing.Size(1136, 588);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmAgregarVehiculo";
             this.Text = "frmAgregarVehiculo";
@@ -492,9 +492,9 @@ namespace LavadoraLubricadora
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

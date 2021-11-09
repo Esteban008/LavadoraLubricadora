@@ -59,6 +59,18 @@
     <Compile Include="frmAgregarVehiculo.Designer.cs">
       <DependentUpon>frmAgregarVehiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBuscarAceite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarAceite.Designer.cs">
+      <DependentUpon>frmBuscarAceite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarFiltro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarFiltro.Designer.cs">
+      <DependentUpon>frmBuscarFiltro.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditarAceite.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,12 +118,6 @@
     </Compile>
     <Compile Include="frmAdminProductos.Designer.cs">
       <DependentUpon>frmAdminProductos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmBusquedaProductos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBusquedaProductos.Designer.cs">
-      <DependentUpon>frmBusquedaProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmBusquedaVehiculo.cs">
       <SubType>Form</SubType>
@@ -167,16 +173,22 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrincipal.cs">
+    <Compile Include="frmPrincipalP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrincipal.Designer.cs">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <Compile Include="frmPrincipalP.Designer.cs">
+      <DependentUpon>frmPrincipalP.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAgregarVehiculo.resx">
       <DependentUpon>frmAgregarVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarAceite.resx">
+      <DependentUpon>frmBuscarAceite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarFiltro.resx">
+      <DependentUpon>frmBuscarFiltro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarAceite.resx">
       <DependentUpon>frmEditarAceite.cs</DependentUpon>
@@ -201,9 +213,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminProductos.resx">
       <DependentUpon>frmAdminProductos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmBusquedaProductos.resx">
-      <DependentUpon>frmBusquedaProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBusquedaVehiculo.resx">
       <DependentUpon>frmBusquedaVehiculo.cs</DependentUpon>
@@ -232,8 +241,8 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrincipal.resx">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="frmPrincipalP.resx">
+      <DependentUpon>frmPrincipalP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

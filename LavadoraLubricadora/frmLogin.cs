@@ -87,7 +87,7 @@ namespace LavadoraLubricadora
                 {
                     if (cliente.Login(txtCorreo.Text,txtPassword.Text)) 
                     {
-                        frmPrincipal frmPrincipal = new frmPrincipal();
+                        frmPrincipalP frmPrincipal = new frmPrincipalP();
                         frmPrincipal.Show();
                         this.Hide();
                         lblMensajeError.Text = "";
