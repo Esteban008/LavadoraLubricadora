@@ -90,7 +90,6 @@ namespace LavadoraLubricadora
         {
             if (cbxTipoProducto.SelectedItem.ToString().Equals("Aceite"))
             {
-                AbrirFormulario<frmIngresarAceite>();
                 btnNuevo.BackColor = Color.FromArgb(158, 158, 158);
             }
             else if (cbxTipoProducto.SelectedItem.ToString().Equals("Filtro"))

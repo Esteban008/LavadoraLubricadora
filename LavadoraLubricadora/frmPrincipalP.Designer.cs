@@ -63,7 +63,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(250, 573);
+            this.panelMenu.Size = new System.Drawing.Size(250, 697);
             this.panelMenu.TabIndex = 0;
             // 
             // pnlSubmenuAdmProductos
@@ -285,17 +285,17 @@
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPrincipal.Location = new System.Drawing.Point(250, 0);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(754, 573);
+            this.pnlPrincipal.Size = new System.Drawing.Size(754, 697);
             this.pnlPrincipal.TabIndex = 1;
             // 
             // frmPrincipalP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 573);
+            this.ClientSize = new System.Drawing.Size(1004, 697);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.panelMenu);
-            this.MinimumSize = new System.Drawing.Size(1020, 612);
+            this.MinimumSize = new System.Drawing.Size(1020, 736);
             this.Name = "frmPrincipalP";
             this.Text = "frmPrincipalP";
             this.panelMenu.ResumeLayout(false);
