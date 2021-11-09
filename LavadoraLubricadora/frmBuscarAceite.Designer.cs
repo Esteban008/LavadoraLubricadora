@@ -65,7 +65,7 @@
             "Codigo de Barras",
             "Marca",
             "Mostrar Todos"});
-            this.cbxCriBusqueda.Location = new System.Drawing.Point(128, 57);
+            this.cbxCriBusqueda.Location = new System.Drawing.Point(127, 57);
             this.cbxCriBusqueda.Name = "cbxCriBusqueda";
             this.cbxCriBusqueda.Size = new System.Drawing.Size(173, 21);
             this.cbxCriBusqueda.TabIndex = 120;
@@ -81,7 +81,7 @@
             this.btnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
             this.btnSalir.Location = new System.Drawing.Point(632, 466);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(86, 36);
+            this.btnSalir.Size = new System.Drawing.Size(80, 35);
             this.btnSalir.TabIndex = 119;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -95,9 +95,9 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscar.Location = new System.Drawing.Point(563, 49);
+            this.btnBuscar.Location = new System.Drawing.Point(561, 50);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(79, 36);
+            this.btnBuscar.Size = new System.Drawing.Size(80, 35);
             this.btnBuscar.TabIndex = 118;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -106,7 +106,7 @@
             // txtBusqueda
             // 
             this.txtBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusqueda.Location = new System.Drawing.Point(365, 57);
+            this.txtBusqueda.Location = new System.Drawing.Point(364, 57);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(187, 20);
             this.txtBusqueda.TabIndex = 117;
@@ -115,7 +115,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 61);
+            this.label1.Location = new System.Drawing.Point(8, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 116;
@@ -307,7 +307,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.Controls.Add(this.btnBuscar, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtBusqueda, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.cbxCriBusqueda, 1, 1);
@@ -328,7 +328,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label2, 3);
-            this.label2.Location = new System.Drawing.Point(273, 13);
+            this.label2.Location = new System.Drawing.Point(272, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 13);
             this.label2.TabIndex = 122;

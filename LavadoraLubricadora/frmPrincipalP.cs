@@ -138,6 +138,7 @@ namespace LavadoraLubricadora
         private void btnAdmAceite_Click(object sender, EventArgs e)
         {
             btnAdmAceite.BackColor = Color.FromArgb(199, 207, 225);
+            AbrirFormulario<frmAdminAceites>();
         }
 
         private void btnAdmFiltro_Click(object sender, EventArgs e)

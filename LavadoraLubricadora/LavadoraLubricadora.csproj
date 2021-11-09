@@ -53,6 +53,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="frmAdminAceites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminAceites.Designer.cs">
+      <DependentUpon>frmAdminAceites.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAgregarVehiculo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAdminAceites.resx">
+      <DependentUpon>frmAdminAceites.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarVehiculo.resx">
       <DependentUpon>frmAgregarVehiculo.cs</DependentUpon>
     </EmbeddedResource>
