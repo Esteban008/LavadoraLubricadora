@@ -135,6 +135,24 @@
   <wsdl:message name="ILavadoraService_EditarVehiculo_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditarVehiculoResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_EliminarVehiculo_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarVehiculo" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EliminarVehiculo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarVehiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarVehiculoMarca_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarVehiculoMarca" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarVehiculoMarca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarVehiculoMarcaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarVehiculoModelo_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarVehiculoModelo" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarVehiculoModelo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarVehiculoModeloResponse" />
+  </wsdl:message>
   <wsdl:message name="ILavadoraService_IngresarMotorVehiculo_InputMessage">
     <wsdl:part name="parameters" element="tns:IngresarMotorVehiculo" />
   </wsdl:message>
@@ -327,6 +345,18 @@
     <wsdl:operation name="EditarVehiculo">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EditarVehiculo" message="tns:ILavadoraService_EditarVehiculo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EditarVehiculoResponse" message="tns:ILavadoraService_EditarVehiculo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarVehiculo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarVehiculo" message="tns:ILavadoraService_EliminarVehiculo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarVehiculoResponse" message="tns:ILavadoraService_EliminarVehiculo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarVehiculoMarca">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarVehiculoMarca" message="tns:ILavadoraService_BuscarVehiculoMarca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarVehiculoMarcaResponse" message="tns:ILavadoraService_BuscarVehiculoMarca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarVehiculoModelo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarVehiculoModelo" message="tns:ILavadoraService_BuscarVehiculoModelo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarVehiculoModeloResponse" message="tns:ILavadoraService_BuscarVehiculoModelo_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="IngresarMotorVehiculo">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarMotorVehiculo" message="tns:ILavadoraService_IngresarMotorVehiculo_InputMessage" />
@@ -585,6 +615,33 @@
     </wsdl:operation>
     <wsdl:operation name="EditarVehiculo">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/EditarVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarVehiculo">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarVehiculoMarca">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarVehiculoMarca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarVehiculoModelo">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarVehiculoModelo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

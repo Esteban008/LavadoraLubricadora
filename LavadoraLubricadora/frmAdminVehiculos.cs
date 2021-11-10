@@ -13,6 +13,8 @@ namespace LavadoraLubricadora
     public partial class frmAdminVehiculos : Form
     {
         LavadoraService.LavadoraServiceClient cliente;
+        private static string busqueda;
+        private static string valor;
         public frmAdminVehiculos()
         {
             InitializeComponent();
@@ -22,7 +24,8 @@ namespace LavadoraLubricadora
         {
             cliente = new LavadoraService.LavadoraServiceClient();
             LoadIngresar();
-
+            LoadEditar();
+            LoadEliminar();
         }
 
         #region Ingresar Vehiculo
@@ -178,8 +181,6 @@ namespace LavadoraLubricadora
                 cbxMotorVehiculo.Items.Add("Otro Motor");
             }
         }
-
-        #endregion
 
         private void cbxAnioVehiculo_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -396,5 +397,177 @@ namespace LavadoraLubricadora
                 this.Close();
             }
         }
+
+        #endregion
+
+        #region Tab Editar
+
+        private void LoadEditar()
+        {
+            cbxCriBusquedaE.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtBusquedaE.Visible = false;
+        }
+
+        private void btnBuscarE_Click(object sender, EventArgs e)
+        {
+            if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
+            {
+                DataTable vehiculos = cliente.BuscarVehiculoMarca(txtBusquedaE.Text);
+                dgvVehiculosE.DataSource = vehiculos;
+
+            }
+            else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Modelo"))
+            {
+                DataTable vehiculos = cliente.BuscarVehiculoModelo(txtBusquedaE.Text);
+                dgvVehiculosE.DataSource = vehiculos;
+            }
+            else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+            {
+                DataTable vehiculos = cliente.ObtenerVehiculos();
+                dgvVehiculosE.DataSource = vehiculos;
+            }
+            busqueda = cbxCriBusquedaE.SelectedItem.ToString();
+            valor = txtBusquedaE.Text;
+        }
+
+        private void LimpiarCamposE()
+        {
+            txtMarcaE.Clear();
+            txtModeloE.Clear();
+            txtAnioE.Clear();
+            txtTipoMotorE.Clear();
+        }
+
+        private void btnGuardarE_Click(object sender, EventArgs e)
+        {
+            cliente.EditarVehiculo(Convert.ToInt32(dgvVehiculosE.SelectedCells[0].Value.ToString()), txtMarcaE.Text, txtModeloE.Text, Convert.ToInt32(txtAnioE.Text), txtTipoMotorE.Text);
+            DialogResult dialogResult = MessageBox.Show("Vehiculo actualizado exitosamente", "Aviso", MessageBoxButtons.OK);
+            LimpiarCamposE();
+            ActualizarDgvVehiculosE();
+        }
+
+        private void btnCancelarE_Click(object sender, EventArgs e)
+        {
+            LimpiarCamposE();
+        }
+
+        public void ActualizarDgvVehiculosE()
+        {
+            if (busqueda.Equals("Marca"))
+            {
+                DataTable vehiculos = cliente.BuscarVehiculoMarca(valor);
+                dgvVehiculosE.DataSource = vehiculos;
+
+            }
+            else if (busqueda.Equals("Modelo"))
+            {
+                DataTable vehiculos = cliente.BuscarVehiculoModelo(valor);
+                dgvVehiculosE.DataSource = vehiculos;
+
+            }
+            else if (busqueda.Equals("Mostrar Todos"))
+            {
+                DataTable vehiculos = cliente.ObtenerVehiculos();
+                dgvVehiculosE.DataSource = vehiculos;
+            }
+        }
+
+        private void dgvVehiculosE_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtMarcaE.Text = dgvVehiculosE.SelectedCells[1].Value.ToString();
+            txtModeloE.Text = dgvVehiculosE.SelectedCells[2].Value.ToString();
+            txtAnioE.Text = dgvVehiculosE.SelectedCells[3].Value.ToString();
+            txtTipoMotorE.Text = dgvVehiculosE.SelectedCells[4].Value.ToString();
+        }
+
+        private void cbxCriBusquedaE_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+            {
+                txtBusquedaE.Visible = false;
+                txtBusquedaE.Clear();
+            }
+            else
+            {
+                txtBusquedaE.Visible = true;
+                txtBusquedaE.Clear();
+            }
+        }
+
+        #endregion
+
+        #region Tab Eliminar
+
+        private void LoadEliminar()
+        {
+            cbxCriBusquedaD.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtBusquedaD.Visible = false;
+        }
+
+        private void btnBuscarD_Click(object sender, EventArgs e)
+        {
+            if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
+            {
+                DataTable vehiculos = cliente.BuscarVehiculoMarca(txtBusquedaE.Text);
+                dgvVehiculosD.DataSource = vehiculos;
+
+            }
+            else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Modelo"))
+            {
+                DataTable vehiculos = cliente.BuscarVehiculoModelo(txtBusquedaE.Text);
+                dgvVehiculosD.DataSource = vehiculos;
+            }
+            else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+            {
+                DataTable vehiculos = cliente.ObtenerVehiculos();
+                dgvVehiculosD.DataSource = vehiculos;
+            }
+            busqueda = cbxCriBusquedaD.SelectedItem.ToString();
+            valor = txtBusquedaD.Text;
+        }
+
+        private void cbxCriBusquedaD_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+            {
+                txtBusquedaD.Visible = false;
+                txtBusquedaD.Clear();
+            }
+            else
+            {
+                txtBusquedaD.Visible = true;
+                txtBusquedaD.Clear();
+            }
+        }
+
+        public void ActualizarDgvVehiculosD()
+        {
+            if (busqueda.Equals("Marca"))
+            {
+                DataTable vehiculos = cliente.BuscarVehiculoMarca(valor);
+                dgvVehiculosD.DataSource = vehiculos;
+
+            }
+            else if (busqueda.Equals("Modelo"))
+            {
+                DataTable vehiculos = cliente.BuscarVehiculoModelo(valor);
+                dgvVehiculosD.DataSource = vehiculos;
+
+            }
+            else if (busqueda.Equals("Mostrar Todos"))
+            {
+                DataTable vehiculos = cliente.ObtenerVehiculos();
+                dgvVehiculosD.DataSource = vehiculos;
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            cliente.EliminarVehiculo(Convert.ToInt32(dgvVehiculosD.SelectedCells[0].Value));
+            DialogResult dialogResult = MessageBox.Show("Vehículo eliminado con éxito", "Aviso", MessageBoxButtons.OK);
+            ActualizarDgvVehiculosD();
+        }
+
+        #endregion
     }
 }

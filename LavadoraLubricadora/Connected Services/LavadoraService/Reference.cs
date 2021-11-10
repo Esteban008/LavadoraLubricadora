@@ -523,6 +523,24 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/EditarVehiculoResponse")]
         System.Threading.Tasks.Task EditarVehiculoAsync(int id, string marca, string modelo, int anio, string tipoMotor);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/EliminarVehiculoResponse")]
+        void EliminarVehiculo(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/EliminarVehiculoResponse")]
+        System.Threading.Tasks.Task EliminarVehiculoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarVehiculoMarca", ReplyAction="http://tempuri.org/ILavadoraService/BuscarVehiculoMarcaResponse")]
+        System.Data.DataTable BuscarVehiculoMarca(string marca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarVehiculoMarca", ReplyAction="http://tempuri.org/ILavadoraService/BuscarVehiculoMarcaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarVehiculoMarcaAsync(string marca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarVehiculoModelo", ReplyAction="http://tempuri.org/ILavadoraService/BuscarVehiculoModeloResponse")]
+        System.Data.DataTable BuscarVehiculoModelo(string modelo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarVehiculoModelo", ReplyAction="http://tempuri.org/ILavadoraService/BuscarVehiculoModeloResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarVehiculoModeloAsync(string modelo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarMotorVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarMotorVehiculoResponse")]
         void IngresarMotorVehiculo(string marca, string modelo, int anio, string tipoMotor);
         
@@ -891,6 +909,30 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task EditarVehiculoAsync(int id, string marca, string modelo, int anio, string tipoMotor) {
             return base.Channel.EditarVehiculoAsync(id, marca, modelo, anio, tipoMotor);
+        }
+        
+        public void EliminarVehiculo(int id) {
+            base.Channel.EliminarVehiculo(id);
+        }
+        
+        public System.Threading.Tasks.Task EliminarVehiculoAsync(int id) {
+            return base.Channel.EliminarVehiculoAsync(id);
+        }
+        
+        public System.Data.DataTable BuscarVehiculoMarca(string marca) {
+            return base.Channel.BuscarVehiculoMarca(marca);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarVehiculoMarcaAsync(string marca) {
+            return base.Channel.BuscarVehiculoMarcaAsync(marca);
+        }
+        
+        public System.Data.DataTable BuscarVehiculoModelo(string modelo) {
+            return base.Channel.BuscarVehiculoModelo(modelo);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarVehiculoModeloAsync(string modelo) {
+            return base.Channel.BuscarVehiculoModeloAsync(modelo);
         }
         
         public void IngresarMotorVehiculo(string marca, string modelo, int anio, string tipoMotor) {
