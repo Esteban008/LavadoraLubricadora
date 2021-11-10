@@ -221,20 +221,20 @@ namespace LavadoraLubricadora
         public void OcultartxtVehiculo()
         {
             //Ocultar labels y limpiar los text box y labels
-            txtIngresarMarca.Text = "";
+            txtIngresarMarca.Clear();
             lblIngresarMarca.Visible = false;
             txtIngresarMarca.Visible = false;
 
 
-            txtIngresarModelo.Text = "";
+            txtIngresarModelo.Clear();
             lblIngresarModelo.Visible = false;
             txtIngresarModelo.Visible = false;
 
-            txtIngresarAnio.Text = "";
+            txtIngresarAnio.Clear();
             lblIngresarAnio.Visible = false;
             txtIngresarAnio.Visible = false;
 
-            txtIngresarMotor.Text = "";
+            txtIngresarMotor.Clear();
             lblIngresarMotor.Visible = false;
             txtIngresarMotor.Visible = false;
         }

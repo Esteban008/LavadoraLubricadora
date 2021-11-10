@@ -13,8 +13,8 @@ namespace LavadoraLubricadora
     public partial class frmAdminAceites : Form
     {
         LavadoraService.LavadoraServiceClient cliente;
-        private static string busquedaE;
-        private static string valorE;
+        private static string busqueda;
+        private static string valor;
 
         public frmAdminAceites()
         {
@@ -29,7 +29,10 @@ namespace LavadoraLubricadora
             LoadIngresar();
 
             //PESTAÑA DE EDITAR
-            LoadIngresarE();
+            LoadEditar();
+
+            //PESTAÑA ELIMINAR
+            LoadEliminar();
 
         }
 
@@ -293,8 +296,8 @@ namespace LavadoraLubricadora
                 DataTable aceites = cliente.ObtenerAceite();
                 dgvAceitesE.DataSource = aceites;
             }
-            busquedaE = cbxCriBusquedaE.SelectedItem.ToString();
-            valorE = txtBusquedaE.Text;
+            busqueda = cbxCriBusquedaE.SelectedItem.ToString();
+            valor = txtBusquedaE.Text;
         }
 
         private void btnGuardarE_Click(object sender, EventArgs e)
@@ -313,31 +316,32 @@ namespace LavadoraLubricadora
 
         private void btnCancelarE_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
+            LimpiarCamposE();
+            llenarCbxsE();
         }
 
         public void ActualizarDgvAceiteE()
         {
-            if (busquedaE.Equals("Codigo de Barras"))
+            if (busqueda.Equals("Codigo de Barras"))
             {
-                DataTable aceites = cliente.BuscarAceiteCodigo(valorE);
+                DataTable aceites = cliente.BuscarAceiteCodigo(valor);
                 dgvAceitesE.DataSource = aceites;
 
             }
-            else if (busquedaE.Equals("Marca"))
+            else if (busqueda.Equals("Marca"))
             {
-                DataTable aceites = cliente.BuscarAceiteMarca(valorE);
+                DataTable aceites = cliente.BuscarAceiteMarca(valor);
                 dgvAceitesE.DataSource = aceites;
 
             }
-            else if (busquedaE.Equals("Mostrar Todos"))
+            else if (busqueda.Equals("Mostrar Todos"))
             {
                 DataTable aceites = cliente.ObtenerAceite();
                 dgvAceitesE.DataSource = aceites;
             }
         }
 
-        public void LoadIngresarE()
+        public void LoadEditar()
         {
             cbxCriBusquedaE.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxApiE.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -491,10 +495,12 @@ namespace LavadoraLubricadora
             if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
             {
                 txtBusquedaE.Visible = false;
+                txtBusquedaE.Clear();
             }
             else
             {
                 txtBusquedaE.Visible = true;
+                txtBusquedaE.Clear();
             }
         }
 
@@ -613,6 +619,85 @@ namespace LavadoraLubricadora
             txtMargenMenorE.Text = magenxmenorE.ToString();
         }
 
-        #endregion 
+
+
+        #endregion
+
+        #region Tab Eliminar
+
+        private void btnBuscarD_Click(object sender, EventArgs e)
+        {
+            if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Codigo de Barras"))
+            {
+                DataTable aceites = cliente.BuscarAceiteCodigo(txtBusquedaD.Text);
+                dgvAceitesD.DataSource = aceites;
+
+            }
+            else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
+            {
+                DataTable aceites = cliente.BuscarAceiteMarca(txtBusquedaD.Text);
+                dgvAceitesD.DataSource = aceites;
+
+            }
+            else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+            {
+                DataTable aceites = cliente.ObtenerAceite();
+                dgvAceitesD.DataSource = aceites;
+            }
+            busqueda = cbxCriBusquedaD.SelectedItem.ToString();
+            valor = txtBusquedaD.Text;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            cliente.EliminarAceite(Convert.ToInt32(dgvAceitesD.SelectedCells[0].Value));
+            DialogResult dialogResult = MessageBox.Show("Aceite eliminado con éxito", "Aviso", MessageBoxButtons.OK);
+            ActualizarDgvAceiteD();
+        }
+
+        public void LoadEliminar()
+        {
+            cbxCriBusquedaD.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtBusquedaD.Visible = false;
+        }
+
+        private void cbxCriBusquedaD_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+            {
+                txtBusquedaD.Visible = false;
+                txtBusquedaD.Clear();
+            }
+            else
+            {
+                txtBusquedaD.Visible = true;
+                txtBusquedaD.Clear();
+            }
+        }
+
+
+        public void ActualizarDgvAceiteD()
+        {
+            if (busqueda.Equals("Codigo de Barras"))
+            {
+                DataTable aceites = cliente.BuscarAceiteCodigo(valor);
+                dgvAceitesD.DataSource = aceites;
+
+            }
+            else if (busqueda.Equals("Marca"))
+            {
+                DataTable aceites = cliente.BuscarAceiteMarca(valor);
+                dgvAceitesD.DataSource = aceites;
+
+            }
+            else if (busqueda.Equals("Mostrar Todos"))
+            {
+                DataTable aceites = cliente.ObtenerAceite();
+                dgvAceitesD.DataSource = aceites;
+            }
+        }
+
+        #endregion
+
     }
 }
