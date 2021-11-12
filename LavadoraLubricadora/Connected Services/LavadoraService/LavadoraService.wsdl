@@ -87,6 +87,24 @@
   <wsdl:message name="ILavadoraService_ObtenerApi_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerApiResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarFiltro_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarFiltro" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarFiltro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarFiltroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarVehiculoFiltro_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarVehiculoFiltro" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarVehiculoFiltro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarVehiculoFiltroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarCodigoFiltro_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarCodigoFiltro" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarCodigoFiltro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarCodigoFiltroResponse" />
+  </wsdl:message>
   <wsdl:message name="ILavadoraService_ObtenerProducto_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerProducto" />
   </wsdl:message>
@@ -98,6 +116,12 @@
   </wsdl:message>
   <wsdl:message name="ILavadoraService_ObtenerVehiculo_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerVehiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCliente" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerClienteResponse" />
   </wsdl:message>
   <wsdl:message name="ILavadoraService_ObtenerMarcaVehiculo_InputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerMarcaVehiculo" />
@@ -314,6 +338,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerApi" message="tns:ILavadoraService_ObtenerApi_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerApiResponse" message="tns:ILavadoraService_ObtenerApi_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="IngresarFiltro">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarFiltro" message="tns:ILavadoraService_IngresarFiltro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarFiltroResponse" message="tns:ILavadoraService_IngresarFiltro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarVehiculoFiltro">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarVehiculoFiltro" message="tns:ILavadoraService_IngresarVehiculoFiltro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarVehiculoFiltroResponse" message="tns:ILavadoraService_IngresarVehiculoFiltro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarCodigoFiltro">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarCodigoFiltro" message="tns:ILavadoraService_IngresarCodigoFiltro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarCodigoFiltroResponse" message="tns:ILavadoraService_IngresarCodigoFiltro_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ObtenerProducto">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerProducto" message="tns:ILavadoraService_ObtenerProducto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerProductoResponse" message="tns:ILavadoraService_ObtenerProducto_OutputMessage" />
@@ -321,6 +357,10 @@
     <wsdl:operation name="ObtenerVehiculo">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerVehiculo" message="tns:ILavadoraService_ObtenerVehiculo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerVehiculoResponse" message="tns:ILavadoraService_ObtenerVehiculo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerCliente" message="tns:ILavadoraService_ObtenerCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerClienteResponse" message="tns:ILavadoraService_ObtenerCliente_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerMarcaVehiculo">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerMarcaVehiculo" message="tns:ILavadoraService_ObtenerMarcaVehiculo_InputMessage" />
@@ -550,6 +590,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="IngresarFiltro">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarFiltro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarVehiculoFiltro">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarVehiculoFiltro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarCodigoFiltro">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarCodigoFiltro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ObtenerProducto">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerProducto" style="document" />
       <wsdl:input>
@@ -561,6 +628,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerVehiculo">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCliente">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerCliente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
