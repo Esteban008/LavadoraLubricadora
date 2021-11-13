@@ -121,5 +121,22 @@ namespace LavadoraLubricadora
 
             dgvVehiculos2.DataSource = dtLista;
         }
+
+        private void btnGuardarVehiculos_Click(object sender, EventArgs e)
+        {
+            List<int> idVehiculos = new List<int>();
+
+            foreach (DataGridViewRow row in dgvVehiculos2.Rows)
+            {
+                idVehiculos.Add(Convert.ToInt32(dgvVehiculos2.CurrentCell.Value.ToString()));
+            }
+
+            
+        }
+
+
+        
+
+
     }
 }
