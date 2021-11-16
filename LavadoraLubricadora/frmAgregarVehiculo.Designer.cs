@@ -53,6 +53,7 @@ namespace LavadoraLubricadora
             this.btnGuardarVehiculos = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculosE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos2)).BeginInit();
@@ -70,7 +71,7 @@ namespace LavadoraLubricadora
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel3.Controls.Add(this.txtBusquedaE, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.cbxCriBusquedaE, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
@@ -86,7 +87,7 @@ namespace LavadoraLubricadora
             // txtBusquedaE
             // 
             this.txtBusquedaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaE.Location = new System.Drawing.Point(406, 13);
+            this.txtBusquedaE.Location = new System.Drawing.Point(404, 13);
             this.txtBusquedaE.Name = "txtBusquedaE";
             this.txtBusquedaE.Size = new System.Drawing.Size(209, 20);
             this.txtBusquedaE.TabIndex = 117;
@@ -99,9 +100,9 @@ namespace LavadoraLubricadora
             "Marca",
             "Modelo",
             "Mostrar Todos"});
-            this.cbxCriBusquedaE.Location = new System.Drawing.Point(142, 13);
+            this.cbxCriBusquedaE.Location = new System.Drawing.Point(141, 13);
             this.cbxCriBusquedaE.Name = "cbxCriBusquedaE";
-            this.cbxCriBusquedaE.Size = new System.Drawing.Size(194, 21);
+            this.cbxCriBusquedaE.Size = new System.Drawing.Size(193, 21);
             this.cbxCriBusquedaE.TabIndex = 120;
             this.cbxCriBusquedaE.SelectedValueChanged += new System.EventHandler(this.cbxCriBusquedaE_SelectedValueChanged);
             // 
@@ -109,7 +110,7 @@ namespace LavadoraLubricadora
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 17);
+            this.label1.Location = new System.Drawing.Point(15, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 116;
@@ -123,7 +124,7 @@ namespace LavadoraLubricadora
             this.btnBuscarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarE.Location = new System.Drawing.Point(655, 6);
+            this.btnBuscarE.Location = new System.Drawing.Point(653, 6);
             this.btnBuscarE.Name = "btnBuscarE";
             this.btnBuscarE.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarE.TabIndex = 118;
@@ -305,13 +306,13 @@ namespace LavadoraLubricadora
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 6);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.Size = new System.Drawing.Size(364, 13);
             this.label3.TabIndex = 129;
-            this.label3.Text = "Lista de Vehículos:";
+            this.label3.Text = "¿No encuentra el vehículo?    Dirigase al apartado de Administrar Vehículos: ";
             // 
             // btnGuardarVehiculos
             // 
@@ -335,12 +336,15 @@ namespace LavadoraLubricadora
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 290);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 267);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 26);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(613, 49);
             this.tableLayoutPanel1.TabIndex = 131;
             // 
             // tableLayoutPanel2
@@ -358,6 +362,16 @@ namespace LavadoraLubricadora
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(259, 36);
             this.tableLayoutPanel2.TabIndex = 132;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 13);
+            this.label2.TabIndex = 130;
+            this.label2.Text = "Lista de Vehículos:";
             // 
             // frmAgregarVehiculo
             // 
@@ -412,5 +426,6 @@ namespace LavadoraLubricadora
         private System.Windows.Forms.DataGridViewTextBoxColumn VModelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn VAnio;
         private System.Windows.Forms.DataGridViewTextBoxColumn VTipoMotor;
+        private System.Windows.Forms.Label label2;
     }
 }

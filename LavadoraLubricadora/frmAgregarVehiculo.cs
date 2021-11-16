@@ -13,7 +13,9 @@ namespace LavadoraLubricadora
     public partial class frmAgregarVehiculo : Form
     {
         LavadoraService.LavadoraServiceClient cliente;
+        
         DataTable dtLista;
+
         public frmAgregarVehiculo()
         {
             InitializeComponent();
@@ -34,23 +36,14 @@ namespace LavadoraLubricadora
             dtLista.Columns.Add("Anio");
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("¿Seguro que desea Salir?", "Aviso", MessageBoxButtons.YesNo);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("¿Seguro que desea Salir?", "Aviso", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("¿Seguro que desea Cancelar?", "Aviso", MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
             {
-                this.Close();
+                dtLista.Rows.Clear();
+                dgvVehiculos2.DataSource = dtLista;
             }
         }
 
@@ -124,19 +117,20 @@ namespace LavadoraLubricadora
 
         private void btnGuardarVehiculos_Click(object sender, EventArgs e)
         {
+            
+            DialogResult dialogResult = MessageBox.Show("Lista creada con éxito", "Aviso", MessageBoxButtons.OK);
+
             List<int> idVehiculos = new List<int>();
 
             foreach (DataGridViewRow row in dgvVehiculos2.Rows)
             {
-                idVehiculos.Add(Convert.ToInt32(dgvVehiculos2.CurrentCell.Value.ToString()));
+                idVehiculos.Add(Convert.ToInt32(row.Cells[0].Value.ToString()));
             }
 
-            
+            cliente.ObtenerIDsVehiculos(idVehiculos.ToArray());
+
+            this.Close();
         }
-
-
-        
-
 
     }
 }

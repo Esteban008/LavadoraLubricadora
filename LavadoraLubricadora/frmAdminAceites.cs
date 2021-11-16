@@ -107,11 +107,11 @@ namespace LavadoraLubricadora
             txtCodigoB.Clear();
             txtCantidad.Clear();
             txtCantidadMin.Clear();
-            cbxPresentacion.Items.Clear();
-            cbxSae.Items.Clear();
-            cbxTipoCombustible.Items.Clear();
-            cbxApi.Items.Clear();
-            cbxTipoAceite.Items.Clear();
+            cbxPresentacion.SelectedIndex = -1;
+            cbxSae.SelectedIndex = -1;
+            cbxTipoCombustible.SelectedIndex = -1;
+            cbxApi.SelectedIndex = -1;
+            cbxTipoAceite.SelectedIndex = -1;
             txtPreSIva.Clear();
             txtPreCIva.Clear();
             txtGananPorMayor.Clear();

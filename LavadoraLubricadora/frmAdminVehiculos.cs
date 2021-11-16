@@ -226,7 +226,7 @@ namespace LavadoraLubricadora
                 if (validacionIngreso)
                 {
                     //Se crea un NUEVO vehiculo
-                    cliente.IngresarVehiculo(txtIngresarMarca.Text, txtIngresarModelo.Text, Convert.ToInt32(txtIngresarAnio.Text), txtIngresarMotor.Text);
+                    cliente.IngresarVehiculo(txtIngresarMarca.Text, txtIngresarModelo.Text, txtIngresarAnio.Text, txtIngresarMotor.Text);
                     DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
                     HabilitarCombos();
                     LimpiarCombos();
@@ -263,7 +263,7 @@ namespace LavadoraLubricadora
                     if (validacionIngreso)
                     {
                         //Se crea un NUEVO vehiculo 
-                        cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), txtIngresarModelo.Text, Convert.ToInt32(txtIngresarAnio.Text), txtIngresarMotor.Text);
+                        cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), txtIngresarModelo.Text, txtIngresarAnio.Text, txtIngresarMotor.Text);
                         DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
                         HabilitarCombos();
                         LimpiarCombos();
@@ -287,7 +287,7 @@ namespace LavadoraLubricadora
                         {
                             if ((vehiculo.Marca.Equals(cbxMarcaVehiculo.SelectedItem.ToString())) && (vehiculo.Modelo.Equals(cbxModeloVehiculo.SelectedItem.ToString())))
                             {
-                                if (vehiculo.Anio == Convert.ToInt32(txtIngresarAnio.Text))
+                                if (vehiculo.Anio == txtIngresarAnio.Text)
                                 {
                                     validacionIngreso = false;
                                 }
@@ -301,7 +301,7 @@ namespace LavadoraLubricadora
                             if (cbxMotorVehiculo.SelectedItem.Equals("Otro Motor"))
                             {
                                 //Se crea un NUEVO vehiculo
-                                cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), Convert.ToInt32(txtIngresarAnio.Text), txtIngresarMotor.Text);
+                                cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, txtIngresarMotor.Text);
                                 DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
                                 HabilitarCombos();
                                 LimpiarCombos();
@@ -311,7 +311,7 @@ namespace LavadoraLubricadora
                             else
                             {
                                 //Se crea un NUEVO vehiculo
-                                cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), Convert.ToInt32(txtIngresarAnio.Text), cbxMotorVehiculo.SelectedItem.ToString());
+                                cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, cbxMotorVehiculo.SelectedItem.ToString());
                                 DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
                                 HabilitarCombos();
                                 LimpiarCombos();
@@ -335,7 +335,7 @@ namespace LavadoraLubricadora
                             //Se verifica que el motor del vehiculo no existe
                             foreach (LavadoraService.Vehiculo vehiculo in vehiculos)
                             {
-                                if ((vehiculo.Marca.Equals(cbxMarcaVehiculo.SelectedItem.ToString())) && (vehiculo.Modelo.Equals(cbxModeloVehiculo.SelectedItem.ToString())) && (vehiculo.Anio == Convert.ToInt32(cbxAnioVehiculo.SelectedItem.ToString())))
+                                if ((vehiculo.Marca.Equals(cbxMarcaVehiculo.SelectedItem.ToString())) && (vehiculo.Modelo.Equals(cbxModeloVehiculo.SelectedItem.ToString())) && (vehiculo.Anio == cbxAnioVehiculo.SelectedItem.ToString()))
                                 {
                                     foreach (string motor in vehiculo.TipoMotor)
                                     {
@@ -353,7 +353,7 @@ namespace LavadoraLubricadora
                                 if (cbxAnioVehiculo.SelectedItem.Equals("Otro Año"))
                                 {
                                     //Se crea un NUEVO vehiculo
-                                    cliente.IngresarMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), Convert.ToInt32(txtIngresarAnio.Text), txtIngresarMotor.Text);
+                                    cliente.IngresarMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, txtIngresarMotor.Text);
                                     DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
                                     HabilitarCombos();
                                     LimpiarCombos();
@@ -363,7 +363,7 @@ namespace LavadoraLubricadora
                                 else
                                 {
                                     //Se crea un NUEVO vehiculo
-                                    cliente.IngresarMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), Convert.ToInt32(cbxAnioVehiculo.SelectedItem.ToString()), txtIngresarMotor.Text);
+                                    cliente.IngresarMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), cbxAnioVehiculo.SelectedItem.ToString(), txtIngresarMotor.Text);
                                     DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
                                     HabilitarCombos();
                                     LimpiarCombos();
@@ -440,7 +440,7 @@ namespace LavadoraLubricadora
 
         private void btnGuardarE_Click(object sender, EventArgs e)
         {
-            cliente.EditarVehiculo(Convert.ToInt32(dgvVehiculosE.SelectedCells[0].Value.ToString()), txtMarcaE.Text, txtModeloE.Text, Convert.ToInt32(txtAnioE.Text), txtTipoMotorE.Text);
+            cliente.EditarVehiculo(Convert.ToInt32(dgvVehiculosE.SelectedCells[0].Value.ToString()), txtMarcaE.Text, txtModeloE.Text, txtAnioE.Text, txtTipoMotorE.Text);
             DialogResult dialogResult = MessageBox.Show("Vehiculo actualizado exitosamente", "Aviso", MessageBoxButtons.OK);
             LimpiarCamposE();
             ActualizarDgvVehiculosE();

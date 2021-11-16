@@ -15,211 +15,6 @@ namespace LavadoraLubricadora.LavadoraService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Producto", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
-    [System.SerializableAttribute()]
-    public partial class Producto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CantidadField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CantidadMinimaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CodigoBarrasField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescripcionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MarcaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double PrecioCompraConIvaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double PrecioCompraSinIvaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double PrecioMargenxMayorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double PrecioMargenxMenorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double PrecioVentaxMayorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double PrecioVentaxMenorField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Cantidad {
-            get {
-                return this.CantidadField;
-            }
-            set {
-                if ((this.CantidadField.Equals(value) != true)) {
-                    this.CantidadField = value;
-                    this.RaisePropertyChanged("Cantidad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CantidadMinima {
-            get {
-                return this.CantidadMinimaField;
-            }
-            set {
-                if ((this.CantidadMinimaField.Equals(value) != true)) {
-                    this.CantidadMinimaField = value;
-                    this.RaisePropertyChanged("CantidadMinima");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CodigoBarras {
-            get {
-                return this.CodigoBarrasField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CodigoBarrasField, value) != true)) {
-                    this.CodigoBarrasField = value;
-                    this.RaisePropertyChanged("CodigoBarras");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Descripcion {
-            get {
-                return this.DescripcionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
-                    this.DescripcionField = value;
-                    this.RaisePropertyChanged("Descripcion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Marca {
-            get {
-                return this.MarcaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MarcaField, value) != true)) {
-                    this.MarcaField = value;
-                    this.RaisePropertyChanged("Marca");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double PrecioCompraConIva {
-            get {
-                return this.PrecioCompraConIvaField;
-            }
-            set {
-                if ((this.PrecioCompraConIvaField.Equals(value) != true)) {
-                    this.PrecioCompraConIvaField = value;
-                    this.RaisePropertyChanged("PrecioCompraConIva");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double PrecioCompraSinIva {
-            get {
-                return this.PrecioCompraSinIvaField;
-            }
-            set {
-                if ((this.PrecioCompraSinIvaField.Equals(value) != true)) {
-                    this.PrecioCompraSinIvaField = value;
-                    this.RaisePropertyChanged("PrecioCompraSinIva");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double PrecioMargenxMayor {
-            get {
-                return this.PrecioMargenxMayorField;
-            }
-            set {
-                if ((this.PrecioMargenxMayorField.Equals(value) != true)) {
-                    this.PrecioMargenxMayorField = value;
-                    this.RaisePropertyChanged("PrecioMargenxMayor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double PrecioMargenxMenor {
-            get {
-                return this.PrecioMargenxMenorField;
-            }
-            set {
-                if ((this.PrecioMargenxMenorField.Equals(value) != true)) {
-                    this.PrecioMargenxMenorField = value;
-                    this.RaisePropertyChanged("PrecioMargenxMenor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double PrecioVentaxMayor {
-            get {
-                return this.PrecioVentaxMayorField;
-            }
-            set {
-                if ((this.PrecioVentaxMayorField.Equals(value) != true)) {
-                    this.PrecioVentaxMayorField = value;
-                    this.RaisePropertyChanged("PrecioVentaxMayor");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double PrecioVentaxMenor {
-            get {
-                return this.PrecioVentaxMenorField;
-            }
-            set {
-                if ((this.PrecioVentaxMenorField.Equals(value) != true)) {
-                    this.PrecioVentaxMenorField = value;
-                    this.RaisePropertyChanged("PrecioVentaxMenor");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Vehiculo", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
     [System.SerializableAttribute()]
     public partial class Vehiculo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -228,7 +23,7 @@ namespace LavadoraLubricadora.LavadoraService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AnioField;
+        private string AnioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdVehiculoField;
@@ -253,12 +48,12 @@ namespace LavadoraLubricadora.LavadoraService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Anio {
+        public string Anio {
             get {
                 return this.AnioField;
             }
             set {
-                if ((this.AnioField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.AnioField, value) != true)) {
                     this.AnioField = value;
                     this.RaisePropertyChanged("Anio");
                 }
@@ -323,155 +118,6 @@ namespace LavadoraLubricadora.LavadoraService {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Persona", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(LavadoraLubricadora.LavadoraService.Cliente))]
-    public partial class Persona : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ApellidoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CorreoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdPersonaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TelefonoField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Apellido {
-            get {
-                return this.ApellidoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ApellidoField, value) != true)) {
-                    this.ApellidoField = value;
-                    this.RaisePropertyChanged("Apellido");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Correo {
-            get {
-                return this.CorreoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CorreoField, value) != true)) {
-                    this.CorreoField = value;
-                    this.RaisePropertyChanged("Correo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdPersona {
-            get {
-                return this.IdPersonaField;
-            }
-            set {
-                if ((this.IdPersonaField.Equals(value) != true)) {
-                    this.IdPersonaField = value;
-                    this.RaisePropertyChanged("IdPersona");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre {
-            get {
-                return this.NombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
-                    this.NombreField = value;
-                    this.RaisePropertyChanged("Nombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Telefono {
-            get {
-                return this.TelefonoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TelefonoField, value) != true)) {
-                    this.TelefonoField = value;
-                    this.RaisePropertyChanged("Telefono");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Cliente", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
-    [System.SerializableAttribute()]
-    public partial class Cliente : LavadoraLubricadora.LavadoraService.Persona {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CedulaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DireccionField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cedula {
-            get {
-                return this.CedulaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CedulaField, value) != true)) {
-                    this.CedulaField = value;
-                    this.RaisePropertyChanged("Cedula");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Direccion {
-            get {
-                return this.DireccionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DireccionField, value) != true)) {
-                    this.DireccionField = value;
-                    this.RaisePropertyChanged("Direccion");
-                }
             }
         }
     }
@@ -642,23 +288,23 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarCodigoFiltro", ReplyAction="http://tempuri.org/ILavadoraService/IngresarCodigoFiltroResponse")]
         System.Threading.Tasks.Task IngresarCodigoFiltroAsync(string codigoBarras, string codigo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProducto", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProductoResponse")]
-        LavadoraLubricadora.LavadoraService.Producto ObtenerProducto(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ValidarFiltroResponse")]
+        bool ValidarFiltro(string codigoBarras);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProducto", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProductoResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Producto> ObtenerProductoAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ValidarFiltroResponse")]
+        System.Threading.Tasks.Task<bool> ValidarFiltroAsync(string codigoBarras);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerTipoFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerTipoFiltroResponse")]
+        string[] ObtenerTipoFiltro();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerTipoFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerTipoFiltroResponse")]
+        System.Threading.Tasks.Task<string[]> ObtenerTipoFiltroAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerVehiculoResponse")]
         LavadoraLubricadora.LavadoraService.Vehiculo[] ObtenerVehiculo();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerVehiculoResponse")]
         System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Vehiculo[]> ObtenerVehiculoAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerCliente", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerClienteResponse")]
-        LavadoraLubricadora.LavadoraService.Cliente ObtenerCliente(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerCliente", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerClienteResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Cliente> ObtenerClienteAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerMarcaVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerMarcaVehiculoResponse")]
         string[] ObtenerMarcaVehiculo();
@@ -684,17 +330,29 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculoResponse")]
         System.Threading.Tasks.Task<string[]> ObtenerMotorVehiculoAsync(string marca, string modelo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarVehiculoResponse")]
-        void IngresarVehiculo(string marca, string modelo, int anio, string tipoMotor);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerIDsVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerIDsVehiculosResponse")]
+        void ObtenerIDsVehiculos(int[] idVehiculos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerIDsVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerIDsVehiculosResponse")]
+        System.Threading.Tasks.Task ObtenerIDsVehiculosAsync(int[] idVehiculos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/DevolverIDsVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/DevolverIDsVehiculosResponse")]
+        int[] DevolverIDsVehiculos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/DevolverIDsVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/DevolverIDsVehiculosResponse")]
+        System.Threading.Tasks.Task<int[]> DevolverIDsVehiculosAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarVehiculoResponse")]
-        System.Threading.Tasks.Task IngresarVehiculoAsync(string marca, string modelo, int anio, string tipoMotor);
+        void IngresarVehiculo(string marca, string modelo, string anio, string tipoMotor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarVehiculoResponse")]
+        System.Threading.Tasks.Task IngresarVehiculoAsync(string marca, string modelo, string anio, string tipoMotor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/EditarVehiculoResponse")]
-        void EditarVehiculo(int id, string marca, string modelo, int anio, string tipoMotor);
+        void EditarVehiculo(int id, string marca, string modelo, string anio, string tipoMotor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/EditarVehiculoResponse")]
-        System.Threading.Tasks.Task EditarVehiculoAsync(int id, string marca, string modelo, int anio, string tipoMotor);
+        System.Threading.Tasks.Task EditarVehiculoAsync(int id, string marca, string modelo, string anio, string tipoMotor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/EliminarVehiculoResponse")]
         void EliminarVehiculo(int id);
@@ -715,10 +373,10 @@ namespace LavadoraLubricadora.LavadoraService {
         System.Threading.Tasks.Task<System.Data.DataTable> BuscarVehiculoModeloAsync(string modelo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarMotorVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarMotorVehiculoResponse")]
-        void IngresarMotorVehiculo(string marca, string modelo, int anio, string tipoMotor);
+        void IngresarMotorVehiculo(string marca, string modelo, string anio, string tipoMotor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarMotorVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarMotorVehiculoResponse")]
-        System.Threading.Tasks.Task IngresarMotorVehiculoAsync(string marca, string modelo, int anio, string tipoMotor);
+        System.Threading.Tasks.Task IngresarMotorVehiculoAsync(string marca, string modelo, string anio, string tipoMotor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/Login", ReplyAction="http://tempuri.org/ILavadoraService/LoginResponse")]
         bool Login(string correo, string clave);
@@ -1044,12 +702,20 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.IngresarCodigoFiltroAsync(codigoBarras, codigo);
         }
         
-        public LavadoraLubricadora.LavadoraService.Producto ObtenerProducto(int id) {
-            return base.Channel.ObtenerProducto(id);
+        public bool ValidarFiltro(string codigoBarras) {
+            return base.Channel.ValidarFiltro(codigoBarras);
         }
         
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Producto> ObtenerProductoAsync(int id) {
-            return base.Channel.ObtenerProductoAsync(id);
+        public System.Threading.Tasks.Task<bool> ValidarFiltroAsync(string codigoBarras) {
+            return base.Channel.ValidarFiltroAsync(codigoBarras);
+        }
+        
+        public string[] ObtenerTipoFiltro() {
+            return base.Channel.ObtenerTipoFiltro();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ObtenerTipoFiltroAsync() {
+            return base.Channel.ObtenerTipoFiltroAsync();
         }
         
         public LavadoraLubricadora.LavadoraService.Vehiculo[] ObtenerVehiculo() {
@@ -1058,14 +724,6 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Vehiculo[]> ObtenerVehiculoAsync() {
             return base.Channel.ObtenerVehiculoAsync();
-        }
-        
-        public LavadoraLubricadora.LavadoraService.Cliente ObtenerCliente(int id) {
-            return base.Channel.ObtenerCliente(id);
-        }
-        
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Cliente> ObtenerClienteAsync(int id) {
-            return base.Channel.ObtenerClienteAsync(id);
         }
         
         public string[] ObtenerMarcaVehiculo() {
@@ -1100,19 +758,35 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.ObtenerMotorVehiculoAsync(marca, modelo);
         }
         
-        public void IngresarVehiculo(string marca, string modelo, int anio, string tipoMotor) {
+        public void ObtenerIDsVehiculos(int[] idVehiculos) {
+            base.Channel.ObtenerIDsVehiculos(idVehiculos);
+        }
+        
+        public System.Threading.Tasks.Task ObtenerIDsVehiculosAsync(int[] idVehiculos) {
+            return base.Channel.ObtenerIDsVehiculosAsync(idVehiculos);
+        }
+        
+        public int[] DevolverIDsVehiculos() {
+            return base.Channel.DevolverIDsVehiculos();
+        }
+        
+        public System.Threading.Tasks.Task<int[]> DevolverIDsVehiculosAsync() {
+            return base.Channel.DevolverIDsVehiculosAsync();
+        }
+        
+        public void IngresarVehiculo(string marca, string modelo, string anio, string tipoMotor) {
             base.Channel.IngresarVehiculo(marca, modelo, anio, tipoMotor);
         }
         
-        public System.Threading.Tasks.Task IngresarVehiculoAsync(string marca, string modelo, int anio, string tipoMotor) {
+        public System.Threading.Tasks.Task IngresarVehiculoAsync(string marca, string modelo, string anio, string tipoMotor) {
             return base.Channel.IngresarVehiculoAsync(marca, modelo, anio, tipoMotor);
         }
         
-        public void EditarVehiculo(int id, string marca, string modelo, int anio, string tipoMotor) {
+        public void EditarVehiculo(int id, string marca, string modelo, string anio, string tipoMotor) {
             base.Channel.EditarVehiculo(id, marca, modelo, anio, tipoMotor);
         }
         
-        public System.Threading.Tasks.Task EditarVehiculoAsync(int id, string marca, string modelo, int anio, string tipoMotor) {
+        public System.Threading.Tasks.Task EditarVehiculoAsync(int id, string marca, string modelo, string anio, string tipoMotor) {
             return base.Channel.EditarVehiculoAsync(id, marca, modelo, anio, tipoMotor);
         }
         
@@ -1140,11 +814,11 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.BuscarVehiculoModeloAsync(modelo);
         }
         
-        public void IngresarMotorVehiculo(string marca, string modelo, int anio, string tipoMotor) {
+        public void IngresarMotorVehiculo(string marca, string modelo, string anio, string tipoMotor) {
             base.Channel.IngresarMotorVehiculo(marca, modelo, anio, tipoMotor);
         }
         
-        public System.Threading.Tasks.Task IngresarMotorVehiculoAsync(string marca, string modelo, int anio, string tipoMotor) {
+        public System.Threading.Tasks.Task IngresarMotorVehiculoAsync(string marca, string modelo, string anio, string tipoMotor) {
             return base.Channel.IngresarMotorVehiculoAsync(marca, modelo, anio, tipoMotor);
         }
         

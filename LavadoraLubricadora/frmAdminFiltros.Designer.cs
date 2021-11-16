@@ -271,7 +271,7 @@
             this.tableLayoutPanel2.Controls.Add(this.btnAgregarVehiculos, 4, 8);
             this.tableLayoutPanel2.Controls.Add(this.label18, 0, 7);
             this.tableLayoutPanel2.Controls.Add(this.rtxtCodigos, 1, 7);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(23, 33);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(30, 29);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 12;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.905139F));
@@ -287,7 +287,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.85771F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.09091F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(749, 366);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.tableLayoutPanel2.TabIndex = 3;
             // 
             // txtMargenMenor
             // 
@@ -322,6 +322,8 @@
             this.txtPrecioVMenor.Name = "txtPrecioVMenor";
             this.txtPrecioVMenor.Size = new System.Drawing.Size(242, 20);
             this.txtPrecioVMenor.TabIndex = 126;
+            this.txtPrecioVMenor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioVMenor_KeyPress);
+            this.txtPrecioVMenor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPrecioVMenor_KeyUp);
             // 
             // label12
             // 
@@ -356,6 +358,8 @@
             this.txtGananPorMayor.Name = "txtGananPorMayor";
             this.txtGananPorMayor.Size = new System.Drawing.Size(242, 20);
             this.txtGananPorMayor.TabIndex = 123;
+            this.txtGananPorMayor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGananPorMayor_KeyPress);
+            this.txtGananPorMayor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtGananPorMayor_KeyUp);
             // 
             // label10
             // 
@@ -374,6 +378,8 @@
             this.txtPreSIva.Name = "txtPreSIva";
             this.txtPreSIva.Size = new System.Drawing.Size(242, 20);
             this.txtPreSIva.TabIndex = 122;
+            this.txtPreSIva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPreSIva_KeyPress);
+            this.txtPreSIva.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPreSIva_KeyUp);
             // 
             // label8
             // 
@@ -1043,7 +1049,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel3.Controls.Add(this.txtBusquedaE, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.cbxCriBusquedaE, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
@@ -1059,9 +1065,9 @@
             // txtBusquedaE
             // 
             this.txtBusquedaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaE.Location = new System.Drawing.Point(369, 13);
+            this.txtBusquedaE.Location = new System.Drawing.Point(366, 13);
             this.txtBusquedaE.Name = "txtBusquedaE";
-            this.txtBusquedaE.Size = new System.Drawing.Size(190, 20);
+            this.txtBusquedaE.Size = new System.Drawing.Size(188, 20);
             this.txtBusquedaE.TabIndex = 117;
             // 
             // cbxCriBusquedaE
@@ -1072,9 +1078,9 @@
             "Codigo de Barras",
             "Marca",
             "Mostrar Todos"});
-            this.cbxCriBusquedaE.Location = new System.Drawing.Point(129, 13);
+            this.cbxCriBusquedaE.Location = new System.Drawing.Point(128, 13);
             this.cbxCriBusquedaE.Name = "cbxCriBusquedaE";
-            this.cbxCriBusquedaE.Size = new System.Drawing.Size(175, 21);
+            this.cbxCriBusquedaE.Size = new System.Drawing.Size(174, 21);
             this.cbxCriBusquedaE.TabIndex = 120;
             // 
             // label1
@@ -1095,7 +1101,7 @@
             this.btnBuscarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarE.Location = new System.Drawing.Point(569, 6);
+            this.btnBuscarE.Location = new System.Drawing.Point(564, 6);
             this.btnBuscarE.Name = "btnBuscarE";
             this.btnBuscarE.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarE.TabIndex = 118;
@@ -1315,7 +1321,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel5.Controls.Add(this.txtBusquedaD, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.cbxCriBusquedaD, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.label37, 0, 0);
@@ -1331,9 +1337,9 @@
             // txtBusquedaD
             // 
             this.txtBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaD.Location = new System.Drawing.Point(369, 13);
+            this.txtBusquedaD.Location = new System.Drawing.Point(366, 13);
             this.txtBusquedaD.Name = "txtBusquedaD";
-            this.txtBusquedaD.Size = new System.Drawing.Size(190, 20);
+            this.txtBusquedaD.Size = new System.Drawing.Size(188, 20);
             this.txtBusquedaD.TabIndex = 117;
             // 
             // cbxCriBusquedaD
@@ -1344,9 +1350,9 @@
             "Codigo de Barras",
             "Marca",
             "Mostrar Todos"});
-            this.cbxCriBusquedaD.Location = new System.Drawing.Point(129, 13);
+            this.cbxCriBusquedaD.Location = new System.Drawing.Point(128, 13);
             this.cbxCriBusquedaD.Name = "cbxCriBusquedaD";
-            this.cbxCriBusquedaD.Size = new System.Drawing.Size(175, 21);
+            this.cbxCriBusquedaD.Size = new System.Drawing.Size(174, 21);
             this.cbxCriBusquedaD.TabIndex = 120;
             // 
             // label37
@@ -1367,7 +1373,7 @@
             this.btnBuscarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarD.Location = new System.Drawing.Point(569, 6);
+            this.btnBuscarD.Location = new System.Drawing.Point(564, 6);
             this.btnBuscarD.Name = "btnBuscarD";
             this.btnBuscarD.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarD.TabIndex = 118;
@@ -1572,6 +1578,7 @@
             this.btnSalir.TabIndex = 129;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // toolTipMsj
             // 
@@ -1705,6 +1712,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel pnlContenedor;
+        private System.Windows.Forms.ToolTip toolTipMsj;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox txtMargenMenor;
         private System.Windows.Forms.Label label11;
@@ -1722,7 +1730,6 @@
         private System.Windows.Forms.ComboBox cbxTipoFiltro;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCantidadMin;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label19;
@@ -1738,7 +1745,7 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtRosca;
         private System.Windows.Forms.Button btnAgregarVehiculos;
+        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.RichTextBox rtxtCodigos;
-        private System.Windows.Forms.ToolTip toolTipMsj;
     }
 }
