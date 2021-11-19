@@ -69,30 +69,25 @@
             this.label18 = new System.Windows.Forms.Label();
             this.rtxtCodigos = new System.Windows.Forms.RichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pnlContenedorE = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtMargenMenorE = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.txtMargenMayorE = new System.Windows.Forms.TextBox();
-            this.cbxTipoAceiteE = new System.Windows.Forms.ComboBox();
             this.txtPreVMenorE = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.txtPreVMayorE = new System.Windows.Forms.TextBox();
             this.txtPreCIvaE = new System.Windows.Forms.TextBox();
             this.txtGananPorMayorE = new System.Windows.Forms.TextBox();
-            this.cbxApiE = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.cbxTipoCombustibleE = new System.Windows.Forms.ComboBox();
             this.txtPreSIvaE = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.cbxSaeE = new System.Windows.Forms.ComboBox();
-            this.cbxPresentacionE = new System.Windows.Forms.ComboBox();
-            this.label26 = new System.Windows.Forms.Label();
+            this.cbxTipoFiltroE = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.txtCantidadMinE = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.txtCantidadE = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -106,20 +101,21 @@
             this.label36 = new System.Windows.Forms.Label();
             this.btnCancelarE = new System.Windows.Forms.Button();
             this.btnGuardarE = new System.Windows.Forms.Button();
+            this.txtRoscaE = new System.Windows.Forms.TextBox();
+            this.rtxtCodigosE = new System.Windows.Forms.RichTextBox();
+            this.btnEditarVehiculos = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.txtBusquedaE = new System.Windows.Forms.TextBox();
             this.cbxCriBusquedaE = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscarE = new System.Windows.Forms.Button();
-            this.dgvAceitesE = new System.Windows.Forms.DataGridView();
+            this.dgvFiltrosE = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ADescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.APresentacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SAE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.API = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoAceite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoCombustible = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rosca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoFiltro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoFiltro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PCsinIva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PCconIVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -130,13 +126,7 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantMinima = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtBusquedaD = new System.Windows.Forms.TextBox();
-            this.cbxCriBusquedaD = new System.Windows.Forms.ComboBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.btnBuscarD = new System.Windows.Forms.Button();
-            this.dgvAceitesD = new System.Windows.Forms.DataGridView();
+            this.dgvFiltrosD = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,8 +142,12 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtBusquedaD = new System.Windows.Forms.TextBox();
+            this.cbxCriBusquedaD = new System.Windows.Forms.ComboBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.btnBuscarD = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.toolTipMsj = new System.Windows.Forms.ToolTip(this.components);
@@ -163,12 +157,13 @@
             this.pnlContenedor.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.pnlContenedorE.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAceitesE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFiltrosE)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFiltrosD)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAceitesD)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -622,9 +617,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.tableLayoutPanel4);
-            this.tabPage2.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage2.Controls.Add(this.dgvAceitesE);
+            this.tabPage2.Controls.Add(this.pnlContenedorE);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -632,6 +625,17 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Editar Filtro";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // pnlContenedorE
+            // 
+            this.pnlContenedorE.Controls.Add(this.tableLayoutPanel4);
+            this.pnlContenedorE.Controls.Add(this.tableLayoutPanel3);
+            this.pnlContenedorE.Controls.Add(this.dgvFiltrosE);
+            this.pnlContenedorE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContenedorE.Location = new System.Drawing.Point(3, 3);
+            this.pnlContenedorE.Name = "pnlContenedorE";
+            this.pnlContenedorE.Size = new System.Drawing.Size(796, 551);
+            this.pnlContenedorE.TabIndex = 0;
             // 
             // tableLayoutPanel4
             // 
@@ -646,26 +650,20 @@
             this.tableLayoutPanel4.Controls.Add(this.txtMargenMenorE, 4, 6);
             this.tableLayoutPanel4.Controls.Add(this.label20, 3, 6);
             this.tableLayoutPanel4.Controls.Add(this.txtMargenMayorE, 4, 5);
-            this.tableLayoutPanel4.Controls.Add(this.cbxTipoAceiteE, 1, 9);
             this.tableLayoutPanel4.Controls.Add(this.txtPreVMenorE, 4, 4);
             this.tableLayoutPanel4.Controls.Add(this.label21, 3, 5);
             this.tableLayoutPanel4.Controls.Add(this.txtPreVMayorE, 4, 3);
             this.tableLayoutPanel4.Controls.Add(this.txtPreCIvaE, 4, 1);
             this.tableLayoutPanel4.Controls.Add(this.txtGananPorMayorE, 4, 2);
-            this.tableLayoutPanel4.Controls.Add(this.cbxApiE, 1, 8);
             this.tableLayoutPanel4.Controls.Add(this.label22, 3, 4);
-            this.tableLayoutPanel4.Controls.Add(this.cbxTipoCombustibleE, 1, 7);
             this.tableLayoutPanel4.Controls.Add(this.txtPreSIvaE, 4, 0);
             this.tableLayoutPanel4.Controls.Add(this.label23, 3, 3);
             this.tableLayoutPanel4.Controls.Add(this.label24, 3, 1);
             this.tableLayoutPanel4.Controls.Add(this.label25, 3, 2);
-            this.tableLayoutPanel4.Controls.Add(this.cbxSaeE, 1, 6);
-            this.tableLayoutPanel4.Controls.Add(this.cbxPresentacionE, 1, 5);
-            this.tableLayoutPanel4.Controls.Add(this.label26, 0, 9);
+            this.tableLayoutPanel4.Controls.Add(this.cbxTipoFiltroE, 1, 6);
             this.tableLayoutPanel4.Controls.Add(this.label27, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.txtCantidadMinE, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.label28, 0, 7);
-            this.tableLayoutPanel4.Controls.Add(this.label29, 0, 8);
             this.tableLayoutPanel4.Controls.Add(this.label30, 0, 5);
             this.tableLayoutPanel4.Controls.Add(this.txtCantidadE, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.label31, 0, 6);
@@ -679,7 +677,10 @@
             this.tableLayoutPanel4.Controls.Add(this.label36, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.btnCancelarE, 3, 11);
             this.tableLayoutPanel4.Controls.Add(this.btnGuardarE, 1, 11);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(52, 216);
+            this.tableLayoutPanel4.Controls.Add(this.txtRoscaE, 1, 5);
+            this.tableLayoutPanel4.Controls.Add(this.rtxtCodigosE, 1, 7);
+            this.tableLayoutPanel4.Controls.Add(this.btnEditarVehiculos, 4, 8);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(52, 225);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 12;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.905139F));
@@ -695,7 +696,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.85771F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.09091F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(692, 303);
-            this.tableLayoutPanel4.TabIndex = 124;
+            this.tableLayoutPanel4.TabIndex = 127;
             // 
             // txtMargenMenorE
             // 
@@ -723,15 +724,6 @@
             this.txtMargenMayorE.Size = new System.Drawing.Size(225, 20);
             this.txtMargenMayorE.TabIndex = 127;
             // 
-            // cbxTipoAceiteE
-            // 
-            this.cbxTipoAceiteE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxTipoAceiteE.FormattingEnabled = true;
-            this.cbxTipoAceiteE.Location = new System.Drawing.Point(118, 210);
-            this.cbxTipoAceiteE.Name = "cbxTipoAceiteE";
-            this.cbxTipoAceiteE.Size = new System.Drawing.Size(140, 21);
-            this.cbxTipoAceiteE.TabIndex = 85;
-            // 
             // txtPreVMenorE
             // 
             this.txtPreVMenorE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -739,6 +731,8 @@
             this.txtPreVMenorE.Name = "txtPreVMenorE";
             this.txtPreVMenorE.Size = new System.Drawing.Size(225, 20);
             this.txtPreVMenorE.TabIndex = 126;
+            this.txtPreVMenorE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPreVMenorE_KeyPress);
+            this.txtPreVMenorE.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPreVMenorE_KeyUp);
             // 
             // label21
             // 
@@ -773,15 +767,8 @@
             this.txtGananPorMayorE.Name = "txtGananPorMayorE";
             this.txtGananPorMayorE.Size = new System.Drawing.Size(225, 20);
             this.txtGananPorMayorE.TabIndex = 123;
-            // 
-            // cbxApiE
-            // 
-            this.cbxApiE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxApiE.FormattingEnabled = true;
-            this.cbxApiE.Location = new System.Drawing.Point(118, 187);
-            this.cbxApiE.Name = "cbxApiE";
-            this.cbxApiE.Size = new System.Drawing.Size(140, 21);
-            this.cbxApiE.TabIndex = 88;
+            this.txtGananPorMayorE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGananPorMayorE_KeyPress);
+            this.txtGananPorMayorE.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtGananPorMayorE_KeyUp);
             // 
             // label22
             // 
@@ -793,15 +780,6 @@
             this.label22.TabIndex = 68;
             this.label22.Text = "Precio Por Menor";
             // 
-            // cbxTipoCombustibleE
-            // 
-            this.cbxTipoCombustibleE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxTipoCombustibleE.FormattingEnabled = true;
-            this.cbxTipoCombustibleE.Location = new System.Drawing.Point(118, 164);
-            this.cbxTipoCombustibleE.Name = "cbxTipoCombustibleE";
-            this.cbxTipoCombustibleE.Size = new System.Drawing.Size(140, 21);
-            this.cbxTipoCombustibleE.TabIndex = 86;
-            // 
             // txtPreSIvaE
             // 
             this.txtPreSIvaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -809,6 +787,8 @@
             this.txtPreSIvaE.Name = "txtPreSIvaE";
             this.txtPreSIvaE.Size = new System.Drawing.Size(225, 20);
             this.txtPreSIvaE.TabIndex = 122;
+            this.txtPreSIvaE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPreSIvaE_KeyPress);
+            this.txtPreSIvaE.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPreSIvaE_KeyUp);
             // 
             // label23
             // 
@@ -840,33 +820,14 @@
             this.label25.TabIndex = 65;
             this.label25.Text = "Ganancia al Mayor en %:";
             // 
-            // cbxSaeE
+            // cbxTipoFiltroE
             // 
-            this.cbxSaeE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxSaeE.FormattingEnabled = true;
-            this.cbxSaeE.Location = new System.Drawing.Point(118, 141);
-            this.cbxSaeE.Name = "cbxSaeE";
-            this.cbxSaeE.Size = new System.Drawing.Size(140, 21);
-            this.cbxSaeE.TabIndex = 87;
-            // 
-            // cbxPresentacionE
-            // 
-            this.cbxPresentacionE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxPresentacionE.FormattingEnabled = true;
-            this.cbxPresentacionE.Location = new System.Drawing.Point(118, 118);
-            this.cbxPresentacionE.Name = "cbxPresentacionE";
-            this.cbxPresentacionE.Size = new System.Drawing.Size(140, 21);
-            this.cbxPresentacionE.TabIndex = 84;
-            // 
-            // label26
-            // 
-            this.label26.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(3, 212);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(79, 13);
-            this.label26.TabIndex = 84;
-            this.label26.Text = "Tipo de Aceite:";
+            this.cbxTipoFiltroE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxTipoFiltroE.FormattingEnabled = true;
+            this.cbxTipoFiltroE.Location = new System.Drawing.Point(118, 141);
+            this.cbxTipoFiltroE.Name = "cbxTipoFiltroE";
+            this.cbxTipoFiltroE.Size = new System.Drawing.Size(140, 21);
+            this.cbxTipoFiltroE.TabIndex = 87;
             // 
             // label27
             // 
@@ -892,19 +853,9 @@
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(3, 166);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(106, 13);
+            this.label28.Size = new System.Drawing.Size(43, 13);
             this.label28.TabIndex = 85;
-            this.label28.Text = "Tipo de Combustible:";
-            // 
-            // label29
-            // 
-            this.label29.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(3, 189);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(27, 13);
-            this.label29.TabIndex = 83;
-            this.label29.Text = "API:";
+            this.label28.Text = "Código:";
             // 
             // label30
             // 
@@ -912,9 +863,9 @@
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(3, 120);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(72, 13);
+            this.label30.Size = new System.Drawing.Size(41, 13);
             this.label30.TabIndex = 82;
-            this.label30.Text = "Presentacion:";
+            this.label30.Text = "Rosca:";
             // 
             // txtCantidadE
             // 
@@ -930,9 +881,9 @@
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(3, 143);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(31, 13);
+            this.label31.Size = new System.Drawing.Size(56, 13);
             this.label31.TabIndex = 86;
-            this.label31.Text = "SAE:";
+            this.label31.Text = "Tipo Filtro:";
             // 
             // label32
             // 
@@ -1022,6 +973,7 @@
             this.btnCancelarE.TabIndex = 121;
             this.btnCancelarE.Text = "Cancelar";
             this.btnCancelarE.UseVisualStyleBackColor = false;
+            this.btnCancelarE.Click += new System.EventHandler(this.btnCancelarE_Click);
             // 
             // btnGuardarE
             // 
@@ -1038,6 +990,43 @@
             this.btnGuardarE.TabIndex = 120;
             this.btnGuardarE.Text = "Guardar";
             this.btnGuardarE.UseVisualStyleBackColor = false;
+            this.btnGuardarE.Click += new System.EventHandler(this.btnGuardarE_Click);
+            // 
+            // txtRoscaE
+            // 
+            this.txtRoscaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRoscaE.Location = new System.Drawing.Point(118, 118);
+            this.txtRoscaE.Name = "txtRoscaE";
+            this.txtRoscaE.Size = new System.Drawing.Size(140, 20);
+            this.txtRoscaE.TabIndex = 129;
+            // 
+            // rtxtCodigosE
+            // 
+            this.rtxtCodigosE.Location = new System.Drawing.Point(118, 164);
+            this.rtxtCodigosE.Name = "rtxtCodigosE";
+            this.tableLayoutPanel4.SetRowSpan(this.rtxtCodigosE, 3);
+            this.rtxtCodigosE.Size = new System.Drawing.Size(140, 63);
+            this.rtxtCodigosE.TabIndex = 130;
+            this.rtxtCodigosE.Text = "";
+            // 
+            // btnEditarVehiculos
+            // 
+            this.btnEditarVehiculos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditarVehiculos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnEditarVehiculos.FlatAppearance.BorderSize = 0;
+            this.btnEditarVehiculos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarVehiculos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarVehiculos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnEditarVehiculos.Location = new System.Drawing.Point(464, 187);
+            this.btnEditarVehiculos.Name = "btnEditarVehiculos";
+            this.tableLayoutPanel4.SetRowSpan(this.btnEditarVehiculos, 2);
+            this.btnEditarVehiculos.Size = new System.Drawing.Size(225, 40);
+            this.btnEditarVehiculos.TabIndex = 131;
+            this.btnEditarVehiculos.Text = "Editar Vehiculos";
+            this.btnEditarVehiculos.UseVisualStyleBackColor = false;
+            this.btnEditarVehiculos.Click += new System.EventHandler(this.btnEditarVehiculos_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -1049,25 +1038,25 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel3.Controls.Add(this.txtBusquedaE, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.cbxCriBusquedaE, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnBuscarE, 4, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(52, 12);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(52, 23);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(692, 47);
-            this.tableLayoutPanel3.TabIndex = 123;
+            this.tableLayoutPanel3.TabIndex = 126;
             // 
             // txtBusquedaE
             // 
             this.txtBusquedaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaE.Location = new System.Drawing.Point(366, 13);
+            this.txtBusquedaE.Location = new System.Drawing.Point(360, 13);
             this.txtBusquedaE.Name = "txtBusquedaE";
-            this.txtBusquedaE.Size = new System.Drawing.Size(188, 20);
+            this.txtBusquedaE.Size = new System.Drawing.Size(185, 20);
             this.txtBusquedaE.TabIndex = 117;
             // 
             // cbxCriBusquedaE
@@ -1078,16 +1067,17 @@
             "Codigo de Barras",
             "Marca",
             "Mostrar Todos"});
-            this.cbxCriBusquedaE.Location = new System.Drawing.Point(128, 13);
+            this.cbxCriBusquedaE.Location = new System.Drawing.Point(126, 13);
             this.cbxCriBusquedaE.Name = "cbxCriBusquedaE";
-            this.cbxCriBusquedaE.Size = new System.Drawing.Size(174, 21);
+            this.cbxCriBusquedaE.Size = new System.Drawing.Size(171, 21);
             this.cbxCriBusquedaE.TabIndex = 120;
+            this.cbxCriBusquedaE.SelectedValueChanged += new System.EventHandler(this.cbxCriBusquedaE_SelectedValueChanged);
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 17);
+            this.label1.Location = new System.Drawing.Point(8, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 116;
@@ -1101,35 +1091,34 @@
             this.btnBuscarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarE.Location = new System.Drawing.Point(564, 6);
+            this.btnBuscarE.Location = new System.Drawing.Point(555, 6);
             this.btnBuscarE.Name = "btnBuscarE";
             this.btnBuscarE.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarE.TabIndex = 118;
             this.btnBuscarE.Text = "Buscar";
             this.btnBuscarE.UseVisualStyleBackColor = false;
+            this.btnBuscarE.Click += new System.EventHandler(this.btnBuscarE_Click);
             // 
-            // dgvAceitesE
+            // dgvFiltrosE
             // 
-            this.dgvAceitesE.AllowUserToAddRows = false;
-            this.dgvAceitesE.AllowUserToDeleteRows = false;
-            this.dgvAceitesE.AllowUserToResizeColumns = false;
-            this.dgvAceitesE.AllowUserToResizeRows = false;
-            this.dgvAceitesE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvFiltrosE.AllowUserToAddRows = false;
+            this.dgvFiltrosE.AllowUserToDeleteRows = false;
+            this.dgvFiltrosE.AllowUserToResizeColumns = false;
+            this.dgvFiltrosE.AllowUserToResizeRows = false;
+            this.dgvFiltrosE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvAceitesE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgvAceitesE.BackgroundColor = System.Drawing.Color.White;
-            this.dgvAceitesE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvAceitesE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAceitesE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvFiltrosE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvFiltrosE.BackgroundColor = System.Drawing.Color.White;
+            this.dgvFiltrosE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvFiltrosE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFiltrosE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Marca,
             this.ADescripcion,
-            this.APresentacion,
-            this.SAE,
-            this.API,
-            this.TipoAceite,
-            this.TipoCombustible,
+            this.Rosca,
+            this.TipoFiltro,
+            this.CodigoFiltro,
             this.CodigoB,
             this.PCsinIva,
             this.PCconIVA,
@@ -1139,13 +1128,14 @@
             this.Margenxmenor,
             this.Cantidad,
             this.CantMinima});
-            this.dgvAceitesE.Location = new System.Drawing.Point(52, 81);
-            this.dgvAceitesE.Name = "dgvAceitesE";
-            this.dgvAceitesE.ReadOnly = true;
-            this.dgvAceitesE.RowHeadersVisible = false;
-            this.dgvAceitesE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAceitesE.Size = new System.Drawing.Size(692, 117);
-            this.dgvAceitesE.TabIndex = 122;
+            this.dgvFiltrosE.Location = new System.Drawing.Point(52, 92);
+            this.dgvFiltrosE.Name = "dgvFiltrosE";
+            this.dgvFiltrosE.ReadOnly = true;
+            this.dgvFiltrosE.RowHeadersVisible = false;
+            this.dgvFiltrosE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFiltrosE.Size = new System.Drawing.Size(692, 117);
+            this.dgvFiltrosE.TabIndex = 125;
+            this.dgvFiltrosE.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFiltrosE_CellClick);
             // 
             // ID
             // 
@@ -1171,49 +1161,33 @@
             this.ADescripcion.ReadOnly = true;
             this.ADescripcion.Width = 88;
             // 
-            // APresentacion
+            // Rosca
             // 
-            this.APresentacion.DataPropertyName = "Presentacion";
-            this.APresentacion.HeaderText = "Presentación";
-            this.APresentacion.Name = "APresentacion";
-            this.APresentacion.ReadOnly = true;
-            this.APresentacion.Width = 94;
+            this.Rosca.DataPropertyName = "Rosca";
+            this.Rosca.HeaderText = "Rosca";
+            this.Rosca.Name = "Rosca";
+            this.Rosca.ReadOnly = true;
+            this.Rosca.Width = 63;
             // 
-            // SAE
+            // TipoFiltro
             // 
-            this.SAE.DataPropertyName = "SAE";
-            this.SAE.HeaderText = "SAE";
-            this.SAE.Name = "SAE";
-            this.SAE.ReadOnly = true;
-            this.SAE.Width = 53;
+            this.TipoFiltro.DataPropertyName = "Tipo_Filtro";
+            this.TipoFiltro.HeaderText = "Tipo de Filtro";
+            this.TipoFiltro.Name = "TipoFiltro";
+            this.TipoFiltro.ReadOnly = true;
+            this.TipoFiltro.Width = 86;
             // 
-            // API
+            // CodigoFiltro
             // 
-            this.API.DataPropertyName = "API";
-            this.API.HeaderText = "API";
-            this.API.Name = "API";
-            this.API.ReadOnly = true;
-            this.API.Width = 49;
-            // 
-            // TipoAceite
-            // 
-            this.TipoAceite.DataPropertyName = "Tipo_Aceite";
-            this.TipoAceite.HeaderText = "Tipo de Aceite";
-            this.TipoAceite.Name = "TipoAceite";
-            this.TipoAceite.ReadOnly = true;
-            this.TipoAceite.Width = 93;
-            // 
-            // TipoCombustible
-            // 
-            this.TipoCombustible.DataPropertyName = "Tipo_Combustible";
-            this.TipoCombustible.HeaderText = "Tipo de Combustible";
-            this.TipoCombustible.Name = "TipoCombustible";
-            this.TipoCombustible.ReadOnly = true;
-            this.TipoCombustible.Width = 117;
+            this.CodigoFiltro.DataPropertyName = "Codigo_Filtro";
+            this.CodigoFiltro.HeaderText = "Codigo de Filtro";
+            this.CodigoFiltro.Name = "CodigoFiltro";
+            this.CodigoFiltro.ReadOnly = true;
+            this.CodigoFiltro.Width = 77;
             // 
             // CodigoB
             // 
-            this.CodigoB.DataPropertyName = "Codigo";
+            this.CodigoB.DataPropertyName = "Codigo_Barras";
             this.CodigoB.HeaderText = "Código de Barras";
             this.CodigoB.Name = "CodigoB";
             this.CodigoB.ReadOnly = true;
@@ -1285,9 +1259,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.dgvFiltrosD);
             this.tabPage3.Controls.Add(this.btnEliminar);
             this.tabPage3.Controls.Add(this.tableLayoutPanel5);
-            this.tabPage3.Controls.Add(this.dgvAceitesD);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -1296,104 +1270,20 @@
             this.tabPage3.Text = "Eliminar Filtro";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // btnEliminar
+            // dgvFiltrosD
             // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnEliminar.Location = new System.Drawing.Point(664, 291);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(80, 32);
-            this.btnEliminar.TabIndex = 126;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel5.ColumnCount = 6;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.47846F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.25842F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.tableLayoutPanel5.Controls.Add(this.txtBusquedaD, 3, 0);
-            this.tableLayoutPanel5.Controls.Add(this.cbxCriBusquedaD, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label37, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnBuscarD, 4, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(52, 12);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(692, 47);
-            this.tableLayoutPanel5.TabIndex = 125;
-            // 
-            // txtBusquedaD
-            // 
-            this.txtBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaD.Location = new System.Drawing.Point(366, 13);
-            this.txtBusquedaD.Name = "txtBusquedaD";
-            this.txtBusquedaD.Size = new System.Drawing.Size(188, 20);
-            this.txtBusquedaD.TabIndex = 117;
-            // 
-            // cbxCriBusquedaD
-            // 
-            this.cbxCriBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxCriBusquedaD.FormattingEnabled = true;
-            this.cbxCriBusquedaD.Items.AddRange(new object[] {
-            "Codigo de Barras",
-            "Marca",
-            "Mostrar Todos"});
-            this.cbxCriBusquedaD.Location = new System.Drawing.Point(128, 13);
-            this.cbxCriBusquedaD.Name = "cbxCriBusquedaD";
-            this.cbxCriBusquedaD.Size = new System.Drawing.Size(174, 21);
-            this.cbxCriBusquedaD.TabIndex = 120;
-            // 
-            // label37
-            // 
-            this.label37.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(9, 17);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(107, 13);
-            this.label37.TabIndex = 116;
-            this.label37.Text = "Criterio de busqueda:";
-            // 
-            // btnBuscarD
-            // 
-            this.btnBuscarD.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnBuscarD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnBuscarD.FlatAppearance.BorderSize = 0;
-            this.btnBuscarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarD.Location = new System.Drawing.Point(564, 6);
-            this.btnBuscarD.Name = "btnBuscarD";
-            this.btnBuscarD.Size = new System.Drawing.Size(80, 35);
-            this.btnBuscarD.TabIndex = 118;
-            this.btnBuscarD.Text = "Buscar";
-            this.btnBuscarD.UseVisualStyleBackColor = false;
-            // 
-            // dgvAceitesD
-            // 
-            this.dgvAceitesD.AllowUserToAddRows = false;
-            this.dgvAceitesD.AllowUserToDeleteRows = false;
-            this.dgvAceitesD.AllowUserToResizeColumns = false;
-            this.dgvAceitesD.AllowUserToResizeRows = false;
-            this.dgvAceitesD.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvFiltrosD.AllowUserToAddRows = false;
+            this.dgvFiltrosD.AllowUserToDeleteRows = false;
+            this.dgvFiltrosD.AllowUserToResizeColumns = false;
+            this.dgvFiltrosD.AllowUserToResizeRows = false;
+            this.dgvFiltrosD.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvAceitesD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgvAceitesD.BackgroundColor = System.Drawing.Color.White;
-            this.dgvAceitesD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvAceitesD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAceitesD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvFiltrosD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvFiltrosD.BackgroundColor = System.Drawing.Color.White;
+            this.dgvFiltrosD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvFiltrosD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFiltrosD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -1408,16 +1298,14 @@
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17});
-            this.dgvAceitesD.Location = new System.Drawing.Point(52, 81);
-            this.dgvAceitesD.Name = "dgvAceitesD";
-            this.dgvAceitesD.ReadOnly = true;
-            this.dgvAceitesD.RowHeadersVisible = false;
-            this.dgvAceitesD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAceitesD.Size = new System.Drawing.Size(692, 185);
-            this.dgvAceitesD.TabIndex = 124;
+            this.dataGridViewTextBoxColumn15});
+            this.dgvFiltrosD.Location = new System.Drawing.Point(52, 83);
+            this.dgvFiltrosD.Name = "dgvFiltrosD";
+            this.dgvFiltrosD.ReadOnly = true;
+            this.dgvFiltrosD.RowHeadersVisible = false;
+            this.dgvFiltrosD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFiltrosD.Size = new System.Drawing.Size(692, 188);
+            this.dgvFiltrosD.TabIndex = 127;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1445,115 +1333,186 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Presentacion";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Presentación";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Rosca";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Rosca";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 94;
+            this.dataGridViewTextBoxColumn4.Width = 63;
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "SAE";
-            this.dataGridViewTextBoxColumn5.HeaderText = "SAE";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Tipo_Filtro";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Tipo de Filtro";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 53;
+            this.dataGridViewTextBoxColumn5.Width = 86;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "API";
-            this.dataGridViewTextBoxColumn6.HeaderText = "API";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Codigo_Filtro";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Codigo de Filtro";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 49;
+            this.dataGridViewTextBoxColumn6.Width = 77;
             // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Tipo_Aceite";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Tipo de Aceite";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Codigo_Barras";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Código de Barras";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 93;
+            this.dataGridViewTextBoxColumn7.Width = 77;
             // 
             // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Tipo_Combustible";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Tipo de Combustible";
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Precio_Compra_SIVA";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Precio de Compra sin IVA";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 117;
+            this.dataGridViewTextBoxColumn8.Width = 109;
             // 
             // dataGridViewTextBoxColumn9
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Codigo";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Código de Barras";
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Precio_Compra_IVA";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Precio de Compra con IVA";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 77;
+            this.dataGridViewTextBoxColumn9.Width = 109;
             // 
             // dataGridViewTextBoxColumn10
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Precio_Compra_SIVA";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Precio de Compra sin IVA";
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Precio_por_mayor";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Precio por Mayor";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 109;
+            this.dataGridViewTextBoxColumn10.Width = 103;
             // 
             // dataGridViewTextBoxColumn11
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Precio_Compra_IVA";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Precio de Compra con IVA";
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Precio_por_menor";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Precio por Menor";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 109;
+            this.dataGridViewTextBoxColumn11.Width = 104;
             // 
             // dataGridViewTextBoxColumn12
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Precio_por_mayor";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Precio por Mayor";
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Margen_por_mayor";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Margen por Mayor";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 103;
+            this.dataGridViewTextBoxColumn12.Width = 82;
             // 
             // dataGridViewTextBoxColumn13
             // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Precio_por_menor";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Precio por Menor";
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Margen_por_menor";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Margen por menor";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 104;
+            this.dataGridViewTextBoxColumn13.Width = 82;
             // 
             // dataGridViewTextBoxColumn14
             // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Margen_por_mayor";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Margen por Mayor";
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Cantidad";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Cantidad";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 82;
+            this.dataGridViewTextBoxColumn14.Width = 74;
             // 
             // dataGridViewTextBoxColumn15
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Margen_por_menor";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Margen por menor";
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Cantidad_Minima";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Cantidad Mínima";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Width = 82;
+            this.dataGridViewTextBoxColumn15.Width = 103;
             // 
-            // dataGridViewTextBoxColumn16
+            // btnEliminar
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Cantidad";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Cantidad";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Width = 74;
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnEliminar.Location = new System.Drawing.Point(664, 291);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(80, 32);
+            this.btnEliminar.TabIndex = 126;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // dataGridViewTextBoxColumn17
+            // tableLayoutPanel5
             // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Cantidad_Minima";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Cantidad Mínima";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Width = 103;
+            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel5.ColumnCount = 6;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.47846F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.25842F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel5.Controls.Add(this.txtBusquedaD, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.cbxCriBusquedaD, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label37, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnBuscarD, 4, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(52, 12);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(692, 47);
+            this.tableLayoutPanel5.TabIndex = 125;
+            // 
+            // txtBusquedaD
+            // 
+            this.txtBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBusquedaD.Location = new System.Drawing.Point(360, 13);
+            this.txtBusquedaD.Name = "txtBusquedaD";
+            this.txtBusquedaD.Size = new System.Drawing.Size(185, 20);
+            this.txtBusquedaD.TabIndex = 117;
+            // 
+            // cbxCriBusquedaD
+            // 
+            this.cbxCriBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxCriBusquedaD.FormattingEnabled = true;
+            this.cbxCriBusquedaD.Items.AddRange(new object[] {
+            "Codigo de Barras",
+            "Marca",
+            "Mostrar Todos"});
+            this.cbxCriBusquedaD.Location = new System.Drawing.Point(126, 13);
+            this.cbxCriBusquedaD.Name = "cbxCriBusquedaD";
+            this.cbxCriBusquedaD.Size = new System.Drawing.Size(171, 21);
+            this.cbxCriBusquedaD.TabIndex = 120;
+            this.cbxCriBusquedaD.SelectedValueChanged += new System.EventHandler(this.cbxCriBusquedaD_SelectedValueChanged);
+            // 
+            // label37
+            // 
+            this.label37.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(8, 17);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(107, 13);
+            this.label37.TabIndex = 116;
+            this.label37.Text = "Criterio de busqueda:";
+            // 
+            // btnBuscarD
+            // 
+            this.btnBuscarD.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnBuscarD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnBuscarD.FlatAppearance.BorderSize = 0;
+            this.btnBuscarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnBuscarD.Location = new System.Drawing.Point(555, 6);
+            this.btnBuscarD.Name = "btnBuscarD";
+            this.btnBuscarD.Size = new System.Drawing.Size(80, 35);
+            this.btnBuscarD.TabIndex = 118;
+            this.btnBuscarD.Text = "Buscar";
+            this.btnBuscarD.UseVisualStyleBackColor = false;
+            this.btnBuscarD.Click += new System.EventHandler(this.btnBuscarD_Click);
             // 
             // panel1
             // 
@@ -1603,15 +1562,16 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.pnlContenedorE.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAceitesE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFiltrosE)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFiltrosD)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAceitesD)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1624,66 +1584,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.TextBox txtMargenMenorE;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txtMargenMayorE;
-        private System.Windows.Forms.ComboBox cbxTipoAceiteE;
-        private System.Windows.Forms.TextBox txtPreVMenorE;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txtPreVMayorE;
-        private System.Windows.Forms.TextBox txtPreCIvaE;
-        private System.Windows.Forms.TextBox txtGananPorMayorE;
-        private System.Windows.Forms.ComboBox cbxApiE;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox cbxTipoCombustibleE;
-        private System.Windows.Forms.TextBox txtPreSIvaE;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.ComboBox cbxSaeE;
-        private System.Windows.Forms.ComboBox cbxPresentacionE;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox txtCantidadMinE;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox txtCantidadE;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.TextBox txtCodigoBE;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox txtDescripcionE;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox txtMarcaE;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Button btnCancelarE;
-        private System.Windows.Forms.Button btnGuardarE;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TextBox txtBusquedaE;
-        private System.Windows.Forms.ComboBox cbxCriBusquedaE;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnBuscarE;
-        private System.Windows.Forms.DataGridView dgvAceitesE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ADescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn APresentacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SAE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn API;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoAceite;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoCombustible;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PCsinIva;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PCconIVA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PporMayor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PporMenor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MporMayor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Margenxmenor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CantMinima;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
@@ -1691,24 +1591,6 @@
         private System.Windows.Forms.ComboBox cbxCriBusquedaD;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Button btnBuscarD;
-        private System.Windows.Forms.DataGridView dgvAceitesD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel pnlContenedor;
@@ -1747,5 +1629,77 @@
         private System.Windows.Forms.Button btnAgregarVehiculos;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.RichTextBox rtxtCodigos;
+        private System.Windows.Forms.Panel pnlContenedorE;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TextBox txtMargenMenorE;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtMargenMayorE;
+        private System.Windows.Forms.TextBox txtPreVMenorE;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtPreVMayorE;
+        private System.Windows.Forms.TextBox txtPreCIvaE;
+        private System.Windows.Forms.TextBox txtGananPorMayorE;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtPreSIvaE;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ComboBox cbxTipoFiltroE;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox txtCantidadMinE;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox txtCantidadE;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox txtCodigoBE;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox txtDescripcionE;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox txtMarcaE;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Button btnCancelarE;
+        private System.Windows.Forms.Button btnGuardarE;
+        private System.Windows.Forms.TextBox txtRoscaE;
+        private System.Windows.Forms.RichTextBox rtxtCodigosE;
+        private System.Windows.Forms.Button btnEditarVehiculos;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TextBox txtBusquedaE;
+        private System.Windows.Forms.ComboBox cbxCriBusquedaE;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBuscarE;
+        private System.Windows.Forms.DataGridView dgvFiltrosE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ADescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rosca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoFiltro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoFiltro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PCsinIva;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PCconIVA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PporMayor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PporMenor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MporMayor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Margenxmenor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantMinima;
+        private System.Windows.Forms.DataGridView dgvFiltrosD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
     }
 }

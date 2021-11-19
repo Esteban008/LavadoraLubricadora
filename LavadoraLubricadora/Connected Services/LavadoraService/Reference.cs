@@ -276,6 +276,48 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroResponse")]
         System.Threading.Tasks.Task IngresarFiltroAsync(string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EditarFiltroResponse")]
+        void EditarFiltro(int id, string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EditarFiltroResponse")]
+        System.Threading.Tasks.Task EditarFiltroAsync(int id, string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EliminarFiltroResponse")]
+        void EliminarFiltro(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EliminarFiltroResponse")]
+        System.Threading.Tasks.Task EliminarFiltroAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarCodigosFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EliminarCodigosFiltroResponse")]
+        void EliminarCodigosFiltro(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarCodigosFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EliminarCodigosFiltroResponse")]
+        System.Threading.Tasks.Task EliminarCodigosFiltroAsync(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/LimpiarVehiculosBase", ReplyAction="http://tempuri.org/ILavadoraService/LimpiarVehiculosBaseResponse")]
+        void LimpiarVehiculosBase(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/LimpiarVehiculosBase", ReplyAction="http://tempuri.org/ILavadoraService/LimpiarVehiculosBaseResponse")]
+        System.Threading.Tasks.Task LimpiarVehiculosBaseAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerIdCodigosFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerIdCodigosFiltroResponse")]
+        int[] ObtenerIdCodigosFiltro(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerIdCodigosFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerIdCodigosFiltroResponse")]
+        System.Threading.Tasks.Task<int[]> ObtenerIdCodigosFiltroAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/LimpiarRelacionCodigosBase", ReplyAction="http://tempuri.org/ILavadoraService/LimpiarRelacionCodigosBaseResponse")]
+        void LimpiarRelacionCodigosBase(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/LimpiarRelacionCodigosBase", ReplyAction="http://tempuri.org/ILavadoraService/LimpiarRelacionCodigosBaseResponse")]
+        System.Threading.Tasks.Task LimpiarRelacionCodigosBaseAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/LimpiarCodigosBase", ReplyAction="http://tempuri.org/ILavadoraService/LimpiarCodigosBaseResponse")]
+        void LimpiarCodigosBase(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/LimpiarCodigosBase", ReplyAction="http://tempuri.org/ILavadoraService/LimpiarCodigosBaseResponse")]
+        System.Threading.Tasks.Task LimpiarCodigosBaseAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarVehiculoFiltro", ReplyAction="http://tempuri.org/ILavadoraService/IngresarVehiculoFiltroResponse")]
         void IngresarVehiculoFiltro(string codigoBarras, int idVehiculo);
         
@@ -287,6 +329,24 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarCodigoFiltro", ReplyAction="http://tempuri.org/ILavadoraService/IngresarCodigoFiltroResponse")]
         System.Threading.Tasks.Task IngresarCodigoFiltroAsync(string codigoBarras, string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerFiltros", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerFiltrosResponse")]
+        System.Data.DataTable ObtenerFiltros();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerFiltros", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerFiltrosResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerFiltrosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarFiltroMarca", ReplyAction="http://tempuri.org/ILavadoraService/BuscarFiltroMarcaResponse")]
+        System.Data.DataTable BuscarFiltroMarca(string marca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarFiltroMarca", ReplyAction="http://tempuri.org/ILavadoraService/BuscarFiltroMarcaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarFiltroMarcaAsync(string marca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarFiltroCodigo", ReplyAction="http://tempuri.org/ILavadoraService/BuscarFiltroCodigoResponse")]
+        System.Data.DataTable BuscarFiltroCodigo(string marca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarFiltroCodigo", ReplyAction="http://tempuri.org/ILavadoraService/BuscarFiltroCodigoResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarFiltroCodigoAsync(string marca);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ValidarFiltroResponse")]
         bool ValidarFiltro(string codigoBarras);
@@ -330,17 +390,47 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerMotorVehiculoResponse")]
         System.Threading.Tasks.Task<string[]> ObtenerMotorVehiculoAsync(string marca, string modelo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerIDsVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerIDsVehiculosResponse")]
-        void ObtenerIDsVehiculos(int[] idVehiculos);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GuardarIDsVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/GuardarIDsVehiculosResponse")]
+        void GuardarIDsVehiculos(int[] idVehiculos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GuardarIDsVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/GuardarIDsVehiculosResponse")]
+        System.Threading.Tasks.Task GuardarIDsVehiculosAsync(int[] idVehiculos);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerIDsVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerIDsVehiculosResponse")]
-        System.Threading.Tasks.Task ObtenerIDsVehiculosAsync(int[] idVehiculos);
+        int[] ObtenerIDsVehiculos();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/DevolverIDsVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/DevolverIDsVehiculosResponse")]
-        int[] DevolverIDsVehiculos();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerIDsVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerIDsVehiculosResponse")]
+        System.Threading.Tasks.Task<int[]> ObtenerIDsVehiculosAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/DevolverIDsVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/DevolverIDsVehiculosResponse")]
-        System.Threading.Tasks.Task<int[]> DevolverIDsVehiculosAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GuardarEstadoListaVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/GuardarEstadoListaVehiculosResponse")]
+        void GuardarEstadoListaVehiculos(bool estado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GuardarEstadoListaVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/GuardarEstadoListaVehiculosResponse")]
+        System.Threading.Tasks.Task GuardarEstadoListaVehiculosAsync(bool estado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerEstadoListaVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerEstadoListaVehiculosResponse")]
+        bool ObtenerEstadoListaVehiculos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerEstadoListaVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerEstadoListaVehiculosResponse")]
+        System.Threading.Tasks.Task<bool> ObtenerEstadoListaVehiculosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GuardarIDListaVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/GuardarIDListaVehiculosResponse")]
+        void GuardarIDListaVehiculos(int idFiltro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/GuardarIDListaVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/GuardarIDListaVehiculosResponse")]
+        System.Threading.Tasks.Task GuardarIDListaVehiculosAsync(int idFiltro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerIDListaVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerIDListaVehiculosResponse")]
+        int ObtenerIDListaVehiculos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerIDListaVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerIDListaVehiculosResponse")]
+        System.Threading.Tasks.Task<int> ObtenerIDListaVehiculosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerVehiculosFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerVehiculosFiltroResponse")]
+        System.Data.DataTable ObtenerVehiculosFiltro(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerVehiculosFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerVehiculosFiltroResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerVehiculosFiltroAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarVehiculoResponse")]
         void IngresarVehiculo(string marca, string modelo, string anio, string tipoMotor);
@@ -686,6 +776,62 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.IngresarFiltroAsync(tipoFiltro, rosca, marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
+        public void EditarFiltro(int id, string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
+            base.Channel.EditarFiltro(id, tipoFiltro, rosca, marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
+        }
+        
+        public System.Threading.Tasks.Task EditarFiltroAsync(int id, string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
+            return base.Channel.EditarFiltroAsync(id, tipoFiltro, rosca, marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
+        }
+        
+        public void EliminarFiltro(int id) {
+            base.Channel.EliminarFiltro(id);
+        }
+        
+        public System.Threading.Tasks.Task EliminarFiltroAsync(int id) {
+            return base.Channel.EliminarFiltroAsync(id);
+        }
+        
+        public void EliminarCodigosFiltro(string codigo) {
+            base.Channel.EliminarCodigosFiltro(codigo);
+        }
+        
+        public System.Threading.Tasks.Task EliminarCodigosFiltroAsync(string codigo) {
+            return base.Channel.EliminarCodigosFiltroAsync(codigo);
+        }
+        
+        public void LimpiarVehiculosBase(int id) {
+            base.Channel.LimpiarVehiculosBase(id);
+        }
+        
+        public System.Threading.Tasks.Task LimpiarVehiculosBaseAsync(int id) {
+            return base.Channel.LimpiarVehiculosBaseAsync(id);
+        }
+        
+        public int[] ObtenerIdCodigosFiltro(int id) {
+            return base.Channel.ObtenerIdCodigosFiltro(id);
+        }
+        
+        public System.Threading.Tasks.Task<int[]> ObtenerIdCodigosFiltroAsync(int id) {
+            return base.Channel.ObtenerIdCodigosFiltroAsync(id);
+        }
+        
+        public void LimpiarRelacionCodigosBase(int id) {
+            base.Channel.LimpiarRelacionCodigosBase(id);
+        }
+        
+        public System.Threading.Tasks.Task LimpiarRelacionCodigosBaseAsync(int id) {
+            return base.Channel.LimpiarRelacionCodigosBaseAsync(id);
+        }
+        
+        public void LimpiarCodigosBase(int id) {
+            base.Channel.LimpiarCodigosBase(id);
+        }
+        
+        public System.Threading.Tasks.Task LimpiarCodigosBaseAsync(int id) {
+            return base.Channel.LimpiarCodigosBaseAsync(id);
+        }
+        
         public void IngresarVehiculoFiltro(string codigoBarras, int idVehiculo) {
             base.Channel.IngresarVehiculoFiltro(codigoBarras, idVehiculo);
         }
@@ -700,6 +846,30 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task IngresarCodigoFiltroAsync(string codigoBarras, string codigo) {
             return base.Channel.IngresarCodigoFiltroAsync(codigoBarras, codigo);
+        }
+        
+        public System.Data.DataTable ObtenerFiltros() {
+            return base.Channel.ObtenerFiltros();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerFiltrosAsync() {
+            return base.Channel.ObtenerFiltrosAsync();
+        }
+        
+        public System.Data.DataTable BuscarFiltroMarca(string marca) {
+            return base.Channel.BuscarFiltroMarca(marca);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarFiltroMarcaAsync(string marca) {
+            return base.Channel.BuscarFiltroMarcaAsync(marca);
+        }
+        
+        public System.Data.DataTable BuscarFiltroCodigo(string marca) {
+            return base.Channel.BuscarFiltroCodigo(marca);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarFiltroCodigoAsync(string marca) {
+            return base.Channel.BuscarFiltroCodigoAsync(marca);
         }
         
         public bool ValidarFiltro(string codigoBarras) {
@@ -758,20 +928,60 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.ObtenerMotorVehiculoAsync(marca, modelo);
         }
         
-        public void ObtenerIDsVehiculos(int[] idVehiculos) {
-            base.Channel.ObtenerIDsVehiculos(idVehiculos);
+        public void GuardarIDsVehiculos(int[] idVehiculos) {
+            base.Channel.GuardarIDsVehiculos(idVehiculos);
         }
         
-        public System.Threading.Tasks.Task ObtenerIDsVehiculosAsync(int[] idVehiculos) {
-            return base.Channel.ObtenerIDsVehiculosAsync(idVehiculos);
+        public System.Threading.Tasks.Task GuardarIDsVehiculosAsync(int[] idVehiculos) {
+            return base.Channel.GuardarIDsVehiculosAsync(idVehiculos);
         }
         
-        public int[] DevolverIDsVehiculos() {
-            return base.Channel.DevolverIDsVehiculos();
+        public int[] ObtenerIDsVehiculos() {
+            return base.Channel.ObtenerIDsVehiculos();
         }
         
-        public System.Threading.Tasks.Task<int[]> DevolverIDsVehiculosAsync() {
-            return base.Channel.DevolverIDsVehiculosAsync();
+        public System.Threading.Tasks.Task<int[]> ObtenerIDsVehiculosAsync() {
+            return base.Channel.ObtenerIDsVehiculosAsync();
+        }
+        
+        public void GuardarEstadoListaVehiculos(bool estado) {
+            base.Channel.GuardarEstadoListaVehiculos(estado);
+        }
+        
+        public System.Threading.Tasks.Task GuardarEstadoListaVehiculosAsync(bool estado) {
+            return base.Channel.GuardarEstadoListaVehiculosAsync(estado);
+        }
+        
+        public bool ObtenerEstadoListaVehiculos() {
+            return base.Channel.ObtenerEstadoListaVehiculos();
+        }
+        
+        public System.Threading.Tasks.Task<bool> ObtenerEstadoListaVehiculosAsync() {
+            return base.Channel.ObtenerEstadoListaVehiculosAsync();
+        }
+        
+        public void GuardarIDListaVehiculos(int idFiltro) {
+            base.Channel.GuardarIDListaVehiculos(idFiltro);
+        }
+        
+        public System.Threading.Tasks.Task GuardarIDListaVehiculosAsync(int idFiltro) {
+            return base.Channel.GuardarIDListaVehiculosAsync(idFiltro);
+        }
+        
+        public int ObtenerIDListaVehiculos() {
+            return base.Channel.ObtenerIDListaVehiculos();
+        }
+        
+        public System.Threading.Tasks.Task<int> ObtenerIDListaVehiculosAsync() {
+            return base.Channel.ObtenerIDListaVehiculosAsync();
+        }
+        
+        public System.Data.DataTable ObtenerVehiculosFiltro(int id) {
+            return base.Channel.ObtenerVehiculosFiltro(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerVehiculosFiltroAsync(int id) {
+            return base.Channel.ObtenerVehiculosFiltroAsync(id);
         }
         
         public void IngresarVehiculo(string marca, string modelo, string anio, string tipoMotor) {

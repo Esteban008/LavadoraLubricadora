@@ -13,7 +13,7 @@ namespace LavadoraLubricadora
     public partial class frmAgregarVehiculo : Form
     {
         LavadoraService.LavadoraServiceClient cliente;
-        
+      
         DataTable dtLista;
 
         public frmAgregarVehiculo()
@@ -24,9 +24,6 @@ namespace LavadoraLubricadora
         private void frmAgregarVehiculo_Load(object sender, EventArgs e)
         {
             cliente = new LavadoraService.LavadoraServiceClient();
-            cbxCriBusquedaE.DropDownStyle = ComboBoxStyle.DropDownList;
-            txtBusquedaE.Visible = false;
-
             dtLista = new DataTable();
             dtLista.Clear();
             dtLista.Columns.Add("ID");
@@ -34,6 +31,19 @@ namespace LavadoraLubricadora
             dtLista.Columns.Add("Modelo");
             dtLista.Columns.Add("Tipo_Motor");
             dtLista.Columns.Add("Anio");
+
+
+            if (cliente.ObtenerEstadoListaVehiculos())
+            {
+                dtLista = cliente.ObtenerVehiculosFiltro(cliente.ObtenerIDListaVehiculos());
+                EliminarRepetidos(dtLista);
+            }
+            
+           
+            cbxCriBusquedaE.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtBusquedaE.Visible = false;
+
+                 
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -94,12 +104,17 @@ namespace LavadoraLubricadora
 
             dtLista.Rows.Add(v);
 
+            EliminarRepetidos(dtLista);
+         
             
+           // dgvVehiculos2.DataSource = dtLista;
+        }
+
+        private void EliminarRepetidos(DataTable dtLista)
+        {
             DataView vista = new DataView(dtLista);
             DataTable dtListaVehiculosSD = vista.ToTable(true, "ID", "Marca", "Modelo", "Tipo_Motor", "Anio");
             dgvVehiculos2.DataSource = dtListaVehiculosSD;
-            
-           // dgvVehiculos2.DataSource = dtLista;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -127,7 +142,7 @@ namespace LavadoraLubricadora
                 idVehiculos.Add(Convert.ToInt32(row.Cells[0].Value.ToString()));
             }
 
-            cliente.ObtenerIDsVehiculos(idVehiculos.ToArray());
+            cliente.GuardarIDsVehiculos(idVehiculos.ToArray());
 
             this.Close();
         }
