@@ -137,12 +137,6 @@
     <Compile Include="frmGestionEmpleados.Designer.cs">
       <DependentUpon>frmGestionEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmingresarFiltro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmingresarFiltro.Designer.cs">
-      <DependentUpon>frmingresarFiltro.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmIngresarProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,9 +204,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionEmpleados.resx">
       <DependentUpon>frmGestionEmpleados.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmingresarFiltro.resx">
-      <DependentUpon>frmingresarFiltro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIngresarProveedores.resx">
       <DependentUpon>frmIngresarProveedores.cs</DependentUpon>

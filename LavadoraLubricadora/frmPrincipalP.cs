@@ -87,9 +87,9 @@ namespace LavadoraLubricadora
             if (Application.OpenForms["frmAdminAceites"] == null)
                 btnAdmAceite.BackColor = Color.FromArgb(255, 255, 255);
             if (Application.OpenForms["frmAdminVehiculos"] == null)
-                btnAdmAceite.BackColor = Color.FromArgb(255, 255, 255);
+                btnAdmVehiculo.BackColor = Color.FromArgb(255, 255, 255);
             if (Application.OpenForms["frmAdminFiltros"] == null)
-                btnAdmAceite.BackColor = Color.FromArgb(255, 255, 255);          
+                btnAdmFiltro.BackColor = Color.FromArgb(255, 255, 255);          
         }
 
         private void btnBuscarProductos_Click(object sender, EventArgs e)
