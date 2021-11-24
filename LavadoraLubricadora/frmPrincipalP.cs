@@ -22,6 +22,7 @@ namespace LavadoraLubricadora
         {
             pnlSubmenuAdmProductos.Visible = false;
             pnlSubmenuBuscar.Visible = false;
+            pnlSubmenuVentas.Visible = false;
         }
          private void OcultarSubmenu()
         {
@@ -33,6 +34,11 @@ namespace LavadoraLubricadora
             if (pnlSubmenuBuscar.Visible == true)
             {
                 pnlSubmenuBuscar.Visible = false;
+            }
+
+            if (pnlSubmenuVentas.Visible == true)
+            {
+                pnlSubmenuVentas.Visible = false;
             }
         }
 
@@ -84,12 +90,20 @@ namespace LavadoraLubricadora
                 btnBuscarFiltro.BackColor = Color.FromArgb(255, 255, 255);
             if (Application.OpenForms["frmBusquedaVehiculo"] == null)
                 btnBusquedaxVehiculo.BackColor = Color.FromArgb(255, 255, 255);
+
+
             if (Application.OpenForms["frmAdminAceites"] == null)
                 btnAdmAceite.BackColor = Color.FromArgb(255, 255, 255);
             if (Application.OpenForms["frmAdminVehiculos"] == null)
                 btnAdmVehiculo.BackColor = Color.FromArgb(255, 255, 255);
             if (Application.OpenForms["frmAdminFiltros"] == null)
-                btnAdmFiltro.BackColor = Color.FromArgb(255, 255, 255);          
+                btnAdmFiltro.BackColor = Color.FromArgb(255, 255, 255);
+            if (Application.OpenForms["frmAdminProductos"] == null)
+                btnAdmOtro.BackColor = Color.FromArgb(255, 255, 255);
+
+
+            if (Application.OpenForms["frmComprabanteVenta"] == null)
+                btnComprobanteVenta.BackColor = Color.FromArgb(255, 255, 255);
         }
 
         private void btnBuscarProductos_Click(object sender, EventArgs e)
@@ -145,25 +159,46 @@ namespace LavadoraLubricadora
 
         private void btnAdmAceite_Click(object sender, EventArgs e)
         {
-            btnAdmAceite.BackColor = Color.FromArgb(199, 207, 225);
             AbrirFormulario<frmAdminAceites>();
+            btnAdmAceite.BackColor = Color.FromArgb(199, 207, 225);           
         }
 
         private void btnAdmFiltro_Click(object sender, EventArgs e)
         {
-            btnAdmFiltro.BackColor = Color.FromArgb(199, 207, 225);
             AbrirFormulario<frmAdminFiltros>();
+            btnAdmFiltro.BackColor = Color.FromArgb(199, 207, 225);
+         
         }
 
         private void btnAdmOtro_Click(object sender, EventArgs e)
         {
+            AbrirFormulario<frmAdminProductos>();
             btnAdmOtro.BackColor = Color.FromArgb(199, 207, 225);
         }
 
         private void btnAdmVehiculo_Click(object sender, EventArgs e)
         {
-            btnAdmVehiculo.BackColor = Color.FromArgb(199, 207, 225);
             AbrirFormulario<frmAdminVehiculos>();
+            btnAdmVehiculo.BackColor = Color.FromArgb(199, 207, 225);         
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            if (pnlSubmenuVentas.Visible == false)
+            {
+                OcultarSubmenu();
+                MostrarSubmenu(pnlSubmenuVentas);
+            }
+            else
+            {
+                OcultarSubmenu();
+            }
+        }
+
+        private void btnComprobanteVenta_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<frmComprabanteVenta>();
+            btnComprobanteVenta.BackColor = Color.FromArgb(199, 207, 225);
         }
     }
 }
