@@ -52,7 +52,7 @@ namespace LavadoraLubricadora
         {
             if (cliente.ValidarAceite(txtCodigoB.Text))
             {
-                MessageBox.Show("\t\tEste Aceite ya existe. \nSi desea actualizar los datos seleccione el boton editar Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("\t\tEste Aceite ya existe. \nSi desea actualizar los datos seleccione el boton Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

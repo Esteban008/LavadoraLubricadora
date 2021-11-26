@@ -69,7 +69,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscarE = new System.Windows.Forms.Button();
             this.dgvVehiculosE = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VAnio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VTipoMotor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgvVehiculosD = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.txtBusquedaD = new System.Windows.Forms.TextBox();
@@ -78,17 +89,6 @@
             this.btnBuscarD = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.dgvVehiculosD = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VModelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VAnio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VTipoMotor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabIngresarAceite.SuspendLayout();
@@ -98,9 +98,9 @@
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculosE)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculosD)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculosD)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -543,7 +543,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel3.Controls.Add(this.txtBusquedaE, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.cbxCriBusquedaE, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
@@ -559,9 +559,9 @@
             // txtBusquedaE
             // 
             this.txtBusquedaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaE.Location = new System.Drawing.Point(434, 13);
+            this.txtBusquedaE.Location = new System.Drawing.Point(433, 13);
             this.txtBusquedaE.Name = "txtBusquedaE";
-            this.txtBusquedaE.Size = new System.Drawing.Size(224, 20);
+            this.txtBusquedaE.Size = new System.Drawing.Size(223, 20);
             this.txtBusquedaE.TabIndex = 117;
             // 
             // cbxCriBusquedaE
@@ -572,7 +572,7 @@
             "Marca",
             "Modelo",
             "Mostrar Todos"});
-            this.cbxCriBusquedaE.Location = new System.Drawing.Point(152, 13);
+            this.cbxCriBusquedaE.Location = new System.Drawing.Point(151, 13);
             this.cbxCriBusquedaE.Name = "cbxCriBusquedaE";
             this.cbxCriBusquedaE.Size = new System.Drawing.Size(207, 21);
             this.cbxCriBusquedaE.TabIndex = 120;
@@ -582,7 +582,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 17);
+            this.label1.Location = new System.Drawing.Point(20, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 116;
@@ -596,7 +596,7 @@
             this.btnBuscarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarE.Location = new System.Drawing.Point(668, 6);
+            this.btnBuscarE.Location = new System.Drawing.Point(666, 6);
             this.btnBuscarE.Name = "btnBuscarE";
             this.btnBuscarE.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarE.TabIndex = 118;
@@ -631,158 +631,6 @@
             this.dgvVehiculosE.Size = new System.Drawing.Size(785, 252);
             this.dgvVehiculosE.TabIndex = 122;
             this.dgvVehiculosE.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVehiculosE_CellClick);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dgvVehiculosD);
-            this.tabPage3.Controls.Add(this.btnEliminar);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel5);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(895, 534);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Eliminar Vehículo";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnEliminar.Location = new System.Drawing.Point(757, 355);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(80, 32);
-            this.btnEliminar.TabIndex = 126;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel5.ColumnCount = 6;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.47846F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.25842F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel5.Controls.Add(this.txtBusquedaD, 3, 0);
-            this.tableLayoutPanel5.Controls.Add(this.cbxCriBusquedaD, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label37, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnBuscarD, 4, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(52, 12);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(785, 47);
-            this.tableLayoutPanel5.TabIndex = 125;
-            // 
-            // txtBusquedaD
-            // 
-            this.txtBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaD.Location = new System.Drawing.Point(434, 13);
-            this.txtBusquedaD.Name = "txtBusquedaD";
-            this.txtBusquedaD.Size = new System.Drawing.Size(224, 20);
-            this.txtBusquedaD.TabIndex = 117;
-            // 
-            // cbxCriBusquedaD
-            // 
-            this.cbxCriBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxCriBusquedaD.FormattingEnabled = true;
-            this.cbxCriBusquedaD.Items.AddRange(new object[] {
-            "Codigo de Barras",
-            "Marca",
-            "Mostrar Todos"});
-            this.cbxCriBusquedaD.Location = new System.Drawing.Point(152, 13);
-            this.cbxCriBusquedaD.Name = "cbxCriBusquedaD";
-            this.cbxCriBusquedaD.Size = new System.Drawing.Size(207, 21);
-            this.cbxCriBusquedaD.TabIndex = 120;
-            this.cbxCriBusquedaD.SelectedValueChanged += new System.EventHandler(this.cbxCriBusquedaD_SelectedValueChanged);
-            // 
-            // label37
-            // 
-            this.label37.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(21, 17);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(107, 13);
-            this.label37.TabIndex = 116;
-            this.label37.Text = "Criterio de busqueda:";
-            // 
-            // btnBuscarD
-            // 
-            this.btnBuscarD.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnBuscarD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnBuscarD.FlatAppearance.BorderSize = 0;
-            this.btnBuscarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarD.Location = new System.Drawing.Point(668, 6);
-            this.btnBuscarD.Name = "btnBuscarD";
-            this.btnBuscarD.Size = new System.Drawing.Size(80, 35);
-            this.btnBuscarD.TabIndex = 118;
-            this.btnBuscarD.Text = "Buscar";
-            this.btnBuscarD.UseVisualStyleBackColor = false;
-            this.btnBuscarD.Click += new System.EventHandler(this.btnBuscarD_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnSalir);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 564);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(903, 39);
-            this.panel1.TabIndex = 3;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnSalir.FlatAppearance.BorderSize = 0;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnSalir.Location = new System.Drawing.Point(816, 1);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(80, 35);
-            this.btnSalir.TabIndex = 129;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // dgvVehiculosD
-            // 
-            this.dgvVehiculosD.AllowUserToAddRows = false;
-            this.dgvVehiculosD.AllowUserToDeleteRows = false;
-            this.dgvVehiculosD.AllowUserToResizeColumns = false;
-            this.dgvVehiculosD.AllowUserToResizeRows = false;
-            this.dgvVehiculosD.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvVehiculosD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvVehiculosD.BackgroundColor = System.Drawing.Color.White;
-            this.dgvVehiculosD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvVehiculosD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVehiculosD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.dgvVehiculosD.Location = new System.Drawing.Point(52, 79);
-            this.dgvVehiculosD.Name = "dgvVehiculosD";
-            this.dgvVehiculosD.ReadOnly = true;
-            this.dgvVehiculosD.RowHeadersVisible = false;
-            this.dgvVehiculosD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVehiculosD.Size = new System.Drawing.Size(785, 252);
-            this.dgvVehiculosD.TabIndex = 127;
             // 
             // ID
             // 
@@ -819,6 +667,46 @@
             this.VTipoMotor.Name = "VTipoMotor";
             this.VTipoMotor.ReadOnly = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dgvVehiculosD);
+            this.tabPage3.Controls.Add(this.btnEliminar);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(895, 534);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Eliminar Vehículo";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dgvVehiculosD
+            // 
+            this.dgvVehiculosD.AllowUserToAddRows = false;
+            this.dgvVehiculosD.AllowUserToDeleteRows = false;
+            this.dgvVehiculosD.AllowUserToResizeColumns = false;
+            this.dgvVehiculosD.AllowUserToResizeRows = false;
+            this.dgvVehiculosD.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvVehiculosD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvVehiculosD.BackgroundColor = System.Drawing.Color.White;
+            this.dgvVehiculosD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvVehiculosD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVehiculosD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dgvVehiculosD.Location = new System.Drawing.Point(52, 79);
+            this.dgvVehiculosD.Name = "dgvVehiculosD";
+            this.dgvVehiculosD.ReadOnly = true;
+            this.dgvVehiculosD.RowHeadersVisible = false;
+            this.dgvVehiculosD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvVehiculosD.Size = new System.Drawing.Size(785, 252);
+            this.dgvVehiculosD.TabIndex = 127;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
@@ -854,10 +742,123 @@
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnEliminar.Location = new System.Drawing.Point(757, 355);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(80, 32);
+            this.btnEliminar.TabIndex = 126;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel5.ColumnCount = 6;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.47846F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.25842F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel5.Controls.Add(this.txtBusquedaD, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.cbxCriBusquedaD, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label37, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnBuscarD, 4, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(52, 12);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(785, 47);
+            this.tableLayoutPanel5.TabIndex = 125;
+            // 
+            // txtBusquedaD
+            // 
+            this.txtBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBusquedaD.Location = new System.Drawing.Point(433, 13);
+            this.txtBusquedaD.Name = "txtBusquedaD";
+            this.txtBusquedaD.Size = new System.Drawing.Size(223, 20);
+            this.txtBusquedaD.TabIndex = 117;
+            // 
+            // cbxCriBusquedaD
+            // 
+            this.cbxCriBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxCriBusquedaD.FormattingEnabled = true;
+            this.cbxCriBusquedaD.Items.AddRange(new object[] {
+            "Codigo de Barras",
+            "Marca",
+            "Mostrar Todos"});
+            this.cbxCriBusquedaD.Location = new System.Drawing.Point(151, 13);
+            this.cbxCriBusquedaD.Name = "cbxCriBusquedaD";
+            this.cbxCriBusquedaD.Size = new System.Drawing.Size(207, 21);
+            this.cbxCriBusquedaD.TabIndex = 120;
+            this.cbxCriBusquedaD.SelectedValueChanged += new System.EventHandler(this.cbxCriBusquedaD_SelectedValueChanged);
+            // 
+            // label37
+            // 
+            this.label37.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(20, 17);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(107, 13);
+            this.label37.TabIndex = 116;
+            this.label37.Text = "Criterio de busqueda:";
+            // 
+            // btnBuscarD
+            // 
+            this.btnBuscarD.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnBuscarD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnBuscarD.FlatAppearance.BorderSize = 0;
+            this.btnBuscarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnBuscarD.Location = new System.Drawing.Point(666, 6);
+            this.btnBuscarD.Name = "btnBuscarD";
+            this.btnBuscarD.Size = new System.Drawing.Size(80, 35);
+            this.btnBuscarD.TabIndex = 118;
+            this.btnBuscarD.Text = "Buscar";
+            this.btnBuscarD.UseVisualStyleBackColor = false;
+            this.btnBuscarD.Click += new System.EventHandler(this.btnBuscarD_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnSalir);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 564);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(903, 39);
+            this.panel1.TabIndex = 3;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnSalir.Location = new System.Drawing.Point(816, 1);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(80, 35);
+            this.btnSalir.TabIndex = 129;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // frmAdminVehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(903, 603);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
@@ -878,10 +879,10 @@
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculosE)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculosD)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculosD)).EndInit();
             this.ResumeLayout(false);
 
         }

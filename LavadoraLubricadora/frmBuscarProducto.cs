@@ -10,16 +10,15 @@ using System.Windows.Forms;
 
 namespace LavadoraLubricadora
 {
-    public partial class frmBuscarFiltro : Form
+    public partial class frmBuscarProducto : Form
     {
         LavadoraService.LavadoraServiceClient cliente;
-
-        public frmBuscarFiltro()
+        public frmBuscarProducto()
         {
             InitializeComponent();
         }
 
-        private void frmBuscarFiltro_Load(object sender, EventArgs e)
+        private void frmBuscarProducto_Load(object sender, EventArgs e)
         {
             cliente = new LavadoraService.LavadoraServiceClient();
 
@@ -27,35 +26,24 @@ namespace LavadoraLubricadora
             txtBusqueda.Visible = false;
         }
 
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (cbxCriBusqueda.SelectedItem.ToString().Equals("Codigo de Barras"))
             {
-                DataTable aceites = cliente.BuscarFiltroCodigo(txtBusqueda.Text);
-                dgvFiltrosE.DataSource = aceites;
+                DataTable productos = cliente.BuscarProductoCodigo(txtBusqueda.Text);
+                dgvProducto.DataSource = productos;
 
             }
             else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Marca"))
             {
-                DataTable aceites = cliente.BuscarFiltroMarca(txtBusqueda.Text);
-                dgvFiltrosE.DataSource = aceites;
+                DataTable productos = cliente.BuscarProductoMarca(txtBusqueda.Text);
+                dgvProducto.DataSource = productos;
 
             }
             else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Mostrar Todos"))
             {
-                DataTable aceites = cliente.ObtenerFiltros();
-                dgvFiltrosE.DataSource = aceites;
-            }
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("¿Seguro que desea Salir?", "Aviso", MessageBoxButtons.YesNo);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-                this.Close();
+                DataTable productos = cliente.ObtenerProducto();
+                dgvProducto.DataSource = productos;
             }
         }
 
@@ -70,6 +58,16 @@ namespace LavadoraLubricadora
             {
                 txtBusqueda.Visible = true;
                 txtBusqueda.Clear();
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("¿Seguro que desea Salir?", "Aviso", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
             }
         }
     }

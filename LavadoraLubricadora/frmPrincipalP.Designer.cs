@@ -31,7 +31,7 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.pnlSubmenuVentas = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnAdminClientes = new System.Windows.Forms.Button();
             this.btnComprobanteVenta = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.pnlSubmenuAdmProductos = new System.Windows.Forms.Panel();
@@ -77,7 +77,7 @@
             // pnlSubmenuVentas
             // 
             this.pnlSubmenuVentas.Controls.Add(this.button3);
-            this.pnlSubmenuVentas.Controls.Add(this.button4);
+            this.pnlSubmenuVentas.Controls.Add(this.btnAdminClientes);
             this.pnlSubmenuVentas.Controls.Add(this.btnComprobanteVenta);
             this.pnlSubmenuVentas.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubmenuVentas.Location = new System.Drawing.Point(0, 561);
@@ -101,21 +101,22 @@
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnAdminClientes
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
-            this.button4.Location = new System.Drawing.Point(0, 40);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(250, 40);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Administrar Clientes";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAdminClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdminClientes.FlatAppearance.BorderSize = 0;
+            this.btnAdminClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
+            this.btnAdminClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdminClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnAdminClientes.Location = new System.Drawing.Point(0, 40);
+            this.btnAdminClientes.Name = "btnAdminClientes";
+            this.btnAdminClientes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnAdminClientes.Size = new System.Drawing.Size(250, 40);
+            this.btnAdminClientes.TabIndex = 1;
+            this.btnAdminClientes.Text = "Administrar Clientes";
+            this.btnAdminClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdminClientes.UseVisualStyleBackColor = true;
+            this.btnAdminClientes.Click += new System.EventHandler(this.btnAdminClientes_Click);
             // 
             // btnComprobanteVenta
             // 
@@ -413,7 +414,7 @@
         private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.Panel pnlSubmenuVentas;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnAdminClientes;
         private System.Windows.Forms.Button btnComprobanteVenta;
         private System.Windows.Forms.Button btnVentas;
     }

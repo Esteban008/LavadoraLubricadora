@@ -88,6 +88,8 @@ namespace LavadoraLubricadora
                 btnBuscarAceite.BackColor = Color.FromArgb(255, 255, 255);
             if (Application.OpenForms["frmBuscarFiltro"] == null)
                 btnBuscarFiltro.BackColor = Color.FromArgb(255, 255, 255);
+            if (Application.OpenForms["frmBuscarProducto"] == null)
+                btnBuscarOtros.BackColor = Color.FromArgb(255, 255, 255);           
             if (Application.OpenForms["frmBusquedaVehiculo"] == null)
                 btnBusquedaxVehiculo.BackColor = Color.FromArgb(255, 255, 255);
 
@@ -104,6 +106,10 @@ namespace LavadoraLubricadora
 
             if (Application.OpenForms["frmComprabanteVenta"] == null)
                 btnComprobanteVenta.BackColor = Color.FromArgb(255, 255, 255);
+            if (Application.OpenForms["frmAdminClientes"] == null)
+                btnAdminClientes.BackColor = Color.FromArgb(255, 255, 255);
+
+            
         }
 
         private void btnBuscarProductos_Click(object sender, EventArgs e)
@@ -133,6 +139,7 @@ namespace LavadoraLubricadora
 
         private void btnBuscarOtros_Click(object sender, EventArgs e)
         {
+            AbrirFormulario<frmBuscarProducto>();
             btnBuscarOtros.BackColor = Color.FromArgb(199, 207, 225);
         }
 
@@ -199,6 +206,12 @@ namespace LavadoraLubricadora
         {
             AbrirFormulario<frmComprabanteVenta>();
             btnComprobanteVenta.BackColor = Color.FromArgb(199, 207, 225);
+        }
+
+        private void btnAdminClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<frmAdminClientes>();
+            btnAdminClientes.BackColor = Color.FromArgb(199, 207, 225);
         }
     }
 }

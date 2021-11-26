@@ -12,9 +12,26 @@ namespace LavadoraLubricadora
 {
     public partial class frmBusquedaVehiculo : Form
     {
+        LavadoraService.LavadoraServiceClient cliente;
+
+        private void frmBusquedaVehiculo_Load(object sender, EventArgs e)
+        {
+            cliente = new LavadoraService.LavadoraServiceClient();
+            BloquearEdicionCombos();
+            //Llenado de combo
+            cbxMarcaVehiculo.Items.AddRange(cliente.ObtenerMarcaVehiculo());
+        }
+
         public frmBusquedaVehiculo()
         {
             InitializeComponent();
+        }
+        public void BloquearEdicionCombos()
+        {
+            cbxMarcaVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxModeloVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxAnioVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxMotorVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -25,6 +42,26 @@ namespace LavadoraLubricadora
             {
                 this.Close();
             }
+        }
+
+        private void cbxMarcaVehiculo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            cbxModeloVehiculo.Items.Clear();
+            cbxAnioVehiculo.Items.Clear();
+            cbxMotorVehiculo.Items.Clear();
+
+            cbxModeloVehiculo.Items.AddRange(cliente.ObtenerModeloVehiculo(cbxMarcaVehiculo.SelectedItem.ToString()));
+        }
+
+        private void cbxModeloVehiculo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            cbxAnioVehiculo.Items.Clear();
+            cbxMotorVehiculo.Items.Clear();
+
+            cbxAnioVehiculo.Items.AddRange(cliente.ObtenerAnioVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
+            cbxMotorVehiculo.Items.AddRange(cliente.ObtenerMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
+
+
         }
     }
 }
