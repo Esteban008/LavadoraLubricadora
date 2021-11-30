@@ -65,6 +65,7 @@ namespace LavadoraLubricadora
                 DialogResult dialogResult = MessageBox.Show("Aceite ingresado con éxito", "Aviso", MessageBoxButtons.OK);
 
                 LimpiarCampos();
+                cbxTipoCombustible.Items.AddRange(cliente.ObtenerTipoCombustible());
             }
         }
 
@@ -109,7 +110,7 @@ namespace LavadoraLubricadora
             txtCantidadMin.Clear();
             cbxPresentacion.SelectedIndex = -1;
             cbxSae.SelectedIndex = -1;
-            cbxTipoCombustible.SelectedIndex = -1;
+            cbxTipoCombustible.Items.Clear();
             cbxApi.SelectedIndex = -1;
             cbxTipoAceite.SelectedIndex = -1;
             txtPreSIva.Clear();
@@ -311,7 +312,7 @@ namespace LavadoraLubricadora
             DialogResult dialogResult = MessageBox.Show("Aceite actualizado con éxito", "Aviso", MessageBoxButtons.OK);
             ActualizarDgvAceiteE();
             LimpiarCamposE();
-            llenarCbxsE();
+            cbxTipoCombustibleE.Items.AddRange(cliente.ObtenerTipoCombustible());
         }
 
         private void btnCancelarE_Click(object sender, EventArgs e)
@@ -377,7 +378,7 @@ namespace LavadoraLubricadora
             txtCantidadMinE.Clear();
             cbxPresentacionE.SelectedIndex = -1;
             cbxSaeE.SelectedIndex = -1;
-            cbxTipoCombustibleE.SelectedIndex = -1;
+            cbxTipoCombustibleE.Items.Clear();
             cbxApiE.SelectedIndex = -1;
             cbxTipoAceiteE.SelectedIndex = -1;
             txtPreSIvaE.Clear();
@@ -387,6 +388,7 @@ namespace LavadoraLubricadora
             txtPreVMayorE.Clear();
             txtMargenMayorE.Clear();
             txtMargenMenorE.Clear();
+            
         }
 
         public void RecalcularEE()
@@ -474,7 +476,6 @@ namespace LavadoraLubricadora
             txtDescripcionE.Text = dgvAceitesE.SelectedCells[2].Value.ToString();
             cbxPresentacionE.SelectedItem = dgvAceitesE.SelectedCells[3].Value.ToString();
             cbxSaeE.SelectedItem = dgvAceitesE.SelectedCells[4].Value.ToString();
-            cbxApiE.SelectedItem = dgvAceitesE.SelectedCells[5].Value.ToString();
             cbxTipoAceiteE.SelectedItem = dgvAceitesE.SelectedCells[6].Value.ToString();
             cbxTipoCombustibleE.SelectedItem = dgvAceitesE.SelectedCells[7].Value.ToString();
             txtCodigoBE.Text = dgvAceitesE.SelectedCells[8].Value.ToString();
@@ -487,7 +488,7 @@ namespace LavadoraLubricadora
             txtCantidadE.Text = dgvAceitesE.SelectedCells[15].Value.ToString();
             txtCantidadMinE.Text = dgvAceitesE.SelectedCells[16].Value.ToString();
             txtGananPorMayorE.Text = Math.Round((((Convert.ToDouble(txtPreVMayorE.Text) - Convert.ToDouble(txtPreCIvaE.Text))*100)/(Convert.ToDouble(txtPreCIvaE.Text)))).ToString();
-           
+            cbxApiE.SelectedItem = dgvAceitesE.SelectedCells[5].Value.ToString();
         }
 
         private void cbxCriBusquedaE_SelectedValueChanged(object sender, EventArgs e)

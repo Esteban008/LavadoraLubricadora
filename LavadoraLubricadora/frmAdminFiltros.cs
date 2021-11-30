@@ -393,7 +393,7 @@ namespace LavadoraLubricadora
 
             DialogResult dialogResult = MessageBox.Show("Aceite actualizado con éxito", "Aviso", MessageBoxButtons.OK);
 
-            LimpiarCampos();
+            LimpiarCamposE();
             ActualizarDgvFiltrosE();              
             LimpiarCacheListaVehiculos();
 
