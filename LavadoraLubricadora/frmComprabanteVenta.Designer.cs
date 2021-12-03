@@ -34,37 +34,30 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabIngresarAceite = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ProdCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdValorUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvProductosI = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txtSubtotal = new System.Windows.Forms.TextBox();
+            this.txtIva = new System.Windows.Forms.TextBox();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.btnVender = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtNFactura = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtCedulaBuscar = new System.Windows.Forms.TextBox();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
@@ -74,6 +67,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtCodigoBarras = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.txtCedulaBuscar = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtMargenMenorE = new System.Windows.Forms.TextBox();
@@ -164,7 +161,7 @@
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabIngresarAceite.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosI)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -239,7 +236,7 @@
             // 
             // tabIngresarAceite
             // 
-            this.tabIngresarAceite.Controls.Add(this.dataGridView1);
+            this.tabIngresarAceite.Controls.Add(this.dgvProductosI);
             this.tabIngresarAceite.Controls.Add(this.tableLayoutPanel6);
             this.tabIngresarAceite.Controls.Add(this.tableLayoutPanel2);
             this.tabIngresarAceite.Location = new System.Drawing.Point(4, 22);
@@ -250,55 +247,26 @@
             this.tabIngresarAceite.Text = "Generar Comprobante";
             this.tabIngresarAceite.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvProductosI
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvProductosI.AllowUserToAddRows = false;
+            this.dgvProductosI.AllowUserToDeleteRows = false;
+            this.dgvProductosI.AllowUserToResizeColumns = false;
+            this.dgvProductosI.AllowUserToResizeRows = false;
+            this.dgvProductosI.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProdCantidad,
-            this.ProdDescripcion,
-            this.ProdValorUnitario,
-            this.ProdValorTotal});
-            this.dataGridView1.Location = new System.Drawing.Point(47, 256);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(441, 256);
-            this.dataGridView1.TabIndex = 123;
-            // 
-            // ProdCantidad
-            // 
-            this.ProdCantidad.HeaderText = "Cantidad";
-            this.ProdCantidad.Name = "ProdCantidad";
-            this.ProdCantidad.ReadOnly = true;
-            // 
-            // ProdDescripcion
-            // 
-            this.ProdDescripcion.HeaderText = "Descripción";
-            this.ProdDescripcion.Name = "ProdDescripcion";
-            this.ProdDescripcion.ReadOnly = true;
-            // 
-            // ProdValorUnitario
-            // 
-            this.ProdValorUnitario.HeaderText = "Valor Unitario";
-            this.ProdValorUnitario.Name = "ProdValorUnitario";
-            this.ProdValorUnitario.ReadOnly = true;
-            // 
-            // ProdValorTotal
-            // 
-            this.ProdValorTotal.HeaderText = "Valor Total";
-            this.ProdValorTotal.Name = "ProdValorTotal";
-            this.ProdValorTotal.ReadOnly = true;
+            this.dgvProductosI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProductosI.BackgroundColor = System.Drawing.Color.White;
+            this.dgvProductosI.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvProductosI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductosI.Location = new System.Drawing.Point(47, 256);
+            this.dgvProductosI.Name = "dgvProductosI";
+            this.dgvProductosI.ReadOnly = true;
+            this.dgvProductosI.RowHeadersVisible = false;
+            this.dgvProductosI.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductosI.Size = new System.Drawing.Size(441, 256);
+            this.dgvProductosI.TabIndex = 123;
             // 
             // tableLayoutPanel6
             // 
@@ -310,11 +278,12 @@
             this.tableLayoutPanel6.Controls.Add(this.label16, 0, 2);
             this.tableLayoutPanel6.Controls.Add(this.label17, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.label18, 0, 4);
-            this.tableLayoutPanel6.Controls.Add(this.textBox11, 1, 1);
-            this.tableLayoutPanel6.Controls.Add(this.textBox12, 1, 2);
-            this.tableLayoutPanel6.Controls.Add(this.textBox13, 1, 3);
-            this.tableLayoutPanel6.Controls.Add(this.textBox14, 1, 4);
-            this.tableLayoutPanel6.Controls.Add(this.button3, 0, 5);
+            this.tableLayoutPanel6.Controls.Add(this.txtSubtotal, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.txtIva, 1, 2);
+            this.tableLayoutPanel6.Controls.Add(this.txtDescuento, 1, 3);
+            this.tableLayoutPanel6.Controls.Add(this.txtTotal, 1, 4);
+            this.tableLayoutPanel6.Controls.Add(this.btnVender, 1, 5);
+            this.tableLayoutPanel6.Controls.Add(this.btnCancelar, 0, 5);
             this.tableLayoutPanel6.Location = new System.Drawing.Point(506, 256);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 6;
@@ -353,9 +322,9 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(3, 140);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(62, 13);
+            this.label17.Size = new System.Drawing.Size(73, 13);
             this.label17.TabIndex = 137;
-            this.label17.Text = "Descuento:";
+            this.label17.Text = "Descuento %:";
             // 
             // label18
             // 
@@ -367,53 +336,69 @@
             this.label18.TabIndex = 138;
             this.label18.Text = "Total:";
             // 
-            // textBox11
+            // txtSubtotal
             // 
-            this.textBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox11.Location = new System.Drawing.Point(139, 53);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(131, 20);
-            this.textBox11.TabIndex = 139;
+            this.txtSubtotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSubtotal.Location = new System.Drawing.Point(139, 53);
+            this.txtSubtotal.Name = "txtSubtotal";
+            this.txtSubtotal.Size = new System.Drawing.Size(131, 20);
+            this.txtSubtotal.TabIndex = 139;
             // 
-            // textBox12
+            // txtIva
             // 
-            this.textBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox12.Location = new System.Drawing.Point(139, 95);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(131, 20);
-            this.textBox12.TabIndex = 140;
+            this.txtIva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIva.Location = new System.Drawing.Point(139, 95);
+            this.txtIva.Name = "txtIva";
+            this.txtIva.Size = new System.Drawing.Size(131, 20);
+            this.txtIva.TabIndex = 140;
             // 
-            // textBox13
+            // txtDescuento
             // 
-            this.textBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox13.Location = new System.Drawing.Point(139, 137);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(131, 20);
-            this.textBox13.TabIndex = 141;
+            this.txtDescuento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescuento.Location = new System.Drawing.Point(139, 137);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(131, 20);
+            this.txtDescuento.TabIndex = 141;
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
+            this.txtDescuento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDescuento_KeyUp);
             // 
-            // textBox14
+            // txtTotal
             // 
-            this.textBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox14.Location = new System.Drawing.Point(139, 179);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(131, 20);
-            this.textBox14.TabIndex = 142;
+            this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotal.Location = new System.Drawing.Point(139, 179);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(131, 20);
+            this.txtTotal.TabIndex = 142;
             // 
-            // button3
+            // btnVender
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.tableLayoutPanel6.SetColumnSpan(this.button3, 2);
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.button3.Location = new System.Drawing.Point(3, 221);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(267, 24);
-            this.button3.TabIndex = 137;
-            this.button3.Text = "Vender";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnVender.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVender.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnVender.FlatAppearance.BorderSize = 0;
+            this.btnVender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnVender.Location = new System.Drawing.Point(139, 215);
+            this.btnVender.Name = "btnVender";
+            this.btnVender.Size = new System.Drawing.Size(131, 35);
+            this.btnVender.TabIndex = 137;
+            this.btnVender.Text = "Vender";
+            this.btnVender.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnCancelar.Location = new System.Drawing.Point(3, 215);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(130, 35);
+            this.btnCancelar.TabIndex = 143;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel2
             // 
@@ -431,16 +416,12 @@
             this.tableLayoutPanel2.Controls.Add(this.label13, 0, 7);
             this.tableLayoutPanel2.Controls.Add(this.txtNFactura, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.txtCedulaBuscar, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnBuscarCliente, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.label6, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.label10, 3, 5);
             this.tableLayoutPanel2.Controls.Add(this.label9, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.label8, 3, 4);
             this.tableLayoutPanel2.Controls.Add(this.label7, 3, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label11, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.txtNombre, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.txtApellido, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.txtCedula, 1, 5);
@@ -450,6 +431,10 @@
             this.tableLayoutPanel2.Controls.Add(this.label12, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.txtCodigoBarras, 1, 7);
             this.tableLayoutPanel2.Controls.Add(this.btnAgregar, 5, 7);
+            this.tableLayoutPanel2.Controls.Add(this.btnBuscarCliente, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtCedulaBuscar, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label11, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(47, 15);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 8;
@@ -471,6 +456,7 @@
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(200, 20);
             this.txtCantidad.TabIndex = 130;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label14
             // 
@@ -509,40 +495,6 @@
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Nº Factura:";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 26);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Cédula/RUC Cliente:";
-            // 
-            // txtCedulaBuscar
-            // 
-            this.txtCedulaBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCedulaBuscar.Location = new System.Drawing.Point(92, 33);
-            this.txtCedulaBuscar.Name = "txtCedulaBuscar";
-            this.txtCedulaBuscar.Size = new System.Drawing.Size(200, 20);
-            this.txtCedulaBuscar.TabIndex = 3;
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
-            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarCliente.Location = new System.Drawing.Point(345, 32);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(83, 23);
-            this.btnBuscarCliente.TabIndex = 119;
-            this.btnBuscarCliente.Text = "Buscar";
-            this.btnBuscarCliente.UseVisualStyleBackColor = false;
-            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // label5
             // 
@@ -603,16 +555,6 @@
             this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 122;
             this.label7.Text = "Telefono:";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 59);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(55, 26);
-            this.label11.TabIndex = 126;
-            this.label11.Text = "Datos del Cliente:";
             // 
             // txtNombre
             // 
@@ -682,19 +624,63 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
             this.btnAgregar.FlatAppearance.BorderSize = 0;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnAgregar.Location = new System.Drawing.Point(640, 207);
+            this.btnAgregar.Location = new System.Drawing.Point(640, 206);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(89, 24);
+            this.btnAgregar.Size = new System.Drawing.Size(80, 26);
             this.btnAgregar.TabIndex = 136;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
+            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnBuscarCliente.Location = new System.Drawing.Point(345, 61);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(80, 23);
+            this.btnBuscarCliente.TabIndex = 119;
+            this.btnBuscarCliente.Text = "Buscar";
+            this.btnBuscarCliente.UseVisualStyleBackColor = false;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
+            // 
+            // txtCedulaBuscar
+            // 
+            this.txtCedulaBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCedulaBuscar.Location = new System.Drawing.Point(92, 62);
+            this.txtCedulaBuscar.Name = "txtCedulaBuscar";
+            this.txtCedulaBuscar.Size = new System.Drawing.Size(200, 20);
+            this.txtCedulaBuscar.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 30);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(55, 26);
+            this.label11.TabIndex = 126;
+            this.label11.Text = "Datos del Cliente:";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 59);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 26);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Cédula/RUC Cliente:";
             // 
             // tabPage2
             // 
@@ -1125,7 +1111,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel3.Controls.Add(this.txtBusquedaE, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.cbxCriBusquedaE, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
@@ -1141,9 +1127,9 @@
             // txtBusquedaE
             // 
             this.txtBusquedaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaE.Location = new System.Drawing.Point(366, 13);
+            this.txtBusquedaE.Location = new System.Drawing.Point(363, 13);
             this.txtBusquedaE.Name = "txtBusquedaE";
-            this.txtBusquedaE.Size = new System.Drawing.Size(188, 20);
+            this.txtBusquedaE.Size = new System.Drawing.Size(186, 20);
             this.txtBusquedaE.TabIndex = 117;
             // 
             // cbxCriBusquedaE
@@ -1154,16 +1140,16 @@
             "Codigo de Barras",
             "Marca",
             "Mostrar Todos"});
-            this.cbxCriBusquedaE.Location = new System.Drawing.Point(128, 13);
+            this.cbxCriBusquedaE.Location = new System.Drawing.Point(127, 13);
             this.cbxCriBusquedaE.Name = "cbxCriBusquedaE";
-            this.cbxCriBusquedaE.Size = new System.Drawing.Size(174, 21);
+            this.cbxCriBusquedaE.Size = new System.Drawing.Size(172, 21);
             this.cbxCriBusquedaE.TabIndex = 120;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 17);
+            this.label1.Location = new System.Drawing.Point(8, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 116;
@@ -1177,7 +1163,7 @@
             this.btnBuscarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarE.Location = new System.Drawing.Point(564, 6);
+            this.btnBuscarE.Location = new System.Drawing.Point(559, 6);
             this.btnBuscarE.Name = "btnBuscarE";
             this.btnBuscarE.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarE.TabIndex = 118;
@@ -1397,7 +1383,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel5.Controls.Add(this.txtBusquedaD, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.cbxCriBusquedaD, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.label37, 0, 0);
@@ -1413,9 +1399,9 @@
             // txtBusquedaD
             // 
             this.txtBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaD.Location = new System.Drawing.Point(366, 13);
+            this.txtBusquedaD.Location = new System.Drawing.Point(363, 13);
             this.txtBusquedaD.Name = "txtBusquedaD";
-            this.txtBusquedaD.Size = new System.Drawing.Size(188, 20);
+            this.txtBusquedaD.Size = new System.Drawing.Size(186, 20);
             this.txtBusquedaD.TabIndex = 117;
             // 
             // cbxCriBusquedaD
@@ -1426,16 +1412,16 @@
             "Codigo de Barras",
             "Marca",
             "Mostrar Todos"});
-            this.cbxCriBusquedaD.Location = new System.Drawing.Point(128, 13);
+            this.cbxCriBusquedaD.Location = new System.Drawing.Point(127, 13);
             this.cbxCriBusquedaD.Name = "cbxCriBusquedaD";
-            this.cbxCriBusquedaD.Size = new System.Drawing.Size(174, 21);
+            this.cbxCriBusquedaD.Size = new System.Drawing.Size(172, 21);
             this.cbxCriBusquedaD.TabIndex = 120;
             // 
             // label37
             // 
             this.label37.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(9, 17);
+            this.label37.Location = new System.Drawing.Point(8, 17);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(107, 13);
             this.label37.TabIndex = 116;
@@ -1449,7 +1435,7 @@
             this.btnBuscarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarD.Location = new System.Drawing.Point(564, 6);
+            this.btnBuscarD.Location = new System.Drawing.Point(559, 6);
             this.btnBuscarD.Name = "btnBuscarD";
             this.btnBuscarD.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarD.TabIndex = 118;
@@ -1647,7 +1633,7 @@
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabIngresarAceite.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosI)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1770,10 +1756,10 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox txtSubtotal;
+        private System.Windows.Forms.TextBox txtIva;
+        private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -1794,11 +1780,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtCodigoBarras;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdValorUnitario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdValorTotal;
+        private System.Windows.Forms.Button btnVender;
+        private System.Windows.Forms.DataGridView dgvProductosI;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

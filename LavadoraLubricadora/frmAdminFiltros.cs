@@ -711,10 +711,6 @@ namespace LavadoraLubricadora
             txtMargenMenorE.Text = magenxmenorE.ToString();
         }
 
-
-
-
-
         #endregion
 
         #region Eliminar

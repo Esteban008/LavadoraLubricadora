@@ -266,6 +266,9 @@
     <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.Cliente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.ProductoComprobante.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.Vehiculo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
