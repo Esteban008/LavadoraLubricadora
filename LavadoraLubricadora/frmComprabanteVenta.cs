@@ -85,45 +85,6 @@ namespace LavadoraLubricadora
             }          
         }
 
-        private void LoadIngresar()
-        {
-            BloquearCampos();
-
-            dtProductos = new DataTable();
-            dtProductos.Clear();
-            dtProductos.Columns.Add("ID");
-            dtProductos.Columns.Add("Descripcion");
-            dtProductos.Columns.Add("codigoBarras");
-            dtProductos.Columns.Add("Cantidad");
-            dtProductos.Columns.Add("precioVenta");
-            dtProductos.Columns.Add("precioTotal");
-
-            txtSubtotal.Enabled = false;
-            txtIva.Enabled = false;
-            txtTotal.Enabled = false;
-            
-        }
-
-
-        private void BloquearCampos()
-        {
-            txtNombre.Enabled = false;
-            txtApellido.Enabled = false;
-            txtTelefono.Enabled = false;
-            txtCorreo.Enabled = false;
-            txtCedula.Enabled = false;
-            txtDireccion.Enabled = false;
-        }
-        private void DesbloquearCampos()
-        {
-            txtNombre.Enabled = true;
-            txtApellido.Enabled = true;
-            txtTelefono.Enabled = true;
-            txtCorreo.Enabled = true;
-            txtCedula.Enabled = true;
-            txtDireccion.Enabled = true;
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -132,7 +93,7 @@ namespace LavadoraLubricadora
 
                 if (productoObj.Id != 0)
                 {
-                  
+
 
                     if (txtCantidad.Text != String.Empty)
                     {
@@ -160,13 +121,13 @@ namespace LavadoraLubricadora
                         DialogResult dialogResult = MessageBox.Show("La cantidad es incorrecta", "Aviso", MessageBoxButtons.OK);
                     }
 
-                   
+
                 }
                 else
                 {
                     DialogResult dialogResult = MessageBox.Show("Producto no Encontrado", "Aviso", MessageBoxButtons.OK);
                 }
-                
+
             }
             catch (Exception)
             {
@@ -174,6 +135,54 @@ namespace LavadoraLubricadora
             }
 
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVender_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadIngresar()
+        {
+            BloquearCampos();
+
+            dtProductos = new DataTable();
+            dtProductos.Clear();
+            dtProductos.Columns.Add("ID");
+            dtProductos.Columns.Add("Descripcion");
+            dtProductos.Columns.Add("codigoBarras");
+            dtProductos.Columns.Add("Cantidad");
+            dtProductos.Columns.Add("precioVenta");
+            dtProductos.Columns.Add("precioTotal");
+
+            txtSubtotal.Enabled = false;
+            txtIva.Enabled = false;
+            txtTotal.Enabled = false;
+            
+        }
+
+        private void BloquearCampos()
+        {
+            txtNombre.Enabled = false;
+            txtApellido.Enabled = false;
+            txtTelefono.Enabled = false;
+            txtCorreo.Enabled = false;
+            txtCedula.Enabled = false;
+            txtDireccion.Enabled = false;
+        }
+        private void DesbloquearCampos()
+        {
+            txtNombre.Enabled = true;
+            txtApellido.Enabled = true;
+            txtTelefono.Enabled = true;
+            txtCorreo.Enabled = true;
+            txtCedula.Enabled = true;
+            txtDireccion.Enabled = true;
+        }       
 
         private void ActualizarDgv()
         {
@@ -228,5 +237,7 @@ namespace LavadoraLubricadora
         }
 
         #endregion
+
+
     }
 }
