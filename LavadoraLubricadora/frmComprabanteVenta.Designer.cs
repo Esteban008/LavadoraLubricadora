@@ -157,6 +157,9 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label19 = new System.Windows.Forms.Label();
+            this.cbxTipoPago = new System.Windows.Forms.ComboBox();
+            this.btnEliminarDgv = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -236,6 +239,7 @@
             // 
             // tabIngresarAceite
             // 
+            this.tabIngresarAceite.Controls.Add(this.btnEliminarDgv);
             this.tabIngresarAceite.Controls.Add(this.dgvProductosI);
             this.tabIngresarAceite.Controls.Add(this.tableLayoutPanel6);
             this.tabIngresarAceite.Controls.Add(this.tableLayoutPanel2);
@@ -265,25 +269,27 @@
             this.dgvProductosI.ReadOnly = true;
             this.dgvProductosI.RowHeadersVisible = false;
             this.dgvProductosI.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductosI.Size = new System.Drawing.Size(441, 256);
+            this.dgvProductosI.Size = new System.Drawing.Size(453, 209);
             this.dgvProductosI.TabIndex = 123;
             // 
             // tableLayoutPanel6
             // 
-            this.tableLayoutPanel6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.label15, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label16, 0, 2);
-            this.tableLayoutPanel6.Controls.Add(this.label17, 0, 3);
-            this.tableLayoutPanel6.Controls.Add(this.label18, 0, 4);
-            this.tableLayoutPanel6.Controls.Add(this.txtSubtotal, 1, 1);
-            this.tableLayoutPanel6.Controls.Add(this.txtIva, 1, 2);
-            this.tableLayoutPanel6.Controls.Add(this.txtDescuento, 1, 3);
-            this.tableLayoutPanel6.Controls.Add(this.txtTotal, 1, 4);
+            this.tableLayoutPanel6.Controls.Add(this.label19, 0, 4);
             this.tableLayoutPanel6.Controls.Add(this.btnVender, 1, 5);
             this.tableLayoutPanel6.Controls.Add(this.btnCancelar, 0, 5);
+            this.tableLayoutPanel6.Controls.Add(this.label15, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.txtSubtotal, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label16, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.txtIva, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.label17, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.txtDescuento, 1, 2);
+            this.tableLayoutPanel6.Controls.Add(this.label18, 0, 3);
+            this.tableLayoutPanel6.Controls.Add(this.txtTotal, 1, 3);
+            this.tableLayoutPanel6.Controls.Add(this.cbxTipoPago, 1, 4);
             this.tableLayoutPanel6.Location = new System.Drawing.Point(506, 256);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 6;
@@ -293,6 +299,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(273, 256);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
@@ -300,7 +307,7 @@
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 56);
+            this.label15.Location = new System.Drawing.Point(3, 14);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(49, 13);
             this.label15.TabIndex = 135;
@@ -310,7 +317,7 @@
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 98);
+            this.label16.Location = new System.Drawing.Point(3, 56);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(27, 13);
             this.label16.TabIndex = 136;
@@ -320,7 +327,7 @@
             // 
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 140);
+            this.label17.Location = new System.Drawing.Point(3, 98);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(73, 13);
             this.label17.TabIndex = 137;
@@ -330,7 +337,7 @@
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 182);
+            this.label18.Location = new System.Drawing.Point(3, 140);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(34, 13);
             this.label18.TabIndex = 138;
@@ -339,7 +346,7 @@
             // txtSubtotal
             // 
             this.txtSubtotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSubtotal.Location = new System.Drawing.Point(139, 53);
+            this.txtSubtotal.Location = new System.Drawing.Point(139, 11);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(131, 20);
             this.txtSubtotal.TabIndex = 139;
@@ -347,7 +354,7 @@
             // txtIva
             // 
             this.txtIva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIva.Location = new System.Drawing.Point(139, 95);
+            this.txtIva.Location = new System.Drawing.Point(139, 53);
             this.txtIva.Name = "txtIva";
             this.txtIva.Size = new System.Drawing.Size(131, 20);
             this.txtIva.TabIndex = 140;
@@ -355,7 +362,7 @@
             // txtDescuento
             // 
             this.txtDescuento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescuento.Location = new System.Drawing.Point(139, 137);
+            this.txtDescuento.Location = new System.Drawing.Point(139, 95);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(131, 20);
             this.txtDescuento.TabIndex = 141;
@@ -365,7 +372,7 @@
             // txtTotal
             // 
             this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotal.Location = new System.Drawing.Point(139, 179);
+            this.txtTotal.Location = new System.Drawing.Point(139, 137);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(131, 20);
             this.txtTotal.TabIndex = 142;
@@ -407,11 +414,11 @@
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 6;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.20751F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.17118F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.92896F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.37158F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.542488F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.20751F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.17118F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.92896F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.37158F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.70012F));
             this.tableLayoutPanel2.Controls.Add(this.txtCantidad, 4, 7);
             this.tableLayoutPanel2.Controls.Add(this.label14, 3, 7);
@@ -454,9 +461,9 @@
             // txtCantidad
             // 
             this.txtCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCantidad.Location = new System.Drawing.Point(434, 209);
+            this.txtCantidad.Location = new System.Drawing.Point(425, 209);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(200, 20);
+            this.txtCantidad.Size = new System.Drawing.Size(209, 20);
             this.txtCantidad.TabIndex = 130;
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
@@ -483,9 +490,9 @@
             // txtNFactura
             // 
             this.txtNFactura.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNFactura.Location = new System.Drawing.Point(92, 4);
+            this.txtNFactura.Location = new System.Drawing.Point(83, 4);
             this.txtNFactura.Name = "txtNFactura";
-            this.txtNFactura.Size = new System.Drawing.Size(200, 20);
+            this.txtNFactura.Size = new System.Drawing.Size(209, 20);
             this.txtNFactura.TabIndex = 0;
             // 
             // label3
@@ -561,49 +568,49 @@
             // txtNombre
             // 
             this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombre.Location = new System.Drawing.Point(92, 91);
+            this.txtNombre.Location = new System.Drawing.Point(83, 91);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(200, 20);
+            this.txtNombre.Size = new System.Drawing.Size(209, 20);
             this.txtNombre.TabIndex = 127;
             // 
             // txtApellido
             // 
             this.txtApellido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtApellido.Location = new System.Drawing.Point(92, 120);
+            this.txtApellido.Location = new System.Drawing.Point(83, 120);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(200, 20);
+            this.txtApellido.Size = new System.Drawing.Size(209, 20);
             this.txtApellido.TabIndex = 128;
             // 
             // txtCedula
             // 
             this.txtCedula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCedula.Location = new System.Drawing.Point(92, 149);
+            this.txtCedula.Location = new System.Drawing.Point(83, 149);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(200, 20);
+            this.txtCedula.Size = new System.Drawing.Size(209, 20);
             this.txtCedula.TabIndex = 129;
             // 
             // txtTelefono
             // 
             this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTelefono.Location = new System.Drawing.Point(434, 91);
+            this.txtTelefono.Location = new System.Drawing.Point(425, 91);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(200, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(209, 20);
             this.txtTelefono.TabIndex = 130;
             // 
             // txtCorreo
             // 
             this.txtCorreo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCorreo.Location = new System.Drawing.Point(434, 120);
+            this.txtCorreo.Location = new System.Drawing.Point(425, 120);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(200, 20);
+            this.txtCorreo.Size = new System.Drawing.Size(209, 20);
             this.txtCorreo.TabIndex = 131;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDireccion.Location = new System.Drawing.Point(434, 149);
+            this.txtDireccion.Location = new System.Drawing.Point(425, 149);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(200, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(209, 20);
             this.txtDireccion.TabIndex = 132;
             // 
             // label12
@@ -619,9 +626,9 @@
             // txtCodigoBarras
             // 
             this.txtCodigoBarras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCodigoBarras.Location = new System.Drawing.Point(92, 209);
+            this.txtCodigoBarras.Location = new System.Drawing.Point(83, 209);
             this.txtCodigoBarras.Name = "txtCodigoBarras";
-            this.txtCodigoBarras.Size = new System.Drawing.Size(200, 20);
+            this.txtCodigoBarras.Size = new System.Drawing.Size(209, 20);
             this.txtCodigoBarras.TabIndex = 135;
             // 
             // btnAgregar
@@ -650,7 +657,7 @@
             this.btnBuscarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
             this.btnBuscarCliente.Location = new System.Drawing.Point(345, 61);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(80, 23);
+            this.btnBuscarCliente.Size = new System.Drawing.Size(74, 23);
             this.btnBuscarCliente.TabIndex = 119;
             this.btnBuscarCliente.Text = "Buscar";
             this.btnBuscarCliente.UseVisualStyleBackColor = false;
@@ -659,9 +666,9 @@
             // txtCedulaBuscar
             // 
             this.txtCedulaBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCedulaBuscar.Location = new System.Drawing.Point(92, 62);
+            this.txtCedulaBuscar.Location = new System.Drawing.Point(83, 62);
             this.txtCedulaBuscar.Name = "txtCedulaBuscar";
-            this.txtCedulaBuscar.Size = new System.Drawing.Size(200, 20);
+            this.txtCedulaBuscar.Size = new System.Drawing.Size(209, 20);
             this.txtCedulaBuscar.TabIndex = 3;
             // 
             // label11
@@ -1113,7 +1120,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel3.Controls.Add(this.txtBusquedaE, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.cbxCriBusquedaE, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
@@ -1129,9 +1136,9 @@
             // txtBusquedaE
             // 
             this.txtBusquedaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaE.Location = new System.Drawing.Point(362, 13);
+            this.txtBusquedaE.Location = new System.Drawing.Point(360, 13);
             this.txtBusquedaE.Name = "txtBusquedaE";
-            this.txtBusquedaE.Size = new System.Drawing.Size(186, 20);
+            this.txtBusquedaE.Size = new System.Drawing.Size(185, 20);
             this.txtBusquedaE.TabIndex = 117;
             // 
             // cbxCriBusquedaE
@@ -1142,9 +1149,9 @@
             "Codigo de Barras",
             "Marca",
             "Mostrar Todos"});
-            this.cbxCriBusquedaE.Location = new System.Drawing.Point(127, 13);
+            this.cbxCriBusquedaE.Location = new System.Drawing.Point(126, 13);
             this.cbxCriBusquedaE.Name = "cbxCriBusquedaE";
-            this.cbxCriBusquedaE.Size = new System.Drawing.Size(172, 21);
+            this.cbxCriBusquedaE.Size = new System.Drawing.Size(171, 21);
             this.cbxCriBusquedaE.TabIndex = 120;
             // 
             // label1
@@ -1165,7 +1172,7 @@
             this.btnBuscarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarE.Location = new System.Drawing.Point(558, 6);
+            this.btnBuscarE.Location = new System.Drawing.Point(555, 6);
             this.btnBuscarE.Name = "btnBuscarE";
             this.btnBuscarE.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarE.TabIndex = 118;
@@ -1385,7 +1392,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel5.Controls.Add(this.txtBusquedaD, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.cbxCriBusquedaD, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.label37, 0, 0);
@@ -1401,9 +1408,9 @@
             // txtBusquedaD
             // 
             this.txtBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaD.Location = new System.Drawing.Point(362, 13);
+            this.txtBusquedaD.Location = new System.Drawing.Point(360, 13);
             this.txtBusquedaD.Name = "txtBusquedaD";
-            this.txtBusquedaD.Size = new System.Drawing.Size(186, 20);
+            this.txtBusquedaD.Size = new System.Drawing.Size(185, 20);
             this.txtBusquedaD.TabIndex = 117;
             // 
             // cbxCriBusquedaD
@@ -1414,9 +1421,9 @@
             "Codigo de Barras",
             "Marca",
             "Mostrar Todos"});
-            this.cbxCriBusquedaD.Location = new System.Drawing.Point(127, 13);
+            this.cbxCriBusquedaD.Location = new System.Drawing.Point(126, 13);
             this.cbxCriBusquedaD.Name = "cbxCriBusquedaD";
-            this.cbxCriBusquedaD.Size = new System.Drawing.Size(172, 21);
+            this.cbxCriBusquedaD.Size = new System.Drawing.Size(171, 21);
             this.cbxCriBusquedaD.TabIndex = 120;
             // 
             // label37
@@ -1437,7 +1444,7 @@
             this.btnBuscarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarD.Location = new System.Drawing.Point(558, 6);
+            this.btnBuscarD.Location = new System.Drawing.Point(555, 6);
             this.btnBuscarD.Name = "btnBuscarD";
             this.btnBuscarD.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarD.TabIndex = 118;
@@ -1619,6 +1626,43 @@
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
             this.dataGridViewTextBoxColumn17.Width = 103;
             // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(3, 182);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(74, 13);
+            this.label19.TabIndex = 139;
+            this.label19.Text = "Tipo de Pago:";
+            // 
+            // cbxTipoPago
+            // 
+            this.cbxTipoPago.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxTipoPago.FormattingEnabled = true;
+            this.cbxTipoPago.Items.AddRange(new object[] {
+            "Efectivo",
+            "Crédito"});
+            this.cbxTipoPago.Location = new System.Drawing.Point(139, 178);
+            this.cbxTipoPago.Name = "cbxTipoPago";
+            this.cbxTipoPago.Size = new System.Drawing.Size(131, 21);
+            this.cbxTipoPago.TabIndex = 144;
+            // 
+            // btnEliminarDgv
+            // 
+            this.btnEliminarDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarDgv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnEliminarDgv.FlatAppearance.BorderSize = 0;
+            this.btnEliminarDgv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarDgv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarDgv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnEliminarDgv.Location = new System.Drawing.Point(370, 471);
+            this.btnEliminarDgv.Name = "btnEliminarDgv";
+            this.btnEliminarDgv.Size = new System.Drawing.Size(130, 35);
+            this.btnEliminarDgv.TabIndex = 137;
+            this.btnEliminarDgv.Text = "Agregar";
+            this.btnEliminarDgv.UseVisualStyleBackColor = false;
+            // 
             // frmComprabanteVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1785,5 +1829,8 @@
         private System.Windows.Forms.Button btnVender;
         private System.Windows.Forms.DataGridView dgvProductosI;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox cbxTipoPago;
+        private System.Windows.Forms.Button btnEliminarDgv;
     }
 }
