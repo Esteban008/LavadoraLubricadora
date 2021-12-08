@@ -228,5 +228,10 @@ namespace LavadoraLubricadora
         }
 
         #endregion
+
+        private void btnVender_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
