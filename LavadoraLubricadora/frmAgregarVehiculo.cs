@@ -126,8 +126,7 @@ namespace LavadoraLubricadora
                 row.Delete();
             }
             dtLista.AcceptChanges();
-
-            dgvVehiculos2.DataSource = dtLista;
+            EliminarRepetidos(dtLista);
         }
 
         private void btnGuardarVehiculos_Click(object sender, EventArgs e)

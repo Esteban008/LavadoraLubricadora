@@ -137,6 +137,23 @@ namespace LavadoraLubricadora
 
         }
 
+        private void btnEliminarDgv_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                dtProductos.Rows.RemoveAt(dgvProductosI.SelectedCells[2].RowIndex);
+
+                dtProductos.AcceptChanges();
+
+                dgvProductosI.DataSource = dtProductos;
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
@@ -144,7 +161,21 @@ namespace LavadoraLubricadora
 
         private void btnVender_Click(object sender, EventArgs e)
         {
-
+            foreach (DataGridViewRow row in dgvProductosI.Rows)
+            {
+                if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("A-"))
+                {
+                    Console.WriteLine("Aceites"+row);
+                }
+                if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("F-"))
+                {
+                    Console.WriteLine("Filtro" + row);
+                }
+                if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("P-"))
+                {
+                    Console.WriteLine("Filtro" + row);
+                }
+            }
         }
 
         private void LoadIngresar()
@@ -164,6 +195,7 @@ namespace LavadoraLubricadora
             txtIva.Enabled = false;
             txtTotal.Enabled = false;
             
+            cbxTipoPago.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void BloquearCampos()
@@ -239,31 +271,5 @@ namespace LavadoraLubricadora
 
 
         #endregion
-
-        private void btnEliminarDgv_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dtProductos.AcceptChanges();
-                foreach (DataRow row in dtProductos.Rows)
-                {
-                    if (row["codigoBarras"].ToString() == dgvProductosI.SelectedCells[2].Value.ToString())
-                    {
-                        Console.WriteLine(row["codigoBarras"].ToString());
-                        row.Delete();
-                    }
-
-                }
-                
-
-                dtProductos.AcceptChanges();
-
-                dgvProductosI.DataSource = dtProductos;
-            }
-            catch (Exception)
-            {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
-            }
-        }
     }
 }
