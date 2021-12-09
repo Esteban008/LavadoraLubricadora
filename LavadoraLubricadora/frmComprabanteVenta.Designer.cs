@@ -34,18 +34,20 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabIngresarAceite = new System.Windows.Forms.TabPage();
-            this.dgvProductosI = new System.Windows.Forms.DataGridView();
+            this.btnEliminarDgv = new System.Windows.Forms.Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtSubtotal = new System.Windows.Forms.TextBox();
-            this.txtIva = new System.Windows.Forms.TextBox();
-            this.txtDescuento = new System.Windows.Forms.TextBox();
-            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.btnVender = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtSubtotal = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtIva = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.cbxTipoPago = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -157,14 +159,17 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label19 = new System.Windows.Forms.Label();
-            this.cbxTipoPago = new System.Windows.Forms.ComboBox();
-            this.btnEliminarDgv = new System.Windows.Forms.Button();
+            this.dgvProductosI = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabIngresarAceite.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosI)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -174,6 +179,7 @@
             this.tabPage3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAceitesD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosI)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -239,8 +245,8 @@
             // 
             // tabIngresarAceite
             // 
-            this.tabIngresarAceite.Controls.Add(this.btnEliminarDgv);
             this.tabIngresarAceite.Controls.Add(this.dgvProductosI);
+            this.tabIngresarAceite.Controls.Add(this.btnEliminarDgv);
             this.tabIngresarAceite.Controls.Add(this.tableLayoutPanel6);
             this.tabIngresarAceite.Controls.Add(this.tableLayoutPanel2);
             this.tabIngresarAceite.Location = new System.Drawing.Point(4, 22);
@@ -251,26 +257,21 @@
             this.tabIngresarAceite.Text = "Generar Comprobante";
             this.tabIngresarAceite.UseVisualStyleBackColor = true;
             // 
-            // dgvProductosI
+            // btnEliminarDgv
             // 
-            this.dgvProductosI.AllowUserToAddRows = false;
-            this.dgvProductosI.AllowUserToDeleteRows = false;
-            this.dgvProductosI.AllowUserToResizeColumns = false;
-            this.dgvProductosI.AllowUserToResizeRows = false;
-            this.dgvProductosI.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvProductosI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProductosI.BackgroundColor = System.Drawing.Color.White;
-            this.dgvProductosI.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dgvProductosI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductosI.Location = new System.Drawing.Point(47, 256);
-            this.dgvProductosI.Name = "dgvProductosI";
-            this.dgvProductosI.ReadOnly = true;
-            this.dgvProductosI.RowHeadersVisible = false;
-            this.dgvProductosI.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductosI.Size = new System.Drawing.Size(453, 209);
-            this.dgvProductosI.TabIndex = 123;
+            this.btnEliminarDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarDgv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnEliminarDgv.FlatAppearance.BorderSize = 0;
+            this.btnEliminarDgv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarDgv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarDgv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnEliminarDgv.Location = new System.Drawing.Point(370, 471);
+            this.btnEliminarDgv.Name = "btnEliminarDgv";
+            this.btnEliminarDgv.Size = new System.Drawing.Size(130, 35);
+            this.btnEliminarDgv.TabIndex = 137;
+            this.btnEliminarDgv.Text = "Eliminar";
+            this.btnEliminarDgv.UseVisualStyleBackColor = false;
+            this.btnEliminarDgv.Click += new System.EventHandler(this.btnEliminarDgv_Click);
             // 
             // tableLayoutPanel6
             // 
@@ -303,79 +304,15 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(273, 256);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
-            // label15
+            // label19
             // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 14);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 13);
-            this.label15.TabIndex = 135;
-            this.label15.Text = "Subtotal:";
-            // 
-            // label16
-            // 
-            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 56);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(27, 13);
-            this.label16.TabIndex = 136;
-            this.label16.Text = "IVA:";
-            // 
-            // label17
-            // 
-            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 98);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(73, 13);
-            this.label17.TabIndex = 137;
-            this.label17.Text = "Descuento %:";
-            // 
-            // label18
-            // 
-            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 140);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(34, 13);
-            this.label18.TabIndex = 138;
-            this.label18.Text = "Total:";
-            // 
-            // txtSubtotal
-            // 
-            this.txtSubtotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSubtotal.Location = new System.Drawing.Point(139, 11);
-            this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.Size = new System.Drawing.Size(131, 20);
-            this.txtSubtotal.TabIndex = 139;
-            // 
-            // txtIva
-            // 
-            this.txtIva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIva.Location = new System.Drawing.Point(139, 53);
-            this.txtIva.Name = "txtIva";
-            this.txtIva.Size = new System.Drawing.Size(131, 20);
-            this.txtIva.TabIndex = 140;
-            // 
-            // txtDescuento
-            // 
-            this.txtDescuento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescuento.Location = new System.Drawing.Point(139, 95);
-            this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(131, 20);
-            this.txtDescuento.TabIndex = 141;
-            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
-            this.txtDescuento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDescuento_KeyUp);
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotal.Location = new System.Drawing.Point(139, 137);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(131, 20);
-            this.txtTotal.TabIndex = 142;
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(3, 182);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(74, 13);
+            this.label19.TabIndex = 139;
+            this.label19.Text = "Tipo de Pago:";
             // 
             // btnVender
             // 
@@ -408,6 +345,92 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 14);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 13);
+            this.label15.TabIndex = 135;
+            this.label15.Text = "Subtotal:";
+            // 
+            // txtSubtotal
+            // 
+            this.txtSubtotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSubtotal.Location = new System.Drawing.Point(139, 11);
+            this.txtSubtotal.Name = "txtSubtotal";
+            this.txtSubtotal.Size = new System.Drawing.Size(131, 20);
+            this.txtSubtotal.TabIndex = 139;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(3, 56);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(27, 13);
+            this.label16.TabIndex = 136;
+            this.label16.Text = "IVA:";
+            // 
+            // txtIva
+            // 
+            this.txtIva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIva.Location = new System.Drawing.Point(139, 53);
+            this.txtIva.Name = "txtIva";
+            this.txtIva.Size = new System.Drawing.Size(131, 20);
+            this.txtIva.TabIndex = 140;
+            // 
+            // label17
+            // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(3, 98);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(73, 13);
+            this.label17.TabIndex = 137;
+            this.label17.Text = "Descuento %:";
+            // 
+            // txtDescuento
+            // 
+            this.txtDescuento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescuento.Location = new System.Drawing.Point(139, 95);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(131, 20);
+            this.txtDescuento.TabIndex = 141;
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
+            this.txtDescuento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDescuento_KeyUp);
+            // 
+            // label18
+            // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(3, 140);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(34, 13);
+            this.label18.TabIndex = 138;
+            this.label18.Text = "Total:";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTotal.Location = new System.Drawing.Point(139, 137);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(131, 20);
+            this.txtTotal.TabIndex = 142;
+            // 
+            // cbxTipoPago
+            // 
+            this.cbxTipoPago.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxTipoPago.FormattingEnabled = true;
+            this.cbxTipoPago.Items.AddRange(new object[] {
+            "Efectivo",
+            "Crédito"});
+            this.cbxTipoPago.Location = new System.Drawing.Point(139, 178);
+            this.cbxTipoPago.Name = "cbxTipoPago";
+            this.cbxTipoPago.Size = new System.Drawing.Size(131, 21);
+            this.cbxTipoPago.TabIndex = 144;
             // 
             // tableLayoutPanel2
             // 
@@ -1120,7 +1143,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel3.Controls.Add(this.txtBusquedaE, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.cbxCriBusquedaE, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
@@ -1136,9 +1159,9 @@
             // txtBusquedaE
             // 
             this.txtBusquedaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaE.Location = new System.Drawing.Point(360, 13);
+            this.txtBusquedaE.Location = new System.Drawing.Point(359, 13);
             this.txtBusquedaE.Name = "txtBusquedaE";
-            this.txtBusquedaE.Size = new System.Drawing.Size(185, 20);
+            this.txtBusquedaE.Size = new System.Drawing.Size(184, 20);
             this.txtBusquedaE.TabIndex = 117;
             // 
             // cbxCriBusquedaE
@@ -1151,7 +1174,7 @@
             "Mostrar Todos"});
             this.cbxCriBusquedaE.Location = new System.Drawing.Point(126, 13);
             this.cbxCriBusquedaE.Name = "cbxCriBusquedaE";
-            this.cbxCriBusquedaE.Size = new System.Drawing.Size(171, 21);
+            this.cbxCriBusquedaE.Size = new System.Drawing.Size(170, 21);
             this.cbxCriBusquedaE.TabIndex = 120;
             // 
             // label1
@@ -1172,7 +1195,7 @@
             this.btnBuscarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarE.Location = new System.Drawing.Point(555, 6);
+            this.btnBuscarE.Location = new System.Drawing.Point(553, 6);
             this.btnBuscarE.Name = "btnBuscarE";
             this.btnBuscarE.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarE.TabIndex = 118;
@@ -1392,7 +1415,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel5.Controls.Add(this.txtBusquedaD, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.cbxCriBusquedaD, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.label37, 0, 0);
@@ -1408,9 +1431,9 @@
             // txtBusquedaD
             // 
             this.txtBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaD.Location = new System.Drawing.Point(360, 13);
+            this.txtBusquedaD.Location = new System.Drawing.Point(359, 13);
             this.txtBusquedaD.Name = "txtBusquedaD";
-            this.txtBusquedaD.Size = new System.Drawing.Size(185, 20);
+            this.txtBusquedaD.Size = new System.Drawing.Size(184, 20);
             this.txtBusquedaD.TabIndex = 117;
             // 
             // cbxCriBusquedaD
@@ -1423,7 +1446,7 @@
             "Mostrar Todos"});
             this.cbxCriBusquedaD.Location = new System.Drawing.Point(126, 13);
             this.cbxCriBusquedaD.Name = "cbxCriBusquedaD";
-            this.cbxCriBusquedaD.Size = new System.Drawing.Size(171, 21);
+            this.cbxCriBusquedaD.Size = new System.Drawing.Size(170, 21);
             this.cbxCriBusquedaD.TabIndex = 120;
             // 
             // label37
@@ -1444,7 +1467,7 @@
             this.btnBuscarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarD.Location = new System.Drawing.Point(555, 6);
+            this.btnBuscarD.Location = new System.Drawing.Point(553, 6);
             this.btnBuscarD.Name = "btnBuscarD";
             this.btnBuscarD.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarD.TabIndex = 118;
@@ -1626,42 +1649,81 @@
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
             this.dataGridViewTextBoxColumn17.Width = 103;
             // 
-            // label19
+            // dgvProductosI
             // 
-            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(3, 182);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(74, 13);
-            this.label19.TabIndex = 139;
-            this.label19.Text = "Tipo de Pago:";
+            this.dgvProductosI.AllowUserToAddRows = false;
+            this.dgvProductosI.AllowUserToDeleteRows = false;
+            this.dgvProductosI.AllowUserToResizeColumns = false;
+            this.dgvProductosI.AllowUserToResizeRows = false;
+            this.dgvProductosI.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvProductosI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvProductosI.BackgroundColor = System.Drawing.Color.White;
+            this.dgvProductosI.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgvProductosI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductosI.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn33,
+            this.PrecioVenta,
+            this.PrecioTotal});
+            this.dgvProductosI.Location = new System.Drawing.Point(47, 256);
+            this.dgvProductosI.Name = "dgvProductosI";
+            this.dgvProductosI.ReadOnly = true;
+            this.dgvProductosI.RowHeadersVisible = false;
+            this.dgvProductosI.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductosI.Size = new System.Drawing.Size(453, 199);
+            this.dgvProductosI.TabIndex = 138;
             // 
-            // cbxTipoPago
+            // dataGridViewTextBoxColumn18
             // 
-            this.cbxTipoPago.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxTipoPago.FormattingEnabled = true;
-            this.cbxTipoPago.Items.AddRange(new object[] {
-            "Efectivo",
-            "Crédito"});
-            this.cbxTipoPago.Location = new System.Drawing.Point(139, 178);
-            this.cbxTipoPago.Name = "cbxTipoPago";
-            this.cbxTipoPago.Size = new System.Drawing.Size(131, 21);
-            this.cbxTipoPago.TabIndex = 144;
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn18.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Width = 43;
             // 
-            // btnEliminarDgv
+            // dataGridViewTextBoxColumn20
             // 
-            this.btnEliminarDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminarDgv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnEliminarDgv.FlatAppearance.BorderSize = 0;
-            this.btnEliminarDgv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarDgv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarDgv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnEliminarDgv.Location = new System.Drawing.Point(370, 471);
-            this.btnEliminarDgv.Name = "btnEliminarDgv";
-            this.btnEliminarDgv.Size = new System.Drawing.Size(130, 35);
-            this.btnEliminarDgv.TabIndex = 137;
-            this.btnEliminarDgv.Text = "Agregar";
-            this.btnEliminarDgv.UseVisualStyleBackColor = false;
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Descripcion";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Descripcion";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Width = 88;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.DataPropertyName = "CodigoBarras";
+            this.dataGridViewTextBoxColumn26.HeaderText = "Código de Barras";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
+            this.dataGridViewTextBoxColumn26.Width = 77;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.DataPropertyName = "Cantidad";
+            this.dataGridViewTextBoxColumn33.HeaderText = "Cantidad";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.ReadOnly = true;
+            this.dataGridViewTextBoxColumn33.Width = 74;
+            // 
+            // PrecioVenta
+            // 
+            this.PrecioVenta.DataPropertyName = "precioVenta";
+            this.PrecioVenta.HeaderText = "Precio de Venta";
+            this.PrecioVenta.Name = "PrecioVenta";
+            this.PrecioVenta.ReadOnly = true;
+            this.PrecioVenta.Width = 99;
+            // 
+            // PrecioTotal
+            // 
+            this.PrecioTotal.DataPropertyName = "precioTotal";
+            this.PrecioTotal.HeaderText = "Precio Total";
+            this.PrecioTotal.Name = "PrecioTotal";
+            this.PrecioTotal.ReadOnly = true;
+            this.PrecioTotal.Width = 82;
             // 
             // frmComprabanteVenta
             // 
@@ -1679,7 +1741,6 @@
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabIngresarAceite.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosI)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1694,6 +1755,7 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAceitesD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosI)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1827,10 +1889,16 @@
         private System.Windows.Forms.TextBox txtCodigoBarras;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnVender;
-        private System.Windows.Forms.DataGridView dgvProductosI;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox cbxTipoPago;
         private System.Windows.Forms.Button btnEliminarDgv;
+        private System.Windows.Forms.DataGridView dgvProductosI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioTotal;
     }
 }

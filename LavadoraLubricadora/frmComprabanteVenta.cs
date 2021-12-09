@@ -16,7 +16,8 @@ namespace LavadoraLubricadora
         LavadoraService.LavadoraServiceClient cliente;
         private static string busqueda;
         private static string valor;
-       
+        
+
         private static bool estadoIngresar = false;
         private static DataTable dtProductos;
 
@@ -236,8 +237,33 @@ namespace LavadoraLubricadora
             }
         }
 
+
         #endregion
 
+        private void btnEliminarDgv_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dtProductos.AcceptChanges();
+                foreach (DataRow row in dtProductos.Rows)
+                {
+                    if (row["codigoBarras"].ToString() == dgvProductosI.SelectedCells[2].Value.ToString())
+                    {
+                        Console.WriteLine(row["codigoBarras"].ToString());
+                        row.Delete();
+                    }
 
+                }
+                
+
+                dtProductos.AcceptChanges();
+
+                dgvProductosI.DataSource = dtProductos;
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }
+        }
     }
 }
