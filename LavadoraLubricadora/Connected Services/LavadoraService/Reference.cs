@@ -490,6 +490,30 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObj", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObjResponse")]
         System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Cliente> BuscarClienteCedulaObjAsync(string cedula);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarComprobanteVentaResponse")]
+        int IngresarComprobanteVenta(string cedulaCliente, string numDocumento, double subtotal, double iva, double total, int idTipoPago, System.DateTime fechaVenta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarComprobanteVentaResponse")]
+        System.Threading.Tasks.Task<int> IngresarComprobanteVentaAsync(string cedulaCliente, string numDocumento, double subtotal, double iva, double total, int idTipoPago, System.DateTime fechaVenta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVentaResponse")]
+        void IngresarFiltroComprobanteVenta(int idFiltro, int idComprobanteVenta, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVentaResponse")]
+        System.Threading.Tasks.Task IngresarFiltroComprobanteVentaAsync(int idFiltro, int idComprobanteVenta, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVentaResponse")]
+        void IngresarAceiteComprobanteVenta(int idAceite, int idComprobanteVenta, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVentaResponse")]
+        System.Threading.Tasks.Task IngresarAceiteComprobanteVentaAsync(int idAceite, int idComprobanteVenta, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVentaResponse")]
+        void IngresarProductoComprobanteVenta(int idProducto, int idComprobanteVenta, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVentaResponse")]
+        System.Threading.Tasks.Task IngresarProductoComprobanteVentaAsync(int idProducto, int idComprobanteVenta, int cantidad);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/Login", ReplyAction="http://tempuri.org/ILavadoraService/LoginResponse")]
         bool Login(string correo, string clave);
         
@@ -1086,6 +1110,38 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Cliente> BuscarClienteCedulaObjAsync(string cedula) {
             return base.Channel.BuscarClienteCedulaObjAsync(cedula);
+        }
+        
+        public int IngresarComprobanteVenta(string cedulaCliente, string numDocumento, double subtotal, double iva, double total, int idTipoPago, System.DateTime fechaVenta) {
+            return base.Channel.IngresarComprobanteVenta(cedulaCliente, numDocumento, subtotal, iva, total, idTipoPago, fechaVenta);
+        }
+        
+        public System.Threading.Tasks.Task<int> IngresarComprobanteVentaAsync(string cedulaCliente, string numDocumento, double subtotal, double iva, double total, int idTipoPago, System.DateTime fechaVenta) {
+            return base.Channel.IngresarComprobanteVentaAsync(cedulaCliente, numDocumento, subtotal, iva, total, idTipoPago, fechaVenta);
+        }
+        
+        public void IngresarFiltroComprobanteVenta(int idFiltro, int idComprobanteVenta, int cantidad) {
+            base.Channel.IngresarFiltroComprobanteVenta(idFiltro, idComprobanteVenta, cantidad);
+        }
+        
+        public System.Threading.Tasks.Task IngresarFiltroComprobanteVentaAsync(int idFiltro, int idComprobanteVenta, int cantidad) {
+            return base.Channel.IngresarFiltroComprobanteVentaAsync(idFiltro, idComprobanteVenta, cantidad);
+        }
+        
+        public void IngresarAceiteComprobanteVenta(int idAceite, int idComprobanteVenta, int cantidad) {
+            base.Channel.IngresarAceiteComprobanteVenta(idAceite, idComprobanteVenta, cantidad);
+        }
+        
+        public System.Threading.Tasks.Task IngresarAceiteComprobanteVentaAsync(int idAceite, int idComprobanteVenta, int cantidad) {
+            return base.Channel.IngresarAceiteComprobanteVentaAsync(idAceite, idComprobanteVenta, cantidad);
+        }
+        
+        public void IngresarProductoComprobanteVenta(int idProducto, int idComprobanteVenta, int cantidad) {
+            base.Channel.IngresarProductoComprobanteVenta(idProducto, idComprobanteVenta, cantidad);
+        }
+        
+        public System.Threading.Tasks.Task IngresarProductoComprobanteVentaAsync(int idProducto, int idComprobanteVenta, int cantidad) {
+            return base.Channel.IngresarProductoComprobanteVentaAsync(idProducto, idComprobanteVenta, cantidad);
         }
         
         public bool Login(string correo, string clave) {

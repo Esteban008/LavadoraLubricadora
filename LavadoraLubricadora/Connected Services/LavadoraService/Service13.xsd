@@ -319,6 +319,68 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="IngresarComprobanteVenta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cedulaCliente" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="numDocumento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subtotal" type="xs:double" />
+        <xs:element minOccurs="0" name="iva" type="xs:double" />
+        <xs:element minOccurs="0" name="total" type="xs:double" />
+        <xs:element minOccurs="0" name="idTipoPago" type="xs:int" />
+        <xs:element minOccurs="0" name="fechaVenta" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IngresarComprobanteVentaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IngresarComprobanteVentaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IngresarFiltroComprobanteVenta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idFiltro" type="xs:int" />
+        <xs:element minOccurs="0" name="idComprobanteVenta" type="xs:int" />
+        <xs:element minOccurs="0" name="cantidad" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IngresarFiltroComprobanteVentaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IngresarAceiteComprobanteVenta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idAceite" type="xs:int" />
+        <xs:element minOccurs="0" name="idComprobanteVenta" type="xs:int" />
+        <xs:element minOccurs="0" name="cantidad" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IngresarAceiteComprobanteVentaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IngresarProductoComprobanteVenta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProducto" type="xs:int" />
+        <xs:element minOccurs="0" name="idComprobanteVenta" type="xs:int" />
+        <xs:element minOccurs="0" name="cantidad" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IngresarProductoComprobanteVentaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Login">
     <xs:complexType>
       <xs:sequence>

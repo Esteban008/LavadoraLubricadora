@@ -161,21 +161,59 @@ namespace LavadoraLubricadora
 
         private void btnVender_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgvProductosI.Rows)
+            try
             {
-                if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("A-"))
+                if (estadoIngresar)
                 {
-                    Console.WriteLine("Aceites"+row);
+                    cliente.IngresarCliente(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtCedula.Text, txtDireccion.Text);
+
+                    int idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 1, DateTime.Now);
+
+                    foreach (DataGridViewRow row in dgvProductosI.Rows)
+                    {
+                        if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("A-"))
+                        {
+                            cliente.IngresarAceiteComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+
+                        }
+                        if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("F-"))
+                        {
+                            cliente.IngresarFiltroComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                        }
+                        if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("P-"))
+                        {
+                            cliente.IngresarProductoComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                        }
+                    }
+
                 }
-                if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("F-"))
+                else
                 {
-                    Console.WriteLine("Filtro" + row);
+                    int idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 1, DateTime.Now);
+
+                    foreach (DataGridViewRow row in dgvProductosI.Rows)
+                    {
+                        if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("A-"))
+                        {
+                            cliente.IngresarAceiteComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+
+                        }
+                        if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("F-"))
+                        {
+                            cliente.IngresarFiltroComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                        }
+                        if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("P-"))
+                        {
+                            cliente.IngresarProductoComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                        }
+                    }
                 }
-                if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("P-"))
-                {
-                    Console.WriteLine("Filtro" + row);
-                }
+                estadoIngresar = false;
             }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }        
         }
 
         private void LoadIngresar()

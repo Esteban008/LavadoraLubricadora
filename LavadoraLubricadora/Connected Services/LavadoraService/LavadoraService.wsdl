@@ -99,6 +99,30 @@
   <wsdl:message name="ILavadoraService_BuscarClienteCedulaObj_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarClienteCedulaObjResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarComprobanteVenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarComprobanteVenta" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarComprobanteVenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarComprobanteVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarFiltroComprobanteVenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarFiltroComprobanteVenta" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarFiltroComprobanteVenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarFiltroComprobanteVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarAceiteComprobanteVenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarAceiteComprobanteVenta" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarAceiteComprobanteVenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarAceiteComprobanteVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarProductoComprobanteVenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarProductoComprobanteVenta" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarProductoComprobanteVenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarProductoComprobanteVentaResponse" />
+  </wsdl:message>
   <wsdl:message name="ILavadoraService_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
   </wsdl:message>
@@ -544,6 +568,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObj" message="tns:ILavadoraService_BuscarClienteCedulaObj_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObjResponse" message="tns:ILavadoraService_BuscarClienteCedulaObj_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="IngresarComprobanteVenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarComprobanteVenta" message="tns:ILavadoraService_IngresarComprobanteVenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarComprobanteVentaResponse" message="tns:ILavadoraService_IngresarComprobanteVenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarFiltroComprobanteVenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVenta" message="tns:ILavadoraService_IngresarFiltroComprobanteVenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVentaResponse" message="tns:ILavadoraService_IngresarFiltroComprobanteVenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarAceiteComprobanteVenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVenta" message="tns:ILavadoraService_IngresarAceiteComprobanteVenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVentaResponse" message="tns:ILavadoraService_IngresarAceiteComprobanteVenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarProductoComprobanteVenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta" message="tns:ILavadoraService_IngresarProductoComprobanteVenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVentaResponse" message="tns:ILavadoraService_IngresarProductoComprobanteVenta_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/Login" message="tns:ILavadoraService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/LoginResponse" message="tns:ILavadoraService_Login_OutputMessage" />
@@ -931,6 +971,42 @@
     </wsdl:operation>
     <wsdl:operation name="BuscarClienteCedulaObj">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObj" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarComprobanteVenta">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarComprobanteVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarFiltroComprobanteVenta">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarAceiteComprobanteVenta">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarProductoComprobanteVenta">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
