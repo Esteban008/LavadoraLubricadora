@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace LavadoraLubricadora
 {
@@ -76,7 +77,8 @@ namespace LavadoraLubricadora
                     if (dialogResult == DialogResult.Yes)
                     {
                         DesbloquearCampos();
-                        estadoIngresar = true; 
+                        estadoIngresar = true;
+                        txtCedula.Text = txtCedulaBuscar.Text;
                     }
                 }
             }
@@ -90,14 +92,22 @@ namespace LavadoraLubricadora
         {
             try
             {
-                LavadoraService.ProductoComprobante productoObj = cliente.BuscarProductosCBarras(txtCodigoBarras.Text);
+                LavadoraService.ProductoComprobante productoObj;
+                if (chkPrecio.Checked == true)
+                {
+                    productoObj = cliente.BuscarProductosCBarrasMayor(txtCodigoBarras.Text);
+                }
+                else
+                {
+                    productoObj = cliente.BuscarProductosCBarrasMenor(txtCodigoBarras.Text);
+                }
+                
 
                 if (productoObj.Id != 0)
                 {
-
-
-                    if (txtCantidad.Text != String.Empty)
+                    if (txtCantidad.Text != String.Empty && productoObj.CantidadActual >= Convert.ToInt32(txtCantidad.Text))
                     {
+
                         productoObj.Cantidad = Convert.ToInt32(txtCantidad.Text);
                         productoObj.PrecioTotal = (Convert.ToInt32(txtCantidad.Text) * productoObj.PrecioVenta);
 
@@ -111,18 +121,23 @@ namespace LavadoraLubricadora
                         productoObj.PrecioTotal,
                         };
 
-                        dtProductos.Rows.Add(v);
+                        if (ValidarProducto(productoObj.CodigoBarras))
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Este producto ya existe", "Aviso", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            dtProductos.Rows.Add(v);
 
+                        }                                                              
                         ActualizarDgv();
 
                         Calcular();
                     }
                     else
                     {
-                        DialogResult dialogResult = MessageBox.Show("La cantidad es incorrecta", "Aviso", MessageBoxButtons.OK);
+                        DialogResult dialogResult = MessageBox.Show("No se dispone esa cantidad de productos", "Aviso", MessageBoxButtons.OK);
                     }
-
-
                 }
                 else
                 {
@@ -130,11 +145,46 @@ namespace LavadoraLubricadora
                 }
 
             }
-            catch (Exception)
+            catch (Exception es)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección "+es, "Aviso", MessageBoxButtons.OK);
             }
 
+        }
+
+        public void LimpiarCampos()
+        {
+            txtNFactura.Clear();
+            txtCedulaBuscar.Clear();
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtCedula.Clear();
+            txtDireccion.Clear();
+            txtTelefono.Clear();
+            txtCorreo.Clear();
+            txtCodigoBarras.Clear();
+            txtCantidad.Clear();
+            txtSubtotal.Clear();
+            txtIva.Clear();
+            txtDescuento.Clear();
+            txtTotal.Clear();
+
+            dtProductos.Rows.Clear();
+            ActualizarDgv();
+            cbxTipoPago.SelectedIndex = -1;
+        }
+
+        private bool ValidarProducto(string codigoBarras) 
+        {
+            bool estado = false;
+            foreach (DataRow row in dtProductos.Rows)
+            {
+                if (row["codigoBarras"].ToString().Equals(codigoBarras))
+                {
+                 estado = true;
+                }
+            }
+            return estado;
         }
 
         private void btnEliminarDgv_Click(object sender, EventArgs e)
@@ -161,59 +211,91 @@ namespace LavadoraLubricadora
 
         private void btnVender_Click(object sender, EventArgs e)
         {
+            int idComprobante = 0;
+
+
             try
             {
-                if (estadoIngresar)
+                if (cbxTipoPago.SelectedIndex >= 0)
                 {
-                    cliente.IngresarCliente(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtCedula.Text, txtDireccion.Text);
-
-                    int idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 1, DateTime.Now);
-
-                    foreach (DataGridViewRow row in dgvProductosI.Rows)
+                    if (estadoIngresar)
                     {
-                        if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("A-"))
-                        {
-                            cliente.IngresarAceiteComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                        cliente.IngresarCliente(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtCedula.Text, txtDireccion.Text);
 
-                        }
-                        if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("F-"))
+                        idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), (cbxTipoPago.SelectedIndex +1), DateTime.Now);
+
+                        foreach (DataGridViewRow row in dgvProductosI.Rows)
                         {
-                            cliente.IngresarFiltroComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
-                        }
-                        if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("P-"))
-                        {
-                            cliente.IngresarProductoComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                            if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("A-"))
+                            {
+                                cliente.IngresarAceiteComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+
+                            }
+                            if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("F-"))
+                            {
+                                cliente.IngresarFiltroComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                            }
+                            if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("P-"))
+                            {
+                                cliente.IngresarProductoComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                            }
                         }
                     }
+                    else
+                    {
+                        idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), (cbxTipoPago.SelectedIndex + 1), DateTime.Now);
+
+                        foreach (DataGridViewRow row in dgvProductosI.Rows)
+                        {
+                            if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("A-"))
+                            {
+                                cliente.IngresarAceiteComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+
+                            }
+                            if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("F-"))
+                            {
+                                cliente.IngresarFiltroComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                            }
+                            if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("P-"))
+                            {
+                                cliente.IngresarProductoComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                            }
+                        }
+                    }
+
+                    if (cbxTipoPago.SelectedIndex == 1)
+                    {
+                        cliente.IngresarCreditoCliente(txtCedula.Text, DateTime.Now, Convert.ToDouble(txtTotal.Text), idComprobante);
+                    }
+
+                    //Parte para imprimir comprobante
+                    prtdComprobante = new PrintDocument();
+                    PrinterSettings ps = new PrinterSettings();
+                    prtdComprobante.PrinterSettings = ps;
+                    prtdComprobante.PrintPage += Imprimir;
+                    prtdComprobante.Print();
+
+
+
+                    DialogResult dialogResult = MessageBox.Show("Comprobante generado con éxito", "Aviso", MessageBoxButtons.OK);
+
+                    LimpiarCampos();
+
+                    estadoIngresar = false;
+
+
 
                 }
                 else
                 {
-                    int idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 1, DateTime.Now);
-
-                    foreach (DataGridViewRow row in dgvProductosI.Rows)
-                    {
-                        if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("A-"))
-                        {
-                            cliente.IngresarAceiteComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
-
-                        }
-                        if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("F-"))
-                        {
-                            cliente.IngresarFiltroComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
-                        }
-                        if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("P-"))
-                        {
-                            cliente.IngresarProductoComprobanteVenta(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
-                        }
-                    }
-                }
-                estadoIngresar = false;
+                    DialogResult dialogResult = MessageBox.Show("Seleccione Tipo de Pago", "Aviso", MessageBoxButtons.OK);
+                }    
+               
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
-            }        
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección"+ex, "Aviso", MessageBoxButtons.OK);
+            }     
         }
 
         private void LoadIngresar()
@@ -309,5 +391,18 @@ namespace LavadoraLubricadora
 
 
         #endregion
+
+        private void Imprimir(object sender,PrintPageEventArgs e)
+        {
+            Font font = new Font("Arial",14);
+            int ancho = 350;
+            int y = 20;
+
+            e.Graphics.DrawString("------ Comprobante de Venta ------", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+            e.Graphics.DrawString("------ Comprobante de Venta ------", font, Brushes.Black, new RectangleF(10, y += 50, ancho, 20));
+            e.Graphics.DrawString("------ Comprobante de Venta ------", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+            e.Graphics.DrawString("------ Comprobante de Venta ------", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+
+        }
     }
 }

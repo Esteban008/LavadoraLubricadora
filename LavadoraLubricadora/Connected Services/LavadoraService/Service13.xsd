@@ -291,17 +291,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="BuscarProductosCBarras">
+  <xs:element name="BuscarProductosCBarrasMayor">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="BuscarProductosCBarrasResponse">
+  <xs:element name="BuscarProductosCBarrasMayorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" minOccurs="0" name="BuscarProductosCBarrasResult" nillable="true" type="q1:ProductoComprobante" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" minOccurs="0" name="BuscarProductosCBarrasMayorResult" nillable="true" type="q1:ProductoComprobante" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscarProductosCBarrasMenor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscarProductosCBarrasMenorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" minOccurs="0" name="BuscarProductosCBarrasMenorResult" nillable="true" type="q2:ProductoComprobante" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -315,7 +329,7 @@
   <xs:element name="BuscarClienteCedulaObjResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" minOccurs="0" name="BuscarClienteCedulaObjResult" nillable="true" type="q2:Cliente" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" minOccurs="0" name="BuscarClienteCedulaObjResult" nillable="true" type="q3:Cliente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -377,6 +391,21 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="IngresarProductoComprobanteVentaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IngresarCreditoCliente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cedula" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fecha" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="monto" type="xs:double" />
+        <xs:element minOccurs="0" name="idComprobante" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IngresarCreditoClienteResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -587,7 +616,7 @@
   <xs:element name="ObtenerPresentacionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerPresentacionResult" nillable="true" type="q3:ArrayOfstring" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerPresentacionResult" nillable="true" type="q4:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -599,7 +628,7 @@
   <xs:element name="ObtenerTipoAceiteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerTipoAceiteResult" nillable="true" type="q4:ArrayOfstring" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerTipoAceiteResult" nillable="true" type="q5:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -611,7 +640,7 @@
   <xs:element name="ObtenerTipoCombustibleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerTipoCombustibleResult" nillable="true" type="q5:ArrayOfstring" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerTipoCombustibleResult" nillable="true" type="q6:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -623,7 +652,7 @@
   <xs:element name="ObtenerSAEResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerSAEResult" nillable="true" type="q6:ArrayOfstring" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerSAEResult" nillable="true" type="q7:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -637,7 +666,7 @@
   <xs:element name="ObtenerApiResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerApiResult" nillable="true" type="q7:ArrayOfstring" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerApiResult" nillable="true" type="q8:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -850,7 +879,7 @@
   <xs:element name="ObtenerTipoFiltroResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerTipoFiltroResult" nillable="true" type="q8:ArrayOfstring" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerTipoFiltroResult" nillable="true" type="q9:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -890,7 +919,7 @@
   <xs:element name="ObtenerIdCodigosFiltroResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerIdCodigosFiltroResult" nillable="true" type="q9:ArrayOfint" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerIdCodigosFiltroResult" nillable="true" type="q10:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -921,7 +950,7 @@
   <xs:element name="GuardarIDsVehiculos">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idVehiculos" nillable="true" type="q10:ArrayOfint" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idVehiculos" nillable="true" type="q11:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -938,7 +967,7 @@
   <xs:element name="ObtenerIDsVehiculosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerIDsVehiculosResult" nillable="true" type="q11:ArrayOfint" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerIDsVehiculosResult" nillable="true" type="q12:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1188,7 +1217,7 @@
   <xs:element name="ObtenerVehiculoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" minOccurs="0" name="ObtenerVehiculoResult" nillable="true" type="q12:ArrayOfVehiculo" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" minOccurs="0" name="ObtenerVehiculoResult" nillable="true" type="q13:ArrayOfVehiculo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1200,7 +1229,7 @@
   <xs:element name="ObtenerMarcaVehiculoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerMarcaVehiculoResult" nillable="true" type="q13:ArrayOfstring" />
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerMarcaVehiculoResult" nillable="true" type="q14:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1214,7 +1243,7 @@
   <xs:element name="ObtenerModeloVehiculoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerModeloVehiculoResult" nillable="true" type="q14:ArrayOfstring" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerModeloVehiculoResult" nillable="true" type="q15:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1229,7 +1258,7 @@
   <xs:element name="ObtenerAnioVehiculoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerAnioVehiculoResult" nillable="true" type="q15:ArrayOfstring" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerAnioVehiculoResult" nillable="true" type="q16:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1244,7 +1273,7 @@
   <xs:element name="ObtenerMotorVehiculoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerMotorVehiculoResult" nillable="true" type="q16:ArrayOfstring" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerMotorVehiculoResult" nillable="true" type="q17:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -26,6 +26,9 @@ namespace LavadoraLubricadora.LavadoraService {
         private int CantidadField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CantidadActualField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CodigoBarrasField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -59,6 +62,19 @@ namespace LavadoraLubricadora.LavadoraService {
                 if ((this.CantidadField.Equals(value) != true)) {
                     this.CantidadField = value;
                     this.RaisePropertyChanged("Cantidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CantidadActual {
+            get {
+                return this.CantidadActualField;
+            }
+            set {
+                if ((this.CantidadActualField.Equals(value) != true)) {
+                    this.CantidadActualField = value;
+                    this.RaisePropertyChanged("CantidadActual");
                 }
             }
         }
@@ -478,11 +494,17 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioRolAsync(string rol);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarras", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasResponse")]
-        LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarras(string codigo);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayor", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayorResponse")]
+        LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMayor(string codigo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarras", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasAsync(string codigo);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayor", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayorResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasMayorAsync(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenor", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenorResponse")]
+        LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMenor(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenor", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenorResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasMenorAsync(string codigo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObj", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObjResponse")]
         LavadoraLubricadora.LavadoraService.Cliente BuscarClienteCedulaObj(string cedula);
@@ -513,6 +535,12 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVentaResponse")]
         System.Threading.Tasks.Task IngresarProductoComprobanteVentaAsync(int idProducto, int idComprobanteVenta, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarCreditoCliente", ReplyAction="http://tempuri.org/ILavadoraService/IngresarCreditoClienteResponse")]
+        void IngresarCreditoCliente(string cedula, System.DateTime fecha, double monto, int idComprobante);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarCreditoCliente", ReplyAction="http://tempuri.org/ILavadoraService/IngresarCreditoClienteResponse")]
+        System.Threading.Tasks.Task IngresarCreditoClienteAsync(string cedula, System.DateTime fecha, double monto, int idComprobante);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/Login", ReplyAction="http://tempuri.org/ILavadoraService/LoginResponse")]
         bool Login(string correo, string clave);
@@ -1096,12 +1124,20 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.BuscarUsuarioRolAsync(rol);
         }
         
-        public LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarras(string codigo) {
-            return base.Channel.BuscarProductosCBarras(codigo);
+        public LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMayor(string codigo) {
+            return base.Channel.BuscarProductosCBarrasMayor(codigo);
         }
         
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasAsync(string codigo) {
-            return base.Channel.BuscarProductosCBarrasAsync(codigo);
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasMayorAsync(string codigo) {
+            return base.Channel.BuscarProductosCBarrasMayorAsync(codigo);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMenor(string codigo) {
+            return base.Channel.BuscarProductosCBarrasMenor(codigo);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasMenorAsync(string codigo) {
+            return base.Channel.BuscarProductosCBarrasMenorAsync(codigo);
         }
         
         public LavadoraLubricadora.LavadoraService.Cliente BuscarClienteCedulaObj(string cedula) {
@@ -1142,6 +1178,14 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task IngresarProductoComprobanteVentaAsync(int idProducto, int idComprobanteVenta, int cantidad) {
             return base.Channel.IngresarProductoComprobanteVentaAsync(idProducto, idComprobanteVenta, cantidad);
+        }
+        
+        public void IngresarCreditoCliente(string cedula, System.DateTime fecha, double monto, int idComprobante) {
+            base.Channel.IngresarCreditoCliente(cedula, fecha, monto, idComprobante);
+        }
+        
+        public System.Threading.Tasks.Task IngresarCreditoClienteAsync(string cedula, System.DateTime fecha, double monto, int idComprobante) {
+            return base.Channel.IngresarCreditoClienteAsync(cedula, fecha, monto, idComprobante);
         }
         
         public bool Login(string correo, string clave) {
