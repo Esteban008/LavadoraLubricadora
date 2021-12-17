@@ -152,41 +152,6 @@ namespace LavadoraLubricadora
 
         }
 
-        public void LimpiarCampos()
-        {
-            txtNFactura.Clear();
-            txtCedulaBuscar.Clear();
-            txtNombre.Clear();
-            txtApellido.Clear();
-            txtCedula.Clear();
-            txtDireccion.Clear();
-            txtTelefono.Clear();
-            txtCorreo.Clear();
-            txtCodigoBarras.Clear();
-            txtCantidad.Clear();
-            txtSubtotal.Clear();
-            txtIva.Clear();
-            txtDescuento.Clear();
-            txtTotal.Clear();
-
-            dtProductos.Rows.Clear();
-            ActualizarDgv();
-            cbxTipoPago.SelectedIndex = -1;
-        }
-
-        private bool ValidarProducto(string codigoBarras) 
-        {
-            bool estado = false;
-            foreach (DataRow row in dtProductos.Rows)
-            {
-                if (row["codigoBarras"].ToString().Equals(codigoBarras))
-                {
-                 estado = true;
-                }
-            }
-            return estado;
-        }
-
         private void btnEliminarDgv_Click(object sender, EventArgs e)
         {
             try
@@ -206,7 +171,7 @@ namespace LavadoraLubricadora
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            LimpiarCampos();
         }
 
         private void btnVender_Click(object sender, EventArgs e)
@@ -327,6 +292,7 @@ namespace LavadoraLubricadora
             txtCedula.Enabled = false;
             txtDireccion.Enabled = false;
         }
+
         private void DesbloquearCampos()
         {
             txtNombre.Enabled = true;
@@ -335,7 +301,42 @@ namespace LavadoraLubricadora
             txtCorreo.Enabled = true;
             txtCedula.Enabled = true;
             txtDireccion.Enabled = true;
-        }       
+        }
+
+        public void LimpiarCampos()
+        {
+            txtNFactura.Clear();
+            txtCedulaBuscar.Clear();
+            txtNombre.Clear();
+            txtApellido.Clear();
+            txtCedula.Clear();
+            txtDireccion.Clear();
+            txtTelefono.Clear();
+            txtCorreo.Clear();
+            txtCodigoBarras.Clear();
+            txtCantidad.Clear();
+            txtSubtotal.Clear();
+            txtIva.Clear();
+            txtDescuento.Clear();
+            txtTotal.Clear();
+
+            dtProductos.Rows.Clear();
+            ActualizarDgv();
+            cbxTipoPago.SelectedIndex = -1;
+        }
+
+        private bool ValidarProducto(string codigoBarras)
+        {
+            bool estado = false;
+            foreach (DataRow row in dtProductos.Rows)
+            {
+                if (row["codigoBarras"].ToString().Equals(codigoBarras))
+                {
+                    estado = true;
+                }
+            }
+            return estado;
+        }
 
         private void ActualizarDgv()
         {
@@ -389,20 +390,85 @@ namespace LavadoraLubricadora
             }
         }
 
-
-        #endregion
-
+        private void txtCedulaBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
         private void Imprimir(object sender,PrintPageEventArgs e)
         {
             Font font = new Font("Arial",14);
-            int ancho = 350;
+            int ancho = 450;
             int y = 20;
 
-            e.Graphics.DrawString("------ Comprobante de Venta ------", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
-            e.Graphics.DrawString("------ Comprobante de Venta ------", font, Brushes.Black, new RectangleF(10, y += 50, ancho, 20));
-            e.Graphics.DrawString("------ Comprobante de Venta ------", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
-            e.Graphics.DrawString("------ Comprobante de Venta ------", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+            StringFormat formatDerecha = new StringFormat();
+            formatDerecha.Alignment = StringAlignment.Far;
+            formatDerecha.LineAlignment = StringAlignment.Far;
+
+            e.Graphics.DrawString("Lavadora y Lubricadora Negritos - Lubrigaman", font, Brushes.Black, new RectangleF(0, y += 0, ancho, 20));
+            e.Graphics.DrawString("RUC: 0705760924001", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("Av. Mariscal Sucre y Pedro Concha", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("QUITO - ECUADOR", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("TELEFONO: 0979098895", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+
+            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 60, ancho, 20));
+
+            e.Graphics.DrawString("CLIENTE: "+txtNombre.Text+ " "+txtApellido.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("CÉDULA/RUC: "+txtCedula.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("DIRECCIÓN: "+txtDireccion.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("TELÉFONO: "+txtTelefono.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("E-MAIL: "+txtCorreo.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+
+            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+
+            e.Graphics.DrawString("COMPROBANTE DE VENTA: ", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("No.: " + txtNFactura.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("FECHA: " + DateTime.Now.ToString(), font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("TIPO PAGO: "+cbxTipoPago.SelectedItem.ToString(), font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+
+            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+
+            e.Graphics.DrawString("DESCRIPCIÓN          CANT.   P. VENTA   TOTAL: ", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+
+            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+
+
+            foreach (DataRow row in dtProductos.Rows)
+            {
+                e.Graphics.DrawString(row["Descripcion"].ToString(), font, Brushes.Black, new RectangleF(0, y += 30, 150, 20));
+                e.Graphics.DrawString(row["Cantidad"].ToString(), font, Brushes.Black, new RectangleF(190, y += 0, 50, 20), formatDerecha);
+                e.Graphics.DrawString(row["precioVenta"].ToString(), font, Brushes.Black, new RectangleF(280, y += 0, 50, 20), formatDerecha);
+                e.Graphics.DrawString(row["precioTotal"].ToString(), font, Brushes.Black, new RectangleF(380, y += 00, 50, 20), formatDerecha);
+            }
+
+            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+
+            e.Graphics.DrawString("SUBTOTAL: ", font, Brushes.Black, new RectangleF(190, y += 30, ancho, 20));
+            e.Graphics.DrawString(txtSubtotal.Text, font, Brushes.Black, new RectangleF(-30, y += 0, ancho, 20), formatDerecha);
+            e.Graphics.DrawString("IVA 12%: ", font, Brushes.Black, new RectangleF(190, y += 30, ancho, 20));
+            e.Graphics.DrawString(txtIva.Text, font, Brushes.Black, new RectangleF(-30, y += 0, ancho, 20), formatDerecha);
+           
+            if (txtDescuento.Text != String.Empty)
+            {
+                e.Graphics.DrawString("DSCTO: " + txtDescuento.Text + " %", font, Brushes.Black, new RectangleF(190, y += 30, ancho, 20));
+                e.Graphics.DrawString(((Convert.ToDouble(txtSubtotal.Text) + Convert.ToDouble(txtIva.Text)) * ((Convert.ToDouble(txtDescuento.Text) / 100))).ToString(), font, Brushes.Black, new RectangleF(-30, y += 0, ancho, 20), formatDerecha);
+            }
+            else
+            {
+                e.Graphics.DrawString("DSCTO: 0 %", font, Brushes.Black, new RectangleF(190, y += 30, ancho, 20));
+                e.Graphics.DrawString("0", font, Brushes.Black, new RectangleF(-30, y += 0, ancho, 20), formatDerecha);
+            }          
+            e.Graphics.DrawString("TOTAL: " ,font, Brushes.Black, new RectangleF(190, y += 30, ancho, 20));
+            e.Graphics.DrawString(txtTotal.Text, font, Brushes.Black, new RectangleF(-30, y += 0, ancho, 20), formatDerecha);
 
         }
+
+
+        #endregion
     }
 }

@@ -113,7 +113,7 @@ namespace LavadoraLubricadora
 
             if (cliente.ValidarFiltro(txtCodigoB.Text))
             {
-                MessageBox.Show("\t\tEste Aceite ya existe. \nSi desea actualizar los datos seleccione el boton editar Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("\t\tEste Filtro ya existe. \nSi desea actualizar los datos seleccione el boton editar Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -131,7 +131,7 @@ namespace LavadoraLubricadora
                     cliente.IngresarCodigoFiltro(txtCodigoB.Text, codigo);
                 }
 
-                DialogResult dialogResult = MessageBox.Show("Aceite ingresado con éxito", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Filtro ingresado con éxito", "Aviso", MessageBoxButtons.OK);
 
                 LimpiarCampos();
                 LimpiarCacheListaVehiculos();
@@ -336,20 +336,20 @@ namespace LavadoraLubricadora
         {
             if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
             {
-                DataTable aceites = cliente.BuscarFiltroCodigo(txtBusquedaE.Text);
-                dgvFiltrosE.DataSource = aceites;
+                DataTable filtros = cliente.BuscarFiltroCodigo(txtBusquedaE.Text);
+                dgvFiltrosE.DataSource = filtros;
 
             }
             else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
             {
-                DataTable aceites = cliente.BuscarFiltroMarca(txtBusquedaE.Text);
-                dgvFiltrosE.DataSource = aceites;
+                DataTable filtros = cliente.BuscarFiltroMarca(txtBusquedaE.Text);
+                dgvFiltrosE.DataSource = filtros;
 
             }
             else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
             {
-                DataTable aceites = cliente.ObtenerFiltros();
-                dgvFiltrosE.DataSource = aceites;
+                DataTable filtros = cliente.ObtenerFiltros();
+                dgvFiltrosE.DataSource = filtros;
             }
             busqueda = cbxCriBusquedaE.SelectedItem.ToString();
             valor = txtBusquedaE.Text;
@@ -391,7 +391,7 @@ namespace LavadoraLubricadora
                 cliente.IngresarCodigoFiltro(txtCodigoBE.Text, codigo);
             }
 
-            DialogResult dialogResult = MessageBox.Show("Aceite actualizado con éxito", "Aviso", MessageBoxButtons.OK);
+            DialogResult dialogResult = MessageBox.Show("Filtro actualizado con éxito", "Aviso", MessageBoxButtons.OK);
 
             LimpiarCamposE();
             ActualizarDgvFiltrosE();              
@@ -448,6 +448,7 @@ namespace LavadoraLubricadora
             cbxTipoFiltroE.Items.AddRange(cliente.ObtenerTipoFiltro());
 
             txtBusquedaE.Visible = false;
+            btnAgregarVehiculos.Enabled = false;
 
             DeshabilitarCamposE();
 
@@ -479,6 +480,7 @@ namespace LavadoraLubricadora
             txtMargenMayorE.Clear();
             txtMargenMenorE.Clear();
 
+            btnAgregarVehiculos.Enabled = false;
         }
 
         public List<string> recuperarRtxtE()
@@ -615,6 +617,8 @@ namespace LavadoraLubricadora
             txtGananPorMayorE.Text = Math.Round((((Convert.ToDouble(txtPreVMayorE.Text) - Convert.ToDouble(txtPreCIvaE.Text)) * 100) / (Convert.ToDouble(txtPreCIvaE.Text)))).ToString();
 
             codigos = recuperarRtxtE();
+
+            btnAgregarVehiculos.Enabled = true;
         }
 
         private void txtPreSIvaE_KeyPress(object sender, KeyPressEventArgs e)
@@ -719,20 +723,19 @@ namespace LavadoraLubricadora
         {
             if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Codigo de Barras"))
             {
-                DataTable aceites = cliente.BuscarFiltroCodigo(txtBusquedaD.Text);
-                dgvFiltrosD.DataSource = aceites;
+                DataTable filtros = cliente.BuscarFiltroCodigo(txtBusquedaD.Text);
+                dgvFiltrosD.DataSource = filtros;
 
             }
             else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
             {
-                DataTable aceites = cliente.BuscarFiltroMarca(txtBusquedaD.Text);
-                dgvFiltrosD.DataSource = aceites;
-
+                DataTable filtros = cliente.BuscarFiltroMarca(txtBusquedaD.Text);
+                dgvFiltrosD.DataSource = filtros;
             }
             else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
             {
-                DataTable aceites = cliente.ObtenerFiltros();
-                dgvFiltrosD.DataSource = aceites;
+                DataTable filtros = cliente.ObtenerFiltros();
+                dgvFiltrosD.DataSource = filtros;
             }
             busqueda = cbxCriBusquedaD.SelectedItem.ToString();
             valor = txtBusquedaD.Text;
@@ -752,7 +755,7 @@ namespace LavadoraLubricadora
             
             cliente.EliminarFiltro(Convert.ToInt32(dgvFiltrosD.SelectedCells[0].Value));
             DialogResult dialogResult = MessageBox.Show("Filtro eliminado con éxito", "Aviso", MessageBoxButtons.OK);
-            ActualizarDgvAceiteD();
+            ActualizarDgvFiltroD();
             
         }
 
@@ -777,24 +780,24 @@ namespace LavadoraLubricadora
             }
         }
 
-        public void ActualizarDgvAceiteD()
+        public void ActualizarDgvFiltroD()
         {
             if (busqueda.Equals("Codigo de Barras"))
             {
-                DataTable aceites = cliente.BuscarFiltroCodigo(valor);
-                dgvFiltrosD.DataSource = aceites;
+                DataTable filtros = cliente.BuscarFiltroCodigo(valor);
+                dgvFiltrosD.DataSource = filtros;
 
             }
             else if (busqueda.Equals("Marca"))
             {
-                DataTable aceites = cliente.BuscarFiltroMarca(valor);
-                dgvFiltrosD.DataSource = aceites;
+                DataTable filtros = cliente.BuscarFiltroMarca(valor);
+                dgvFiltrosD.DataSource = filtros;
 
             }
             else if (busqueda.Equals("Mostrar Todos"))
             {
-                DataTable aceites = cliente.ObtenerFiltros();
-                dgvFiltrosD.DataSource = aceites;
+                DataTable filtros = cliente.ObtenerFiltros();
+                dgvFiltrosD.DataSource = filtros;
             }
         }
 
