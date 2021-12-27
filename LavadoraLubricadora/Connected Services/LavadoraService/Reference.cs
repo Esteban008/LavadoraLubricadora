@@ -416,6 +416,18 @@ namespace LavadoraLubricadora.LavadoraService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LavadoraService.ILavadoraService")]
     public interface ILavadoraService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProveedorResponse")]
+        void IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProveedorResponse")]
+        System.Threading.Tasks.Task IngresarProveedorAsync(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EditarProveedorResponse")]
+        void EditarProveedor(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EditarProveedorResponse")]
+        System.Threading.Tasks.Task EditarProveedorAsync(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EliminarProveedorResponse")]
         void EliminarProveedor(int id);
         
@@ -692,6 +704,12 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerApi", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerApiResponse")]
         System.Threading.Tasks.Task<string[]> ObtenerApiAsync(int tipoCombustible);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerFiltrosVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerFiltrosVehiculoResponse")]
+        System.Data.DataTable ObtenerFiltrosVehiculo(int idVehiculo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerFiltrosVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerFiltrosVehiculoResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerFiltrosVehiculoAsync(int idVehiculo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroResponse")]
         void IngresarFiltro(string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
         
@@ -866,6 +884,12 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductoCodigo", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductoCodigoResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> BuscarProductoCodigoAsync(string marca);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/BuscarVehiculoResponse")]
+        int BuscarVehiculo(string marca, string modelo, string anio, string motor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/BuscarVehiculoResponse")]
+        System.Threading.Tasks.Task<int> BuscarVehiculoAsync(string marca, string modelo, string anio, string motor);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarVehiculoResponse")]
         void IngresarVehiculo(string marca, string modelo, string anio, string tipoMotor);
         
@@ -979,18 +1003,6 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarCliente", ReplyAction="http://tempuri.org/ILavadoraService/ValidarClienteResponse")]
         System.Threading.Tasks.Task<bool> ValidarClienteAsync(string cedula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProveedorResponse")]
-        void IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProveedorResponse")]
-        System.Threading.Tasks.Task IngresarProveedorAsync(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EditarProveedorResponse")]
-        void EditarProveedor(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EditarProveedorResponse")]
-        System.Threading.Tasks.Task EditarProveedorAsync(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1018,6 +1030,22 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public LavadoraServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public void IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
+            base.Channel.IngresarProveedor(ruc, nombre, apellido, telefono, correo, direccion, empresa);
+        }
+        
+        public System.Threading.Tasks.Task IngresarProveedorAsync(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
+            return base.Channel.IngresarProveedorAsync(ruc, nombre, apellido, telefono, correo, direccion, empresa);
+        }
+        
+        public void EditarProveedor(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
+            base.Channel.EditarProveedor(id, ruc, nombre, apellido, telefono, correo, direccion, empresa);
+        }
+        
+        public System.Threading.Tasks.Task EditarProveedorAsync(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
+            return base.Channel.EditarProveedorAsync(id, ruc, nombre, apellido, telefono, correo, direccion, empresa);
         }
         
         public void EliminarProveedor(int id) {
@@ -1366,6 +1394,14 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.ObtenerApiAsync(tipoCombustible);
         }
         
+        public System.Data.DataTable ObtenerFiltrosVehiculo(int idVehiculo) {
+            return base.Channel.ObtenerFiltrosVehiculo(idVehiculo);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerFiltrosVehiculoAsync(int idVehiculo) {
+            return base.Channel.ObtenerFiltrosVehiculoAsync(idVehiculo);
+        }
+        
         public void IngresarFiltro(string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
             base.Channel.IngresarFiltro(tipoFiltro, rosca, marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
@@ -1598,6 +1634,14 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.BuscarProductoCodigoAsync(marca);
         }
         
+        public int BuscarVehiculo(string marca, string modelo, string anio, string motor) {
+            return base.Channel.BuscarVehiculo(marca, modelo, anio, motor);
+        }
+        
+        public System.Threading.Tasks.Task<int> BuscarVehiculoAsync(string marca, string modelo, string anio, string motor) {
+            return base.Channel.BuscarVehiculoAsync(marca, modelo, anio, motor);
+        }
+        
         public void IngresarVehiculo(string marca, string modelo, string anio, string tipoMotor) {
             base.Channel.IngresarVehiculo(marca, modelo, anio, tipoMotor);
         }
@@ -1748,22 +1792,6 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<bool> ValidarClienteAsync(string cedula) {
             return base.Channel.ValidarClienteAsync(cedula);
-        }
-        
-        public void IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
-            base.Channel.IngresarProveedor(ruc, nombre, apellido, telefono, correo, direccion, empresa);
-        }
-        
-        public System.Threading.Tasks.Task IngresarProveedorAsync(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
-            return base.Channel.IngresarProveedorAsync(ruc, nombre, apellido, telefono, correo, direccion, empresa);
-        }
-        
-        public void EditarProveedor(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
-            base.Channel.EditarProveedor(id, ruc, nombre, apellido, telefono, correo, direccion, empresa);
-        }
-        
-        public System.Threading.Tasks.Task EditarProveedorAsync(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
-            return base.Channel.EditarProveedorAsync(id, ruc, nombre, apellido, telefono, correo, direccion, empresa);
         }
     }
 }

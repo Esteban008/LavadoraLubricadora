@@ -29,8 +29,16 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbxMarcaVehiculo = new System.Windows.Forms.ComboBox();
+            this.cbxModeloVehiculo = new System.Windows.Forms.ComboBox();
+            this.cbxAnioVehiculo = new System.Windows.Forms.ComboBox();
+            this.cbxMotorVehiculo = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvFiltrosE = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,14 +56,6 @@
             this.Margenxmenor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantMinima = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbxMarcaVehiculo = new System.Windows.Forms.ComboBox();
-            this.cbxModeloVehiculo = new System.Windows.Forms.ComboBox();
-            this.cbxAnioVehiculo = new System.Windows.Forms.ComboBox();
-            this.cbxMotorVehiculo = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiltrosE)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +70,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.27778F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.722222F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 3);
@@ -92,20 +92,83 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(670, 166);
             this.tableLayoutPanel1.TabIndex = 128;
             // 
-            // btnBuscar
+            // label6
             // 
-            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscar.Location = new System.Drawing.Point(407, 131);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(76, 32);
-            this.btnBuscar.TabIndex = 118;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 140);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 127;
+            this.label6.Text = "Motor:";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 69);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 124;
+            this.label4.Text = "Modelo:";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 104);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.TabIndex = 126;
+            this.label5.Text = "Año:";
+            // 
+            // cbxMarcaVehiculo
+            // 
+            this.cbxMarcaVehiculo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbxMarcaVehiculo.FormattingEnabled = true;
+            this.cbxMarcaVehiculo.Location = new System.Drawing.Point(124, 30);
+            this.cbxMarcaVehiculo.Name = "cbxMarcaVehiculo";
+            this.cbxMarcaVehiculo.Size = new System.Drawing.Size(220, 21);
+            this.cbxMarcaVehiculo.TabIndex = 128;
+            this.cbxMarcaVehiculo.SelectedValueChanged += new System.EventHandler(this.cbxMarcaVehiculo_SelectedValueChanged);
+            // 
+            // cbxModeloVehiculo
+            // 
+            this.cbxModeloVehiculo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbxModeloVehiculo.FormattingEnabled = true;
+            this.cbxModeloVehiculo.Location = new System.Drawing.Point(124, 65);
+            this.cbxModeloVehiculo.Name = "cbxModeloVehiculo";
+            this.cbxModeloVehiculo.Size = new System.Drawing.Size(220, 21);
+            this.cbxModeloVehiculo.TabIndex = 129;
+            this.cbxModeloVehiculo.SelectedValueChanged += new System.EventHandler(this.cbxModeloVehiculo_SelectedValueChanged);
+            // 
+            // cbxAnioVehiculo
+            // 
+            this.cbxAnioVehiculo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbxAnioVehiculo.FormattingEnabled = true;
+            this.cbxAnioVehiculo.Location = new System.Drawing.Point(124, 100);
+            this.cbxAnioVehiculo.Name = "cbxAnioVehiculo";
+            this.cbxAnioVehiculo.Size = new System.Drawing.Size(220, 21);
+            this.cbxAnioVehiculo.TabIndex = 130;
+            // 
+            // cbxMotorVehiculo
+            // 
+            this.cbxMotorVehiculo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbxMotorVehiculo.FormattingEnabled = true;
+            this.cbxMotorVehiculo.Location = new System.Drawing.Point(124, 136);
+            this.cbxMotorVehiculo.Name = "cbxMotorVehiculo";
+            this.cbxMotorVehiculo.Size = new System.Drawing.Size(220, 21);
+            this.cbxMotorVehiculo.TabIndex = 131;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 132;
+            this.label3.Text = "Marca:";
             // 
             // label2
             // 
@@ -117,6 +180,22 @@
             this.label2.Size = new System.Drawing.Size(150, 13);
             this.label2.TabIndex = 122;
             this.label2.Text = "BÚSQUEDA POR VEHÍCULO";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnBuscar.Location = new System.Drawing.Point(406, 131);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(76, 32);
+            this.btnBuscar.TabIndex = 118;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnSalir
             // 
@@ -290,84 +369,6 @@
             this.CantMinima.Name = "CantMinima";
             this.CantMinima.ReadOnly = true;
             this.CantMinima.Width = 103;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 69);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
-            this.label4.TabIndex = 124;
-            this.label4.Text = "Modelo:";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 104);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 13);
-            this.label5.TabIndex = 126;
-            this.label5.Text = "Año:";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 140);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
-            this.label6.TabIndex = 127;
-            this.label6.Text = "Motor:";
-            // 
-            // cbxMarcaVehiculo
-            // 
-            this.cbxMarcaVehiculo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbxMarcaVehiculo.FormattingEnabled = true;
-            this.cbxMarcaVehiculo.Location = new System.Drawing.Point(124, 30);
-            this.cbxMarcaVehiculo.Name = "cbxMarcaVehiculo";
-            this.cbxMarcaVehiculo.Size = new System.Drawing.Size(220, 21);
-            this.cbxMarcaVehiculo.TabIndex = 128;
-            this.cbxMarcaVehiculo.SelectedValueChanged += new System.EventHandler(this.cbxMarcaVehiculo_SelectedValueChanged);
-            // 
-            // cbxModeloVehiculo
-            // 
-            this.cbxModeloVehiculo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbxModeloVehiculo.FormattingEnabled = true;
-            this.cbxModeloVehiculo.Location = new System.Drawing.Point(124, 65);
-            this.cbxModeloVehiculo.Name = "cbxModeloVehiculo";
-            this.cbxModeloVehiculo.Size = new System.Drawing.Size(220, 21);
-            this.cbxModeloVehiculo.TabIndex = 129;
-            this.cbxModeloVehiculo.SelectedValueChanged += new System.EventHandler(this.cbxModeloVehiculo_SelectedValueChanged);
-            // 
-            // cbxAnioVehiculo
-            // 
-            this.cbxAnioVehiculo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbxAnioVehiculo.FormattingEnabled = true;
-            this.cbxAnioVehiculo.Location = new System.Drawing.Point(124, 100);
-            this.cbxAnioVehiculo.Name = "cbxAnioVehiculo";
-            this.cbxAnioVehiculo.Size = new System.Drawing.Size(220, 21);
-            this.cbxAnioVehiculo.TabIndex = 130;
-            // 
-            // cbxMotorVehiculo
-            // 
-            this.cbxMotorVehiculo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbxMotorVehiculo.FormattingEnabled = true;
-            this.cbxMotorVehiculo.Location = new System.Drawing.Point(124, 136);
-            this.cbxMotorVehiculo.Name = "cbxMotorVehiculo";
-            this.cbxMotorVehiculo.Size = new System.Drawing.Size(220, 21);
-            this.cbxMotorVehiculo.TabIndex = 131;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 34);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 132;
-            this.label3.Text = "Marca:";
             // 
             // frmBusquedaVehiculo
             // 
