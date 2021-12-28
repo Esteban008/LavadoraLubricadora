@@ -107,6 +107,12 @@
     <Compile Include="frmBuscarProducto.Designer.cs">
       <DependentUpon>frmBuscarProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBusquedaComprobanteVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBusquedaComprobanteVenta.Designer.cs">
+      <DependentUpon>frmBusquedaComprobanteVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmComprabanteVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarProducto.resx">
       <DependentUpon>frmBuscarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBusquedaComprobanteVenta.resx">
+      <DependentUpon>frmBusquedaComprobanteVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmComprabanteVenta.resx">
       <DependentUpon>frmComprabanteVenta.cs</DependentUpon>

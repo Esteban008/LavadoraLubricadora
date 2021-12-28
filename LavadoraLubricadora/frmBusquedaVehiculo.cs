@@ -66,11 +66,9 @@ namespace LavadoraLubricadora
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(cliente.BuscarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(),
-                cbxModeloVehiculo.SelectedItem.ToString(), cbxAnioVehiculo.SelectedItem.ToString(), cbxMotorVehiculo.SelectedItem.ToString()));
             DataTable filtros = cliente.ObtenerFiltrosVehiculo( cliente.BuscarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(),
-                cbxModeloVehiculo.SelectedItem.ToString(), cbxAnioVehiculo.SelectedItem.ToString(), cbxMotorVehiculo.SelectedItem.ToString()));
-            dgvFiltrosE.DataSource = filtros;
+                                                                cbxModeloVehiculo.SelectedItem.ToString(), cbxAnioVehiculo.SelectedItem.ToString(), cbxMotorVehiculo.SelectedItem.ToString()));
+                                                                dgvFiltrosE.DataSource = filtros;
 
 
             
