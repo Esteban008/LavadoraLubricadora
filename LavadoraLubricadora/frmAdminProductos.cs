@@ -49,20 +49,28 @@ namespace LavadoraLubricadora
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (cliente.ValidarProducto(txtCodigoB.Text))
+            try
             {
-                MessageBox.Show("\t\tEste Producto ya existe. \nSi desea actualizar los datos seleccione el boton editar Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (cliente.ValidarProducto(txtCodigoB.Text))
+                {
+                    MessageBox.Show("\t\tEste Producto ya existe. \nSi desea actualizar los datos seleccione el boton editar Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    cliente.IngresarProducto(txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
+                    Convert.ToInt32(txtCantidadMin.Text), Convert.ToDouble(txtPreSIva.Text), Convert.ToDouble(txtPreCIva.Text), Convert.ToDouble(txtPreVMayor.Text),
+                    Convert.ToDouble(txtPrecioVMenor.Text), Convert.ToDouble(txtMargenMayor.Text), Convert.ToDouble(txtMargenMenor.Text));
+
+                    DialogResult dialogResult = MessageBox.Show("Producto ingresado con éxito", "Aviso", MessageBoxButtons.OK);
+
+                    LimpiarCampos();
+                }
             }
-            else
+            catch (Exception)
             {
-                cliente.IngresarProducto(txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
-                Convert.ToInt32(txtCantidadMin.Text), Convert.ToDouble(txtPreSIva.Text), Convert.ToDouble(txtPreCIva.Text), Convert.ToDouble(txtPreVMayor.Text),
-                Convert.ToDouble(txtPrecioVMenor.Text), Convert.ToDouble(txtMargenMayor.Text), Convert.ToDouble(txtMargenMenor.Text));
-
-                DialogResult dialogResult = MessageBox.Show("Producto ingresado con éxito", "Aviso", MessageBoxButtons.OK);
-
-                LimpiarCampos();
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
             }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -239,36 +247,52 @@ namespace LavadoraLubricadora
 
         private void btnBuscarE_Click(object sender, EventArgs e)
         {
-            if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
+            try
             {
-                DataTable productos = cliente.BuscarProductoCodigo(txtBusquedaE.Text);
-                dgvProductoE.DataSource = productos;
+                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
+                {
+                    DataTable productos = cliente.BuscarProductoCodigo(txtBusquedaE.Text);
+                    dgvProductoE.DataSource = productos;
 
-            }
-            else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
-            {
-                DataTable productos = cliente.BuscarProductoMarca(txtBusquedaE.Text);
-                dgvProductoE.DataSource = productos;
+                }
+                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
+                {
+                    DataTable productos = cliente.BuscarProductoMarca(txtBusquedaE.Text);
+                    dgvProductoE.DataSource = productos;
 
+                }
+                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    DataTable productos = cliente.ObtenerProducto();
+                    dgvProductoE.DataSource = productos;
+                }
+                busqueda = cbxCriBusquedaE.SelectedItem.ToString();
+                valor = txtBusquedaE.Text;
             }
-            else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable productos = cliente.ObtenerProducto();
-                dgvProductoE.DataSource = productos;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
             }
-            busqueda = cbxCriBusquedaE.SelectedItem.ToString();
-            valor = txtBusquedaE.Text;
+           
         }
 
         private void btnGuardarE_Click(object sender, EventArgs e)
         {
-            cliente.EditarProducto(Convert.ToInt32(dgvProductoE.SelectedCells[0].Value), txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
+            try
+            {
+                cliente.EditarProducto(Convert.ToInt32(dgvProductoE.SelectedCells[0].Value), txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
                         Convert.ToInt32(txtCantidadMinE.Text), Convert.ToDouble(txtPreSIvaE.Text), Convert.ToDouble(txtPreCIvaE.Text), Convert.ToDouble(txtPreVMayorE.Text),
                         Convert.ToDouble(txtPreVMenorE.Text), Convert.ToDouble(txtMargenMayorE.Text), Convert.ToDouble(txtMargenMenorE.Text));
 
-            DialogResult dialogResult = MessageBox.Show("Producto actualizado con éxito", "Aviso", MessageBoxButtons.OK);
-            ActualizarDgvProductoE();
-            LimpiarCamposE();
+                DialogResult dialogResult = MessageBox.Show("Producto actualizado con éxito", "Aviso", MessageBoxButtons.OK);
+                ActualizarDgvProductoE();
+                LimpiarCamposE();
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }
+            
         }
 
         private void btnCancelarE_Click(object sender, EventArgs e)
@@ -537,25 +561,33 @@ namespace LavadoraLubricadora
 
         private void btnBuscarD_Click(object sender, EventArgs e)
         {
-            if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Codigo de Barras"))
+            try
             {
-                DataTable productos = cliente.BuscarProductoCodigo(txtBusquedaD.Text);
-                dgvProductosD.DataSource = productos;
+                if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Codigo de Barras"))
+                {
+                    DataTable productos = cliente.BuscarProductoCodigo(txtBusquedaD.Text);
+                    dgvProductosD.DataSource = productos;
 
-            }
-            else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
-            {
-                DataTable productos = cliente.BuscarProductoMarca(txtBusquedaD.Text);
-                dgvProductosD.DataSource = productos;
+                }
+                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
+                {
+                    DataTable productos = cliente.BuscarProductoMarca(txtBusquedaD.Text);
+                    dgvProductosD.DataSource = productos;
 
+                }
+                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    DataTable productos = cliente.ObtenerProducto();
+                    dgvProductosD.DataSource = productos;
+                }
+                busqueda = cbxCriBusquedaD.SelectedItem.ToString();
+                valor = txtBusquedaD.Text;
             }
-            else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable productos = cliente.ObtenerProducto();
-                dgvProductosD.DataSource = productos;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
             }
-            busqueda = cbxCriBusquedaD.SelectedItem.ToString();
-            valor = txtBusquedaD.Text;
+          
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

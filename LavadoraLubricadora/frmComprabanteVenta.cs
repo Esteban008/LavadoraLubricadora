@@ -21,6 +21,7 @@ namespace LavadoraLubricadora
 
         private static bool estadoIngresar = false;
         private static DataTable dtProductos;
+        private static DataTable productos;
 
         public frmComprabanteVenta()
         {
@@ -470,5 +471,145 @@ namespace LavadoraLubricadora
 
 
         #endregion
+
+
+        private void DeshablitarCampos()
+        {
+
+            txtNFacturaD.Enabled = false;
+            txtNombreD.Enabled = false;
+            txtApellidoD.Enabled = false;
+            txtTelefonoD.Enabled = false;
+            txtCorreoD.Enabled = false;
+            txtCedulaD.Enabled = false;
+            txtDireccionD.Enabled = false;
+            txtSubTotalD.Enabled = false;
+            txtIVAD.Enabled = false;
+            txtTotalD.Enabled = false;
+            txtTipoPago.Enabled = false;
+        }
+
+        private void btnBuscarD_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LavadoraService.ComprobanteVenta comprobanteVenta = cliente.BuscarInfoComprobanteVenta(txtBusquedaD.Text);
+
+                txtNFacturaD.Text = comprobanteVenta.NumDocumento;
+                txtNombreD.Text = comprobanteVenta.Nombre;
+                txtApellidoD.Text = comprobanteVenta.Apellido;
+                txtTelefonoD.Text = comprobanteVenta.Telefono;
+                txtCorreoD.Text = comprobanteVenta.Correo;
+                txtCedulaD.Text = comprobanteVenta.Cedula;
+                txtDireccionD.Text = comprobanteVenta.Direccion;
+                txtSubTotalD.Text = comprobanteVenta.Subtotal.ToString();
+                txtIVAD.Text = comprobanteVenta.Iva.ToString();
+                txtTotalD.Text = comprobanteVenta.Total.ToString();
+                txtTipoPago.Text = comprobanteVenta.TipoPago;
+
+                productos = cliente.BuscarProductosComprobanteVenta(txtBusquedaD.Text);
+                dgvProductosD.DataSource = productos;
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }
+        }
+
+        private void ImprimirAnulacion(object sender, PrintPageEventArgs e)
+        {
+            Font font = new Font("Arial", 14);
+            int ancho = 450;
+            int y = 20;
+
+            StringFormat formatDerecha = new StringFormat();
+            formatDerecha.Alignment = StringAlignment.Far;
+            formatDerecha.LineAlignment = StringAlignment.Far;
+
+            e.Graphics.DrawString("- - - - - - - - A N U L A C I Ó N - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 0, ancho, 20));
+
+            e.Graphics.DrawString("Lavadora y Lubricadora Negritos - Lubrigaman", font, Brushes.Black, new RectangleF(0, y += 60, ancho, 20));
+            e.Graphics.DrawString("RUC: 0705760924001", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("Av. Mariscal Sucre y Pedro Concha", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("QUITO - ECUADOR", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("TELEFONO: 0979098895", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+
+            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 60, ancho, 20));
+
+            e.Graphics.DrawString("CLIENTE: " + txtNombreD.Text + " " + txtApellidoD.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("CÉDULA/RUC: " + txtCedulaD.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("DIRECCIÓN: " + txtDireccionD.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("TELÉFONO: " + txtTelefonoD.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("E-MAIL: " + txtCorreoD.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+
+            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+
+            e.Graphics.DrawString("ANULACIÓN DE COMPROBANTE DE VENTA: ", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("No.: " + txtNFacturaD.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("FECHA DE ANULACIÓN: " + DateTime.Now.ToString(), font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("TIPO PAGO: " + txtTipoPago.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+
+            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+
+            e.Graphics.DrawString("DESCRIPCIÓN          CANT. ", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+
+            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+
+
+            foreach (DataRow row in productos.Rows)
+            {
+                e.Graphics.DrawString(row["Descripcion"].ToString(), font, Brushes.Black, new RectangleF(0, y += 30, 150, 20));
+                e.Graphics.DrawString(row["Cantidad"].ToString(), font, Brushes.Black, new RectangleF(190, y += 0, 50, 20), formatDerecha);
+            }
+
+            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
+
+            e.Graphics.DrawString("SUBTOTAL: ", font, Brushes.Black, new RectangleF(190, y += 30, ancho, 20));
+            e.Graphics.DrawString(txtSubTotalD.Text, font, Brushes.Black, new RectangleF(-30, y += 0, ancho, 20), formatDerecha);
+            e.Graphics.DrawString("IVA 12%: ", font, Brushes.Black, new RectangleF(190, y += 30, ancho, 20));
+            e.Graphics.DrawString(txtIVAD.Text, font, Brushes.Black, new RectangleF(-30, y += 0, ancho, 20), formatDerecha);
+            e.Graphics.DrawString("TOTAL: ", font, Brushes.Black, new RectangleF(190, y += 30, ancho, 20));
+            e.Graphics.DrawString(txtTotalD.Text, font, Brushes.Black, new RectangleF(-30, y += 0, ancho, 20), formatDerecha);
+
+        }
+
+        private void btnDAnular_Click(object sender, EventArgs e)
+        {
+            //Parte para imprimir comprobante
+            prtdComprobante = new PrintDocument();
+            PrinterSettings ps = new PrinterSettings();
+            prtdComprobante.PrinterSettings = ps;
+            prtdComprobante.PrintPage += ImprimirAnulacion;
+            prtdComprobante.Print();
+
+
+
+            DialogResult dialogResult = MessageBox.Show("Comprobante generado con éxito", "Aviso", MessageBoxButtons.OK);
+
+            LimpiarCamposD();
+        }
+
+        public void LimpiarCamposD()
+        {
+            txtNFacturaD.Clear();
+            txtNombreD.Clear();
+            txtApellidoD.Clear();
+            txtCedulaD.Clear();
+            txtDireccionD.Clear();
+            txtTelefonoD.Clear();
+            txtCorreoD.Clear();
+            txtSubTotalD.Clear();
+            txtIVAD.Clear();
+            txtTotalD.Clear();
+
+            productos.Rows.Clear();
+            ActualizarDgvD();
+            cbxTipoPago.SelectedIndex = -1;
+        }
+
+        public void ActualizarDgvD()
+        {
+            dgvProductosD.DataSource = productos;
+        }
     }
 }

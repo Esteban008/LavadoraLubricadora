@@ -28,23 +28,28 @@ namespace LavadoraLubricadora
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (cbxCriBusqueda.SelectedItem.ToString().Equals("Codigo de Barras"))
+            try
             {
-                DataTable productos = cliente.BuscarProductoCodigo(txtBusqueda.Text);
-                dgvProducto.DataSource = productos;
-
+                if (cbxCriBusqueda.SelectedItem.ToString().Equals("Codigo de Barras"))
+                {
+                    DataTable productos = cliente.BuscarProductoCodigo(txtBusqueda.Text);
+                    dgvProducto.DataSource = productos;
+                }
+                else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Marca"))
+                {
+                    DataTable productos = cliente.BuscarProductoMarca(txtBusqueda.Text);
+                    dgvProducto.DataSource = productos;
+                }
+                else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    DataTable productos = cliente.ObtenerProducto();
+                    dgvProducto.DataSource = productos;
+                }
             }
-            else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Marca"))
+            catch (Exception)
             {
-                DataTable productos = cliente.BuscarProductoMarca(txtBusqueda.Text);
-                dgvProducto.DataSource = productos;
-
-            }
-            else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Mostrar Todos"))
-            {
-                DataTable productos = cliente.ObtenerProducto();
-                dgvProducto.DataSource = productos;
-            }
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }        
         }
 
         private void cbxCriBusqueda_SelectedValueChanged(object sender, EventArgs e)

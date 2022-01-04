@@ -66,13 +66,16 @@ namespace LavadoraLubricadora
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            DataTable filtros = cliente.ObtenerFiltrosVehiculo( cliente.BuscarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(),
-                                                                cbxModeloVehiculo.SelectedItem.ToString(), cbxAnioVehiculo.SelectedItem.ToString(), cbxMotorVehiculo.SelectedItem.ToString()));
-                                                                dgvFiltrosE.DataSource = filtros;
-
-
-            
-            
+            try
+            {
+                DataTable filtros = cliente.ObtenerFiltrosVehiculo(cliente.BuscarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(),
+                                                                 cbxModeloVehiculo.SelectedItem.ToString(), cbxAnioVehiculo.SelectedItem.ToString(), cbxMotorVehiculo.SelectedItem.ToString()));
+                dgvFiltrosE.DataSource = filtros;
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }         
         }
     }
 }

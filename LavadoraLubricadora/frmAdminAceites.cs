@@ -50,23 +50,31 @@ namespace LavadoraLubricadora
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (cliente.ValidarAceite(txtCodigoB.Text))
+            try
             {
-                MessageBox.Show("\t\tEste Aceite ya existe. \nSi desea actualizar los datos seleccione el boton Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (cliente.ValidarAceite(txtCodigoB.Text))
+                {
+                    MessageBox.Show("\t\tEste Aceite ya existe. \nSi desea actualizar los datos seleccione el boton Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    cliente.IngresarAceite(txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
+                    Convert.ToInt32(txtCantidadMin.Text), cbxPresentacion.SelectedItem.ToString(), cbxSae.SelectedItem.ToString(),
+                    cbxTipoCombustible.SelectedItem.ToString(), cbxApi.SelectedItem.ToString(), cbxTipoAceite.SelectedItem.ToString(),
+                    Convert.ToDouble(txtPreSIva.Text), Convert.ToDouble(txtPreCIva.Text), Convert.ToDouble(txtPreVMayor.Text),
+                    Convert.ToDouble(txtPrecioVMenor.Text), Convert.ToDouble(txtMargenMayor.Text), Convert.ToDouble(txtMargenMenor.Text));
+
+                    DialogResult dialogResult = MessageBox.Show("Aceite ingresado con éxito", "Aviso", MessageBoxButtons.OK);
+
+                    LimpiarCampos();
+                    cbxTipoCombustible.Items.AddRange(cliente.ObtenerTipoCombustible());
+                }
             }
-            else
+            catch (Exception)
             {
-                cliente.IngresarAceite(txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
-                Convert.ToInt32(txtCantidadMin.Text), cbxPresentacion.SelectedItem.ToString(), cbxSae.SelectedItem.ToString(),
-                cbxTipoCombustible.SelectedItem.ToString(), cbxApi.SelectedItem.ToString(), cbxTipoAceite.SelectedItem.ToString(),
-                Convert.ToDouble(txtPreSIva.Text), Convert.ToDouble(txtPreCIva.Text), Convert.ToDouble(txtPreVMayor.Text),
-                Convert.ToDouble(txtPrecioVMenor.Text), Convert.ToDouble(txtMargenMayor.Text), Convert.ToDouble(txtMargenMenor.Text));
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }     
 
-                DialogResult dialogResult = MessageBox.Show("Aceite ingresado con éxito", "Aviso", MessageBoxButtons.OK);
-
-                LimpiarCampos();
-                cbxTipoCombustible.Items.AddRange(cliente.ObtenerTipoCombustible());
-            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -280,39 +288,55 @@ namespace LavadoraLubricadora
 
         private void btnBuscarE_Click(object sender, EventArgs e)
         {
-            if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
+            try
             {
-                DataTable aceites = cliente.BuscarAceiteCodigo(txtBusquedaE.Text);
-                dgvAceitesE.DataSource = aceites;
+                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
+                {
+                    DataTable aceites = cliente.BuscarAceiteCodigo(txtBusquedaE.Text);
+                    dgvAceitesE.DataSource = aceites;
 
-            }
-            else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
-            {
-                DataTable aceites = cliente.BuscarAceiteMarca(txtBusquedaE.Text);
-                dgvAceitesE.DataSource = aceites;
+                }
+                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
+                {
+                    DataTable aceites = cliente.BuscarAceiteMarca(txtBusquedaE.Text);
+                    dgvAceitesE.DataSource = aceites;
 
+                }
+                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    DataTable aceites = cliente.ObtenerAceite();
+                    dgvAceitesE.DataSource = aceites;
+                }
+                busqueda = cbxCriBusquedaE.SelectedItem.ToString();
+                valor = txtBusquedaE.Text;
             }
-            else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable aceites = cliente.ObtenerAceite();
-                dgvAceitesE.DataSource = aceites;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
             }
-            busqueda = cbxCriBusquedaE.SelectedItem.ToString();
-            valor = txtBusquedaE.Text;
+           
         }
 
         private void btnGuardarE_Click(object sender, EventArgs e)
         {
-            cliente.EditarAceite(Convert.ToInt32(dgvAceitesE.SelectedCells[0].Value), txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
-                                    Convert.ToInt32(txtCantidadMinE.Text), cbxPresentacionE.SelectedItem.ToString(), cbxSaeE.SelectedItem.ToString(),
-                                    cbxTipoCombustibleE.SelectedItem.ToString(), cbxApiE.SelectedItem.ToString(), cbxTipoAceiteE.SelectedItem.ToString(),
-                                    Convert.ToDouble(txtPreSIvaE.Text), Convert.ToDouble(txtPreCIvaE.Text), Convert.ToDouble(txtPreVMayorE.Text),
-                                    Convert.ToDouble(txtPreVMenorE.Text), Convert.ToDouble(txtMargenMayorE.Text), Convert.ToDouble(txtMargenMenorE.Text));
+            try
+            {
+                cliente.EditarAceite(Convert.ToInt32(dgvAceitesE.SelectedCells[0].Value), txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
+                                                   Convert.ToInt32(txtCantidadMinE.Text), cbxPresentacionE.SelectedItem.ToString(), cbxSaeE.SelectedItem.ToString(),
+                                                   cbxTipoCombustibleE.SelectedItem.ToString(), cbxApiE.SelectedItem.ToString(), cbxTipoAceiteE.SelectedItem.ToString(),
+                                                   Convert.ToDouble(txtPreSIvaE.Text), Convert.ToDouble(txtPreCIvaE.Text), Convert.ToDouble(txtPreVMayorE.Text),
+                                                   Convert.ToDouble(txtPreVMenorE.Text), Convert.ToDouble(txtMargenMayorE.Text), Convert.ToDouble(txtMargenMenorE.Text));
 
-            DialogResult dialogResult = MessageBox.Show("Aceite actualizado con éxito", "Aviso", MessageBoxButtons.OK);
-            ActualizarDgvAceiteE();
-            LimpiarCamposE();
-            cbxTipoCombustibleE.Items.AddRange(cliente.ObtenerTipoCombustible());
+                DialogResult dialogResult = MessageBox.Show("Aceite actualizado con éxito", "Aviso", MessageBoxButtons.OK);
+                ActualizarDgvAceiteE();
+                LimpiarCamposE();
+                cbxTipoCombustibleE.Items.AddRange(cliente.ObtenerTipoCombustible());
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }
+           
         }
 
         private void btnCancelarE_Click(object sender, EventArgs e)
@@ -626,25 +650,33 @@ namespace LavadoraLubricadora
 
         private void btnBuscarD_Click(object sender, EventArgs e)
         {
-            if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Codigo de Barras"))
+            try
             {
-                DataTable aceites = cliente.BuscarAceiteCodigo(txtBusquedaD.Text);
-                dgvAceitesD.DataSource = aceites;
+                if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Codigo de Barras"))
+                {
+                    DataTable aceites = cliente.BuscarAceiteCodigo(txtBusquedaD.Text);
+                    dgvAceitesD.DataSource = aceites;
 
-            }
-            else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
-            {
-                DataTable aceites = cliente.BuscarAceiteMarca(txtBusquedaD.Text);
-                dgvAceitesD.DataSource = aceites;
+                }
+                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
+                {
+                    DataTable aceites = cliente.BuscarAceiteMarca(txtBusquedaD.Text);
+                    dgvAceitesD.DataSource = aceites;
 
+                }
+                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    DataTable aceites = cliente.ObtenerAceite();
+                    dgvAceitesD.DataSource = aceites;
+                }
+                busqueda = cbxCriBusquedaD.SelectedItem.ToString();
+                valor = txtBusquedaD.Text;
             }
-            else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable aceites = cliente.ObtenerAceite();
-                dgvAceitesD.DataSource = aceites;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
             }
-            busqueda = cbxCriBusquedaD.SelectedItem.ToString();
-            valor = txtBusquedaD.Text;
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

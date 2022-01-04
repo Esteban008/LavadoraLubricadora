@@ -27,22 +27,29 @@ namespace LavadoraLubricadora
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (cbxCriBusqueda.SelectedItem.ToString().Equals("Codigo de Barras"))
+            try
             {
-                DataTable aceites = cliente.BuscarAceiteCodigo(txtBusqueda.Text);
-                dgvAceites.DataSource = aceites;
+                if (cbxCriBusqueda.SelectedItem.ToString().Equals("Codigo de Barras"))
+                {
+                    DataTable aceites = cliente.BuscarAceiteCodigo(txtBusqueda.Text);
+                    dgvAceites.DataSource = aceites;
 
-            }
-            else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Marca"))
-            {
-                DataTable aceites = cliente.BuscarAceiteMarca(txtBusqueda.Text);
-                dgvAceites.DataSource = aceites;
+                }
+                else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Marca"))
+                {
+                    DataTable aceites = cliente.BuscarAceiteMarca(txtBusqueda.Text);
+                    dgvAceites.DataSource = aceites;
 
+                }
+                else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    DataTable aceites = cliente.ObtenerAceite();
+                    dgvAceites.DataSource = aceites;
+                }
             }
-            else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable aceites = cliente.ObtenerAceite();              
-                dgvAceites.DataSource = aceites;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);    
             }
         }
 

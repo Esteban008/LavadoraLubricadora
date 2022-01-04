@@ -72,5 +72,33 @@ namespace LavadoraLubricadora
                 txtBusqueda.Clear();
             }
         }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbxCriBusqueda.SelectedItem.ToString().Equals("Codigo de Barras"))
+                {
+                    DataTable filtros = cliente.BuscarFiltroCodigo(txtBusqueda.Text);
+                    dgvFiltrosE.DataSource = filtros;
+
+                }
+                else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Marca"))
+                {
+                    DataTable filtros = cliente.BuscarFiltroMarca(txtBusqueda.Text);
+                    dgvFiltrosE.DataSource = filtros;
+
+                }
+                else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    DataTable filtros = cliente.ObtenerFiltros();
+                    dgvFiltrosE.DataSource = filtros;
+                }
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }
+        }
     }
 }

@@ -81,37 +81,45 @@ namespace LavadoraLubricadora
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (txtCorreo.Text != "CORREO")
+            try
             {
-                if (txtPassword.Text != "CONTRASEÑA")
+                if (txtCorreo.Text != "CORREO")
                 {
-                    if (cliente.Login(txtCorreo.Text,txtPassword.Text)) 
+                    if (txtPassword.Text != "CONTRASEÑA")
                     {
-                        frmPrincipalP frmPrincipal = new frmPrincipalP();
-                        frmPrincipal.Show();
-                        this.Hide();
-                        lblMensajeError.Text = "";
-                        txtCorreo.Clear();
-                        txtPassword.Clear();
+                        if (cliente.Login(txtCorreo.Text, txtPassword.Text))
+                        {
+                            frmPrincipalP frmPrincipal = new frmPrincipalP();
+                            frmPrincipal.Show();
+                            this.Hide();
+                            lblMensajeError.Text = "";
+                            txtCorreo.Clear();
+                            txtPassword.Clear();
+                        }
+                        else
+                        {
+                            lblMensajeError.Text = "       Usuario o Contraseña incorrecta \n        Intente de nuevo";
+                            lblMensajeError.Visible = true;
+
+                        }
                     }
                     else
                     {
-                        lblMensajeError.Text = "       Usuario o Contraseña incorrecta \n        Intente de nuevo";
+                        lblMensajeError.Text = "       Ingrese su clave";
                         lblMensajeError.Visible = true;
-                    
                     }
                 }
                 else
                 {
-                    lblMensajeError.Text = "       Ingrese su clave";
+                    lblMensajeError.Text = "       Ingrese su correo";
                     lblMensajeError.Visible = true;
                 }
             }
-            else
+            catch (Exception)
             {
-                lblMensajeError.Text = "       Ingrese su correo";
-                lblMensajeError.Visible = true;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
             }
+         
         }
 
         private void frmLogin_Load(object sender, EventArgs e)

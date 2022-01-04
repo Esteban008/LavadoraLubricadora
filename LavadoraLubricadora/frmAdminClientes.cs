@@ -87,25 +87,34 @@ namespace LavadoraLubricadora
 
         private void btnBuscarE_Click(object sender, EventArgs e)
         {
-            if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Cédula"))
+            try
             {
-                DataTable clientes = cliente.BuscarClienteCedula(txtBusquedaE.Text);
-                dgvClientesE.DataSource = clientes;
+                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Cédula"))
+                {
+                    DataTable clientes = cliente.BuscarClienteCedula(txtBusquedaE.Text);
+                    dgvClientesE.DataSource = clientes;
 
-            }
-            else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Apellido"))
-            {
-                DataTable clientes = cliente.BuscarClienteApellido(txtBusquedaE.Text);
-                dgvClientesE.DataSource = clientes;
+                }
+                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Apellido"))
+                {
+                    DataTable clientes = cliente.BuscarClienteApellido(txtBusquedaE.Text);
+                    dgvClientesE.DataSource = clientes;
 
+                }
+                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    DataTable clientes = cliente.ObtenerClientes();
+                    dgvClientesE.DataSource = clientes;
+                }
+                busqueda = cbxCriBusquedaE.SelectedItem.ToString();
+                valor = txtBusquedaE.Text;
             }
-            else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable clientes = cliente.ObtenerClientes();
-                dgvClientesE.DataSource = clientes;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
             }
-            busqueda = cbxCriBusquedaE.SelectedItem.ToString();
-            valor = txtBusquedaE.Text;
+            
+           
         }
 
         private void btnGuardarE_Click(object sender, EventArgs e)
@@ -201,25 +210,34 @@ namespace LavadoraLubricadora
 
         private void btnBuscarD_Click(object sender, EventArgs e)
         {
-            if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Cédula"))
+            try
             {
-                DataTable clientes = cliente.BuscarClienteCedula(txtBusquedaD.Text);
-                dgvClientesD.DataSource = clientes;
+                if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Cédula"))
+                {
+                    DataTable clientes = cliente.BuscarClienteCedula(txtBusquedaD.Text);
+                    dgvClientesD.DataSource = clientes;
 
-            }
-            else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Apellido"))
-            {
-                DataTable clientes = cliente.BuscarClienteApellido(txtBusquedaD.Text);
-                dgvClientesD.DataSource = clientes;
+                }
+                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Apellido"))
+                {
+                    DataTable clientes = cliente.BuscarClienteApellido(txtBusquedaD.Text);
+                    dgvClientesD.DataSource = clientes;
 
+                }
+                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    DataTable clientes = cliente.ObtenerClientes();
+                    dgvClientesD.DataSource = clientes;
+                }
+                busqueda = cbxCriBusquedaD.SelectedItem.ToString();
+                valor = txtBusquedaD.Text;
             }
-            else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable clientes = cliente.ObtenerClientes();
-                dgvClientesD.DataSource = clientes;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
             }
-            busqueda = cbxCriBusquedaD.SelectedItem.ToString();
-            valor = txtBusquedaD.Text;
+            
+         
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

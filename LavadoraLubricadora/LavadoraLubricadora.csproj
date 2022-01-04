@@ -143,12 +143,6 @@
     <Compile Include="frmEliminarUsuario.Designer.cs">
       <DependentUpon>frmEliminarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGestionProveedores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmGestionProveedores.Designer.cs">
-      <DependentUpon>frmGestionProveedores.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmBusquedaVehiculo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,12 +154,6 @@
     </Compile>
     <Compile Include="frmCaja.Designer.cs">
       <DependentUpon>frmCaja.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmGestionEmpleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmGestionEmpleados.Designer.cs">
-      <DependentUpon>frmGestionEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="frmIngresarProveedores.cs">
       <SubType>Form</SubType>
@@ -238,17 +226,11 @@
     <EmbeddedResource Include="frmEliminarUsuario.resx">
       <DependentUpon>frmEliminarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGestionProveedores.resx">
-      <DependentUpon>frmGestionProveedores.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmBusquedaVehiculo.resx">
       <DependentUpon>frmBusquedaVehiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCaja.resx">
       <DependentUpon>frmCaja.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmGestionEmpleados.resx">
-      <DependentUpon>frmGestionEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIngresarProveedores.resx">
       <DependentUpon>frmIngresarProveedores.cs</DependentUpon>
@@ -273,6 +255,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.Cliente.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.ComprobanteVenta.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.ProductoComprobante.datasource">

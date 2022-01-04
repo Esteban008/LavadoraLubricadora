@@ -73,22 +73,30 @@ namespace LavadoraLubricadora
 
         private void btnBuscarE_Click(object sender, EventArgs e)
         {
-            if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
+            try
             {
-                DataTable vehiculos = cliente.BuscarVehiculoMarca(txtBusquedaE.Text);
-                dgvVehiculosE.DataSource = vehiculos;
+                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
+                {
+                    DataTable vehiculos = cliente.BuscarVehiculoMarca(txtBusquedaE.Text);
+                    dgvVehiculosE.DataSource = vehiculos;
 
+                }
+                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Modelo"))
+                {
+                    DataTable vehiculos = cliente.BuscarVehiculoModelo(txtBusquedaE.Text);
+                    dgvVehiculosE.DataSource = vehiculos;
+                }
+                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    DataTable vehiculos = cliente.ObtenerVehiculos();
+                    dgvVehiculosE.DataSource = vehiculos;
+                }
             }
-            else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Modelo"))
+            catch (Exception)
             {
-                DataTable vehiculos = cliente.BuscarVehiculoModelo(txtBusquedaE.Text);
-                dgvVehiculosE.DataSource = vehiculos;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
             }
-            else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
-            {
-                DataTable vehiculos = cliente.ObtenerVehiculos();
-                dgvVehiculosE.DataSource = vehiculos;
-            }
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -131,19 +139,26 @@ namespace LavadoraLubricadora
 
         private void btnGuardarVehiculos_Click(object sender, EventArgs e)
         {
-            
-            DialogResult dialogResult = MessageBox.Show("Lista creada con éxito", "Aviso", MessageBoxButtons.OK);
-
-            List<int> idVehiculos = new List<int>();
-
-            foreach (DataGridViewRow row in dgvVehiculos2.Rows)
+            try
             {
-                idVehiculos.Add(Convert.ToInt32(row.Cells[0].Value.ToString()));
+                DialogResult dialogResult = MessageBox.Show("Lista creada con éxito", "Aviso", MessageBoxButtons.OK);
+
+                List<int> idVehiculos = new List<int>();
+
+                foreach (DataGridViewRow row in dgvVehiculos2.Rows)
+                {
+                    idVehiculos.Add(Convert.ToInt32(row.Cells[0].Value.ToString()));
+                }
+
+                cliente.GuardarIDsVehiculos(idVehiculos.ToArray());
+
+                this.Close();
             }
-
-            cliente.GuardarIDsVehiculos(idVehiculos.ToArray());
-
-            this.Close();
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }
+            
         }
 
     }

@@ -305,6 +305,243 @@ namespace LavadoraLubricadora.LavadoraService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ComprobanteVenta", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
+    [System.SerializableAttribute()]
+    public partial class ComprobanteVenta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ApellidoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CedulaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DireccionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaVentaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double IvaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumDocumentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double SubtotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelefonoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoPagoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double TotalField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Apellido {
+            get {
+                return this.ApellidoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApellidoField, value) != true)) {
+                    this.ApellidoField = value;
+                    this.RaisePropertyChanged("Apellido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cedula {
+            get {
+                return this.CedulaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CedulaField, value) != true)) {
+                    this.CedulaField = value;
+                    this.RaisePropertyChanged("Cedula");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Correo {
+            get {
+                return this.CorreoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoField, value) != true)) {
+                    this.CorreoField = value;
+                    this.RaisePropertyChanged("Correo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Direccion {
+            get {
+                return this.DireccionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DireccionField, value) != true)) {
+                    this.DireccionField = value;
+                    this.RaisePropertyChanged("Direccion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaVenta {
+            get {
+                return this.FechaVentaField;
+            }
+            set {
+                if ((this.FechaVentaField.Equals(value) != true)) {
+                    this.FechaVentaField = value;
+                    this.RaisePropertyChanged("FechaVenta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Iva {
+            get {
+                return this.IvaField;
+            }
+            set {
+                if ((this.IvaField.Equals(value) != true)) {
+                    this.IvaField = value;
+                    this.RaisePropertyChanged("Iva");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumDocumento {
+            get {
+                return this.NumDocumentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumDocumentoField, value) != true)) {
+                    this.NumDocumentoField = value;
+                    this.RaisePropertyChanged("NumDocumento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Subtotal {
+            get {
+                return this.SubtotalField;
+            }
+            set {
+                if ((this.SubtotalField.Equals(value) != true)) {
+                    this.SubtotalField = value;
+                    this.RaisePropertyChanged("Subtotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Telefono {
+            get {
+                return this.TelefonoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelefonoField, value) != true)) {
+                    this.TelefonoField = value;
+                    this.RaisePropertyChanged("Telefono");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TipoPago {
+            get {
+                return this.TipoPagoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoPagoField, value) != true)) {
+                    this.TipoPagoField = value;
+                    this.RaisePropertyChanged("TipoPago");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Vehiculo", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
     [System.SerializableAttribute()]
     public partial class Vehiculo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -553,6 +790,18 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarCreditoCliente", ReplyAction="http://tempuri.org/ILavadoraService/IngresarCreditoClienteResponse")]
         System.Threading.Tasks.Task IngresarCreditoClienteAsync(string cedula, System.DateTime fecha, double monto, int idComprobante);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVentaResponse")]
+        LavadoraLubricadora.LavadoraService.ComprobanteVenta BuscarInfoComprobanteVenta(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVentaResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteVenta> BuscarInfoComprobanteVentaAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVentaResponse")]
+        System.Data.DataTable BuscarProductosComprobanteVenta(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVentaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProductosComprobanteVentaAsync(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/Login", ReplyAction="http://tempuri.org/ILavadoraService/LoginResponse")]
         bool Login(string correo, string clave);
@@ -1214,6 +1463,22 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task IngresarCreditoClienteAsync(string cedula, System.DateTime fecha, double monto, int idComprobante) {
             return base.Channel.IngresarCreditoClienteAsync(cedula, fecha, monto, idComprobante);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.ComprobanteVenta BuscarInfoComprobanteVenta(string id) {
+            return base.Channel.BuscarInfoComprobanteVenta(id);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteVenta> BuscarInfoComprobanteVentaAsync(string id) {
+            return base.Channel.BuscarInfoComprobanteVentaAsync(id);
+        }
+        
+        public System.Data.DataTable BuscarProductosComprobanteVenta(string id) {
+            return base.Channel.BuscarProductosComprobanteVenta(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProductosComprobanteVentaAsync(string id) {
+            return base.Channel.BuscarProductosComprobanteVentaAsync(id);
         }
         
         public bool Login(string correo, string clave) {

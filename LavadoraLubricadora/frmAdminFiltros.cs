@@ -108,34 +108,43 @@ namespace LavadoraLubricadora
         #region Tab Ingresar
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            List<int> idVehiculos = cliente.ObtenerIDsVehiculos().ToList();
-            List<string> codigos = recuperarRtxt();
-
-            if (cliente.ValidarFiltro(txtCodigoB.Text))
+            try
             {
-                MessageBox.Show("\t\tEste Filtro ya existe. \nSi desea actualizar los datos seleccione el boton editar Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                List<int> idVehiculos = cliente.ObtenerIDsVehiculos().ToList();
+                List<string> codigos = recuperarRtxt();
+
+                if (cliente.ValidarFiltro(txtCodigoB.Text))
+                {
+                    MessageBox.Show("\t\tEste Filtro ya existe. \nSi desea actualizar los datos seleccione el boton editar Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    cliente.IngresarFiltro(cbxTipoFiltro.SelectedItem.ToString(), txtRosca.Text, txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
+                           Convert.ToInt32(txtCantidadMin.Text), Convert.ToDouble(txtPreSIva.Text), Convert.ToDouble(txtPreCIva.Text), Convert.ToDouble(txtPreVMayor.Text),
+                           Convert.ToDouble(txtPrecioVMenor.Text), Convert.ToDouble(txtMargenMayor.Text), Convert.ToDouble(txtMargenMenor.Text));
+
+                    foreach (var idVehiculo in idVehiculos)
+                    {
+                        cliente.IngresarVehiculoFiltro(txtCodigoB.Text, idVehiculo);
+                    }
+
+                    foreach (var codigo in codigos)
+                    {
+                        cliente.IngresarCodigoFiltro(txtCodigoB.Text, codigo);
+                    }
+
+                    DialogResult dialogResult = MessageBox.Show("Filtro ingresado con éxito", "Aviso", MessageBoxButtons.OK);
+
+                    LimpiarCampos();
+                    LimpiarCacheListaVehiculos();
+                }
             }
-            else
+            catch (Exception)
             {
-                cliente.IngresarFiltro(cbxTipoFiltro.SelectedItem.ToString(), txtRosca.Text, txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
-                       Convert.ToInt32(txtCantidadMin.Text), Convert.ToDouble(txtPreSIva.Text), Convert.ToDouble(txtPreCIva.Text), Convert.ToDouble(txtPreVMayor.Text),
-                       Convert.ToDouble(txtPrecioVMenor.Text), Convert.ToDouble(txtMargenMayor.Text), Convert.ToDouble(txtMargenMenor.Text));
-
-                foreach (var idVehiculo in idVehiculos)
-                {
-                    cliente.IngresarVehiculoFiltro(txtCodigoB.Text, idVehiculo);
-                }
-
-                foreach (var codigo in codigos)
-                {
-                    cliente.IngresarCodigoFiltro(txtCodigoB.Text, codigo);
-                }
-
-                DialogResult dialogResult = MessageBox.Show("Filtro ingresado con éxito", "Aviso", MessageBoxButtons.OK);
-
-                LimpiarCampos();
-                LimpiarCacheListaVehiculos();
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
             }
+            
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -145,8 +154,16 @@ namespace LavadoraLubricadora
 
         private void btnAgregarVehiculos_Click(object sender, EventArgs e)
         {
-            cliente.GuardarEstadoListaVehiculos(false);
-            AbrirFormulario<frmAgregarVehiculo>();           
+            try
+            {
+                cliente.GuardarEstadoListaVehiculos(false);
+                AbrirFormulario<frmAgregarVehiculo>();     
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }
+         
         }
 
         private void LoadIngresar()
@@ -334,68 +351,85 @@ namespace LavadoraLubricadora
 
         private void btnBuscarE_Click(object sender, EventArgs e)
         {
-            if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
+            try
             {
-                DataTable filtros = cliente.BuscarFiltroCodigo(txtBusquedaE.Text);
-                dgvFiltrosE.DataSource = filtros;
+                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
+                {
+                    DataTable filtros = cliente.BuscarFiltroCodigo(txtBusquedaE.Text);
+                    dgvFiltrosE.DataSource = filtros;
 
-            }
-            else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
-            {
-                DataTable filtros = cliente.BuscarFiltroMarca(txtBusquedaE.Text);
-                dgvFiltrosE.DataSource = filtros;
+                }
+                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
+                {
+                    DataTable filtros = cliente.BuscarFiltroMarca(txtBusquedaE.Text);
+                    dgvFiltrosE.DataSource = filtros;
 
+                }
+                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    DataTable filtros = cliente.ObtenerFiltros();
+                    dgvFiltrosE.DataSource = filtros;
+                }
+                busqueda = cbxCriBusquedaE.SelectedItem.ToString();
+                valor = txtBusquedaE.Text;
             }
-            else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable filtros = cliente.ObtenerFiltros();
-                dgvFiltrosE.DataSource = filtros;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
             }
-            busqueda = cbxCriBusquedaE.SelectedItem.ToString();
-            valor = txtBusquedaE.Text;
+
+           
         }
 
         private void btnGuardarE_Click(object sender, EventArgs e)
         {
-
-            idCodigos = cliente.ObtenerIdCodigosFiltro(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString())).ToList();
-
-            cliente.LimpiarRelacionCodigosBase(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()));
-
-            foreach (var item in idCodigos)
+            try
             {
-                cliente.LimpiarCodigosBase(Convert.ToInt32(item));
-            }
-                   
-            cliente.EditarFiltro(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()), cbxTipoFiltroE.SelectedItem.ToString(), txtRoscaE.Text, txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
-                       Convert.ToInt32(txtCantidadMinE.Text), Convert.ToDouble(txtPreSIvaE.Text), Convert.ToDouble(txtPreCIvaE.Text), Convert.ToDouble(txtPreVMayorE.Text),
-                       Convert.ToDouble(txtPreVMenorE.Text), Convert.ToDouble(txtMargenMayorE.Text), Convert.ToDouble(txtMargenMenorE.Text));
 
-            //Sila lista de vehiculos esta llena se limpia la referencia de los vehiculos y se agrega la nueva lista
-            if (cliente.ObtenerIDsVehiculos().Length != 0)
-            {
-                cliente.LimpiarVehiculosBase(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()));
+                idCodigos = cliente.ObtenerIdCodigosFiltro(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString())).ToList();
 
-                List<int> idVehiculos = cliente.ObtenerIDsVehiculos().ToList();
+                cliente.LimpiarRelacionCodigosBase(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()));
 
-                foreach (var idVehiculo in idVehiculos)
+                foreach (var item in idCodigos)
                 {
-                    cliente.IngresarVehiculoFiltro(txtCodigoBE.Text, idVehiculo);
+                    cliente.LimpiarCodigosBase(Convert.ToInt32(item));
                 }
+                   
+                cliente.EditarFiltro(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()), cbxTipoFiltroE.SelectedItem.ToString(), txtRoscaE.Text, txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
+                           Convert.ToInt32(txtCantidadMinE.Text), Convert.ToDouble(txtPreSIvaE.Text), Convert.ToDouble(txtPreCIvaE.Text), Convert.ToDouble(txtPreVMayorE.Text),
+                           Convert.ToDouble(txtPreVMenorE.Text), Convert.ToDouble(txtMargenMayorE.Text), Convert.ToDouble(txtMargenMenorE.Text));
+
+                //Sila lista de vehiculos esta llena se limpia la referencia de los vehiculos y se agrega la nueva lista
+                if (cliente.ObtenerIDsVehiculos().Length != 0)
+                {
+                    cliente.LimpiarVehiculosBase(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()));
+
+                    List<int> idVehiculos = cliente.ObtenerIDsVehiculos().ToList();
+
+                    foreach (var idVehiculo in idVehiculos)
+                    {
+                        cliente.IngresarVehiculoFiltro(txtCodigoBE.Text, idVehiculo);
+                    }
+                }
+
+                List<string> codigosE = recuperarRtxtE();
+
+                foreach (var codigo in codigosE)
+                {
+                    cliente.IngresarCodigoFiltro(txtCodigoBE.Text, codigo);
+                }
+
+                DialogResult dialogResult = MessageBox.Show("Filtro actualizado con éxito", "Aviso", MessageBoxButtons.OK);
+
+                LimpiarCamposE();
+                ActualizarDgvFiltrosE();              
+                LimpiarCacheListaVehiculos();
+
             }
-
-            List<string> codigosE = recuperarRtxtE();
-
-            foreach (var codigo in codigosE)
+            catch (Exception)
             {
-                cliente.IngresarCodigoFiltro(txtCodigoBE.Text, codigo);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
             }
-
-            DialogResult dialogResult = MessageBox.Show("Filtro actualizado con éxito", "Aviso", MessageBoxButtons.OK);
-
-            LimpiarCamposE();
-            ActualizarDgvFiltrosE();              
-            LimpiarCacheListaVehiculos();
 
         }
 
@@ -721,42 +755,56 @@ namespace LavadoraLubricadora
 
         private void btnBuscarD_Click(object sender, EventArgs e)
         {
-            if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Codigo de Barras"))
+            try
             {
-                DataTable filtros = cliente.BuscarFiltroCodigo(txtBusquedaD.Text);
-                dgvFiltrosD.DataSource = filtros;
+                if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Codigo de Barras"))
+                {
+                    DataTable filtros = cliente.BuscarFiltroCodigo(txtBusquedaD.Text);
+                    dgvFiltrosD.DataSource = filtros;
 
+                }
+                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
+                {
+                    DataTable filtros = cliente.BuscarFiltroMarca(txtBusquedaD.Text);
+                    dgvFiltrosD.DataSource = filtros;
+                }
+                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    DataTable filtros = cliente.ObtenerFiltros();
+                    dgvFiltrosD.DataSource = filtros;
+                }
+                busqueda = cbxCriBusquedaD.SelectedItem.ToString();
+                valor = txtBusquedaD.Text;
             }
-            else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
+            catch (Exception)
             {
-                DataTable filtros = cliente.BuscarFiltroMarca(txtBusquedaD.Text);
-                dgvFiltrosD.DataSource = filtros;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
             }
-            else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
-            {
-                DataTable filtros = cliente.ObtenerFiltros();
-                dgvFiltrosD.DataSource = filtros;
-            }
-            busqueda = cbxCriBusquedaD.SelectedItem.ToString();
-            valor = txtBusquedaD.Text;
+           
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
-            idCodigos = cliente.ObtenerIdCodigosFiltro(Convert.ToInt32(dgvFiltrosD.SelectedCells[0].Value.ToString())).ToList();
-
-            cliente.LimpiarRelacionCodigosBase(Convert.ToInt32(dgvFiltrosD.SelectedCells[0].Value.ToString()));
-
-            foreach (var item in idCodigos)
+            try
             {
-                cliente.LimpiarCodigosBase(Convert.ToInt32(item));
+                idCodigos = cliente.ObtenerIdCodigosFiltro(Convert.ToInt32(dgvFiltrosD.SelectedCells[0].Value.ToString())).ToList();
+
+                cliente.LimpiarRelacionCodigosBase(Convert.ToInt32(dgvFiltrosD.SelectedCells[0].Value.ToString()));
+
+                foreach (var item in idCodigos)
+                {
+                    cliente.LimpiarCodigosBase(Convert.ToInt32(item));
+                }
+
+                cliente.EliminarFiltro(Convert.ToInt32(dgvFiltrosD.SelectedCells[0].Value));
+                DialogResult dialogResult = MessageBox.Show("Filtro eliminado con éxito", "Aviso", MessageBoxButtons.OK);
+                ActualizarDgvFiltroD();
             }
-            
-            cliente.EliminarFiltro(Convert.ToInt32(dgvFiltrosD.SelectedCells[0].Value));
-            DialogResult dialogResult = MessageBox.Show("Filtro eliminado con éxito", "Aviso", MessageBoxButtons.OK);
-            ActualizarDgvFiltroD();
-            
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }
+                 
         }
 
         private void LoadEliminar()
