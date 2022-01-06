@@ -30,7 +30,7 @@
         {
             this.panelMenu = new System.Windows.Forms.Panel();
             this.pnlSubmenuVentas = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnReportesVenta = new System.Windows.Forms.Button();
             this.btnAdminClientes = new System.Windows.Forms.Button();
             this.btnComprobanteVenta = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
@@ -49,18 +49,26 @@
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.btnCompras = new System.Windows.Forms.Button();
+            this.pnlSubmenuCompras = new System.Windows.Forms.Panel();
+            this.btnReportesCompras = new System.Windows.Forms.Button();
+            this.btnAdminProveedores = new System.Windows.Forms.Button();
+            this.btnComprobanteCompra = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.pnlSubmenuVentas.SuspendLayout();
             this.pnlSubmenuAdmProductos.SuspendLayout();
             this.pnlSubmenuBuscar.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlSubmenuCompras.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.AutoScroll = true;
             this.panelMenu.BackColor = System.Drawing.Color.White;
+            this.panelMenu.Controls.Add(this.pnlSubmenuCompras);
+            this.panelMenu.Controls.Add(this.btnCompras);
             this.panelMenu.Controls.Add(this.pnlSubmenuVentas);
             this.panelMenu.Controls.Add(this.btnVentas);
             this.panelMenu.Controls.Add(this.pnlSubmenuAdmProductos);
@@ -76,30 +84,31 @@
             // 
             // pnlSubmenuVentas
             // 
-            this.pnlSubmenuVentas.Controls.Add(this.button3);
+            this.pnlSubmenuVentas.Controls.Add(this.btnReportesVenta);
             this.pnlSubmenuVentas.Controls.Add(this.btnAdminClientes);
             this.pnlSubmenuVentas.Controls.Add(this.btnComprobanteVenta);
             this.pnlSubmenuVentas.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubmenuVentas.Location = new System.Drawing.Point(0, 561);
             this.pnlSubmenuVentas.Name = "pnlSubmenuVentas";
-            this.pnlSubmenuVentas.Size = new System.Drawing.Size(250, 119);
+            this.pnlSubmenuVentas.Size = new System.Drawing.Size(233, 119);
             this.pnlSubmenuVentas.TabIndex = 7;
             // 
-            // button3
+            // btnReportesVenta
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
-            this.button3.Location = new System.Drawing.Point(0, 80);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(250, 40);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Generar Reportes";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnReportesVenta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportesVenta.FlatAppearance.BorderSize = 0;
+            this.btnReportesVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
+            this.btnReportesVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportesVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnReportesVenta.Location = new System.Drawing.Point(0, 80);
+            this.btnReportesVenta.Name = "btnReportesVenta";
+            this.btnReportesVenta.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnReportesVenta.Size = new System.Drawing.Size(233, 40);
+            this.btnReportesVenta.TabIndex = 2;
+            this.btnReportesVenta.Text = "Generar Reportes";
+            this.btnReportesVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportesVenta.UseVisualStyleBackColor = true;
+            this.btnReportesVenta.Click += new System.EventHandler(this.btnReportesVenta_Click);
             // 
             // btnAdminClientes
             // 
@@ -111,7 +120,7 @@
             this.btnAdminClientes.Location = new System.Drawing.Point(0, 40);
             this.btnAdminClientes.Name = "btnAdminClientes";
             this.btnAdminClientes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnAdminClientes.Size = new System.Drawing.Size(250, 40);
+            this.btnAdminClientes.Size = new System.Drawing.Size(233, 40);
             this.btnAdminClientes.TabIndex = 1;
             this.btnAdminClientes.Text = "Administrar Clientes";
             this.btnAdminClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -128,7 +137,7 @@
             this.btnComprobanteVenta.Location = new System.Drawing.Point(0, 0);
             this.btnComprobanteVenta.Name = "btnComprobanteVenta";
             this.btnComprobanteVenta.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnComprobanteVenta.Size = new System.Drawing.Size(250, 40);
+            this.btnComprobanteVenta.Size = new System.Drawing.Size(233, 40);
             this.btnComprobanteVenta.TabIndex = 0;
             this.btnComprobanteVenta.Text = "Comprobante de Venta";
             this.btnComprobanteVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -145,7 +154,7 @@
             this.btnVentas.Location = new System.Drawing.Point(0, 516);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnVentas.Size = new System.Drawing.Size(250, 45);
+            this.btnVentas.Size = new System.Drawing.Size(233, 45);
             this.btnVentas.TabIndex = 6;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -161,7 +170,7 @@
             this.pnlSubmenuAdmProductos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubmenuAdmProductos.Location = new System.Drawing.Point(0, 353);
             this.pnlSubmenuAdmProductos.Name = "pnlSubmenuAdmProductos";
-            this.pnlSubmenuAdmProductos.Size = new System.Drawing.Size(250, 163);
+            this.pnlSubmenuAdmProductos.Size = new System.Drawing.Size(233, 163);
             this.pnlSubmenuAdmProductos.TabIndex = 5;
             // 
             // btnAdmVehiculo
@@ -174,7 +183,7 @@
             this.btnAdmVehiculo.Location = new System.Drawing.Point(0, 120);
             this.btnAdmVehiculo.Name = "btnAdmVehiculo";
             this.btnAdmVehiculo.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnAdmVehiculo.Size = new System.Drawing.Size(250, 40);
+            this.btnAdmVehiculo.Size = new System.Drawing.Size(233, 40);
             this.btnAdmVehiculo.TabIndex = 3;
             this.btnAdmVehiculo.Text = "Administrar Vehículos";
             this.btnAdmVehiculo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -191,7 +200,7 @@
             this.btnAdmOtro.Location = new System.Drawing.Point(0, 80);
             this.btnAdmOtro.Name = "btnAdmOtro";
             this.btnAdmOtro.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnAdmOtro.Size = new System.Drawing.Size(250, 40);
+            this.btnAdmOtro.Size = new System.Drawing.Size(233, 40);
             this.btnAdmOtro.TabIndex = 2;
             this.btnAdmOtro.Text = "Otro";
             this.btnAdmOtro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -208,7 +217,7 @@
             this.btnAdmFiltro.Location = new System.Drawing.Point(0, 40);
             this.btnAdmFiltro.Name = "btnAdmFiltro";
             this.btnAdmFiltro.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnAdmFiltro.Size = new System.Drawing.Size(250, 40);
+            this.btnAdmFiltro.Size = new System.Drawing.Size(233, 40);
             this.btnAdmFiltro.TabIndex = 1;
             this.btnAdmFiltro.Text = "Filtro";
             this.btnAdmFiltro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -225,7 +234,7 @@
             this.btnAdmAceite.Location = new System.Drawing.Point(0, 0);
             this.btnAdmAceite.Name = "btnAdmAceite";
             this.btnAdmAceite.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnAdmAceite.Size = new System.Drawing.Size(250, 40);
+            this.btnAdmAceite.Size = new System.Drawing.Size(233, 40);
             this.btnAdmAceite.TabIndex = 0;
             this.btnAdmAceite.Text = "Aceite";
             this.btnAdmAceite.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -242,7 +251,7 @@
             this.btnAdmProductos.Location = new System.Drawing.Point(0, 308);
             this.btnAdmProductos.Name = "btnAdmProductos";
             this.btnAdmProductos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnAdmProductos.Size = new System.Drawing.Size(250, 45);
+            this.btnAdmProductos.Size = new System.Drawing.Size(233, 45);
             this.btnAdmProductos.TabIndex = 4;
             this.btnAdmProductos.Text = "Administrar Productos";
             this.btnAdmProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -258,7 +267,7 @@
             this.pnlSubmenuBuscar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubmenuBuscar.Location = new System.Drawing.Point(0, 145);
             this.pnlSubmenuBuscar.Name = "pnlSubmenuBuscar";
-            this.pnlSubmenuBuscar.Size = new System.Drawing.Size(250, 163);
+            this.pnlSubmenuBuscar.Size = new System.Drawing.Size(233, 163);
             this.pnlSubmenuBuscar.TabIndex = 3;
             // 
             // btnBusquedaxVehiculo
@@ -271,7 +280,7 @@
             this.btnBusquedaxVehiculo.Location = new System.Drawing.Point(0, 120);
             this.btnBusquedaxVehiculo.Name = "btnBusquedaxVehiculo";
             this.btnBusquedaxVehiculo.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnBusquedaxVehiculo.Size = new System.Drawing.Size(250, 40);
+            this.btnBusquedaxVehiculo.Size = new System.Drawing.Size(233, 40);
             this.btnBusquedaxVehiculo.TabIndex = 3;
             this.btnBusquedaxVehiculo.Text = "Busqueda Por Vehículo";
             this.btnBusquedaxVehiculo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -288,7 +297,7 @@
             this.btnBuscarOtros.Location = new System.Drawing.Point(0, 80);
             this.btnBuscarOtros.Name = "btnBuscarOtros";
             this.btnBuscarOtros.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnBuscarOtros.Size = new System.Drawing.Size(250, 40);
+            this.btnBuscarOtros.Size = new System.Drawing.Size(233, 40);
             this.btnBuscarOtros.TabIndex = 2;
             this.btnBuscarOtros.Text = "Otro";
             this.btnBuscarOtros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -305,7 +314,7 @@
             this.btnBuscarFiltro.Location = new System.Drawing.Point(0, 40);
             this.btnBuscarFiltro.Name = "btnBuscarFiltro";
             this.btnBuscarFiltro.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnBuscarFiltro.Size = new System.Drawing.Size(250, 40);
+            this.btnBuscarFiltro.Size = new System.Drawing.Size(233, 40);
             this.btnBuscarFiltro.TabIndex = 1;
             this.btnBuscarFiltro.Text = "Filtro";
             this.btnBuscarFiltro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -322,7 +331,7 @@
             this.btnBuscarAceite.Location = new System.Drawing.Point(0, 0);
             this.btnBuscarAceite.Name = "btnBuscarAceite";
             this.btnBuscarAceite.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnBuscarAceite.Size = new System.Drawing.Size(250, 40);
+            this.btnBuscarAceite.Size = new System.Drawing.Size(233, 40);
             this.btnBuscarAceite.TabIndex = 0;
             this.btnBuscarAceite.Text = "Aceite";
             this.btnBuscarAceite.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -339,7 +348,7 @@
             this.btnBuscarProductos.Location = new System.Drawing.Point(0, 100);
             this.btnBuscarProductos.Name = "btnBuscarProductos";
             this.btnBuscarProductos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnBuscarProductos.Size = new System.Drawing.Size(250, 45);
+            this.btnBuscarProductos.Size = new System.Drawing.Size(233, 45);
             this.btnBuscarProductos.TabIndex = 2;
             this.btnBuscarProductos.Text = "Buscar Productos";
             this.btnBuscarProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -352,7 +361,7 @@
             this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLogo.Location = new System.Drawing.Point(0, 0);
             this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(250, 100);
+            this.pnlLogo.Size = new System.Drawing.Size(233, 100);
             this.pnlLogo.TabIndex = 1;
             // 
             // pictureBox1
@@ -374,6 +383,85 @@
             this.pnlPrincipal.Size = new System.Drawing.Size(834, 697);
             this.pnlPrincipal.TabIndex = 1;
             // 
+            // btnCompras
+            // 
+            this.btnCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCompras.FlatAppearance.BorderSize = 0;
+            this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnCompras.Location = new System.Drawing.Point(0, 680);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCompras.Size = new System.Drawing.Size(233, 45);
+            this.btnCompras.TabIndex = 8;
+            this.btnCompras.Text = "Compras";
+            this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompras.UseVisualStyleBackColor = false;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
+            // 
+            // pnlSubmenuCompras
+            // 
+            this.pnlSubmenuCompras.Controls.Add(this.btnReportesCompras);
+            this.pnlSubmenuCompras.Controls.Add(this.btnAdminProveedores);
+            this.pnlSubmenuCompras.Controls.Add(this.btnComprobanteCompra);
+            this.pnlSubmenuCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSubmenuCompras.Location = new System.Drawing.Point(0, 725);
+            this.pnlSubmenuCompras.Name = "pnlSubmenuCompras";
+            this.pnlSubmenuCompras.Size = new System.Drawing.Size(233, 119);
+            this.pnlSubmenuCompras.TabIndex = 9;
+            // 
+            // btnReportesCompras
+            // 
+            this.btnReportesCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportesCompras.FlatAppearance.BorderSize = 0;
+            this.btnReportesCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
+            this.btnReportesCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportesCompras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnReportesCompras.Location = new System.Drawing.Point(0, 80);
+            this.btnReportesCompras.Name = "btnReportesCompras";
+            this.btnReportesCompras.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnReportesCompras.Size = new System.Drawing.Size(233, 40);
+            this.btnReportesCompras.TabIndex = 2;
+            this.btnReportesCompras.Text = "Generar Reportes";
+            this.btnReportesCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportesCompras.UseVisualStyleBackColor = true;
+            this.btnReportesCompras.Click += new System.EventHandler(this.btnReportesCompras_Click);
+            // 
+            // btnAdminProveedores
+            // 
+            this.btnAdminProveedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdminProveedores.FlatAppearance.BorderSize = 0;
+            this.btnAdminProveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
+            this.btnAdminProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdminProveedores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnAdminProveedores.Location = new System.Drawing.Point(0, 40);
+            this.btnAdminProveedores.Name = "btnAdminProveedores";
+            this.btnAdminProveedores.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnAdminProveedores.Size = new System.Drawing.Size(233, 40);
+            this.btnAdminProveedores.TabIndex = 1;
+            this.btnAdminProveedores.Text = "Administrar Proveedores";
+            this.btnAdminProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdminProveedores.UseVisualStyleBackColor = true;
+            this.btnAdminProveedores.Click += new System.EventHandler(this.btnAdminProveedores_Click);
+            // 
+            // btnComprobanteCompra
+            // 
+            this.btnComprobanteCompra.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnComprobanteCompra.FlatAppearance.BorderSize = 0;
+            this.btnComprobanteCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
+            this.btnComprobanteCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComprobanteCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnComprobanteCompra.Location = new System.Drawing.Point(0, 0);
+            this.btnComprobanteCompra.Name = "btnComprobanteCompra";
+            this.btnComprobanteCompra.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnComprobanteCompra.Size = new System.Drawing.Size(233, 40);
+            this.btnComprobanteCompra.TabIndex = 0;
+            this.btnComprobanteCompra.Text = "Comprobante de Compra";
+            this.btnComprobanteCompra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnComprobanteCompra.UseVisualStyleBackColor = true;
+            this.btnComprobanteCompra.Click += new System.EventHandler(this.btnComprobanteCompra_Click);
+            // 
             // frmPrincipalP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,6 +478,7 @@
             this.pnlSubmenuBuscar.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlSubmenuCompras.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -413,9 +502,14 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.Panel pnlSubmenuVentas;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnReportesVenta;
         private System.Windows.Forms.Button btnAdminClientes;
         private System.Windows.Forms.Button btnComprobanteVenta;
         private System.Windows.Forms.Button btnVentas;
+        private System.Windows.Forms.Panel pnlSubmenuCompras;
+        private System.Windows.Forms.Button btnReportesCompras;
+        private System.Windows.Forms.Button btnAdminProveedores;
+        private System.Windows.Forms.Button btnComprobanteCompra;
+        private System.Windows.Forms.Button btnCompras;
     }
 }

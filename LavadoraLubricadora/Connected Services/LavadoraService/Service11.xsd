@@ -40,6 +40,7 @@
       <xs:element minOccurs="0" name="Cedula" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" type="xs:int" />
       <xs:element minOccurs="0" name="FechaVenta" type="xs:dateTime" />
       <xs:element minOccurs="0" name="ID" type="xs:int" />
       <xs:element minOccurs="0" name="Iva" type="xs:double" />

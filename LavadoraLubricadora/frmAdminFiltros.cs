@@ -154,15 +154,8 @@ namespace LavadoraLubricadora
 
         private void btnAgregarVehiculos_Click(object sender, EventArgs e)
         {
-            try
-            {
                 cliente.GuardarEstadoListaVehiculos(false);
                 AbrirFormulario<frmAgregarVehiculo>();     
-            }
-            catch (Exception)
-            {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
-            }
          
         }
 
@@ -482,7 +475,7 @@ namespace LavadoraLubricadora
             cbxTipoFiltroE.Items.AddRange(cliente.ObtenerTipoFiltro());
 
             txtBusquedaE.Visible = false;
-            btnAgregarVehiculos.Enabled = false;
+            btnEditarVehiculos.Enabled = false;
 
             DeshabilitarCamposE();
 
@@ -652,7 +645,7 @@ namespace LavadoraLubricadora
 
             codigos = recuperarRtxtE();
 
-            btnAgregarVehiculos.Enabled = true;
+            btnEditarVehiculos.Enabled = true;
         }
 
         private void txtPreSIvaE_KeyPress(object sender, KeyPressEventArgs e)

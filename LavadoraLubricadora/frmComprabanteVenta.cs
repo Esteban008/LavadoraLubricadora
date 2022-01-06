@@ -17,7 +17,9 @@ namespace LavadoraLubricadora
         LavadoraService.LavadoraServiceClient cliente;
         private static string busqueda;
         private static string valor;
-        
+        private int idComprobante;
+
+
 
         private static bool estadoIngresar = false;
         private static DataTable dtProductos;
@@ -35,11 +37,15 @@ namespace LavadoraLubricadora
             //PESTAÑA DE EDITAR
             LoadIngresar();
 
-            //PESTAÑA DE EDITAR
-            //LoadEditar();
 
-            //PESTAÑA ELIMINAR
-            //LoadEliminar();
+            //PESTAÑA DE BUSQUEDA
+            LoadBuscar();
+
+            //PESTAÑA DE ANULAR
+            LoadAnular();
+
+           
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -177,8 +183,7 @@ namespace LavadoraLubricadora
 
         private void btnVender_Click(object sender, EventArgs e)
         {
-            int idComprobante = 0;
-
+            idComprobante = 0;
 
             try
             {
@@ -188,7 +193,7 @@ namespace LavadoraLubricadora
                     {
                         cliente.IngresarCliente(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtCedula.Text, txtDireccion.Text);
 
-                        idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), (cbxTipoPago.SelectedIndex +1), DateTime.Now);
+                        idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 0, (cbxTipoPago.SelectedIndex +1), DateTime.Now);
 
                         foreach (DataGridViewRow row in dgvProductosI.Rows)
                         {
@@ -209,7 +214,7 @@ namespace LavadoraLubricadora
                     }
                     else
                     {
-                        idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), (cbxTipoPago.SelectedIndex + 1), DateTime.Now);
+                        idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 0, (cbxTipoPago.SelectedIndex + 1), DateTime.Now);
 
                         foreach (DataGridViewRow row in dgvProductosI.Rows)
                         {
@@ -473,6 +478,165 @@ namespace LavadoraLubricadora
         #endregion
 
 
+        #region Buscar
+
+
+        private void btnBuscarB_Click(object sender, EventArgs e)
+        {
+            if (cbxBusquedaB.SelectedItem.Equals("Cédula de Cliente"))
+            {
+                DataTable comprobantes = cliente.BuscarComprobanteCedula(txtBusquedaB.Text);
+                dgvComprobantes.DataSource = comprobantes;
+            }
+            else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Compra"))
+            {
+                DateTime fechaCompra = dtpFechaCompra.Value;
+
+
+                DataTable comprobantes = cliente.BuscarComprobanteFecha(fechaCompra.ToString("yyyy'-'MM'-'dd"));
+                dgvComprobantes.DataSource = comprobantes;
+            }
+        }
+        private void cbxBusquedaB_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbxBusquedaB.SelectedItem.Equals("Cédula de Cliente"))
+            {
+                txtBusquedaB.Enabled = true;
+                dtpFechaCompra.Enabled = false;
+
+            }
+            else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Compra"))
+            {
+                txtBusquedaB.Enabled = false;
+                dtpFechaCompra.Enabled = true;
+            }
+        }
+
+        private void LoadBuscar()
+        {
+            txtBusquedaB.Enabled = false;
+            dtpFechaCompra.Enabled = false;
+
+            cbxBusquedaB.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        #endregion
+
+        #region Anular
+
+
+        private void btnBuscarD_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LavadoraService.ComprobanteVenta comprobanteVenta = cliente.BuscarInfoComprobanteVenta(txtBusquedaD.Text);
+                if (comprobanteVenta.ID == 0)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Este comprobante no existe", "Aviso", MessageBoxButtons.OK);
+                }            
+                else
+                {
+                    if (comprobanteVenta.Estado == 0)
+                    {
+                        txtNFacturaD.Text = comprobanteVenta.NumDocumento;
+                        txtNombreD.Text = comprobanteVenta.Nombre;
+                        txtApellidoD.Text = comprobanteVenta.Apellido;
+                        txtTelefonoD.Text = comprobanteVenta.Telefono;
+                        txtCorreoD.Text = comprobanteVenta.Correo;
+                        txtCedulaD.Text = comprobanteVenta.Cedula;
+                        txtDireccionD.Text = comprobanteVenta.Direccion;
+                        txtSubTotalD.Text = comprobanteVenta.Subtotal.ToString();
+                        txtIVAD.Text = comprobanteVenta.Iva.ToString();
+                        txtTotalD.Text = comprobanteVenta.Total.ToString();
+                        txtTipoPago.Text = comprobanteVenta.TipoPago;
+
+                        productos = cliente.BuscarProductosComprobanteVenta(txtBusquedaD.Text);
+                        dgvProductosD.DataSource = productos;
+
+                        txtBusquedaD.Enabled = false;
+                    }
+                    else if (comprobanteVenta.Estado == 1)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Este comprobante ya ha sido anulado", "Aviso", MessageBoxButtons.OK);
+                    }
+                }
+               
+
+               
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnDAnular_Click(object sender, EventArgs e)
+        {
+            idComprobante = 0;
+
+            try
+               {
+                if (txtTipoPago.Text.Equals("Efectivo"))
+                {
+                    idComprobante = cliente.IngresarComprobanteVenta(txtCedulaD.Text, txtNFacturaD.Text, -Convert.ToDouble(txtSubTotalD.Text), -Convert.ToDouble(txtIVAD.Text), -Convert.ToDouble(txtTotalD.Text), 1, (1), DateTime.Now);
+
+                }
+                if (txtTipoPago.Text.Equals("Credito"))
+                {
+                    idComprobante = cliente.IngresarComprobanteVenta(txtCedulaD.Text, txtNFacturaD.Text, -Convert.ToDouble(txtSubTotalD.Text), -Convert.ToDouble(txtIVAD.Text), -Convert.ToDouble(txtTotalD.Text), 1, (2), DateTime.Now);
+
+                    cliente.IngresarCreditoCliente(txtCedulaD.Text, DateTime.Now, -Convert.ToDouble(txtTotalD.Text), idComprobante);
+                    
+                }
+
+                foreach (DataGridViewRow row in dgvProductosD.Rows)
+                {
+                    if ((row.Cells["dataGridViewTextBoxColumn3"].Value.ToString()).Contains("A-"))
+                    {
+                        cliente.IngresarAceiteComprobanteVenta(Convert.ToInt32(row.Cells[1].Value.ToString()), idComprobante, -Convert.ToInt32(row.Cells[4].Value.ToString()));
+                    }
+                    if ((row.Cells["dataGridViewTextBoxColumn3"].Value.ToString()).Contains("F-"))
+                    {
+                        cliente.IngresarFiltroComprobanteVenta(Convert.ToInt32(row.Cells[1].Value.ToString()), idComprobante, -Convert.ToInt32(row.Cells[4].Value.ToString()));
+                    }
+                    if ((row.Cells["dataGridViewTextBoxColumn3"].Value.ToString()).Contains("P-"))
+                    {
+                        cliente.IngresarProductoComprobanteVenta(Convert.ToInt32(row.Cells[1].Value.ToString()), idComprobante, -Convert.ToInt32(row.Cells[4].Value.ToString()));
+                    }
+                }
+
+                cliente.ActualizarEstadoComprobanteVenta(Convert.ToInt32(txtBusquedaD.Text));
+
+                //Parte para imprimir comprobante
+                prtdComprobante = new PrintDocument();
+                PrinterSettings ps = new PrinterSettings();
+                prtdComprobante.PrinterSettings = ps;
+                prtdComprobante.PrintPage += ImprimirAnulacion;
+                prtdComprobante.Print();
+
+
+                DialogResult dialogResult = MessageBox.Show("Comprobante anulado con éxito", "Aviso", MessageBoxButtons.OK);
+
+                LimpiarCamposD();
+
+                }
+                catch (Exception)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                }
+                      
+        }
+
+        private void btnDCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarCamposD();
+        }
+
+        private void LoadAnular()
+        {
+            DeshablitarCampos();
+        }
+
         private void DeshablitarCampos()
         {
 
@@ -489,31 +653,29 @@ namespace LavadoraLubricadora
             txtTipoPago.Enabled = false;
         }
 
-        private void btnBuscarD_Click(object sender, EventArgs e)
+        public void LimpiarCamposD()
         {
-            try
-            {
-                LavadoraService.ComprobanteVenta comprobanteVenta = cliente.BuscarInfoComprobanteVenta(txtBusquedaD.Text);
+            txtNFacturaD.Clear();
+            txtNombreD.Clear();
+            txtApellidoD.Clear();
+            txtCedulaD.Clear();
+            txtDireccionD.Clear();
+            txtTelefonoD.Clear();
+            txtCorreoD.Clear();
+            txtSubTotalD.Clear();
+            txtIVAD.Clear();
+            txtTotalD.Clear();
+            txtBusquedaD.Clear();
+            txtBusquedaD.Enabled = true;
 
-                txtNFacturaD.Text = comprobanteVenta.NumDocumento;
-                txtNombreD.Text = comprobanteVenta.Nombre;
-                txtApellidoD.Text = comprobanteVenta.Apellido;
-                txtTelefonoD.Text = comprobanteVenta.Telefono;
-                txtCorreoD.Text = comprobanteVenta.Correo;
-                txtCedulaD.Text = comprobanteVenta.Cedula;
-                txtDireccionD.Text = comprobanteVenta.Direccion;
-                txtSubTotalD.Text = comprobanteVenta.Subtotal.ToString();
-                txtIVAD.Text = comprobanteVenta.Iva.ToString();
-                txtTotalD.Text = comprobanteVenta.Total.ToString();
-                txtTipoPago.Text = comprobanteVenta.TipoPago;
 
-                productos = cliente.BuscarProductosComprobanteVenta(txtBusquedaD.Text);
-                dgvProductosD.DataSource = productos;
-            }
-            catch (Exception)
-            {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
-            }
+            productos.Rows.Clear();
+            ActualizarDgvD();
+        }
+
+        public void ActualizarDgvD()
+        {
+            dgvProductosD.DataSource = productos;
         }
 
         private void ImprimirAnulacion(object sender, PrintPageEventArgs e)
@@ -573,43 +735,8 @@ namespace LavadoraLubricadora
 
         }
 
-        private void btnDAnular_Click(object sender, EventArgs e)
-        {
-            //Parte para imprimir comprobante
-            prtdComprobante = new PrintDocument();
-            PrinterSettings ps = new PrinterSettings();
-            prtdComprobante.PrinterSettings = ps;
-            prtdComprobante.PrintPage += ImprimirAnulacion;
-            prtdComprobante.Print();
 
+        #endregion
 
-
-            DialogResult dialogResult = MessageBox.Show("Comprobante generado con éxito", "Aviso", MessageBoxButtons.OK);
-
-            LimpiarCamposD();
-        }
-
-        public void LimpiarCamposD()
-        {
-            txtNFacturaD.Clear();
-            txtNombreD.Clear();
-            txtApellidoD.Clear();
-            txtCedulaD.Clear();
-            txtDireccionD.Clear();
-            txtTelefonoD.Clear();
-            txtCorreoD.Clear();
-            txtSubTotalD.Clear();
-            txtIVAD.Clear();
-            txtTotalD.Clear();
-
-            productos.Rows.Clear();
-            ActualizarDgvD();
-            cbxTipoPago.SelectedIndex = -1;
-        }
-
-        public void ActualizarDgvD()
-        {
-            dgvProductosD.DataSource = productos;
-        }
     }
 }

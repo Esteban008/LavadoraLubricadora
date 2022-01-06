@@ -77,6 +77,12 @@
     <Compile Include="frmAdminProductos.Designer.cs">
       <DependentUpon>frmAdminProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAdminProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminProveedores.Designer.cs">
+      <DependentUpon>frmAdminProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdminVehiculos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,12 @@
     </Compile>
     <Compile Include="frmComprabanteVenta.Designer.cs">
       <DependentUpon>frmComprabanteVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmComprobanteCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmComprobanteCompra.Designer.cs">
+      <DependentUpon>frmComprobanteCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEditarProveedor.cs">
       <SubType>Form</SubType>
@@ -193,6 +205,9 @@
     <EmbeddedResource Include="frmAdminProductos.resx">
       <DependentUpon>frmAdminProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAdminProveedores.resx">
+      <DependentUpon>frmAdminProveedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdminVehiculos.resx">
       <DependentUpon>frmAdminVehiculos.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmComprabanteVenta.resx">
       <DependentUpon>frmComprabanteVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmComprobanteCompra.resx">
+      <DependentUpon>frmComprobanteCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarProveedor.resx">
       <DependentUpon>frmEditarProveedor.cs</DependentUpon>
