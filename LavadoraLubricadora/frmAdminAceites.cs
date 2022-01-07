@@ -290,6 +290,8 @@ namespace LavadoraLubricadora
         {
             try
             {
+                LimpiarCamposE();
+
                 if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
                 {
                     DataTable aceites = cliente.BuscarAceiteCodigo(txtBusquedaE.Text);

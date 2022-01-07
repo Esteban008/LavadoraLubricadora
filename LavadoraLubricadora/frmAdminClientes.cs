@@ -89,6 +89,7 @@ namespace LavadoraLubricadora
         {
             try
             {
+                LimpiarCamposE();
                 if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Cédula"))
                 {
                     DataTable clientes = cliente.BuscarClienteCedula(txtBusquedaE.Text);

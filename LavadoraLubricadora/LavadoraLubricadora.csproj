@@ -113,12 +113,6 @@
     <Compile Include="frmBuscarProducto.Designer.cs">
       <DependentUpon>frmBuscarProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBusquedaComprobanteVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBusquedaComprobanteVenta.Designer.cs">
-      <DependentUpon>frmBusquedaComprobanteVenta.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmComprabanteVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,23 +125,11 @@
     <Compile Include="frmComprobanteCompra.Designer.cs">
       <DependentUpon>frmComprobanteCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditarProveedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEditarProveedor.Designer.cs">
-      <DependentUpon>frmEditarProveedor.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmEditarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEditarUsuario.Designer.cs">
       <DependentUpon>frmEditarUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmEliminarProveedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEliminarProveedor.Designer.cs">
-      <DependentUpon>frmEliminarProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEliminarUsuario.cs">
       <SubType>Form</SubType>
@@ -166,12 +148,6 @@
     </Compile>
     <Compile Include="frmCaja.Designer.cs">
       <DependentUpon>frmCaja.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmIngresarProveedores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmIngresarProveedores.Designer.cs">
-      <DependentUpon>frmIngresarProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="frmIngresarUsuario.cs">
       <SubType>Form</SubType>
@@ -223,23 +199,14 @@
     <EmbeddedResource Include="frmBuscarProducto.resx">
       <DependentUpon>frmBuscarProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBusquedaComprobanteVenta.resx">
-      <DependentUpon>frmBusquedaComprobanteVenta.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmComprabanteVenta.resx">
       <DependentUpon>frmComprabanteVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmComprobanteCompra.resx">
       <DependentUpon>frmComprobanteCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditarProveedor.resx">
-      <DependentUpon>frmEditarProveedor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmEditarUsuario.resx">
       <DependentUpon>frmEditarUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEliminarProveedor.resx">
-      <DependentUpon>frmEliminarProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEliminarUsuario.resx">
       <DependentUpon>frmEliminarUsuario.cs</DependentUpon>
@@ -249,9 +216,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCaja.resx">
       <DependentUpon>frmCaja.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmIngresarProveedores.resx">
-      <DependentUpon>frmIngresarProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIngresarUsuario.resx">
       <DependentUpon>frmIngresarUsuario.cs</DependentUpon>
@@ -275,10 +239,16 @@
     <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.Cliente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.ComprobanteCompra.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.ComprobanteVenta.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.ProductoComprobante.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.Proveedor.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.Vehiculo.datasource">

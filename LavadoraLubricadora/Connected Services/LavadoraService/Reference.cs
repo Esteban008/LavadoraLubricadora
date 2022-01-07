@@ -38,10 +38,10 @@ namespace LavadoraLubricadora.LavadoraService {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double PrecioTotalField;
+        private double PrecioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double PrecioVentaField;
+        private double PrecioTotalField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -119,6 +119,19 @@ namespace LavadoraLubricadora.LavadoraService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Precio {
+            get {
+                return this.PrecioField;
+            }
+            set {
+                if ((this.PrecioField.Equals(value) != true)) {
+                    this.PrecioField = value;
+                    this.RaisePropertyChanged("Precio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public double PrecioTotal {
             get {
                 return this.PrecioTotalField;
@@ -127,19 +140,6 @@ namespace LavadoraLubricadora.LavadoraService {
                 if ((this.PrecioTotalField.Equals(value) != true)) {
                     this.PrecioTotalField = value;
                     this.RaisePropertyChanged("PrecioTotal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double PrecioVenta {
-            get {
-                return this.PrecioVentaField;
-            }
-            set {
-                if ((this.PrecioVentaField.Equals(value) != true)) {
-                    this.PrecioVentaField = value;
-                    this.RaisePropertyChanged("PrecioVenta");
                 }
             }
         }
@@ -158,6 +158,7 @@ namespace LavadoraLubricadora.LavadoraService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Persona", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(LavadoraLubricadora.LavadoraService.Proveedor))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(LavadoraLubricadora.LavadoraService.Cliente))]
     public partial class Persona : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -260,6 +261,61 @@ namespace LavadoraLubricadora.LavadoraService {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Proveedor", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
+    [System.SerializableAttribute()]
+    public partial class Proveedor : LavadoraLubricadora.LavadoraService.Persona {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DireccionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RucField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Direccion {
+            get {
+                return this.DireccionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DireccionField, value) != true)) {
+                    this.DireccionField = value;
+                    this.RaisePropertyChanged("Direccion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Empresa {
+            get {
+                return this.EmpresaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmpresaField, value) != true)) {
+                    this.EmpresaField = value;
+                    this.RaisePropertyChanged("Empresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ruc {
+            get {
+                return this.RucField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RucField, value) != true)) {
+                    this.RucField = value;
+                    this.RaisePropertyChanged("Ruc");
+                }
             }
         }
     }
@@ -558,6 +614,275 @@ namespace LavadoraLubricadora.LavadoraService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ComprobanteCompra", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
+    [System.SerializableAttribute()]
+    public partial class ComprobanteCompra : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ApellidoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DireccionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmpresaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaCompraField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double IvaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumDocumentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RucField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double SubtotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelefonoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoPagoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double TotalField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Apellido {
+            get {
+                return this.ApellidoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApellidoField, value) != true)) {
+                    this.ApellidoField = value;
+                    this.RaisePropertyChanged("Apellido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Correo {
+            get {
+                return this.CorreoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoField, value) != true)) {
+                    this.CorreoField = value;
+                    this.RaisePropertyChanged("Correo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Direccion {
+            get {
+                return this.DireccionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DireccionField, value) != true)) {
+                    this.DireccionField = value;
+                    this.RaisePropertyChanged("Direccion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Empresa {
+            get {
+                return this.EmpresaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmpresaField, value) != true)) {
+                    this.EmpresaField = value;
+                    this.RaisePropertyChanged("Empresa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((this.EstadoField.Equals(value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaCompra {
+            get {
+                return this.FechaCompraField;
+            }
+            set {
+                if ((this.FechaCompraField.Equals(value) != true)) {
+                    this.FechaCompraField = value;
+                    this.RaisePropertyChanged("FechaCompra");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Iva {
+            get {
+                return this.IvaField;
+            }
+            set {
+                if ((this.IvaField.Equals(value) != true)) {
+                    this.IvaField = value;
+                    this.RaisePropertyChanged("Iva");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumDocumento {
+            get {
+                return this.NumDocumentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumDocumentoField, value) != true)) {
+                    this.NumDocumentoField = value;
+                    this.RaisePropertyChanged("NumDocumento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ruc {
+            get {
+                return this.RucField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RucField, value) != true)) {
+                    this.RucField = value;
+                    this.RaisePropertyChanged("Ruc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Subtotal {
+            get {
+                return this.SubtotalField;
+            }
+            set {
+                if ((this.SubtotalField.Equals(value) != true)) {
+                    this.SubtotalField = value;
+                    this.RaisePropertyChanged("Subtotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Telefono {
+            get {
+                return this.TelefonoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelefonoField, value) != true)) {
+                    this.TelefonoField = value;
+                    this.RaisePropertyChanged("Telefono");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TipoPago {
+            get {
+                return this.TipoPagoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoPagoField, value) != true)) {
+                    this.TipoPagoField = value;
+                    this.RaisePropertyChanged("TipoPago");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Total {
+            get {
+                return this.TotalField;
+            }
+            set {
+                if ((this.TotalField.Equals(value) != true)) {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Vehiculo", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
     [System.SerializableAttribute()]
     public partial class Vehiculo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -693,12 +1018,6 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProveedorResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> ObtenerProveedorAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorNombre", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorNombreResponse")]
-        System.Data.DataTable BuscarProveedorNombre(string nombre);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorNombre", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorNombreResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorNombreAsync(string nombre);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorApellidoResponse")]
         System.Data.DataTable BuscarProveedorApellido(string apellido);
         
@@ -716,6 +1035,12 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresa", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresaResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorEmpresaAsync(string empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ValidarProveedorResponse")]
+        bool ValidarProveedor(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ValidarProveedorResponse")]
+        System.Threading.Tasks.Task<bool> ValidarProveedorAsync(string ruc);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerUsuarios", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerUsuariosResponse")]
         System.Data.DataTable ObtenerUsuarios();
@@ -836,6 +1161,78 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteFechaResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteFechaAsync(string fecha);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductoCCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductoCCompraResponse")]
+        LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductoCCompra(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductoCCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductoCCompraResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductoCCompraAsync(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorRucObj", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucObjResponse")]
+        LavadoraLubricadora.LavadoraService.Proveedor BuscarProveedorRucObj(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorRucObj", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucObjResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Proveedor> BuscarProveedorRucObjAsync(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarComprobanteCompraResponse")]
+        int IngresarComprobanteCompra(string rucProveedor, string numDocumento, double subtotal, double iva, double total, int estado, int idTipoPago, System.DateTime fechaCompra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarComprobanteCompraResponse")]
+        System.Threading.Tasks.Task<int> IngresarComprobanteCompraAsync(string rucProveedor, string numDocumento, double subtotal, double iva, double total, int estado, int idTipoPago, System.DateTime fechaCompra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompraResponse")]
+        void IngresarFiltroComprobanteCompra(int idFiltro, int idComprobanteCompra, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompraResponse")]
+        System.Threading.Tasks.Task IngresarFiltroComprobanteCompraAsync(int idFiltro, int idComprobanteCompra, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompraResponse")]
+        void IngresarAceiteComprobanteCompra(int idAceite, int idComprobanteCompra, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompraResponse")]
+        System.Threading.Tasks.Task IngresarAceiteComprobanteCompraAsync(int idAceite, int idComprobanteCompra, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompraResponse")]
+        void IngresarProductoComprobanteCompra(int idProducto, int idComprobanteCompra, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompraResponse")]
+        System.Threading.Tasks.Task IngresarProductoComprobanteCompraAsync(int idProducto, int idComprobanteCompra, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarCreditoProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarCreditoProveedorResponse")]
+        void IngresarCreditoProveedor(string ruc, System.DateTime fecha, double monto, int idComprobante);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarCreditoProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarCreditoProveedorResponse")]
+        System.Threading.Tasks.Task IngresarCreditoProveedorAsync(string ruc, System.DateTime fecha, double monto, int idComprobante);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompraResponse")]
+        System.Data.DataTable BuscarProductosComprobanteCompra(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompraResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProductosComprobanteCompraAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompraResponse")]
+        LavadoraLubricadora.LavadoraService.ComprobanteCompra BuscarInfoComprobanteCompra(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompraResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra> BuscarInfoComprobanteCompraAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompraResponse")]
+        void ActualizarEstadoComprobanteCompra(int valor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompraResponse")]
+        System.Threading.Tasks.Task ActualizarEstadoComprobanteCompraAsync(int valor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRuc", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRucResponse")]
+        System.Data.DataTable BuscarComprobanteRuc(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRuc", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRucResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteRucAsync(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFechaResponse")]
+        System.Data.DataTable BuscarComprobanteCompraFecha(string fecha);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFechaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteCompraFechaAsync(string fecha);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/Login", ReplyAction="http://tempuri.org/ILavadoraService/LoginResponse")]
         bool Login(string correo, string clave);
@@ -1347,14 +1744,6 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.ObtenerProveedorAsync();
         }
         
-        public System.Data.DataTable BuscarProveedorNombre(string nombre) {
-            return base.Channel.BuscarProveedorNombre(nombre);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorNombreAsync(string nombre) {
-            return base.Channel.BuscarProveedorNombreAsync(nombre);
-        }
-        
         public System.Data.DataTable BuscarProveedorApellido(string apellido) {
             return base.Channel.BuscarProveedorApellido(apellido);
         }
@@ -1377,6 +1766,14 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorEmpresaAsync(string empresa) {
             return base.Channel.BuscarProveedorEmpresaAsync(empresa);
+        }
+        
+        public bool ValidarProveedor(string ruc) {
+            return base.Channel.ValidarProveedor(ruc);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarProveedorAsync(string ruc) {
+            return base.Channel.ValidarProveedorAsync(ruc);
         }
         
         public System.Data.DataTable ObtenerUsuarios() {
@@ -1537,6 +1934,102 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteFechaAsync(string fecha) {
             return base.Channel.BuscarComprobanteFechaAsync(fecha);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductoCCompra(string codigo) {
+            return base.Channel.BuscarProductoCCompra(codigo);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductoCCompraAsync(string codigo) {
+            return base.Channel.BuscarProductoCCompraAsync(codigo);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.Proveedor BuscarProveedorRucObj(string ruc) {
+            return base.Channel.BuscarProveedorRucObj(ruc);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Proveedor> BuscarProveedorRucObjAsync(string ruc) {
+            return base.Channel.BuscarProveedorRucObjAsync(ruc);
+        }
+        
+        public int IngresarComprobanteCompra(string rucProveedor, string numDocumento, double subtotal, double iva, double total, int estado, int idTipoPago, System.DateTime fechaCompra) {
+            return base.Channel.IngresarComprobanteCompra(rucProveedor, numDocumento, subtotal, iva, total, estado, idTipoPago, fechaCompra);
+        }
+        
+        public System.Threading.Tasks.Task<int> IngresarComprobanteCompraAsync(string rucProveedor, string numDocumento, double subtotal, double iva, double total, int estado, int idTipoPago, System.DateTime fechaCompra) {
+            return base.Channel.IngresarComprobanteCompraAsync(rucProveedor, numDocumento, subtotal, iva, total, estado, idTipoPago, fechaCompra);
+        }
+        
+        public void IngresarFiltroComprobanteCompra(int idFiltro, int idComprobanteCompra, int cantidad) {
+            base.Channel.IngresarFiltroComprobanteCompra(idFiltro, idComprobanteCompra, cantidad);
+        }
+        
+        public System.Threading.Tasks.Task IngresarFiltroComprobanteCompraAsync(int idFiltro, int idComprobanteCompra, int cantidad) {
+            return base.Channel.IngresarFiltroComprobanteCompraAsync(idFiltro, idComprobanteCompra, cantidad);
+        }
+        
+        public void IngresarAceiteComprobanteCompra(int idAceite, int idComprobanteCompra, int cantidad) {
+            base.Channel.IngresarAceiteComprobanteCompra(idAceite, idComprobanteCompra, cantidad);
+        }
+        
+        public System.Threading.Tasks.Task IngresarAceiteComprobanteCompraAsync(int idAceite, int idComprobanteCompra, int cantidad) {
+            return base.Channel.IngresarAceiteComprobanteCompraAsync(idAceite, idComprobanteCompra, cantidad);
+        }
+        
+        public void IngresarProductoComprobanteCompra(int idProducto, int idComprobanteCompra, int cantidad) {
+            base.Channel.IngresarProductoComprobanteCompra(idProducto, idComprobanteCompra, cantidad);
+        }
+        
+        public System.Threading.Tasks.Task IngresarProductoComprobanteCompraAsync(int idProducto, int idComprobanteCompra, int cantidad) {
+            return base.Channel.IngresarProductoComprobanteCompraAsync(idProducto, idComprobanteCompra, cantidad);
+        }
+        
+        public void IngresarCreditoProveedor(string ruc, System.DateTime fecha, double monto, int idComprobante) {
+            base.Channel.IngresarCreditoProveedor(ruc, fecha, monto, idComprobante);
+        }
+        
+        public System.Threading.Tasks.Task IngresarCreditoProveedorAsync(string ruc, System.DateTime fecha, double monto, int idComprobante) {
+            return base.Channel.IngresarCreditoProveedorAsync(ruc, fecha, monto, idComprobante);
+        }
+        
+        public System.Data.DataTable BuscarProductosComprobanteCompra(string id) {
+            return base.Channel.BuscarProductosComprobanteCompra(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProductosComprobanteCompraAsync(string id) {
+            return base.Channel.BuscarProductosComprobanteCompraAsync(id);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.ComprobanteCompra BuscarInfoComprobanteCompra(string id) {
+            return base.Channel.BuscarInfoComprobanteCompra(id);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra> BuscarInfoComprobanteCompraAsync(string id) {
+            return base.Channel.BuscarInfoComprobanteCompraAsync(id);
+        }
+        
+        public void ActualizarEstadoComprobanteCompra(int valor) {
+            base.Channel.ActualizarEstadoComprobanteCompra(valor);
+        }
+        
+        public System.Threading.Tasks.Task ActualizarEstadoComprobanteCompraAsync(int valor) {
+            return base.Channel.ActualizarEstadoComprobanteCompraAsync(valor);
+        }
+        
+        public System.Data.DataTable BuscarComprobanteRuc(string ruc) {
+            return base.Channel.BuscarComprobanteRuc(ruc);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteRucAsync(string ruc) {
+            return base.Channel.BuscarComprobanteRucAsync(ruc);
+        }
+        
+        public System.Data.DataTable BuscarComprobanteCompraFecha(string fecha) {
+            return base.Channel.BuscarComprobanteCompraFecha(fecha);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteCompraFechaAsync(string fecha) {
+            return base.Channel.BuscarComprobanteCompraFechaAsync(fecha);
         }
         
         public bool Login(string correo, string clave) {

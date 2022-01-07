@@ -420,6 +420,7 @@ namespace LavadoraLubricadora
         {
             try
             {
+                LimpiarCamposE();
                 if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
                 {
                     DataTable vehiculos = cliente.BuscarVehiculoMarca(txtBusquedaE.Text);

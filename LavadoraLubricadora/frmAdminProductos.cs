@@ -249,6 +249,7 @@ namespace LavadoraLubricadora
         {
             try
             {
+                LimpiarCamposE();
                 if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
                 {
                     DataTable productos = cliente.BuscarProductoCodigo(txtBusquedaE.Text);

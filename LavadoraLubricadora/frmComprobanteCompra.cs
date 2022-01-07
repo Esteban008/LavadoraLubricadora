@@ -12,54 +12,81 @@ namespace LavadoraLubricadora
 {
     public partial class frmComprobanteCompra : Form
     {
+        LavadoraService.LavadoraServiceClient cliente;
+        private int idComprobante;
+
+
+
+        private static bool estadoIngresar = false;
+        private static DataTable dtProductos;
+        private static DataTable productos;
+
         public frmComprobanteCompra()
         {
             InitializeComponent();
         }
 
-        private void btnEliminarDgv_Click(object sender, EventArgs e)
+        private void frmComprobanteCompra_Load(object sender, EventArgs e)
         {
+            cliente = new LavadoraService.LavadoraServiceClient();
 
+            //PESTAÑA DE EDITAR
+            LoadIngresar();
+
+            //PESTAÑA DE BUSQUEDA
+            LoadBuscar();
+
+            //PESTAÑA DE ANULAR
+            LoadAnular();
         }
 
-        private void btnVender_Click(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("¿Seguro que desea Salir?", "Aviso", MessageBoxButtons.YesNo);
 
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
+      
+        #region Ingresar
 
+        private void btnBuscarProveedor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LavadoraService.Cliente clienteObj = cliente.BuscarClienteCedulaObj(txtCedulaBuscar.Text);
+
+                if (clienteObj.IdPersona != 0)
+                {
+                    txtNombre.Text = clienteObj.Nombre;
+                    txtApellido.Text = clienteObj.Apellido;
+                    txtTelefono.Text = clienteObj.Telefono;
+                    txtCorreo.Text = clienteObj.Correo;
+                    txtCedula.Text = clienteObj.Cedula;
+                    txtDireccion.Text = clienteObj.Direccion;
+                    estadoIngresar = false;
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Cliente no encontrado, Desea ingresar el cliente", "Aviso", MessageBoxButtons.YesNo);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        DesbloquearCampos();
+                        estadoIngresar = true;
+                        txtCedula.Text = txtCedulaBuscar.Text;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }
         }
 
-        private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void txtDescuento_KeyUp(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void btnBuscarCliente_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCedulaBuscar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 }

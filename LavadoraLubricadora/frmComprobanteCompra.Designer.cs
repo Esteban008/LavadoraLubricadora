@@ -74,13 +74,13 @@
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtCodigoBarras = new System.Windows.Forms.TextBox();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.txtCedulaBuscar = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.chkPrecio = new System.Windows.Forms.CheckBox();
+            this.btnBuscarProveedor = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvProductoE = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -172,9 +172,10 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label2, 3);
-            this.label2.Location = new System.Drawing.Point(326, 15);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(316, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 13);
+            this.label2.Size = new System.Drawing.Size(178, 13);
             this.label2.TabIndex = 123;
             this.label2.Text = "COMPROBANTE DE COMPRA";
             // 
@@ -201,6 +202,7 @@
             this.btnSalir.TabIndex = 129;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // tabControl1
             // 
@@ -479,8 +481,8 @@
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 7;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.293574F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.63935F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.606558F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.27322F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.38251F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.74863F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.97814F));
@@ -504,13 +506,13 @@
             this.tableLayoutPanel2.Controls.Add(this.txtDireccion, 4, 5);
             this.tableLayoutPanel2.Controls.Add(this.label12, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.txtCodigoBarras, 1, 7);
-            this.tableLayoutPanel2.Controls.Add(this.btnBuscarCliente, 3, 2);
             this.tableLayoutPanel2.Controls.Add(this.txtCedulaBuscar, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label11, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.txtCantidad, 4, 7);
             this.tableLayoutPanel2.Controls.Add(this.btnAgregar, 6, 7);
             this.tableLayoutPanel2.Controls.Add(this.chkPrecio, 5, 7);
+            this.tableLayoutPanel2.Controls.Add(this.btnBuscarProveedor, 3, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(47, 15);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 8;
@@ -539,18 +541,18 @@
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 203);
+            this.label13.Location = new System.Drawing.Point(3, 206);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(43, 32);
+            this.label13.Size = new System.Drawing.Size(55, 26);
             this.label13.TabIndex = 134;
             this.label13.Text = "Código de Barras:";
             // 
             // txtNFactura
             // 
             this.txtNFactura.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNFactura.Location = new System.Drawing.Point(56, 4);
+            this.txtNFactura.Location = new System.Drawing.Point(66, 4);
             this.txtNFactura.Name = "txtNFactura";
-            this.txtNFactura.Size = new System.Drawing.Size(189, 20);
+            this.txtNFactura.Size = new System.Drawing.Size(179, 20);
             this.txtNFactura.TabIndex = 0;
             // 
             // label3
@@ -599,9 +601,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(3, 153);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 13);
+            this.label9.Size = new System.Drawing.Size(51, 13);
             this.label9.TabIndex = 124;
-            this.label9.Text = "Cédula:";
+            this.label9.Text = "Empresa:";
             // 
             // label8
             // 
@@ -626,25 +628,25 @@
             // txtNombre
             // 
             this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombre.Location = new System.Drawing.Point(56, 91);
+            this.txtNombre.Location = new System.Drawing.Point(66, 91);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(189, 20);
+            this.txtNombre.Size = new System.Drawing.Size(179, 20);
             this.txtNombre.TabIndex = 127;
             // 
             // txtApellido
             // 
             this.txtApellido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtApellido.Location = new System.Drawing.Point(56, 120);
+            this.txtApellido.Location = new System.Drawing.Point(66, 120);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(189, 20);
+            this.txtApellido.Size = new System.Drawing.Size(179, 20);
             this.txtApellido.TabIndex = 128;
             // 
             // txtCedula
             // 
             this.txtCedula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCedula.Location = new System.Drawing.Point(56, 149);
+            this.txtCedula.Location = new System.Drawing.Point(66, 149);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(189, 20);
+            this.txtCedula.Size = new System.Drawing.Size(179, 20);
             this.txtCedula.TabIndex = 129;
             // 
             // txtTelefono
@@ -678,62 +680,51 @@
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 174);
+            this.tableLayoutPanel2.SetColumnSpan(this.label12, 2);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 182);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 29);
+            this.label12.Size = new System.Drawing.Size(152, 13);
             this.label12.TabIndex = 133;
-            this.label12.Text = "Agregar Productos:";
+            this.label12.Text = "AGREGAR PRODUCTOS:";
             // 
             // txtCodigoBarras
             // 
             this.txtCodigoBarras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCodigoBarras.Location = new System.Drawing.Point(56, 209);
+            this.txtCodigoBarras.Location = new System.Drawing.Point(66, 209);
             this.txtCodigoBarras.Name = "txtCodigoBarras";
-            this.txtCodigoBarras.Size = new System.Drawing.Size(189, 20);
+            this.txtCodigoBarras.Size = new System.Drawing.Size(179, 20);
             this.txtCodigoBarras.TabIndex = 135;
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnBuscarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
-            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarCliente.Location = new System.Drawing.Point(327, 61);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(74, 23);
-            this.btnBuscarCliente.TabIndex = 119;
-            this.btnBuscarCliente.Text = "Buscar";
-            this.btnBuscarCliente.UseVisualStyleBackColor = false;
             // 
             // txtCedulaBuscar
             // 
             this.txtCedulaBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCedulaBuscar.Location = new System.Drawing.Point(56, 62);
+            this.txtCedulaBuscar.Location = new System.Drawing.Point(66, 62);
             this.txtCedulaBuscar.Name = "txtCedulaBuscar";
-            this.txtCedulaBuscar.Size = new System.Drawing.Size(189, 20);
+            this.txtCedulaBuscar.Size = new System.Drawing.Size(179, 20);
             this.txtCedulaBuscar.TabIndex = 3;
             // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 29);
+            this.tableLayoutPanel2.SetColumnSpan(this.label11, 2);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(3, 37);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 29);
+            this.label11.Size = new System.Drawing.Size(162, 13);
             this.label11.TabIndex = 126;
-            this.label11.Text = "Datos del Proveedor:";
+            this.label11.Text = "DATOS DEL PROVEEDOR:";
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 58);
+            this.label4.Location = new System.Drawing.Point(3, 66);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 29);
+            this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Cédula/RUC Cliente:";
+            this.label4.Text = "RUC:";
             // 
             // txtCantidad
             // 
@@ -768,6 +759,22 @@
             this.chkPrecio.TabIndex = 137;
             this.chkPrecio.Text = "Precio por Mayor";
             this.chkPrecio.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscarProveedor
+            // 
+            this.btnBuscarProveedor.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnBuscarProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnBuscarProveedor.FlatAppearance.BorderSize = 0;
+            this.btnBuscarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProveedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnBuscarProveedor.Location = new System.Drawing.Point(327, 61);
+            this.btnBuscarProveedor.Name = "btnBuscarProveedor";
+            this.btnBuscarProveedor.Size = new System.Drawing.Size(74, 23);
+            this.btnBuscarProveedor.TabIndex = 119;
+            this.btnBuscarProveedor.Text = "Buscar";
+            this.btnBuscarProveedor.UseVisualStyleBackColor = false;
+            this.btnBuscarProveedor.Click += new System.EventHandler(this.btnBuscarProveedor_Click);
             // 
             // tabPage2
             // 
@@ -921,7 +928,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.Controls.Add(this.textBox1, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.comboBox1, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label41, 0, 0);
@@ -937,9 +944,9 @@
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(371, 13);
+            this.textBox1.Location = new System.Drawing.Point(368, 13);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 20);
+            this.textBox1.Size = new System.Drawing.Size(189, 20);
             this.textBox1.TabIndex = 117;
             // 
             // comboBox1
@@ -949,16 +956,16 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Cédula de Cliente",
             "Fecha de Compra"});
-            this.comboBox1.Location = new System.Drawing.Point(130, 13);
+            this.comboBox1.Location = new System.Drawing.Point(129, 13);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(176, 21);
+            this.comboBox1.Size = new System.Drawing.Size(175, 21);
             this.comboBox1.TabIndex = 120;
             // 
             // label41
             // 
             this.label41.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(10, 17);
+            this.label41.Location = new System.Drawing.Point(9, 17);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(107, 13);
             this.label41.TabIndex = 116;
@@ -972,7 +979,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.button1.Location = new System.Drawing.Point(571, 6);
+            this.button1.Location = new System.Drawing.Point(567, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 35);
             this.button1.TabIndex = 118;
@@ -1368,7 +1375,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel5.Controls.Add(this.txtBusquedaD, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.btnBuscarD, 4, 0);
             this.tableLayoutPanel5.Controls.Add(this.label37, 1, 0);
@@ -1383,9 +1390,9 @@
             // txtBusquedaD
             // 
             this.txtBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaD.Location = new System.Drawing.Point(383, 13);
+            this.txtBusquedaD.Location = new System.Drawing.Point(379, 13);
             this.txtBusquedaD.Name = "txtBusquedaD";
-            this.txtBusquedaD.Size = new System.Drawing.Size(196, 20);
+            this.txtBusquedaD.Size = new System.Drawing.Size(195, 20);
             this.txtBusquedaD.TabIndex = 117;
             // 
             // btnBuscarD
@@ -1396,7 +1403,7 @@
             this.btnBuscarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarD.Location = new System.Drawing.Point(589, 6);
+            this.btnBuscarD.Location = new System.Drawing.Point(584, 6);
             this.btnBuscarD.Name = "btnBuscarD";
             this.btnBuscarD.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarD.TabIndex = 118;
@@ -1407,7 +1414,7 @@
             // 
             this.label37.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(149, 17);
+            this.label37.Location = new System.Drawing.Point(147, 17);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(151, 13);
             this.label37.TabIndex = 116;
@@ -1423,6 +1430,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmComprobanteCompra";
             this.Text = "frmComprobanteCompra";
+            this.Load += new System.EventHandler(this.frmComprobanteCompra_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -1497,7 +1505,7 @@
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtCodigoBarras;
-        private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.Button btnBuscarProveedor;
         private System.Windows.Forms.TextBox txtCedulaBuscar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label4;

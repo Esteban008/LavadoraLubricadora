@@ -15,8 +15,6 @@ namespace LavadoraLubricadora
     {
 
         LavadoraService.LavadoraServiceClient cliente;
-        private static string busqueda;
-        private static string valor;
         private int idComprobante;
 
 
@@ -37,14 +35,11 @@ namespace LavadoraLubricadora
             //PESTAÑA DE EDITAR
             LoadIngresar();
 
-
             //PESTAÑA DE BUSQUEDA
             LoadBuscar();
 
             //PESTAÑA DE ANULAR
-            LoadAnular();
-
-           
+            LoadAnular();        
 
         }
 
@@ -479,7 +474,6 @@ namespace LavadoraLubricadora
 
 
         #region Buscar
-
 
         private void btnBuscarB_Click(object sender, EventArgs e)
         {

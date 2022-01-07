@@ -8,8 +8,8 @@
       <xs:element minOccurs="0" name="CodigoBarras" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Precio" type="xs:double" />
       <xs:element minOccurs="0" name="PrecioTotal" type="xs:double" />
-      <xs:element minOccurs="0" name="PrecioVenta" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProductoComprobante" nillable="true" type="tns:ProductoComprobante" />
@@ -53,6 +53,38 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ComprobanteVenta" nillable="true" type="tns:ComprobanteVenta" />
+  <xs:complexType name="Proveedor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Persona">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Empresa" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ruc" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Proveedor" nillable="true" type="tns:Proveedor" />
+  <xs:complexType name="ComprobanteCompra">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Apellido" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Empresa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaCompra" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Iva" type="xs:double" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ruc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subtotal" type="xs:double" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoPago" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Total" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ComprobanteCompra" nillable="true" type="tns:ComprobanteCompra" />
   <xs:complexType name="ArrayOfVehiculo">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Vehiculo" nillable="true" type="tns:Vehiculo" />
