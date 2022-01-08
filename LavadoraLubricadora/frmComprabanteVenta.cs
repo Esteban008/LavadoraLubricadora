@@ -111,7 +111,7 @@ namespace LavadoraLubricadora
                     {
 
                         productoObj.Cantidad = Convert.ToInt32(txtCantidad.Text);
-                        productoObj.PrecioTotal = (Convert.ToInt32(txtCantidad.Text) * productoObj.PrecioVenta);
+                        productoObj.PrecioTotal = (Convert.ToInt32(txtCantidad.Text) * productoObj.Precio);
 
                         object[] v =
                         {
@@ -119,7 +119,7 @@ namespace LavadoraLubricadora
                         productoObj.Descripcion,
                         productoObj.CodigoBarras,
                         productoObj.Cantidad,
-                        productoObj.PrecioVenta,
+                        productoObj.Precio,
                         productoObj.PrecioTotal,
                         };
 
@@ -149,26 +149,18 @@ namespace LavadoraLubricadora
             }
             catch (Exception es)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección "+es, "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección ", "Aviso", MessageBoxButtons.OK);
             }
 
         }
 
         private void btnEliminarDgv_Click(object sender, EventArgs e)
         {
-            try
-            {
-
                 dtProductos.Rows.RemoveAt(dgvProductosI.SelectedCells[2].RowIndex);
 
                 dtProductos.AcceptChanges();
 
                 dgvProductosI.DataSource = dtProductos;
-            }
-            catch (Exception)
-            {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
-            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -477,19 +469,27 @@ namespace LavadoraLubricadora
 
         private void btnBuscarB_Click(object sender, EventArgs e)
         {
-            if (cbxBusquedaB.SelectedItem.Equals("Cédula de Cliente"))
+            try
             {
-                DataTable comprobantes = cliente.BuscarComprobanteCedula(txtBusquedaB.Text);
-                dgvComprobantes.DataSource = comprobantes;
-            }
-            else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Compra"))
-            {
-                DateTime fechaCompra = dtpFechaCompra.Value;
+                if (cbxBusquedaB.SelectedItem.Equals("Cédula de Cliente"))
+                {
+                    DataTable comprobantes = cliente.BuscarComprobanteCedula(txtBusquedaB.Text);
+                    dgvComprobantes.DataSource = comprobantes;
+                }
+                else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Venta"))
+                {
+                    DateTime fechaCompra = dtpFechaCompra.Value;
 
 
-                DataTable comprobantes = cliente.BuscarComprobanteFecha(fechaCompra.ToString("yyyy'-'MM'-'dd"));
-                dgvComprobantes.DataSource = comprobantes;
+                    DataTable comprobantes = cliente.BuscarComprobanteFecha(fechaCompra.ToString("yyyy'-'MM'-'dd"));
+                    dgvComprobantes.DataSource = comprobantes;
+                }
             }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+            }
+            
         }
         private void cbxBusquedaB_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -499,7 +499,7 @@ namespace LavadoraLubricadora
                 dtpFechaCompra.Enabled = false;
 
             }
-            else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Compra"))
+            else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Venta"))
             {
                 txtBusquedaB.Enabled = false;
                 dtpFechaCompra.Enabled = true;
