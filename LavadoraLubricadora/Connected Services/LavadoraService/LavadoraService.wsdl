@@ -75,6 +75,12 @@
   <wsdl:message name="ILavadoraService_EditarUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditarUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_EditarUsuarioSinContrasenia_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarUsuarioSinContrasenia" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EditarUsuarioSinContrasenia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarUsuarioSinContraseniaResponse" />
+  </wsdl:message>
   <wsdl:message name="ILavadoraService_EliminarUsuario_InputMessage">
     <wsdl:part name="parameters" element="tns:EliminarUsuario" />
   </wsdl:message>
@@ -98,6 +104,12 @@
   </wsdl:message>
   <wsdl:message name="ILavadoraService_BuscarUsuarioRol_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarUsuarioRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarUsuarioIngresar_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarUsuarioIngresar" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarUsuarioIngresar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarUsuarioIngresarResponse" />
   </wsdl:message>
   <wsdl:message name="ILavadoraService_BuscarProductosCBarrasMayor_InputMessage">
     <wsdl:part name="parameters" element="tns:BuscarProductosCBarrasMayor" />
@@ -678,6 +690,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EditarUsuario" message="tns:ILavadoraService_EditarUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EditarUsuarioResponse" message="tns:ILavadoraService_EditarUsuario_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="EditarUsuarioSinContrasenia">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EditarUsuarioSinContrasenia" message="tns:ILavadoraService_EditarUsuarioSinContrasenia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EditarUsuarioSinContraseniaResponse" message="tns:ILavadoraService_EditarUsuarioSinContrasenia_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="EliminarUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarUsuario" message="tns:ILavadoraService_EliminarUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse" message="tns:ILavadoraService_EliminarUsuario_OutputMessage" />
@@ -693,6 +709,10 @@
     <wsdl:operation name="BuscarUsuarioRol">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol" message="tns:ILavadoraService_BuscarUsuarioRol_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse" message="tns:ILavadoraService_BuscarUsuarioRol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarUsuarioIngresar">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresar" message="tns:ILavadoraService_ValidarUsuarioIngresar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresarResponse" message="tns:ILavadoraService_ValidarUsuarioIngresar_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="BuscarProductosCBarrasMayor">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayor" message="tns:ILavadoraService_BuscarProductosCBarrasMayor_InputMessage" />
@@ -1152,6 +1172,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="EditarUsuarioSinContrasenia">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EditarUsuarioSinContrasenia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="EliminarUsuario">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarUsuario" style="document" />
       <wsdl:input>
@@ -1181,6 +1210,15 @@
     </wsdl:operation>
     <wsdl:operation name="BuscarUsuarioRol">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarUsuarioIngresar">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

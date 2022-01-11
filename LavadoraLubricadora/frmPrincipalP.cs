@@ -24,6 +24,7 @@ namespace LavadoraLubricadora
             pnlSubmenuBuscar.Visible = false;
             pnlSubmenuVentas.Visible = false;
             pnlSubmenuCompras.Visible = false;
+            pnlSubmenuAdmin.Visible = false;
         }
          private void OcultarSubmenu()
         {
@@ -46,6 +47,11 @@ namespace LavadoraLubricadora
             {
                 pnlSubmenuCompras.Visible = false;
             }
+
+            if (pnlSubmenuAdmin.Visible == true)
+            {
+                pnlSubmenuAdmin.Visible = false;
+            }
         }
 
         private void MostrarSubmenu(Panel subMenu)
@@ -66,7 +72,7 @@ namespace LavadoraLubricadora
         {
             Form formulario;
             //Busca en la colecion el formulario
-            formulario = pnlPrincipal.Controls.OfType<MiForm>().FirstOrDefault();
+            formulario = pnlAdmin.Controls.OfType<MiForm>().FirstOrDefault();
             //si el formulario instancia no existe
             if (formulario == null)
             {
@@ -74,8 +80,8 @@ namespace LavadoraLubricadora
                 formulario.TopLevel = false;
                 formulario.FormBorderStyle = FormBorderStyle.None;
                 formulario.Dock = DockStyle.Fill;
-                pnlPrincipal.Controls.Add(formulario);
-                pnlPrincipal.Tag = formulario;
+                pnlAdmin.Controls.Add(formulario);
+                pnlAdmin.Tag = formulario;
                 formulario.Show();
                 formulario.BringToFront();
                 formulario.FormClosed += new FormClosedEventHandler(CloseForms);
@@ -119,7 +125,14 @@ namespace LavadoraLubricadora
             if (Application.OpenForms["frmComprobanteCompra"] == null)
                 btnComprobanteCompra.BackColor = Color.FromArgb(255, 255, 255);
             if (Application.OpenForms["frmAdminProveedores"] == null)
-                btnAdminProveedores.BackColor = Color.FromArgb(255, 255, 255);          
+                btnAdminProveedores.BackColor = Color.FromArgb(255, 255, 255);
+
+
+            if (Application.OpenForms["frmGenerarReportes"] == null)
+                btnReportes.BackColor = Color.FromArgb(255, 255, 255);
+            if (Application.OpenForms["frmAdminUsuarios"] == null)
+                btnAdminUsuarios.BackColor = Color.FromArgb(255, 255, 255);      
+                
         }
 
         private void btnBuscarProductos_Click(object sender, EventArgs e)
@@ -223,11 +236,6 @@ namespace LavadoraLubricadora
             btnAdminClientes.BackColor = Color.FromArgb(199, 207, 225);
         }
 
-        private void btnReportesVenta_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCompras_Click(object sender, EventArgs e)
         {
             if (pnlSubmenuCompras.Visible == false)
@@ -253,10 +261,29 @@ namespace LavadoraLubricadora
             btnAdminProveedores.BackColor = Color.FromArgb(199, 207, 225);
         }
 
-        private void btnReportesCompras_Click(object sender, EventArgs e)
+        private void btnAdministracion_Click(object sender, EventArgs e)
         {
-
+            if (pnlSubmenuAdmin.Visible == false)
+            {
+                OcultarSubmenu();
+                MostrarSubmenu(pnlSubmenuAdmin);
+            }
+            else
+            {
+                OcultarSubmenu();
+            }
         }
 
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<frmGenerarReportes>();
+            btnReportes.BackColor = Color.FromArgb(199, 207, 225);
+        }
+
+        private void btnAdminUsuarios_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<frmAdminUsuarios>();
+            btnReportes.BackColor = Color.FromArgb(199, 207, 225);
+        }
     }
 }

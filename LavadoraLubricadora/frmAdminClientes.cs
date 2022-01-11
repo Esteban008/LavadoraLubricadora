@@ -113,9 +113,7 @@ namespace LavadoraLubricadora
             catch (Exception)
             {
                 DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
-            }
-            
-           
+            }                      
         }
 
         private void btnGuardarE_Click(object sender, EventArgs e)

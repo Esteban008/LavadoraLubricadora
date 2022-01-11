@@ -1060,11 +1060,17 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EditarUsuarioResponse")]
         System.Threading.Tasks.Task EditarUsuarioAsync(int id, string nombre, string apellido, string telefono, string correo, string rol, string clave);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse")]
-        void EliminarUsuario(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarUsuarioSinContrasenia", ReplyAction="http://tempuri.org/ILavadoraService/EditarUsuarioSinContraseniaResponse")]
+        void EditarUsuarioSinContrasenia(int id, string nombre, string apellido, string telefono, string correo, string rol);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarUsuarioSinContrasenia", ReplyAction="http://tempuri.org/ILavadoraService/EditarUsuarioSinContraseniaResponse")]
+        System.Threading.Tasks.Task EditarUsuarioSinContraseniaAsync(int id, string nombre, string apellido, string telefono, string correo, string rol);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse")]
-        System.Threading.Tasks.Task EliminarUsuarioAsync(int id);
+        bool EliminarUsuario(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse")]
+        System.Threading.Tasks.Task<bool> EliminarUsuarioAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioNombre", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioNombreResponse")]
         System.Data.DataTable BuscarUsuarioNombre(string nombre);
@@ -1083,6 +1089,12 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioRolAsync(string rol);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresar", ReplyAction="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresarResponse")]
+        bool ValidarUsuarioIngresar(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresar", ReplyAction="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresarResponse")]
+        System.Threading.Tasks.Task<bool> ValidarUsuarioIngresarAsync(string correo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayor", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayorResponse")]
         LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMayor(string codigo);
@@ -1800,11 +1812,19 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.EditarUsuarioAsync(id, nombre, apellido, telefono, correo, rol, clave);
         }
         
-        public void EliminarUsuario(int id) {
-            base.Channel.EliminarUsuario(id);
+        public void EditarUsuarioSinContrasenia(int id, string nombre, string apellido, string telefono, string correo, string rol) {
+            base.Channel.EditarUsuarioSinContrasenia(id, nombre, apellido, telefono, correo, rol);
         }
         
-        public System.Threading.Tasks.Task EliminarUsuarioAsync(int id) {
+        public System.Threading.Tasks.Task EditarUsuarioSinContraseniaAsync(int id, string nombre, string apellido, string telefono, string correo, string rol) {
+            return base.Channel.EditarUsuarioSinContraseniaAsync(id, nombre, apellido, telefono, correo, rol);
+        }
+        
+        public bool EliminarUsuario(int id) {
+            return base.Channel.EliminarUsuario(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EliminarUsuarioAsync(int id) {
             return base.Channel.EliminarUsuarioAsync(id);
         }
         
@@ -1830,6 +1850,14 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioRolAsync(string rol) {
             return base.Channel.BuscarUsuarioRolAsync(rol);
+        }
+        
+        public bool ValidarUsuarioIngresar(string correo) {
+            return base.Channel.ValidarUsuarioIngresar(correo);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarUsuarioIngresarAsync(string correo) {
+            return base.Channel.ValidarUsuarioIngresarAsync(correo);
         }
         
         public LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMayor(string codigo) {

@@ -83,6 +83,12 @@
     <Compile Include="frmAdminProveedores.Designer.cs">
       <DependentUpon>frmAdminProveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAdminUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminUsuarios.Designer.cs">
+      <DependentUpon>frmAdminUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdminVehiculos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,12 @@
     <Compile Include="frmCaja.Designer.cs">
       <DependentUpon>frmCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGenerarReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerarReportes.Designer.cs">
+      <DependentUpon>frmGenerarReportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmIngresarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminProveedores.resx">
       <DependentUpon>frmAdminProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdminUsuarios.resx">
+      <DependentUpon>frmAdminUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminVehiculos.resx">
       <DependentUpon>frmAdminVehiculos.cs</DependentUpon>
