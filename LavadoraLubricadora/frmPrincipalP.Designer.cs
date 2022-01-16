@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.pnlSubmenuAdmin = new System.Windows.Forms.Panel();
+            this.btnAdminUsuarios = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
+            this.btnAdministracion = new System.Windows.Forms.Button();
             this.pnlSubmenuCompras = new System.Windows.Forms.Panel();
             this.btnAdminProveedores = new System.Windows.Forms.Button();
             this.btnComprobanteCompra = new System.Windows.Forms.Button();
@@ -52,18 +56,14 @@
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlAdmin = new System.Windows.Forms.Panel();
-            this.btnAdministracion = new System.Windows.Forms.Button();
-            this.pnlSubmenuAdmin = new System.Windows.Forms.Panel();
-            this.btnReportes = new System.Windows.Forms.Button();
-            this.btnAdminUsuarios = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
+            this.pnlSubmenuAdmin.SuspendLayout();
             this.pnlSubmenuCompras.SuspendLayout();
             this.pnlSubmenuVentas.SuspendLayout();
             this.pnlSubmenuAdmProductos.SuspendLayout();
             this.pnlSubmenuBuscar.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnlSubmenuAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -86,6 +86,67 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(250, 697);
             this.panelMenu.TabIndex = 0;
+            // 
+            // pnlSubmenuAdmin
+            // 
+            this.pnlSubmenuAdmin.Controls.Add(this.btnAdminUsuarios);
+            this.pnlSubmenuAdmin.Controls.Add(this.btnReportes);
+            this.pnlSubmenuAdmin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSubmenuAdmin.Location = new System.Drawing.Point(0, 817);
+            this.pnlSubmenuAdmin.Name = "pnlSubmenuAdmin";
+            this.pnlSubmenuAdmin.Size = new System.Drawing.Size(233, 84);
+            this.pnlSubmenuAdmin.TabIndex = 11;
+            // 
+            // btnAdminUsuarios
+            // 
+            this.btnAdminUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdminUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnAdminUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
+            this.btnAdminUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdminUsuarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnAdminUsuarios.Location = new System.Drawing.Point(0, 40);
+            this.btnAdminUsuarios.Name = "btnAdminUsuarios";
+            this.btnAdminUsuarios.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnAdminUsuarios.Size = new System.Drawing.Size(233, 40);
+            this.btnAdminUsuarios.TabIndex = 1;
+            this.btnAdminUsuarios.Text = "Administrar Usuarios";
+            this.btnAdminUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdminUsuarios.UseVisualStyleBackColor = true;
+            this.btnAdminUsuarios.Click += new System.EventHandler(this.btnAdminUsuarios_Click);
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnReportes.Location = new System.Drawing.Point(0, 0);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnReportes.Size = new System.Drawing.Size(233, 40);
+            this.btnReportes.TabIndex = 0;
+            this.btnReportes.Text = "Generar Reportes";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
+            // btnAdministracion
+            // 
+            this.btnAdministracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnAdministracion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdministracion.FlatAppearance.BorderSize = 0;
+            this.btnAdministracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdministracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnAdministracion.Location = new System.Drawing.Point(0, 772);
+            this.btnAdministracion.Name = "btnAdministracion";
+            this.btnAdministracion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnAdministracion.Size = new System.Drawing.Size(233, 45);
+            this.btnAdministracion.TabIndex = 10;
+            this.btnAdministracion.Text = "Administración";
+            this.btnAdministracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdministracion.UseVisualStyleBackColor = false;
+            this.btnAdministracion.Click += new System.EventHandler(this.btnAdministracion_Click);
             // 
             // pnlSubmenuCompras
             // 
@@ -431,67 +492,6 @@
             this.pnlAdmin.Size = new System.Drawing.Size(834, 697);
             this.pnlAdmin.TabIndex = 1;
             // 
-            // btnAdministracion
-            // 
-            this.btnAdministracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnAdministracion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdministracion.FlatAppearance.BorderSize = 0;
-            this.btnAdministracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdministracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
-            this.btnAdministracion.Location = new System.Drawing.Point(0, 772);
-            this.btnAdministracion.Name = "btnAdministracion";
-            this.btnAdministracion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnAdministracion.Size = new System.Drawing.Size(233, 45);
-            this.btnAdministracion.TabIndex = 10;
-            this.btnAdministracion.Text = "Administración";
-            this.btnAdministracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdministracion.UseVisualStyleBackColor = false;
-            this.btnAdministracion.Click += new System.EventHandler(this.btnAdministracion_Click);
-            // 
-            // pnlSubmenuAdmin
-            // 
-            this.pnlSubmenuAdmin.Controls.Add(this.btnAdminUsuarios);
-            this.pnlSubmenuAdmin.Controls.Add(this.btnReportes);
-            this.pnlSubmenuAdmin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubmenuAdmin.Location = new System.Drawing.Point(0, 817);
-            this.pnlSubmenuAdmin.Name = "pnlSubmenuAdmin";
-            this.pnlSubmenuAdmin.Size = new System.Drawing.Size(233, 84);
-            this.pnlSubmenuAdmin.TabIndex = 11;
-            // 
-            // btnReportes
-            // 
-            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReportes.FlatAppearance.BorderSize = 0;
-            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
-            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
-            this.btnReportes.Location = new System.Drawing.Point(0, 0);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnReportes.Size = new System.Drawing.Size(233, 40);
-            this.btnReportes.TabIndex = 0;
-            this.btnReportes.Text = "Generar Reportes";
-            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.UseVisualStyleBackColor = true;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
-            // 
-            // btnAdminUsuarios
-            // 
-            this.btnAdminUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdminUsuarios.FlatAppearance.BorderSize = 0;
-            this.btnAdminUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
-            this.btnAdminUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdminUsuarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
-            this.btnAdminUsuarios.Location = new System.Drawing.Point(0, 40);
-            this.btnAdminUsuarios.Name = "btnAdminUsuarios";
-            this.btnAdminUsuarios.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnAdminUsuarios.Size = new System.Drawing.Size(233, 40);
-            this.btnAdminUsuarios.TabIndex = 1;
-            this.btnAdminUsuarios.Text = "Administrar Usuarios";
-            this.btnAdminUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdminUsuarios.UseVisualStyleBackColor = true;
-            this.btnAdminUsuarios.Click += new System.EventHandler(this.btnAdminUsuarios_Click);
-            // 
             // frmPrincipalP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,14 +502,15 @@
             this.MinimumSize = new System.Drawing.Size(1100, 736);
             this.Name = "frmPrincipalP";
             this.Text = "frmPrincipalP";
+            this.Load += new System.EventHandler(this.frmPrincipalP_Load);
             this.panelMenu.ResumeLayout(false);
+            this.pnlSubmenuAdmin.ResumeLayout(false);
             this.pnlSubmenuCompras.ResumeLayout(false);
             this.pnlSubmenuVentas.ResumeLayout(false);
             this.pnlSubmenuAdmProductos.ResumeLayout(false);
             this.pnlSubmenuBuscar.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnlSubmenuAdmin.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

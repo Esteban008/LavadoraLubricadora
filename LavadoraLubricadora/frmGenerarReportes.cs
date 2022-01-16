@@ -12,9 +12,18 @@ namespace LavadoraLubricadora
 {
     public partial class frmGenerarReportes : Form
     {
+        LavadoraService.LavadoraServiceClient cliente;
         public frmGenerarReportes()
         {
             InitializeComponent();
+        }
+
+        private void frmGenerarReportes_Load(object sender, EventArgs e)
+        {
+            cliente = new LavadoraService.LavadoraServiceClient();
+
+            ProveedorBindingSource.DataSource = cliente.ObtenerProveedor();
+            this.rVProveedores.RefreshReport();
         }
     }
 }

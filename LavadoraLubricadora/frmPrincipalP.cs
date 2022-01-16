@@ -285,5 +285,11 @@ namespace LavadoraLubricadora
             AbrirFormulario<frmAdminUsuarios>();
             btnReportes.BackColor = Color.FromArgb(199, 207, 225);
         }
+
+        private void frmPrincipalP_Load(object sender, EventArgs e)
+        {
+
+            
+        }
     }
 }
