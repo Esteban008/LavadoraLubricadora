@@ -22,8 +22,15 @@ namespace LavadoraLubricadora
         {
             cliente = new LavadoraService.LavadoraServiceClient();
             ComprobanteVentaBindingSource.DataSource = cliente.BuscarComprobanteRangoFecha("2022-01-17", "2022-01-17");
-            this.rpvComprobantes.RefreshReport();
-            
+            //this.rpvComprobantes.RefreshReport();
+
+            //this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
+            this.reportViewer2.RefreshReport();
+            this.reportViewer2.RefreshReport();
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
         }
     }
 }

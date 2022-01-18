@@ -28,20 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.ComprobanteVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ProveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.ComprobanteVentaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProveedorBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ComprobanteVentaBindingSource
-            // 
-            this.ComprobanteVentaBindingSource.DataSource = typeof(LavadoraLubricadora.LavadoraService.ComprobanteVenta);
-            // 
-            // ProveedorBindingSource
-            // 
-            this.ProveedorBindingSource.DataSource = typeof(LavadoraLubricadora.LavadoraService.Proveedor);
             // 
             // frmGenerarReportes
             // 
@@ -51,14 +38,10 @@
             this.Name = "frmGenerarReportes";
             this.Text = "frmGenerarReportes";
             this.Load += new System.EventHandler(this.frmGenerarReportes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ComprobanteVentaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProveedorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.BindingSource ComprobanteVentaBindingSource;
-        private System.Windows.Forms.BindingSource ProveedorBindingSource;
     }
 }
