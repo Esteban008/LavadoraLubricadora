@@ -53,6 +53,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ComprobanteVenta" nillable="true" type="tns:ComprobanteVenta" />
+  <xs:complexType name="ArrayOfComprobanteVenta">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ComprobanteVenta" nillable="true" type="tns:ComprobanteVenta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComprobanteVenta" nillable="true" type="tns:ArrayOfComprobanteVenta" />
   <xs:complexType name="Proveedor">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Persona">

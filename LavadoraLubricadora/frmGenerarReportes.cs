@@ -21,9 +21,9 @@ namespace LavadoraLubricadora
         private void frmGenerarReportes_Load(object sender, EventArgs e)
         {
             cliente = new LavadoraService.LavadoraServiceClient();
-
-            ProveedorBindingSource.DataSource = cliente.ObtenerProveedor();
-            this.rVProveedores.RefreshReport();
+            ComprobanteVentaBindingSource.DataSource = cliente.BuscarComprobanteRangoFecha("2022-01-17", "2022-01-17");
+            this.rpvComprobantes.RefreshReport();
+            
         }
     }
 }

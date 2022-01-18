@@ -189,6 +189,12 @@
   <wsdl:message name="ILavadoraService_BuscarComprobanteFecha_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarComprobanteFechaResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteRangoFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteRangoFecha" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteRangoFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteRangoFechaResponse" />
+  </wsdl:message>
   <wsdl:message name="ILavadoraService_BuscarProductoCCompra_InputMessage">
     <wsdl:part name="parameters" element="tns:BuscarProductoCCompra" />
   </wsdl:message>
@@ -766,6 +772,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteFecha" message="tns:ILavadoraService_BuscarComprobanteFecha_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteFechaResponse" message="tns:ILavadoraService_BuscarComprobanteFecha_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteRangoFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFecha" message="tns:ILavadoraService_BuscarComprobanteRangoFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFechaResponse" message="tns:ILavadoraService_BuscarComprobanteRangoFecha_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="BuscarProductoCCompra">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductoCCompra" message="tns:ILavadoraService_BuscarProductoCCompra_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductoCCompraResponse" message="tns:ILavadoraService_BuscarProductoCCompra_OutputMessage" />
@@ -1336,6 +1346,15 @@
     </wsdl:operation>
     <wsdl:operation name="BuscarComprobanteFecha">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteRangoFecha">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFecha" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

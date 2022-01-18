@@ -273,7 +273,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report\Informe.rdlc" />
+    <EmbeddedResource Include="Report\ComprobantesVenta.rdlc" />
     <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.Cliente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
