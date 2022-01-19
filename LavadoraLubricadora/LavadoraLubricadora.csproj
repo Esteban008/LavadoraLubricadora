@@ -273,6 +273,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\ReporteVentas.rdlc" />
     <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.Cliente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -370,8 +371,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Report\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

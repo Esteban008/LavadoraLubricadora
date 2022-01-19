@@ -21,16 +21,17 @@ namespace LavadoraLubricadora
         private void frmGenerarReportes_Load(object sender, EventArgs e)
         {
             cliente = new LavadoraService.LavadoraServiceClient();
-            ComprobanteVentaBindingSource.DataSource = cliente.BuscarComprobanteRangoFecha("2022-01-17", "2022-01-17");
-            //this.rpvComprobantes.RefreshReport();
+            
+        }
 
-            //this.reportViewer1.RefreshReport();
-            this.reportViewer1.RefreshReport();
-            this.reportViewer1.RefreshReport();
-            this.reportViewer2.RefreshReport();
-            this.reportViewer2.RefreshReport();
-            this.reportViewer1.RefreshReport();
-            this.reportViewer1.RefreshReport();
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            DateTime fechaInicio = dtpFechaInicio.Value;
+            DateTime fechaFin = dtpFechaFin.Value;
+
+
+            ComprobanteVentaBindingSource.DataSource = cliente.BuscarComprobanteRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
+            this.rpvVentas.RefreshReport();
         }
     }
 }
