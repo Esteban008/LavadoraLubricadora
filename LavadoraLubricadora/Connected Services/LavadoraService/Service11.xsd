@@ -91,6 +91,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ComprobanteCompra" nillable="true" type="tns:ComprobanteCompra" />
+  <xs:complexType name="ArrayOfComprobanteCompra">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ComprobanteCompra" nillable="true" type="tns:ComprobanteCompra" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComprobanteCompra" nillable="true" type="tns:ArrayOfComprobanteCompra" />
   <xs:complexType name="ArrayOfVehiculo">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Vehiculo" nillable="true" type="tns:Vehiculo" />

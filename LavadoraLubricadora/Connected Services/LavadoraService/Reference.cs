@@ -1252,6 +1252,12 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFechaResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteCompraFechaAsync(string fecha);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFechaResponse")]
+        LavadoraLubricadora.LavadoraService.ComprobanteCompra[] BuscarComprobanteCompraRangoFecha(string fechaInicio, string fechaFin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFechaResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra[]> BuscarComprobanteCompraRangoFechaAsync(string fechaInicio, string fechaFin);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/Login", ReplyAction="http://tempuri.org/ILavadoraService/LoginResponse")]
         bool Login(string correo, string clave);
         
@@ -2072,6 +2078,14 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteCompraFechaAsync(string fecha) {
             return base.Channel.BuscarComprobanteCompraFechaAsync(fecha);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.ComprobanteCompra[] BuscarComprobanteCompraRangoFecha(string fechaInicio, string fechaFin) {
+            return base.Channel.BuscarComprobanteCompraRangoFecha(fechaInicio, fechaFin);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra[]> BuscarComprobanteCompraRangoFechaAsync(string fechaInicio, string fechaFin) {
+            return base.Channel.BuscarComprobanteCompraRangoFechaAsync(fechaInicio, fechaFin);
         }
         
         public bool Login(string correo, string clave) {

@@ -1,6 +1,7 @@
-﻿namespace LavadoraLubricadora
+﻿
+namespace LavadoraLubricadora
 {
-    partial class frmGenerarReportes
+    partial class frmGenerarReporteCompras
     {
         /// <summary>
         /// Required designer variable.
@@ -30,41 +31,72 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.ComprobanteVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnMes = new System.Windows.Forms.Button();
             this.btnSemana = new System.Windows.Forms.Button();
             this.btnHoy = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.rpvVentas = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnSalir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.ComprobanteVentaBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.rvpCompras = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.ComprobanteCompraBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ComprobanteCompraBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // ComprobanteVentaBindingSource
+            // panel3
             // 
-            this.ComprobanteVentaBindingSource.DataSource = typeof(LavadoraLubricadora.LavadoraService.ComprobanteVenta);
+            this.panel3.Controls.Add(this.btnSalir);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 501);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(993, 39);
+            this.panel3.TabIndex = 3;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnSalir.Location = new System.Drawing.Point(906, 1);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(80, 35);
+            this.btnSalir.TabIndex = 129;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(793, 0);
+            this.panel1.Controls.Add(this.rvpCompras);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 540);
-            this.panel1.TabIndex = 0;
+            this.panel1.Size = new System.Drawing.Size(993, 501);
+            this.panel1.TabIndex = 4;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.tableLayoutPanel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(793, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 501);
+            this.panel2.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -93,23 +125,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 456);
             this.tableLayoutPanel1.TabIndex = 122;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.btnBuscar, 2);
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscar.Location = new System.Drawing.Point(3, 410);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(194, 35);
-            this.btnBuscar.TabIndex = 121;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnMes
             // 
@@ -162,6 +177,23 @@
             this.btnHoy.UseVisualStyleBackColor = false;
             this.btnHoy.Click += new System.EventHandler(this.btnHoy_Click);
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.btnBuscar, 2);
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnBuscar.Location = new System.Drawing.Point(3, 410);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(194, 35);
+            this.btnBuscar.TabIndex = 121;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -200,90 +232,59 @@
             this.dtpFechaInicio.Size = new System.Drawing.Size(94, 20);
             this.dtpFechaInicio.TabIndex = 0;
             // 
-            // panel2
+            // rvpCompras
             // 
-            this.panel2.Controls.Add(this.rpvVentas);
-            this.panel2.Controls.Add(this.panel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(993, 540);
-            this.panel2.TabIndex = 1;
+            this.rvpCompras.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "ComprobanteCompraA";
+            reportDataSource1.Value = this.ComprobanteCompraBindingSource;
+            this.rvpCompras.LocalReport.DataSources.Add(reportDataSource1);
+            this.rvpCompras.LocalReport.ReportEmbeddedResource = "LavadoraLubricadora.Report.ReportesCompra.rdlc";
+            this.rvpCompras.Location = new System.Drawing.Point(0, 0);
+            this.rvpCompras.Name = "rvpCompras";
+            this.rvpCompras.ServerReport.BearerToken = null;
+            this.rvpCompras.Size = new System.Drawing.Size(793, 501);
+            this.rvpCompras.TabIndex = 2;
             // 
-            // rpvVentas
+            // ComprobanteCompraBindingSource
             // 
-            this.rpvVentas.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "ComprobanteVenta";
-            reportDataSource1.Value = this.ComprobanteVentaBindingSource;
-            this.rpvVentas.LocalReport.DataSources.Add(reportDataSource1);
-            this.rpvVentas.LocalReport.ReportEmbeddedResource = "LavadoraLubricadora.Report.ReporteVentas.rdlc";
-            this.rpvVentas.Location = new System.Drawing.Point(0, 0);
-            this.rpvVentas.Name = "rpvVentas";
-            this.rpvVentas.ServerReport.BearerToken = null;
-            this.rpvVentas.Size = new System.Drawing.Size(793, 540);
-            this.rpvVentas.TabIndex = 0;
+            this.ComprobanteCompraBindingSource.DataSource = typeof(LavadoraLubricadora.LavadoraService.ComprobanteCompra);
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnSalir);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 501);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(993, 39);
-            this.panel3.TabIndex = 2;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnSalir.FlatAppearance.BorderSize = 0;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnSalir.Location = new System.Drawing.Point(906, 1);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(80, 35);
-            this.btnSalir.TabIndex = 129;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // frmGenerarReportes
+            // frmGenerarReporteCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(993, 540);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Name = "frmGenerarReportes";
-            this.Text = "frmGenerarReportes";
-            this.Load += new System.EventHandler(this.frmGenerarReportes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ComprobanteVentaBindingSource)).EndInit();
+            this.Name = "frmGenerarReporteCompras";
+            this.Text = "frmGenerarReporteCompras";
+            this.Load += new System.EventHandler(this.frmGenerarReporteCompras_Load);
+            this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ComprobanteCompraBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private Microsoft.Reporting.WinForms.ReportViewer rpvVentas;
-        private System.Windows.Forms.BindingSource ComprobanteVentaBindingSource;
-        private System.Windows.Forms.DateTimePicker dtpFechaFin;
-        private System.Windows.Forms.DateTimePicker dtpFechaInicio;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnMes;
         private System.Windows.Forms.Button btnSemana;
         private System.Windows.Forms.Button btnHoy;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtpFechaFin;
+        private System.Windows.Forms.DateTimePicker dtpFechaInicio;
+        private Microsoft.Reporting.WinForms.ReportViewer rvpCompras;
+        private System.Windows.Forms.BindingSource ComprobanteCompraBindingSource;
     }
 }

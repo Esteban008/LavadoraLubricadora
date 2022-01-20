@@ -129,9 +129,9 @@ namespace LavadoraLubricadora
 
 
             if (Application.OpenForms["frmGenerarReportes"] == null)
-                btnReportes.BackColor = Color.FromArgb(255, 255, 255);
+                btnGReportesVentas.BackColor = Color.FromArgb(255, 255, 255);
             if (Application.OpenForms["frmAdminUsuarios"] == null)
-                btnAdminUsuarios.BackColor = Color.FromArgb(255, 255, 255);      
+                btnGReporteCompras.BackColor = Color.FromArgb(255, 255, 255);      
                 
         }
 
@@ -274,22 +274,22 @@ namespace LavadoraLubricadora
             }
         }
 
-        private void btnReportes_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario<frmGenerarReportes>();
-            btnReportes.BackColor = Color.FromArgb(199, 207, 225);
-        }
-
-        private void btnAdminUsuarios_Click(object sender, EventArgs e)
+        private void btnAdminUsuario_Click(object sender, EventArgs e)
         {
             AbrirFormulario<frmAdminUsuarios>();
-            btnReportes.BackColor = Color.FromArgb(199, 207, 225);
+            btnAdminUsuario.BackColor = Color.FromArgb(199, 207, 225);
         }
 
-        private void frmPrincipalP_Load(object sender, EventArgs e)
+        private void btnGReportesVentas_Click(object sender, EventArgs e)
         {
+            AbrirFormulario<frmGenerarReportes>();
+            btnGReportesVentas.BackColor = Color.FromArgb(199, 207, 225);
+        }
 
-            
+        private void btnGReporteCompras_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<frmGenerarReporteCompras>();
+            btnGReporteCompras.BackColor = Color.FromArgb(199, 207, 225);
         }
     }
 }

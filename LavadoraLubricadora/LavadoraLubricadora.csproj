@@ -173,6 +173,12 @@
     <Compile Include="frmCaja.Designer.cs">
       <DependentUpon>frmCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGenerarReporteCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerarReporteCompras.Designer.cs">
+      <DependentUpon>frmGenerarReporteCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGenerarReportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="frmGenerarReporteCompras.resx">
+      <DependentUpon>frmGenerarReporteCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdminAceites.resx">
       <DependentUpon>frmAdminAceites.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +282,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\ReportesCompra.rdlc" />
     <EmbeddedResource Include="Report\ReporteVentas.rdlc" />
     <None Include="Connected Services\LavadoraService\LavadoraLubricadora.LavadoraService.Cliente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

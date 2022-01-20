@@ -267,6 +267,12 @@
   <wsdl:message name="ILavadoraService_BuscarComprobanteCompraFecha_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarComprobanteCompraFechaResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteCompraRangoFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteCompraRangoFecha" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteCompraRangoFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteCompraRangoFechaResponse" />
+  </wsdl:message>
   <wsdl:message name="ILavadoraService_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
   </wsdl:message>
@@ -823,6 +829,10 @@
     <wsdl:operation name="BuscarComprobanteCompraFecha">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFecha" message="tns:ILavadoraService_BuscarComprobanteCompraFecha_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFechaResponse" message="tns:ILavadoraService_BuscarComprobanteCompraFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteCompraRangoFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFecha" message="tns:ILavadoraService_BuscarComprobanteCompraRangoFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFechaResponse" message="tns:ILavadoraService_BuscarComprobanteCompraRangoFecha_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/Login" message="tns:ILavadoraService_Login_InputMessage" />
@@ -1463,6 +1473,15 @@
     </wsdl:operation>
     <wsdl:operation name="BuscarComprobanteCompraFecha">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteCompraRangoFecha">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFecha" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

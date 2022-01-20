@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,17 +11,19 @@ using System.Windows.Forms;
 
 namespace LavadoraLubricadora
 {
-    public partial class frmGenerarReportes : Form
+    public partial class frmGenerarReporteCompras : Form
     {
         LavadoraService.LavadoraServiceClient cliente;
-        public frmGenerarReportes()
+        public frmGenerarReporteCompras()
         {
             InitializeComponent();
         }
 
-        private void frmGenerarReportes_Load(object sender, EventArgs e)
+        private void frmGenerarReporteCompras_Load(object sender, EventArgs e)
         {
+
             cliente = new LavadoraService.LavadoraServiceClient();
+
             
         }
 
@@ -30,32 +33,35 @@ namespace LavadoraLubricadora
             DateTime fechaFin = dtpFechaFin.Value;
 
 
-            ComprobanteVentaBindingSource.DataSource = cliente.BuscarComprobanteRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
-            this.rpvVentas.RefreshReport();
+            ComprobanteCompraBindingSource.DataSource = cliente.BuscarComprobanteCompraRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
+            this.rvpCompras.RefreshReport();
         }
 
         private void btnHoy_Click(object sender, EventArgs e)
         {
             var fechaInicio = DateTime.Now;
             var fechaFin = DateTime.Now;
-            ComprobanteVentaBindingSource.DataSource = cliente.BuscarComprobanteRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
-            this.rpvVentas.RefreshReport();
+
+            ComprobanteCompraBindingSource.DataSource = cliente.BuscarComprobanteCompraRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
+            this.rvpCompras.RefreshReport();
         }
 
         private void btnSemana_Click(object sender, EventArgs e)
         {
             var fechaInicio = DateTime.Now.AddDays(-7);
             var fechaFin = DateTime.Now;
-            ComprobanteVentaBindingSource.DataSource = cliente.BuscarComprobanteRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
-            this.rpvVentas.RefreshReport();
+
+            ComprobanteCompraBindingSource.DataSource = cliente.BuscarComprobanteCompraRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
+            this.rvpCompras.RefreshReport();
         }
 
         private void btnMes_Click(object sender, EventArgs e)
         {
-            var fechaInicio = new DateTime(DateTime.Now.Year, DateTime.Now.Month,1);
+            var fechaInicio = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             var fechaFin = DateTime.Now;
-            ComprobanteVentaBindingSource.DataSource = cliente.BuscarComprobanteRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
-            this.rpvVentas.RefreshReport();
+
+            ComprobanteCompraBindingSource.DataSource = cliente.BuscarComprobanteCompraRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
+            this.rvpCompras.RefreshReport();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

@@ -30,8 +30,8 @@
         {
             this.panelMenu = new System.Windows.Forms.Panel();
             this.pnlSubmenuAdmin = new System.Windows.Forms.Panel();
-            this.btnAdminUsuarios = new System.Windows.Forms.Button();
-            this.btnReportes = new System.Windows.Forms.Button();
+            this.btnGReporteCompras = new System.Windows.Forms.Button();
+            this.btnGReportesVentas = new System.Windows.Forms.Button();
             this.btnAdministracion = new System.Windows.Forms.Button();
             this.pnlSubmenuCompras = new System.Windows.Forms.Panel();
             this.btnAdminProveedores = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlAdmin = new System.Windows.Forms.Panel();
+            this.btnAdminUsuario = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.pnlSubmenuAdmin.SuspendLayout();
             this.pnlSubmenuCompras.SuspendLayout();
@@ -89,47 +90,48 @@
             // 
             // pnlSubmenuAdmin
             // 
-            this.pnlSubmenuAdmin.Controls.Add(this.btnAdminUsuarios);
-            this.pnlSubmenuAdmin.Controls.Add(this.btnReportes);
+            this.pnlSubmenuAdmin.Controls.Add(this.btnAdminUsuario);
+            this.pnlSubmenuAdmin.Controls.Add(this.btnGReporteCompras);
+            this.pnlSubmenuAdmin.Controls.Add(this.btnGReportesVentas);
             this.pnlSubmenuAdmin.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSubmenuAdmin.Location = new System.Drawing.Point(0, 817);
             this.pnlSubmenuAdmin.Name = "pnlSubmenuAdmin";
-            this.pnlSubmenuAdmin.Size = new System.Drawing.Size(233, 84);
+            this.pnlSubmenuAdmin.Size = new System.Drawing.Size(233, 126);
             this.pnlSubmenuAdmin.TabIndex = 11;
             // 
-            // btnAdminUsuarios
+            // btnGReporteCompras
             // 
-            this.btnAdminUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdminUsuarios.FlatAppearance.BorderSize = 0;
-            this.btnAdminUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
-            this.btnAdminUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdminUsuarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
-            this.btnAdminUsuarios.Location = new System.Drawing.Point(0, 40);
-            this.btnAdminUsuarios.Name = "btnAdminUsuarios";
-            this.btnAdminUsuarios.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnAdminUsuarios.Size = new System.Drawing.Size(233, 40);
-            this.btnAdminUsuarios.TabIndex = 1;
-            this.btnAdminUsuarios.Text = "Administrar Usuarios";
-            this.btnAdminUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdminUsuarios.UseVisualStyleBackColor = true;
-            this.btnAdminUsuarios.Click += new System.EventHandler(this.btnAdminUsuarios_Click);
+            this.btnGReporteCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGReporteCompras.FlatAppearance.BorderSize = 0;
+            this.btnGReporteCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
+            this.btnGReporteCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGReporteCompras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnGReporteCompras.Location = new System.Drawing.Point(0, 40);
+            this.btnGReporteCompras.Name = "btnGReporteCompras";
+            this.btnGReporteCompras.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnGReporteCompras.Size = new System.Drawing.Size(233, 40);
+            this.btnGReporteCompras.TabIndex = 1;
+            this.btnGReporteCompras.Text = "Generar Reportes Compras";
+            this.btnGReporteCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGReporteCompras.UseVisualStyleBackColor = true;
+            this.btnGReporteCompras.Click += new System.EventHandler(this.btnGReporteCompras_Click);
             // 
-            // btnReportes
+            // btnGReportesVentas
             // 
-            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReportes.FlatAppearance.BorderSize = 0;
-            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
-            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
-            this.btnReportes.Location = new System.Drawing.Point(0, 0);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnReportes.Size = new System.Drawing.Size(233, 40);
-            this.btnReportes.TabIndex = 0;
-            this.btnReportes.Text = "Generar Reportes";
-            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.UseVisualStyleBackColor = true;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            this.btnGReportesVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGReportesVentas.FlatAppearance.BorderSize = 0;
+            this.btnGReportesVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
+            this.btnGReportesVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGReportesVentas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnGReportesVentas.Location = new System.Drawing.Point(0, 0);
+            this.btnGReportesVentas.Name = "btnGReportesVentas";
+            this.btnGReportesVentas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnGReportesVentas.Size = new System.Drawing.Size(233, 40);
+            this.btnGReportesVentas.TabIndex = 0;
+            this.btnGReportesVentas.Text = "Generar Reportes Ventas";
+            this.btnGReportesVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGReportesVentas.UseVisualStyleBackColor = true;
+            this.btnGReportesVentas.Click += new System.EventHandler(this.btnGReportesVentas_Click);
             // 
             // btnAdministracion
             // 
@@ -492,6 +494,23 @@
             this.pnlAdmin.Size = new System.Drawing.Size(834, 697);
             this.pnlAdmin.TabIndex = 1;
             // 
+            // btnAdminUsuario
+            // 
+            this.btnAdminUsuario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdminUsuario.FlatAppearance.BorderSize = 0;
+            this.btnAdminUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
+            this.btnAdminUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdminUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnAdminUsuario.Location = new System.Drawing.Point(0, 80);
+            this.btnAdminUsuario.Name = "btnAdminUsuario";
+            this.btnAdminUsuario.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnAdminUsuario.Size = new System.Drawing.Size(233, 40);
+            this.btnAdminUsuario.TabIndex = 2;
+            this.btnAdminUsuario.Text = "Administrar Usuarios";
+            this.btnAdminUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdminUsuario.UseVisualStyleBackColor = true;
+            this.btnAdminUsuario.Click += new System.EventHandler(this.btnAdminUsuario_Click);
+            // 
             // frmPrincipalP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,7 +521,6 @@
             this.MinimumSize = new System.Drawing.Size(1100, 736);
             this.Name = "frmPrincipalP";
             this.Text = "frmPrincipalP";
-            this.Load += new System.EventHandler(this.frmPrincipalP_Load);
             this.panelMenu.ResumeLayout(false);
             this.pnlSubmenuAdmin.ResumeLayout(false);
             this.pnlSubmenuCompras.ResumeLayout(false);
@@ -542,8 +560,9 @@
         private System.Windows.Forms.Button btnComprobanteCompra;
         private System.Windows.Forms.Button btnCompras;
         private System.Windows.Forms.Panel pnlSubmenuAdmin;
-        private System.Windows.Forms.Button btnReportes;
+        private System.Windows.Forms.Button btnGReportesVentas;
         private System.Windows.Forms.Button btnAdministracion;
-        private System.Windows.Forms.Button btnAdminUsuarios;
+        private System.Windows.Forms.Button btnGReporteCompras;
+        private System.Windows.Forms.Button btnAdminUsuario;
     }
 }
