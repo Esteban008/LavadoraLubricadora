@@ -167,12 +167,6 @@
     <Compile Include="frmBusquedaVehiculo.Designer.cs">
       <DependentUpon>frmBusquedaVehiculo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCaja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCaja.Designer.cs">
-      <DependentUpon>frmCaja.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmGenerarReporteCompras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +190,12 @@
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotificaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotificaciones.Designer.cs">
+      <DependentUpon>frmNotificaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipalP.cs">
       <SubType>Form</SubType>
@@ -257,9 +257,6 @@
     <EmbeddedResource Include="frmBusquedaVehiculo.resx">
       <DependentUpon>frmBusquedaVehiculo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCaja.resx">
-      <DependentUpon>frmCaja.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmGenerarReportes.resx">
       <DependentUpon>frmGenerarReportes.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNotificaciones.resx">
+      <DependentUpon>frmNotificaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipalP.resx">
       <DependentUpon>frmPrincipalP.cs</DependentUpon>

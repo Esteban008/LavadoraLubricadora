@@ -1258,6 +1258,48 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFechaResponse")]
         System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra[]> BuscarComprobanteCompraRangoFechaAsync(string fechaInicio, string fechaFin);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltroResponse")]
+        void EliminarNotificacionFiltro(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltroResponse")]
+        System.Threading.Tasks.Task EliminarNotificacionFiltroAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionAceite", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionAceiteResponse")]
+        void EliminarNotificacionAceite(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionAceite", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionAceiteResponse")]
+        System.Threading.Tasks.Task EliminarNotificacionAceiteAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionProducto", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionProductoResponse")]
+        void EliminarNotificacionProducto(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionProducto", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionProductoResponse")]
+        System.Threading.Tasks.Task EliminarNotificacionProductoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinFiltroResponse")]
+        bool ValidarMinFiltro(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinFiltroResponse")]
+        System.Threading.Tasks.Task<bool> ValidarMinFiltroAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinAceite", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinAceiteResponse")]
+        bool ValidarMinAceite(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinAceite", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinAceiteResponse")]
+        System.Threading.Tasks.Task<bool> ValidarMinAceiteAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinProducto", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinProductoResponse")]
+        bool ValidarMinProducto(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinProducto", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinProductoResponse")]
+        System.Threading.Tasks.Task<bool> ValidarMinProductoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerNotificaciones", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerNotificacionesResponse")]
+        System.Data.DataTable ObtenerNotificaciones();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerNotificaciones", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerNotificacionesResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerNotificacionesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/Login", ReplyAction="http://tempuri.org/ILavadoraService/LoginResponse")]
         bool Login(string correo, string clave);
         
@@ -2086,6 +2128,62 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra[]> BuscarComprobanteCompraRangoFechaAsync(string fechaInicio, string fechaFin) {
             return base.Channel.BuscarComprobanteCompraRangoFechaAsync(fechaInicio, fechaFin);
+        }
+        
+        public void EliminarNotificacionFiltro(int id) {
+            base.Channel.EliminarNotificacionFiltro(id);
+        }
+        
+        public System.Threading.Tasks.Task EliminarNotificacionFiltroAsync(int id) {
+            return base.Channel.EliminarNotificacionFiltroAsync(id);
+        }
+        
+        public void EliminarNotificacionAceite(int id) {
+            base.Channel.EliminarNotificacionAceite(id);
+        }
+        
+        public System.Threading.Tasks.Task EliminarNotificacionAceiteAsync(int id) {
+            return base.Channel.EliminarNotificacionAceiteAsync(id);
+        }
+        
+        public void EliminarNotificacionProducto(int id) {
+            base.Channel.EliminarNotificacionProducto(id);
+        }
+        
+        public System.Threading.Tasks.Task EliminarNotificacionProductoAsync(int id) {
+            return base.Channel.EliminarNotificacionProductoAsync(id);
+        }
+        
+        public bool ValidarMinFiltro(int id) {
+            return base.Channel.ValidarMinFiltro(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarMinFiltroAsync(int id) {
+            return base.Channel.ValidarMinFiltroAsync(id);
+        }
+        
+        public bool ValidarMinAceite(int id) {
+            return base.Channel.ValidarMinAceite(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarMinAceiteAsync(int id) {
+            return base.Channel.ValidarMinAceiteAsync(id);
+        }
+        
+        public bool ValidarMinProducto(int id) {
+            return base.Channel.ValidarMinProducto(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarMinProductoAsync(int id) {
+            return base.Channel.ValidarMinProductoAsync(id);
+        }
+        
+        public System.Data.DataTable ObtenerNotificaciones() {
+            return base.Channel.ObtenerNotificaciones();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerNotificacionesAsync() {
+            return base.Channel.ObtenerNotificacionesAsync();
         }
         
         public bool Login(string correo, string clave) {

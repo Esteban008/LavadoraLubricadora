@@ -173,15 +173,26 @@ namespace LavadoraLubricadora
                             if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("A-"))
                             {
                                 cliente.IngresarAceiteComprobanteCompra(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
-
+                                if (cliente.ValidarMinAceite(Convert.ToInt32(row.Cells[0].Value.ToString())))
+                                {
+                                    MessageBox.Show("Producto: " + row.Cells[1].Value.ToString() + " está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                                }
                             }
                             if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("F-"))
                             {
                                 cliente.IngresarFiltroComprobanteCompra(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                                if (cliente.ValidarMinFiltro(Convert.ToInt32(row.Cells[0].Value.ToString())))
+                                {
+                                    MessageBox.Show("Producto: " + row.Cells[1].Value.ToString() + " está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                                }
                             }
                             if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("P-"))
                             {
                                 cliente.IngresarProductoComprobanteCompra(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                                if (cliente.ValidarMinProducto(Convert.ToInt32(row.Cells[0].Value.ToString())))
+                                {
+                                    MessageBox.Show("Producto: " + row.Cells[1].Value.ToString() + " está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                                }
                             }
                         }
                     }
@@ -194,15 +205,26 @@ namespace LavadoraLubricadora
                             if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("A-"))
                             {
                                 cliente.IngresarAceiteComprobanteCompra(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
-
+                                if (cliente.ValidarMinAceite(Convert.ToInt32(row.Cells[0].Value.ToString())))
+                                {
+                                    MessageBox.Show("Producto: " + row.Cells[1].Value.ToString() + " está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                                }
                             }
                             if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("F-"))
                             {
                                 cliente.IngresarFiltroComprobanteCompra(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                                if (cliente.ValidarMinFiltro(Convert.ToInt32(row.Cells[0].Value.ToString())))
+                                {
+                                    MessageBox.Show("Producto: " + row.Cells[1].Value.ToString() + " está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                                }
                             }
                             if ((row.Cells["dataGridViewTextBoxColumn26"].Value.ToString()).Contains("P-"))
                             {
                                 cliente.IngresarProductoComprobanteCompra(Convert.ToInt32(row.Cells[0].Value.ToString()), idComprobante, Convert.ToInt32(row.Cells[3].Value.ToString()));
+                                if (cliente.ValidarMinProducto(Convert.ToInt32(row.Cells[0].Value.ToString())))
+                                {
+                                    MessageBox.Show("Producto: " + row.Cells[1].Value.ToString() + " está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                                }
                             }
                         }
                     }
@@ -544,14 +566,26 @@ namespace LavadoraLubricadora
                     if ((row.Cells["dataGridViewTextBoxColumn3"].Value.ToString()).Contains("A-"))
                     {
                         cliente.IngresarAceiteComprobanteCompra(Convert.ToInt32(row.Cells[1].Value.ToString()), idComprobante, -Convert.ToInt32(row.Cells[4].Value.ToString()));
+                        if (cliente.ValidarMinAceite(Convert.ToInt32(row.Cells[1].Value.ToString())))
+                        {
+                            MessageBox.Show("Producto: " + row.Cells[2].Value.ToString() + " está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                        }
                     }
                     if ((row.Cells["dataGridViewTextBoxColumn3"].Value.ToString()).Contains("F-"))
                     {
                         cliente.IngresarFiltroComprobanteCompra(Convert.ToInt32(row.Cells[1].Value.ToString()), idComprobante, -Convert.ToInt32(row.Cells[4].Value.ToString()));
+                        if (cliente.ValidarMinFiltro(Convert.ToInt32(row.Cells[1].Value.ToString())))
+                        {
+                            MessageBox.Show("Producto: " + row.Cells[2].Value.ToString() + " está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                        }
                     }
                     if ((row.Cells["dataGridViewTextBoxColumn3"].Value.ToString()).Contains("P-"))
                     {
                         cliente.IngresarProductoComprobanteCompra(Convert.ToInt32(row.Cells[1].Value.ToString()), idComprobante, -Convert.ToInt32(row.Cells[4].Value.ToString()));
+                        if (cliente.ValidarMinProducto(Convert.ToInt32(row.Cells[1].Value.ToString())))
+                        {
+                            MessageBox.Show("Producto: " + row.Cells[2].Value.ToString() + " está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                        }
                     }
                 }
 

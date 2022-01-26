@@ -25,6 +25,7 @@ namespace LavadoraLubricadora
             pnlSubmenuVentas.Visible = false;
             pnlSubmenuCompras.Visible = false;
             pnlSubmenuAdmin.Visible = false;
+            pnlSubMenuNotificaciones.Visible = false;
         }
          private void OcultarSubmenu()
         {
@@ -51,6 +52,11 @@ namespace LavadoraLubricadora
             if (pnlSubmenuAdmin.Visible == true)
             {
                 pnlSubmenuAdmin.Visible = false;
+            }
+
+            if (pnlSubMenuNotificaciones.Visible == true)
+            {
+                pnlSubMenuNotificaciones.Visible = false;
             }
         }
 
@@ -131,8 +137,13 @@ namespace LavadoraLubricadora
             if (Application.OpenForms["frmGenerarReportes"] == null)
                 btnGReportesVentas.BackColor = Color.FromArgb(255, 255, 255);
             if (Application.OpenForms["frmAdminUsuarios"] == null)
-                btnGReporteCompras.BackColor = Color.FromArgb(255, 255, 255);      
-                
+                btnAdminUsuario.BackColor = Color.FromArgb(255, 255, 255);
+            if (Application.OpenForms["frmGenerarReporteCompras"] == null)
+                btnGReporteCompras.BackColor = Color.FromArgb(255, 255, 255);
+
+            if (Application.OpenForms["frmNotificaciones"] == null)
+                btnVNotificacion.BackColor = Color.FromArgb(255, 255, 255);
+
         }
 
         private void btnBuscarProductos_Click(object sender, EventArgs e)
@@ -290,6 +301,25 @@ namespace LavadoraLubricadora
         {
             AbrirFormulario<frmGenerarReporteCompras>();
             btnGReporteCompras.BackColor = Color.FromArgb(199, 207, 225);
+        }
+
+        private void btnNotificacion_Click(object sender, EventArgs e)
+        {
+            if (pnlSubMenuNotificaciones.Visible == false)
+            {
+                OcultarSubmenu();
+                MostrarSubmenu(pnlSubMenuNotificaciones);
+            }
+            else
+            {
+                OcultarSubmenu();
+            }
+        }
+
+        private void btnVNotificacion_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<frmNotificaciones>();
+            btnVNotificacion.BackColor = Color.FromArgb(199, 207, 225);
         }
     }
 }

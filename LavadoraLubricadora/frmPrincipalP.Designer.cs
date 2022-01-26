@@ -30,6 +30,7 @@
         {
             this.panelMenu = new System.Windows.Forms.Panel();
             this.pnlSubmenuAdmin = new System.Windows.Forms.Panel();
+            this.btnAdminUsuario = new System.Windows.Forms.Button();
             this.btnGReporteCompras = new System.Windows.Forms.Button();
             this.btnGReportesVentas = new System.Windows.Forms.Button();
             this.btnAdministracion = new System.Windows.Forms.Button();
@@ -56,7 +57,9 @@
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlAdmin = new System.Windows.Forms.Panel();
-            this.btnAdminUsuario = new System.Windows.Forms.Button();
+            this.btnNotificacion = new System.Windows.Forms.Button();
+            this.pnlSubMenuNotificaciones = new System.Windows.Forms.Panel();
+            this.btnVNotificacion = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.pnlSubmenuAdmin.SuspendLayout();
             this.pnlSubmenuCompras.SuspendLayout();
@@ -65,12 +68,15 @@
             this.pnlSubmenuBuscar.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlSubMenuNotificaciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.AutoScroll = true;
             this.panelMenu.BackColor = System.Drawing.Color.White;
+            this.panelMenu.Controls.Add(this.pnlSubMenuNotificaciones);
+            this.panelMenu.Controls.Add(this.btnNotificacion);
             this.panelMenu.Controls.Add(this.pnlSubmenuAdmin);
             this.panelMenu.Controls.Add(this.btnAdministracion);
             this.panelMenu.Controls.Add(this.pnlSubmenuCompras);
@@ -98,6 +104,23 @@
             this.pnlSubmenuAdmin.Name = "pnlSubmenuAdmin";
             this.pnlSubmenuAdmin.Size = new System.Drawing.Size(233, 126);
             this.pnlSubmenuAdmin.TabIndex = 11;
+            // 
+            // btnAdminUsuario
+            // 
+            this.btnAdminUsuario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdminUsuario.FlatAppearance.BorderSize = 0;
+            this.btnAdminUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
+            this.btnAdminUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdminUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnAdminUsuario.Location = new System.Drawing.Point(0, 80);
+            this.btnAdminUsuario.Name = "btnAdminUsuario";
+            this.btnAdminUsuario.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnAdminUsuario.Size = new System.Drawing.Size(233, 40);
+            this.btnAdminUsuario.TabIndex = 2;
+            this.btnAdminUsuario.Text = "Administrar Usuarios";
+            this.btnAdminUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdminUsuario.UseVisualStyleBackColor = true;
+            this.btnAdminUsuario.Click += new System.EventHandler(this.btnAdminUsuario_Click);
             // 
             // btnGReporteCompras
             // 
@@ -494,22 +517,48 @@
             this.pnlAdmin.Size = new System.Drawing.Size(834, 697);
             this.pnlAdmin.TabIndex = 1;
             // 
-            // btnAdminUsuario
+            // btnNotificacion
             // 
-            this.btnAdminUsuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdminUsuario.FlatAppearance.BorderSize = 0;
-            this.btnAdminUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
-            this.btnAdminUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdminUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
-            this.btnAdminUsuario.Location = new System.Drawing.Point(0, 80);
-            this.btnAdminUsuario.Name = "btnAdminUsuario";
-            this.btnAdminUsuario.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnAdminUsuario.Size = new System.Drawing.Size(233, 40);
-            this.btnAdminUsuario.TabIndex = 2;
-            this.btnAdminUsuario.Text = "Administrar Usuarios";
-            this.btnAdminUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdminUsuario.UseVisualStyleBackColor = true;
-            this.btnAdminUsuario.Click += new System.EventHandler(this.btnAdminUsuario_Click);
+            this.btnNotificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnNotificacion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNotificacion.FlatAppearance.BorderSize = 0;
+            this.btnNotificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnNotificacion.Location = new System.Drawing.Point(0, 943);
+            this.btnNotificacion.Name = "btnNotificacion";
+            this.btnNotificacion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnNotificacion.Size = new System.Drawing.Size(233, 45);
+            this.btnNotificacion.TabIndex = 12;
+            this.btnNotificacion.Text = "Notificaciones";
+            this.btnNotificacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNotificacion.UseVisualStyleBackColor = false;
+            this.btnNotificacion.Click += new System.EventHandler(this.btnNotificacion_Click);
+            // 
+            // pnlSubMenuNotificaciones
+            // 
+            this.pnlSubMenuNotificaciones.Controls.Add(this.btnVNotificacion);
+            this.pnlSubMenuNotificaciones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSubMenuNotificaciones.Location = new System.Drawing.Point(0, 988);
+            this.pnlSubMenuNotificaciones.Name = "pnlSubMenuNotificaciones";
+            this.pnlSubMenuNotificaciones.Size = new System.Drawing.Size(233, 126);
+            this.pnlSubMenuNotificaciones.TabIndex = 13;
+            // 
+            // btnVNotificacion
+            // 
+            this.btnVNotificacion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVNotificacion.FlatAppearance.BorderSize = 0;
+            this.btnVNotificacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
+            this.btnVNotificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVNotificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnVNotificacion.Location = new System.Drawing.Point(0, 0);
+            this.btnVNotificacion.Name = "btnVNotificacion";
+            this.btnVNotificacion.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnVNotificacion.Size = new System.Drawing.Size(233, 40);
+            this.btnVNotificacion.TabIndex = 0;
+            this.btnVNotificacion.Text = "Visualizar Notificaciones";
+            this.btnVNotificacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVNotificacion.UseVisualStyleBackColor = true;
+            this.btnVNotificacion.Click += new System.EventHandler(this.btnVNotificacion_Click);
             // 
             // frmPrincipalP
             // 
@@ -529,6 +578,7 @@
             this.pnlSubmenuBuscar.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlSubMenuNotificaciones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -564,5 +614,8 @@
         private System.Windows.Forms.Button btnAdministracion;
         private System.Windows.Forms.Button btnGReporteCompras;
         private System.Windows.Forms.Button btnAdminUsuario;
+        private System.Windows.Forms.Panel pnlSubMenuNotificaciones;
+        private System.Windows.Forms.Button btnVNotificacion;
+        private System.Windows.Forms.Button btnNotificacion;
     }
 }
