@@ -36,5 +36,15 @@ namespace LavadoraLubricadora
             
             
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("¿Seguro que desea Salir?", "Aviso", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

@@ -81,7 +81,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel1.Controls.Add(this.btnBuscar, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtBusqueda, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.cbxCriBusqueda, 1, 1);
@@ -104,7 +104,7 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscar.Location = new System.Drawing.Point(550, 49);
+            this.btnBuscar.Location = new System.Drawing.Point(547, 49);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(79, 36);
             this.btnBuscar.TabIndex = 118;
@@ -115,9 +115,9 @@
             // txtBusqueda
             // 
             this.txtBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusqueda.Location = new System.Drawing.Point(356, 57);
+            this.txtBusqueda.Location = new System.Drawing.Point(354, 57);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(183, 20);
+            this.txtBusqueda.Size = new System.Drawing.Size(182, 20);
             this.txtBusqueda.TabIndex = 117;
             // 
             // cbxCriBusqueda
@@ -125,12 +125,14 @@
             this.cbxCriBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxCriBusqueda.FormattingEnabled = true;
             this.cbxCriBusqueda.Items.AddRange(new object[] {
-            "Codigo de Barras",
+            "Código de Barras",
             "Marca",
+            "Código de Filtro",
+            "Rosca",
             "Mostrar Todos"});
-            this.cbxCriBusqueda.Location = new System.Drawing.Point(125, 57);
+            this.cbxCriBusqueda.Location = new System.Drawing.Point(124, 57);
             this.cbxCriBusqueda.Name = "cbxCriBusqueda";
-            this.cbxCriBusqueda.Size = new System.Drawing.Size(169, 21);
+            this.cbxCriBusqueda.Size = new System.Drawing.Size(168, 21);
             this.cbxCriBusqueda.TabIndex = 120;
             this.cbxCriBusqueda.SelectedValueChanged += new System.EventHandler(this.cbxCriBusqueda_SelectedValueChanged);
             // 
@@ -149,7 +151,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label2, 3);
-            this.label2.Location = new System.Drawing.Point(265, 13);
+            this.label2.Location = new System.Drawing.Point(263, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 13);
             this.label2.TabIndex = 122;

@@ -39,7 +39,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.lblMensajeError = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -62,7 +61,7 @@
             panelBarraTitulo.Location = new System.Drawing.Point(0, 0);
             panelBarraTitulo.Name = "panelBarraTitulo";
             panelBarraTitulo.Size = new System.Drawing.Size(800, 40);
-            panelBarraTitulo.TabIndex = 9;
+            panelBarraTitulo.TabIndex = 3;
             panelBarraTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelBarraTitulo_MouseMove);
             // 
             // lblNombre
@@ -107,7 +106,7 @@
             this.panel2.Location = new System.Drawing.Point(358, 111);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(350, 1);
-            this.panel2.TabIndex = 8;
+            this.panel2.TabIndex = 0;
             // 
             // txtCorreo
             // 
@@ -119,7 +118,7 @@
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(350, 20);
             this.txtCorreo.TabIndex = 0;
-            this.txtCorreo.Text = "CORREO";
+            this.txtCorreo.Text = "CORREO/USUARIO";
             this.txtCorreo.Enter += new System.EventHandler(this.txtUser_Enter);
             this.txtCorreo.Leave += new System.EventHandler(this.txtUser_Leave);
             // 
@@ -143,13 +142,12 @@
             this.panel3.Location = new System.Drawing.Point(358, 167);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(350, 1);
-            this.panel3.TabIndex = 9;
+            this.panel3.TabIndex = 2;
             // 
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.White;
             this.panelContenedor.Controls.Add(this.lblMensajeError);
-            this.panelContenedor.Controls.Add(this.linkLabel1);
             this.panelContenedor.Controls.Add(this.btnIngresar);
             this.panelContenedor.Controls.Add(this.panel1);
             this.panelContenedor.Controls.Add(panelBarraTitulo);
@@ -169,20 +167,9 @@
             this.lblMensajeError.Location = new System.Drawing.Point(358, 186);
             this.lblMensajeError.Name = "lblMensajeError";
             this.lblMensajeError.Size = new System.Drawing.Size(136, 19);
-            this.lblMensajeError.TabIndex = 10;
+            this.lblMensajeError.TabIndex = 1;
             this.lblMensajeError.Text = "Mensaje de Error";
             this.lblMensajeError.Visible = false;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.linkLabel1.Location = new System.Drawing.Point(477, 283);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(119, 13);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "¿Olvidó su contraseña?";
             // 
             // btnIngresar
             // 
@@ -196,7 +183,7 @@
             this.btnIngresar.Location = new System.Drawing.Point(358, 250);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(350, 30);
-            this.btnIngresar.TabIndex = 2;
+            this.btnIngresar.TabIndex = 1;
             this.btnIngresar.Text = "INGRESAR";
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
@@ -261,7 +248,6 @@
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Button btnIngresar;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label lblMensajeError;
     }
 }

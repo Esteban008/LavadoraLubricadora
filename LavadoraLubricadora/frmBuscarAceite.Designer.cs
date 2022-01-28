@@ -62,12 +62,13 @@
             this.cbxCriBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxCriBusqueda.FormattingEnabled = true;
             this.cbxCriBusqueda.Items.AddRange(new object[] {
-            "Codigo de Barras",
+            "Código de Barras",
             "Marca",
+            "Viscosidad",
             "Mostrar Todos"});
-            this.cbxCriBusqueda.Location = new System.Drawing.Point(127, 57);
+            this.cbxCriBusqueda.Location = new System.Drawing.Point(125, 57);
             this.cbxCriBusqueda.Name = "cbxCriBusqueda";
-            this.cbxCriBusqueda.Size = new System.Drawing.Size(172, 21);
+            this.cbxCriBusqueda.Size = new System.Drawing.Size(170, 21);
             this.cbxCriBusqueda.TabIndex = 120;
             this.cbxCriBusqueda.SelectedValueChanged += new System.EventHandler(this.cbxCriBusqueda_SelectedValueChanged);
             // 
@@ -95,7 +96,7 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscar.Location = new System.Drawing.Point(558, 50);
+            this.btnBuscar.Location = new System.Drawing.Point(551, 50);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(80, 35);
             this.btnBuscar.TabIndex = 118;
@@ -106,16 +107,16 @@
             // txtBusqueda
             // 
             this.txtBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusqueda.Location = new System.Drawing.Point(362, 57);
+            this.txtBusqueda.Location = new System.Drawing.Point(358, 57);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(186, 20);
+            this.txtBusqueda.Size = new System.Drawing.Size(183, 20);
             this.txtBusqueda.TabIndex = 117;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 61);
+            this.label1.Location = new System.Drawing.Point(7, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 13);
             this.label1.TabIndex = 116;
@@ -131,7 +132,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel1.Controls.Add(this.btnBuscar, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtBusqueda, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.cbxCriBusqueda, 1, 1);
@@ -145,14 +146,13 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(670, 96);
             this.tableLayoutPanel1.TabIndex = 121;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label2, 3);
-            this.label2.Location = new System.Drawing.Point(271, 13);
+            this.label2.Location = new System.Drawing.Point(266, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 13);
             this.label2.TabIndex = 122;
@@ -244,7 +244,7 @@
             this.TipoAceite.HeaderText = "Tipo de Aceite";
             this.TipoAceite.Name = "TipoAceite";
             this.TipoAceite.ReadOnly = true;
-            this.TipoAceite.Width = 101;
+            this.TipoAceite.Width = 93;
             // 
             // API
             // 
@@ -332,7 +332,6 @@
             this.dgvAceites.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAceites.Size = new System.Drawing.Size(670, 281);
             this.dgvAceites.TabIndex = 115;
-            this.dgvAceites.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAceites_CellContentClick);
             // 
             // frmBuscarAceite
             // 

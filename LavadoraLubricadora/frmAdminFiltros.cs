@@ -413,6 +413,10 @@ namespace LavadoraLubricadora
                     cliente.IngresarCodigoFiltro(txtCodigoBE.Text, codigo);
                 }
 
+                if (cliente.ValidarMinFiltro(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString())))
+                {
+                    MessageBox.Show("Este producto está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                }
                 DialogResult dialogResult = MessageBox.Show("Filtro actualizado con éxito", "Aviso", MessageBoxButtons.OK);
 
                 LimpiarCamposE();

@@ -994,6 +994,24 @@ namespace LavadoraLubricadora.LavadoraService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LavadoraService.ILavadoraService")]
     public interface ILavadoraService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteApellidoResponse")]
+        System.Data.DataTable BuscarClienteApellido(string apellido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteApellidoResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteApellidoAsync(string apellido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedula", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaResponse")]
+        System.Data.DataTable BuscarClienteCedula(string cedula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedula", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteCedulaAsync(string cedula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarCliente", ReplyAction="http://tempuri.org/ILavadoraService/ValidarClienteResponse")]
+        bool ValidarCliente(string cedula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarCliente", ReplyAction="http://tempuri.org/ILavadoraService/ValidarClienteResponse")]
+        System.Threading.Tasks.Task<bool> ValidarClienteAsync(string cedula);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProveedorResponse")]
         void IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
         
@@ -1408,6 +1426,12 @@ namespace LavadoraLubricadora.LavadoraService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarAceiteMarca", ReplyAction="http://tempuri.org/ILavadoraService/BuscarAceiteMarcaResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> BuscarAceiteMarcaAsync(string marca);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarAceiteViscosidad", ReplyAction="http://tempuri.org/ILavadoraService/BuscarAceiteViscosidadResponse")]
+        System.Data.DataTable BuscarAceiteViscosidad(string sae);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarAceiteViscosidad", ReplyAction="http://tempuri.org/ILavadoraService/BuscarAceiteViscosidadResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarAceiteViscosidadAsync(string sae);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarAceiteCodigo", ReplyAction="http://tempuri.org/ILavadoraService/BuscarAceiteCodigoResponse")]
         System.Data.DataTable BuscarAceiteCodigo(string marca);
         
@@ -1509,6 +1533,18 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarFiltroMarca", ReplyAction="http://tempuri.org/ILavadoraService/BuscarFiltroMarcaResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> BuscarFiltroMarcaAsync(string marca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarFiltroCodigoF", ReplyAction="http://tempuri.org/ILavadoraService/BuscarFiltroCodigoFResponse")]
+        System.Data.DataTable BuscarFiltroCodigoF(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarFiltroCodigoF", ReplyAction="http://tempuri.org/ILavadoraService/BuscarFiltroCodigoFResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarFiltroCodigoFAsync(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarFiltroRosca", ReplyAction="http://tempuri.org/ILavadoraService/BuscarFiltroRoscaResponse")]
+        System.Data.DataTable BuscarFiltroRosca(string rosca);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarFiltroRosca", ReplyAction="http://tempuri.org/ILavadoraService/BuscarFiltroRoscaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarFiltroRoscaAsync(string rosca);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarFiltroCodigo", ReplyAction="http://tempuri.org/ILavadoraService/BuscarFiltroCodigoResponse")]
         System.Data.DataTable BuscarFiltroCodigo(string marca);
@@ -1731,24 +1767,6 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerClientes", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerClientesResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> ObtenerClientesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteApellidoResponse")]
-        System.Data.DataTable BuscarClienteApellido(string apellido);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteApellidoResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteApellidoAsync(string apellido);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedula", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaResponse")]
-        System.Data.DataTable BuscarClienteCedula(string cedula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedula", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteCedulaAsync(string cedula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarCliente", ReplyAction="http://tempuri.org/ILavadoraService/ValidarClienteResponse")]
-        bool ValidarCliente(string cedula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarCliente", ReplyAction="http://tempuri.org/ILavadoraService/ValidarClienteResponse")]
-        System.Threading.Tasks.Task<bool> ValidarClienteAsync(string cedula);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1776,6 +1794,30 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public LavadoraServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public System.Data.DataTable BuscarClienteApellido(string apellido) {
+            return base.Channel.BuscarClienteApellido(apellido);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteApellidoAsync(string apellido) {
+            return base.Channel.BuscarClienteApellidoAsync(apellido);
+        }
+        
+        public System.Data.DataTable BuscarClienteCedula(string cedula) {
+            return base.Channel.BuscarClienteCedula(cedula);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteCedulaAsync(string cedula) {
+            return base.Channel.BuscarClienteCedulaAsync(cedula);
+        }
+        
+        public bool ValidarCliente(string cedula) {
+            return base.Channel.ValidarCliente(cedula);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarClienteAsync(string cedula) {
+            return base.Channel.ValidarClienteAsync(cedula);
         }
         
         public void IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
@@ -2308,6 +2350,14 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.BuscarAceiteMarcaAsync(marca);
         }
         
+        public System.Data.DataTable BuscarAceiteViscosidad(string sae) {
+            return base.Channel.BuscarAceiteViscosidad(sae);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarAceiteViscosidadAsync(string sae) {
+            return base.Channel.BuscarAceiteViscosidadAsync(sae);
+        }
+        
         public System.Data.DataTable BuscarAceiteCodigo(string marca) {
             return base.Channel.BuscarAceiteCodigo(marca);
         }
@@ -2442,6 +2492,22 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> BuscarFiltroMarcaAsync(string marca) {
             return base.Channel.BuscarFiltroMarcaAsync(marca);
+        }
+        
+        public System.Data.DataTable BuscarFiltroCodigoF(string codigo) {
+            return base.Channel.BuscarFiltroCodigoF(codigo);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarFiltroCodigoFAsync(string codigo) {
+            return base.Channel.BuscarFiltroCodigoFAsync(codigo);
+        }
+        
+        public System.Data.DataTable BuscarFiltroRosca(string rosca) {
+            return base.Channel.BuscarFiltroRosca(rosca);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarFiltroRoscaAsync(string rosca) {
+            return base.Channel.BuscarFiltroRoscaAsync(rosca);
         }
         
         public System.Data.DataTable BuscarFiltroCodigo(string marca) {
@@ -2738,30 +2804,6 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerClientesAsync() {
             return base.Channel.ObtenerClientesAsync();
-        }
-        
-        public System.Data.DataTable BuscarClienteApellido(string apellido) {
-            return base.Channel.BuscarClienteApellido(apellido);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteApellidoAsync(string apellido) {
-            return base.Channel.BuscarClienteApellidoAsync(apellido);
-        }
-        
-        public System.Data.DataTable BuscarClienteCedula(string cedula) {
-            return base.Channel.BuscarClienteCedula(cedula);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteCedulaAsync(string cedula) {
-            return base.Channel.BuscarClienteCedulaAsync(cedula);
-        }
-        
-        public bool ValidarCliente(string cedula) {
-            return base.Channel.ValidarCliente(cedula);
-        }
-        
-        public System.Threading.Tasks.Task<bool> ValidarClienteAsync(string cedula) {
-            return base.Channel.ValidarClienteAsync(cedula);
         }
     }
 }

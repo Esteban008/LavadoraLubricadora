@@ -321,5 +321,10 @@ namespace LavadoraLubricadora
             AbrirFormulario<frmNotificaciones>();
             btnVNotificacion.BackColor = Color.FromArgb(199, 207, 225);
         }
+
+        private void frmPrincipalP_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(1);
+        }
     }
 }

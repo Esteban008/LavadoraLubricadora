@@ -285,6 +285,11 @@ namespace LavadoraLubricadora
                         Convert.ToInt32(txtCantidadMinE.Text), Convert.ToDouble(txtPreSIvaE.Text), Convert.ToDouble(txtPreCIvaE.Text), Convert.ToDouble(txtPreVMayorE.Text),
                         Convert.ToDouble(txtPreVMenorE.Text), Convert.ToDouble(txtMargenMayorE.Text), Convert.ToDouble(txtMargenMenorE.Text));
 
+                if (cliente.ValidarMinProducto(Convert.ToInt32(dgvProductoE.SelectedCells[0].Value.ToString())))
+                {
+                    MessageBox.Show("Este producto está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                }
+
                 DialogResult dialogResult = MessageBox.Show("Producto actualizado con éxito", "Aviso", MessageBoxButtons.OK);
                 ActualizarDgvProductoE();
                 LimpiarCamposE();

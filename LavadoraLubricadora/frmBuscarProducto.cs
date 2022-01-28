@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ServiceModel;
 
 namespace LavadoraLubricadora
 {
@@ -20,38 +21,60 @@ namespace LavadoraLubricadora
 
         private void frmBuscarProducto_Load(object sender, EventArgs e)
         {
+            //instancia de nuevo objeto de conexion a servicio web 
             cliente = new LavadoraService.LavadoraServiceClient();
 
             cbxCriBusqueda.DropDownStyle = ComboBoxStyle.DropDownList;
             txtBusqueda.Visible = false;
         }
 
+        //Este evento nos permite buscar un aceite dependiendo del parametro criterio de
+        //busqueda desde el combo box cbxCriBusqueda
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (cbxCriBusqueda.SelectedItem.ToString().Equals("Codigo de Barras"))
+                if (cbxCriBusqueda.SelectedItem != null)
                 {
-                    DataTable productos = cliente.BuscarProductoCodigo(txtBusqueda.Text);
-                    dgvProducto.DataSource = productos;
+
+                        if (cbxCriBusqueda.SelectedItem.ToString().Equals("Código de Barras"))
+                        {
+                            DataTable productos = cliente.BuscarProductoCodigo(txtBusqueda.Text);
+                            dgvProducto.DataSource = productos;
+                        }
+                        else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Marca"))
+                        {
+                            DataTable productos = cliente.BuscarProductoMarca(txtBusqueda.Text);
+                            dgvProducto.DataSource = productos;
+                        }
+                        else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Mostrar Todos"))
+                        {
+                            DataTable productos = cliente.ObtenerProducto();
+                            dgvProducto.DataSource = productos;
+                        }
+
                 }
-                else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Marca"))
+                else
                 {
-                    DataTable productos = cliente.BuscarProductoMarca(txtBusqueda.Text);
-                    dgvProducto.DataSource = productos;
+                    DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
                 }
-                else if (cbxCriBusqueda.SelectedItem.ToString().Equals("Mostrar Todos"))
-                {
-                    DataTable productos = cliente.ObtenerProducto();
-                    dgvProducto.DataSource = productos;
-                }
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (NullReferenceException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
-            }        
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
         }
 
+        //Este evento nos permite habilitar y deshabilitar el control respectivo
+        //para el criterio de busqueda seleccionado
         private void cbxCriBusqueda_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cbxCriBusqueda.SelectedItem.ToString().Equals("Mostrar Todos"))

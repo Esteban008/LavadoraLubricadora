@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ServiceModel;
 
 namespace LavadoraLubricadora
 {
@@ -43,7 +44,7 @@ namespace LavadoraLubricadora
 
         private void txtUser_Enter(object sender, EventArgs e)
         {
-            if (txtCorreo.Text == "CORREO")
+            if (txtCorreo.Text == "CORREO/USUARIO")
             {
                 txtCorreo.Text = "";
                 txtCorreo.ForeColor = Color.Black;
@@ -54,7 +55,7 @@ namespace LavadoraLubricadora
         {
             if (txtCorreo.Text == "")
             {
-                txtCorreo.Text = "CORREO";
+                txtCorreo.Text = "CORREO/USUARIO";
                 txtCorreo.ForeColor = Color.DimGray;
             }
         }
@@ -83,7 +84,7 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (txtCorreo.Text != "CORREO")
+                if (txtCorreo.Text != "CORREO/USUARIO")
                 {
                     if (txtPassword.Text != "CONTRASEÑA")
                     {
@@ -115,9 +116,13 @@ namespace LavadoraLubricadora
                     lblMensajeError.Visible = true;
                 }
             }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
          
         }

@@ -9,6 +9,24 @@
       <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ILavadoraService_BuscarClienteApellido_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarClienteApellido" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarClienteApellido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarClienteApellidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarClienteCedula_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarClienteCedula" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarClienteCedula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarClienteCedulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarCliente" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarClienteResponse" />
+  </wsdl:message>
   <wsdl:message name="ILavadoraService_IngresarProveedor_InputMessage">
     <wsdl:part name="parameters" element="tns:IngresarProveedor" />
   </wsdl:message>
@@ -357,6 +375,12 @@
   <wsdl:message name="ILavadoraService_BuscarAceiteMarca_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarAceiteMarcaResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarAceiteViscosidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarAceiteViscosidad" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarAceiteViscosidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarAceiteViscosidadResponse" />
+  </wsdl:message>
   <wsdl:message name="ILavadoraService_BuscarAceiteCodigo_InputMessage">
     <wsdl:part name="parameters" element="tns:BuscarAceiteCodigo" />
   </wsdl:message>
@@ -458,6 +482,18 @@
   </wsdl:message>
   <wsdl:message name="ILavadoraService_BuscarFiltroMarca_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarFiltroMarcaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarFiltroCodigoF_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarFiltroCodigoF" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarFiltroCodigoF_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarFiltroCodigoFResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarFiltroRosca_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarFiltroRosca" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarFiltroRosca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarFiltroRoscaResponse" />
   </wsdl:message>
   <wsdl:message name="ILavadoraService_BuscarFiltroCodigo_InputMessage">
     <wsdl:part name="parameters" element="tns:BuscarFiltroCodigo" />
@@ -681,25 +717,19 @@
   <wsdl:message name="ILavadoraService_ObtenerClientes_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerClientesResponse" />
   </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarClienteApellido_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarClienteApellido" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarClienteApellido_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarClienteApellidoResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarClienteCedula_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarClienteCedula" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarClienteCedula_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarClienteCedulaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarCliente_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarCliente" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarCliente_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarClienteResponse" />
-  </wsdl:message>
   <wsdl:portType name="ILavadoraService">
+    <wsdl:operation name="BuscarClienteApellido">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteApellido" message="tns:ILavadoraService_BuscarClienteApellido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteApellidoResponse" message="tns:ILavadoraService_BuscarClienteApellido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarClienteCedula">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedula" message="tns:ILavadoraService_BuscarClienteCedula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaResponse" message="tns:ILavadoraService_BuscarClienteCedula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarCliente" message="tns:ILavadoraService_ValidarCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarClienteResponse" message="tns:ILavadoraService_ValidarCliente_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="IngresarProveedor">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProveedor" message="tns:ILavadoraService_IngresarProveedor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProveedorResponse" message="tns:ILavadoraService_IngresarProveedor_OutputMessage" />
@@ -932,6 +962,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarAceiteMarca" message="tns:ILavadoraService_BuscarAceiteMarca_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarAceiteMarcaResponse" message="tns:ILavadoraService_BuscarAceiteMarca_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="BuscarAceiteViscosidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarAceiteViscosidad" message="tns:ILavadoraService_BuscarAceiteViscosidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarAceiteViscosidadResponse" message="tns:ILavadoraService_BuscarAceiteViscosidad_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="BuscarAceiteCodigo">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarAceiteCodigo" message="tns:ILavadoraService_BuscarAceiteCodigo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarAceiteCodigoResponse" message="tns:ILavadoraService_BuscarAceiteCodigo_OutputMessage" />
@@ -999,6 +1033,14 @@
     <wsdl:operation name="BuscarFiltroMarca">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarFiltroMarca" message="tns:ILavadoraService_BuscarFiltroMarca_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarFiltroMarcaResponse" message="tns:ILavadoraService_BuscarFiltroMarca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarFiltroCodigoF">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarFiltroCodigoF" message="tns:ILavadoraService_BuscarFiltroCodigoF_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarFiltroCodigoFResponse" message="tns:ILavadoraService_BuscarFiltroCodigoF_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarFiltroRosca">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarFiltroRosca" message="tns:ILavadoraService_BuscarFiltroRosca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarFiltroRoscaResponse" message="tns:ILavadoraService_BuscarFiltroRosca_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="BuscarFiltroCodigo">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarFiltroCodigo" message="tns:ILavadoraService_BuscarFiltroCodigo_InputMessage" />
@@ -1148,21 +1190,36 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerClientes" message="tns:ILavadoraService_ObtenerClientes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerClientesResponse" message="tns:ILavadoraService_ObtenerClientes_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="BuscarClienteApellido">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteApellido" message="tns:ILavadoraService_BuscarClienteApellido_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteApellidoResponse" message="tns:ILavadoraService_BuscarClienteApellido_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarClienteCedula">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedula" message="tns:ILavadoraService_BuscarClienteCedula_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaResponse" message="tns:ILavadoraService_BuscarClienteCedula_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ValidarCliente">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarCliente" message="tns:ILavadoraService_ValidarCliente_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarClienteResponse" message="tns:ILavadoraService_ValidarCliente_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILavadoraService" type="tns:ILavadoraService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarClienteApellido">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarClienteApellido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarClienteCedula">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarClienteCedula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCliente">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="IngresarProveedor">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarProveedor" style="document" />
       <wsdl:input>
@@ -1685,6 +1742,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="BuscarAceiteViscosidad">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarAceiteViscosidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="BuscarAceiteCodigo">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarAceiteCodigo" style="document" />
       <wsdl:input>
@@ -1831,6 +1897,24 @@
     </wsdl:operation>
     <wsdl:operation name="BuscarFiltroMarca">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarFiltroMarca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarFiltroCodigoF">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarFiltroCodigoF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarFiltroRosca">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarFiltroRosca" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2164,33 +2248,6 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerClientes">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerClientes" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarClienteApellido">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarClienteApellido" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarClienteCedula">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarClienteCedula" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ValidarCliente">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarCliente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

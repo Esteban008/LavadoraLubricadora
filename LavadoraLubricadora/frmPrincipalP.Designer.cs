@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.pnlSubMenuNotificaciones = new System.Windows.Forms.Panel();
+            this.btnVNotificacion = new System.Windows.Forms.Button();
+            this.btnNotificacion = new System.Windows.Forms.Button();
             this.pnlSubmenuAdmin = new System.Windows.Forms.Panel();
             this.btnAdminUsuario = new System.Windows.Forms.Button();
             this.btnGReporteCompras = new System.Windows.Forms.Button();
@@ -57,10 +60,8 @@
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlAdmin = new System.Windows.Forms.Panel();
-            this.btnNotificacion = new System.Windows.Forms.Button();
-            this.pnlSubMenuNotificaciones = new System.Windows.Forms.Panel();
-            this.btnVNotificacion = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
+            this.pnlSubMenuNotificaciones.SuspendLayout();
             this.pnlSubmenuAdmin.SuspendLayout();
             this.pnlSubmenuCompras.SuspendLayout();
             this.pnlSubmenuVentas.SuspendLayout();
@@ -68,7 +69,6 @@
             this.pnlSubmenuBuscar.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnlSubMenuNotificaciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -93,6 +93,49 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(250, 697);
             this.panelMenu.TabIndex = 0;
+            // 
+            // pnlSubMenuNotificaciones
+            // 
+            this.pnlSubMenuNotificaciones.Controls.Add(this.btnVNotificacion);
+            this.pnlSubMenuNotificaciones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSubMenuNotificaciones.Location = new System.Drawing.Point(0, 988);
+            this.pnlSubMenuNotificaciones.Name = "pnlSubMenuNotificaciones";
+            this.pnlSubMenuNotificaciones.Size = new System.Drawing.Size(233, 126);
+            this.pnlSubMenuNotificaciones.TabIndex = 13;
+            // 
+            // btnVNotificacion
+            // 
+            this.btnVNotificacion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVNotificacion.FlatAppearance.BorderSize = 0;
+            this.btnVNotificacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
+            this.btnVNotificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVNotificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnVNotificacion.Location = new System.Drawing.Point(0, 0);
+            this.btnVNotificacion.Name = "btnVNotificacion";
+            this.btnVNotificacion.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnVNotificacion.Size = new System.Drawing.Size(233, 40);
+            this.btnVNotificacion.TabIndex = 0;
+            this.btnVNotificacion.Text = "Visualizar Notificaciones";
+            this.btnVNotificacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVNotificacion.UseVisualStyleBackColor = true;
+            this.btnVNotificacion.Click += new System.EventHandler(this.btnVNotificacion_Click);
+            // 
+            // btnNotificacion
+            // 
+            this.btnNotificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnNotificacion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNotificacion.FlatAppearance.BorderSize = 0;
+            this.btnNotificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnNotificacion.Location = new System.Drawing.Point(0, 943);
+            this.btnNotificacion.Name = "btnNotificacion";
+            this.btnNotificacion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnNotificacion.Size = new System.Drawing.Size(233, 45);
+            this.btnNotificacion.TabIndex = 12;
+            this.btnNotificacion.Text = "Notificaciones";
+            this.btnNotificacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNotificacion.UseVisualStyleBackColor = false;
+            this.btnNotificacion.Click += new System.EventHandler(this.btnNotificacion_Click);
             // 
             // pnlSubmenuAdmin
             // 
@@ -517,49 +560,6 @@
             this.pnlAdmin.Size = new System.Drawing.Size(834, 697);
             this.pnlAdmin.TabIndex = 1;
             // 
-            // btnNotificacion
-            // 
-            this.btnNotificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnNotificacion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNotificacion.FlatAppearance.BorderSize = 0;
-            this.btnNotificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
-            this.btnNotificacion.Location = new System.Drawing.Point(0, 943);
-            this.btnNotificacion.Name = "btnNotificacion";
-            this.btnNotificacion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnNotificacion.Size = new System.Drawing.Size(233, 45);
-            this.btnNotificacion.TabIndex = 12;
-            this.btnNotificacion.Text = "Notificaciones";
-            this.btnNotificacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotificacion.UseVisualStyleBackColor = false;
-            this.btnNotificacion.Click += new System.EventHandler(this.btnNotificacion_Click);
-            // 
-            // pnlSubMenuNotificaciones
-            // 
-            this.pnlSubMenuNotificaciones.Controls.Add(this.btnVNotificacion);
-            this.pnlSubMenuNotificaciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSubMenuNotificaciones.Location = new System.Drawing.Point(0, 988);
-            this.pnlSubMenuNotificaciones.Name = "pnlSubMenuNotificaciones";
-            this.pnlSubMenuNotificaciones.Size = new System.Drawing.Size(233, 126);
-            this.pnlSubMenuNotificaciones.TabIndex = 13;
-            // 
-            // btnVNotificacion
-            // 
-            this.btnVNotificacion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVNotificacion.FlatAppearance.BorderSize = 0;
-            this.btnVNotificacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(207)))), ((int)(((byte)(225)))));
-            this.btnVNotificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVNotificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
-            this.btnVNotificacion.Location = new System.Drawing.Point(0, 0);
-            this.btnVNotificacion.Name = "btnVNotificacion";
-            this.btnVNotificacion.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnVNotificacion.Size = new System.Drawing.Size(233, 40);
-            this.btnVNotificacion.TabIndex = 0;
-            this.btnVNotificacion.Text = "Visualizar Notificaciones";
-            this.btnVNotificacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVNotificacion.UseVisualStyleBackColor = true;
-            this.btnVNotificacion.Click += new System.EventHandler(this.btnVNotificacion_Click);
-            // 
             // frmPrincipalP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -570,7 +570,9 @@
             this.MinimumSize = new System.Drawing.Size(1100, 736);
             this.Name = "frmPrincipalP";
             this.Text = "frmPrincipalP";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPrincipalP_FormClosed);
             this.panelMenu.ResumeLayout(false);
+            this.pnlSubMenuNotificaciones.ResumeLayout(false);
             this.pnlSubmenuAdmin.ResumeLayout(false);
             this.pnlSubmenuCompras.ResumeLayout(false);
             this.pnlSubmenuVentas.ResumeLayout(false);
@@ -578,7 +580,6 @@
             this.pnlSubmenuBuscar.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnlSubMenuNotificaciones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -54,25 +55,47 @@ namespace LavadoraLubricadora
             {
                 if (cliente.ValidarAceite(txtCodigoB.Text))
                 {
-                    MessageBox.Show("\t\tEste Aceite ya existe. \nSi desea actualizar los datos seleccione el boton Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("\t\tEste Aceite ya existe. \nSi desea actualizar los datos seleccione la pestaña Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    cliente.IngresarAceite(txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
-                    Convert.ToInt32(txtCantidadMin.Text), cbxPresentacion.SelectedItem.ToString(), cbxSae.SelectedItem.ToString(),
-                    cbxTipoCombustible.SelectedItem.ToString(), cbxApi.SelectedItem.ToString(), cbxTipoAceite.SelectedItem.ToString(),
-                    Convert.ToDouble(txtPreSIva.Text), Convert.ToDouble(txtPreCIva.Text), Convert.ToDouble(txtPreVMayor.Text),
-                    Convert.ToDouble(txtPrecioVMenor.Text), Convert.ToDouble(txtMargenMayor.Text), Convert.ToDouble(txtMargenMenor.Text));
+                    //Validacion de Combobox vacios
+                    if (cbxPresentacion.SelectedItem != null && cbxSae.SelectedItem != null && cbxTipoCombustible.SelectedItem != null &&
+                        cbxApi.SelectedItem != null && cbxTipoAceite.SelectedItem != null )
+                    {
+                        //Ingreso de Aceite a base de datos a través del servicio
+                        cliente.IngresarAceite(txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
+                        Convert.ToInt32(txtCantidadMin.Text), cbxPresentacion.SelectedItem.ToString(), cbxSae.SelectedItem.ToString(),
+                        cbxTipoCombustible.SelectedItem.ToString(), cbxApi.SelectedItem.ToString(), cbxTipoAceite.SelectedItem.ToString(),
+                        Convert.ToDouble(txtPreSIva.Text), Convert.ToDouble(txtPreCIva.Text), Convert.ToDouble(txtPreVMayor.Text),
+                        Convert.ToDouble(txtPrecioVMenor.Text), Convert.ToDouble(txtMargenMayor.Text), Convert.ToDouble(txtMargenMenor.Text));
 
-                    DialogResult dialogResult = MessageBox.Show("Aceite ingresado con éxito", "Aviso", MessageBoxButtons.OK);
+                        DialogResult dialogResult = MessageBox.Show("Aceite ingresado con éxito", "Aviso", MessageBoxButtons.OK);
 
-                    LimpiarCampos();
-                    cbxTipoCombustible.Items.AddRange(cliente.ObtenerTipoCombustible());
+                        LimpiarCampos();
+                        cbxTipoCombustible.Items.AddRange(cliente.ObtenerTipoCombustible());
+                        
+                        
+                    }
+                    else
+                    {
+                       MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+                    }
+                    
                 }
             }
-            catch (Exception)
+            catch (EndpointNotFoundException)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+
+            catch (Exception ex)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error" +ex, "Aviso", MessageBoxButtons.OK);
             }     
 
         }
@@ -95,10 +118,22 @@ namespace LavadoraLubricadora
 
         public void llenarCbxs()
         {
-            cbxPresentacion.Items.AddRange(cliente.ObtenerPresentacion());
-            cbxSae.Items.AddRange(cliente.ObtenerSAE());
-            cbxTipoCombustible.Items.AddRange(cliente.ObtenerTipoCombustible());
-            cbxTipoAceite.Items.AddRange(cliente.ObtenerTipoAceite());
+            try
+            {
+                cbxPresentacion.Items.AddRange(cliente.ObtenerPresentacion());
+                cbxSae.Items.AddRange(cliente.ObtenerSAE());
+                cbxTipoCombustible.Items.AddRange(cliente.ObtenerTipoCombustible());
+                cbxTipoAceite.Items.AddRange(cliente.ObtenerTipoAceite());
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+
         }
 
         public void DeshabilitarCampos()
@@ -130,6 +165,8 @@ namespace LavadoraLubricadora
             txtMargenMenor.Clear();
         }
 
+        //Calcula el precio de venta al por mayor
+        //y los margenes de ganancia
         public void Recalcular()
         {
             double precioVMenor = 0;
@@ -169,25 +206,59 @@ namespace LavadoraLubricadora
             txtMargenMayor.Text = margenxMayor.ToString();
         }
 
+        //Obtiene valores de API correspondiente al tipo de combustible
         private void cbxTipoCombustible_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxTipoCombustible.SelectedItem.ToString().Equals("Gasolina"))
+            try
             {
-                cbxApi.Items.Clear();
-                cbxApi.Items.AddRange(cliente.ObtenerApi(1));
+                if (cbxTipoCombustible.SelectedItem.ToString().Equals("Gasolina"))
+                {
+                    cbxApi.Items.Clear();
+                    cbxApi.Items.AddRange(cliente.ObtenerApi(1));
+                }
+                else if (cbxTipoCombustible.SelectedItem.ToString().Equals("Diesel"))
+                {
+                    cbxApi.Items.Clear();
+                    cbxApi.Items.AddRange(cliente.ObtenerApi(2));
+                }
+                else if (cbxTipoCombustible.SelectedItem.ToString().Equals("N/A"))
+                {
+                    cbxApi.Items.Clear();
+                    cbxApi.Items.AddRange(cliente.ObtenerApi(3));
+                }
+
             }
-            else if (cbxTipoCombustible.SelectedItem.ToString().Equals("Diesel"))
+            catch (EndpointNotFoundException)
             {
-                cbxApi.Items.Clear();
-                cbxApi.Items.AddRange(cliente.ObtenerApi(2));
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
-            else if (cbxTipoCombustible.SelectedItem.ToString().Equals("N/A"))
+            catch (Exception)
             {
-                cbxApi.Items.Clear();
-                cbxApi.Items.AddRange(cliente.ObtenerApi(3));
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
         }
 
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números y la coma", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCantidadMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números y la coma", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
         private void txtPreSIva_KeyPress(object sender, KeyPressEventArgs e)
         {
             //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
@@ -252,6 +323,8 @@ namespace LavadoraLubricadora
             }
         }
 
+
+        
         private void txtPrecioVMenor_KeyUp(object sender, KeyEventArgs e)
         {
             double precioVMenor = 0;
@@ -291,6 +364,7 @@ namespace LavadoraLubricadora
             try
             {
                 LimpiarCamposE();
+                cbxTipoCombustibleE.Items.AddRange(cliente.ObtenerTipoCombustible());
 
                 if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
                 {
@@ -323,11 +397,26 @@ namespace LavadoraLubricadora
         {
             try
             {
+
+                if (cbxPresentacion.SelectedItem != null && cbxSae.SelectedItem != null && cbxTipoCombustible.SelectedItem != null &&
+                        cbxApi.SelectedItem != null && cbxTipoAceite.SelectedItem != null)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+                }
                 cliente.EditarAceite(Convert.ToInt32(dgvAceitesE.SelectedCells[0].Value), txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
                                                    Convert.ToInt32(txtCantidadMinE.Text), cbxPresentacionE.SelectedItem.ToString(), cbxSaeE.SelectedItem.ToString(),
                                                    cbxTipoCombustibleE.SelectedItem.ToString(), cbxApiE.SelectedItem.ToString(), cbxTipoAceiteE.SelectedItem.ToString(),
                                                    Convert.ToDouble(txtPreSIvaE.Text), Convert.ToDouble(txtPreCIvaE.Text), Convert.ToDouble(txtPreVMayorE.Text),
                                                    Convert.ToDouble(txtPreVMenorE.Text), Convert.ToDouble(txtMargenMayorE.Text), Convert.ToDouble(txtMargenMenorE.Text));
+                
+                if (cliente.ValidarMinAceite(Convert.ToInt32(dgvAceitesE.SelectedCells[0].Value.ToString())))
+                {
+                    MessageBox.Show("Este producto está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                }
 
                 DialogResult dialogResult = MessageBox.Show("Aceite actualizado con éxito", "Aviso", MessageBoxButtons.OK);
                 ActualizarDgvAceiteE();
@@ -498,12 +587,12 @@ namespace LavadoraLubricadora
 
         private void dgvAceitesE_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             txtMarcaE.Text = dgvAceitesE.SelectedCells[1].Value.ToString();
             txtDescripcionE.Text = dgvAceitesE.SelectedCells[2].Value.ToString();
             cbxPresentacionE.SelectedItem = dgvAceitesE.SelectedCells[3].Value.ToString();
             cbxSaeE.SelectedItem = dgvAceitesE.SelectedCells[4].Value.ToString();
             cbxTipoAceiteE.SelectedItem = dgvAceitesE.SelectedCells[6].Value.ToString();
-            cbxTipoCombustibleE.SelectedItem = dgvAceitesE.SelectedCells[7].Value.ToString();
             txtCodigoBE.Text = dgvAceitesE.SelectedCells[8].Value.ToString();
             txtPreSIvaE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[9].Value.ToString()), 2).ToString();
             txtPreCIvaE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[10].Value.ToString()), 2).ToString();
@@ -511,6 +600,7 @@ namespace LavadoraLubricadora
             txtPreVMenorE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[12].Value.ToString()), 2).ToString();
             txtMargenMayorE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[13].Value.ToString()), 2).ToString();
             txtMargenMenorE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[14].Value.ToString()), 2).ToString();
+            cbxTipoCombustibleE.SelectedItem = dgvAceitesE.SelectedCells[7].Value.ToString();
             txtCantidadE.Text = dgvAceitesE.SelectedCells[15].Value.ToString();
             txtCantidadMinE.Text = dgvAceitesE.SelectedCells[16].Value.ToString();
             txtGananPorMayorE.Text = Math.Round((((Convert.ToDouble(txtPreVMayorE.Text) - Convert.ToDouble(txtPreCIvaE.Text))*100)/(Convert.ToDouble(txtPreCIvaE.Text)))).ToString();
@@ -548,6 +638,7 @@ namespace LavadoraLubricadora
                 cbxApiE.Items.Clear();
                 cbxApiE.Items.AddRange(cliente.ObtenerApi(3));
             }
+            
         }
 
         private void txtPreSIvaE_KeyPress(object sender, KeyPressEventArgs e)
@@ -730,7 +821,9 @@ namespace LavadoraLubricadora
             }
         }
 
+
         #endregion
 
+        
     }
 }
