@@ -1325,7 +1325,7 @@ namespace LavadoraLubricadora.LavadoraService {
         System.Threading.Tasks.Task<bool> LoginAsync(string correo, string clave);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceite", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteResponse")]
-        void IngresarAceite(
+        int IngresarAceite(
                     string marca, 
                     string descripcion, 
                     string codigoBarras, 
@@ -1344,7 +1344,7 @@ namespace LavadoraLubricadora.LavadoraService {
                     double margenMenor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceite", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteResponse")]
-        System.Threading.Tasks.Task IngresarAceiteAsync(
+        System.Threading.Tasks.Task<int> IngresarAceiteAsync(
                     string marca, 
                     string descripcion, 
                     string codigoBarras, 
@@ -1363,7 +1363,7 @@ namespace LavadoraLubricadora.LavadoraService {
                     double margenMenor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarAceite", ReplyAction="http://tempuri.org/ILavadoraService/EditarAceiteResponse")]
-        void EditarAceite(
+        int EditarAceite(
                     int id, 
                     string marca, 
                     string descripcion, 
@@ -1383,7 +1383,7 @@ namespace LavadoraLubricadora.LavadoraService {
                     double margenMenor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarAceite", ReplyAction="http://tempuri.org/ILavadoraService/EditarAceiteResponse")]
-        System.Threading.Tasks.Task EditarAceiteAsync(
+        System.Threading.Tasks.Task<int> EditarAceiteAsync(
                     int id, 
                     string marca, 
                     string descripcion, 
@@ -1403,10 +1403,10 @@ namespace LavadoraLubricadora.LavadoraService {
                     double margenMenor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarAceite", ReplyAction="http://tempuri.org/ILavadoraService/EliminarAceiteResponse")]
-        void EliminarAceite(int id);
+        int EliminarAceite(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarAceite", ReplyAction="http://tempuri.org/ILavadoraService/EliminarAceiteResponse")]
-        System.Threading.Tasks.Task EliminarAceiteAsync(int id);
+        System.Threading.Tasks.Task<int> EliminarAceiteAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarAceite", ReplyAction="http://tempuri.org/ILavadoraService/ValidarAceiteResponse")]
         bool ValidarAceite(string codigoBarras);
@@ -2236,7 +2236,7 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.LoginAsync(correo, clave);
         }
         
-        public void IngresarAceite(
+        public int IngresarAceite(
                     string marca, 
                     string descripcion, 
                     string codigoBarras, 
@@ -2253,10 +2253,10 @@ namespace LavadoraLubricadora.LavadoraService {
                     double precioMenor, 
                     double margenMayor, 
                     double margenMenor) {
-            base.Channel.IngresarAceite(marca, descripcion, codigoBarras, cantidad, cantidadMin, presentacion, sae, tipoCombustible, api, tipoAceite, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
+            return base.Channel.IngresarAceite(marca, descripcion, codigoBarras, cantidad, cantidadMin, presentacion, sae, tipoCombustible, api, tipoAceite, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
-        public System.Threading.Tasks.Task IngresarAceiteAsync(
+        public System.Threading.Tasks.Task<int> IngresarAceiteAsync(
                     string marca, 
                     string descripcion, 
                     string codigoBarras, 
@@ -2276,7 +2276,7 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.IngresarAceiteAsync(marca, descripcion, codigoBarras, cantidad, cantidadMin, presentacion, sae, tipoCombustible, api, tipoAceite, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
-        public void EditarAceite(
+        public int EditarAceite(
                     int id, 
                     string marca, 
                     string descripcion, 
@@ -2294,10 +2294,10 @@ namespace LavadoraLubricadora.LavadoraService {
                     double precioMenor, 
                     double margenMayor, 
                     double margenMenor) {
-            base.Channel.EditarAceite(id, marca, descripcion, codigoBarras, cantidad, cantidadMin, presentacion, sae, tipoCombustible, api, tipoAceite, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
+            return base.Channel.EditarAceite(id, marca, descripcion, codigoBarras, cantidad, cantidadMin, presentacion, sae, tipoCombustible, api, tipoAceite, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
-        public System.Threading.Tasks.Task EditarAceiteAsync(
+        public System.Threading.Tasks.Task<int> EditarAceiteAsync(
                     int id, 
                     string marca, 
                     string descripcion, 
@@ -2318,11 +2318,11 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.EditarAceiteAsync(id, marca, descripcion, codigoBarras, cantidad, cantidadMin, presentacion, sae, tipoCombustible, api, tipoAceite, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
-        public void EliminarAceite(int id) {
-            base.Channel.EliminarAceite(id);
+        public int EliminarAceite(int id) {
+            return base.Channel.EliminarAceite(id);
         }
         
-        public System.Threading.Tasks.Task EliminarAceiteAsync(int id) {
+        public System.Threading.Tasks.Task<int> EliminarAceiteAsync(int id) {
             return base.Channel.EliminarAceiteAsync(id);
         }
         

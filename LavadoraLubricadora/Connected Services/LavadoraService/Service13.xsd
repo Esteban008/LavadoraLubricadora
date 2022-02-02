@@ -1020,7 +1020,9 @@
   </xs:element>
   <xs:element name="IngresarAceiteResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IngresarAceiteResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EditarAceite">
@@ -1048,7 +1050,9 @@
   </xs:element>
   <xs:element name="EditarAceiteResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditarAceiteResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EliminarAceite">
@@ -1060,7 +1064,9 @@
   </xs:element>
   <xs:element name="EliminarAceiteResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EliminarAceiteResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ValidarAceite">

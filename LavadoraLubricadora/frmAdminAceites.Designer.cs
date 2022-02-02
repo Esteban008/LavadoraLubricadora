@@ -358,7 +358,7 @@
             // 
             this.txtGananPorMayor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGananPorMayor.Location = new System.Drawing.Point(504, 60);
-            this.txtGananPorMayor.MaxLength = 6;
+            this.txtGananPorMayor.MaxLength = 3;
             this.txtGananPorMayor.Name = "txtGananPorMayor";
             this.txtGananPorMayor.Size = new System.Drawing.Size(242, 20);
             this.txtGananPorMayor.TabIndex = 123;
@@ -756,6 +756,7 @@
             // 
             this.txtPreVMenorE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPreVMenorE.Location = new System.Drawing.Point(464, 95);
+            this.txtPreVMenorE.MaxLength = 6;
             this.txtPreVMenorE.Name = "txtPreVMenorE";
             this.txtPreVMenorE.Size = new System.Drawing.Size(225, 20);
             this.txtPreVMenorE.TabIndex = 126;
@@ -792,6 +793,7 @@
             // 
             this.txtGananPorMayorE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGananPorMayorE.Location = new System.Drawing.Point(464, 49);
+            this.txtGananPorMayorE.MaxLength = 3;
             this.txtGananPorMayorE.Name = "txtGananPorMayorE";
             this.txtGananPorMayorE.Size = new System.Drawing.Size(225, 20);
             this.txtGananPorMayorE.TabIndex = 123;
@@ -831,6 +833,7 @@
             // 
             this.txtPreSIvaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPreSIvaE.Location = new System.Drawing.Point(464, 3);
+            this.txtPreSIvaE.MaxLength = 6;
             this.txtPreSIvaE.Name = "txtPreSIvaE";
             this.txtPreSIvaE.Size = new System.Drawing.Size(225, 20);
             this.txtPreSIvaE.TabIndex = 122;
@@ -909,9 +912,11 @@
             // 
             this.txtCantidadMinE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCantidadMinE.Location = new System.Drawing.Point(118, 95);
+            this.txtCantidadMinE.MaxLength = 6;
             this.txtCantidadMinE.Name = "txtCantidadMinE";
             this.txtCantidadMinE.Size = new System.Drawing.Size(140, 20);
             this.txtCantidadMinE.TabIndex = 83;
+            this.txtCantidadMinE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadMinE_KeyPress);
             // 
             // label28
             // 
@@ -947,9 +952,11 @@
             // 
             this.txtCantidadE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCantidadE.Location = new System.Drawing.Point(118, 72);
+            this.txtCantidadE.MaxLength = 6;
             this.txtCantidadE.Name = "txtCantidadE";
             this.txtCantidadE.Size = new System.Drawing.Size(140, 20);
             this.txtCantidadE.TabIndex = 82;
+            this.txtCantidadE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidadE_KeyPress);
             // 
             // label31
             // 
@@ -1078,7 +1085,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel3.Controls.Add(this.txtBusquedaE, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.cbxCriBusquedaE, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
@@ -1094,9 +1101,9 @@
             // txtBusquedaE
             // 
             this.txtBusquedaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaE.Location = new System.Drawing.Point(360, 13);
+            this.txtBusquedaE.Location = new System.Drawing.Point(359, 13);
             this.txtBusquedaE.Name = "txtBusquedaE";
-            this.txtBusquedaE.Size = new System.Drawing.Size(185, 20);
+            this.txtBusquedaE.Size = new System.Drawing.Size(184, 20);
             this.txtBusquedaE.TabIndex = 117;
             // 
             // cbxCriBusquedaE
@@ -1109,7 +1116,7 @@
             "Mostrar Todos"});
             this.cbxCriBusquedaE.Location = new System.Drawing.Point(126, 13);
             this.cbxCriBusquedaE.Name = "cbxCriBusquedaE";
-            this.cbxCriBusquedaE.Size = new System.Drawing.Size(171, 21);
+            this.cbxCriBusquedaE.Size = new System.Drawing.Size(170, 21);
             this.cbxCriBusquedaE.TabIndex = 120;
             this.cbxCriBusquedaE.SelectedValueChanged += new System.EventHandler(this.cbxCriBusquedaE_SelectedValueChanged);
             // 
@@ -1131,7 +1138,7 @@
             this.btnBuscarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarE.Location = new System.Drawing.Point(555, 6);
+            this.btnBuscarE.Location = new System.Drawing.Point(553, 6);
             this.btnBuscarE.Name = "btnBuscarE";
             this.btnBuscarE.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarE.TabIndex = 118;
@@ -1354,7 +1361,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel5.Controls.Add(this.txtBusquedaD, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.cbxCriBusquedaD, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.label37, 0, 0);
@@ -1370,9 +1377,9 @@
             // txtBusquedaD
             // 
             this.txtBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaD.Location = new System.Drawing.Point(360, 13);
+            this.txtBusquedaD.Location = new System.Drawing.Point(359, 13);
             this.txtBusquedaD.Name = "txtBusquedaD";
-            this.txtBusquedaD.Size = new System.Drawing.Size(185, 20);
+            this.txtBusquedaD.Size = new System.Drawing.Size(184, 20);
             this.txtBusquedaD.TabIndex = 117;
             // 
             // cbxCriBusquedaD
@@ -1385,7 +1392,7 @@
             "Mostrar Todos"});
             this.cbxCriBusquedaD.Location = new System.Drawing.Point(126, 13);
             this.cbxCriBusquedaD.Name = "cbxCriBusquedaD";
-            this.cbxCriBusquedaD.Size = new System.Drawing.Size(171, 21);
+            this.cbxCriBusquedaD.Size = new System.Drawing.Size(170, 21);
             this.cbxCriBusquedaD.TabIndex = 120;
             this.cbxCriBusquedaD.SelectedValueChanged += new System.EventHandler(this.cbxCriBusquedaD_SelectedValueChanged);
             // 
@@ -1407,7 +1414,7 @@
             this.btnBuscarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarD.Location = new System.Drawing.Point(555, 6);
+            this.btnBuscarD.Location = new System.Drawing.Point(553, 6);
             this.btnBuscarD.Name = "btnBuscarD";
             this.btnBuscarD.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarD.TabIndex = 118;
