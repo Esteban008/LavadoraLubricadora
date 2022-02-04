@@ -1481,22 +1481,22 @@ namespace LavadoraLubricadora.LavadoraService {
         System.Threading.Tasks.Task<System.Data.DataTable> ObtenerFiltrosVehiculoAsync(int idVehiculo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroResponse")]
-        void IngresarFiltro(string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
+        int IngresarFiltro(string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroResponse")]
-        System.Threading.Tasks.Task IngresarFiltroAsync(string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
+        System.Threading.Tasks.Task<int> IngresarFiltroAsync(string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EditarFiltroResponse")]
-        void EditarFiltro(int id, string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
+        int EditarFiltro(int id, string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EditarFiltroResponse")]
-        System.Threading.Tasks.Task EditarFiltroAsync(int id, string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
+        System.Threading.Tasks.Task<int> EditarFiltroAsync(int id, string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EliminarFiltroResponse")]
-        void EliminarFiltro(int id);
+        int EliminarFiltro(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EliminarFiltroResponse")]
-        System.Threading.Tasks.Task EliminarFiltroAsync(int id);
+        System.Threading.Tasks.Task<int> EliminarFiltroAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarCodigosFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EliminarCodigosFiltroResponse")]
         void EliminarCodigosFiltro(string codigo);
@@ -2422,27 +2422,27 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.ObtenerFiltrosVehiculoAsync(idVehiculo);
         }
         
-        public void IngresarFiltro(string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
-            base.Channel.IngresarFiltro(tipoFiltro, rosca, marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
+        public int IngresarFiltro(string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
+            return base.Channel.IngresarFiltro(tipoFiltro, rosca, marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
-        public System.Threading.Tasks.Task IngresarFiltroAsync(string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
+        public System.Threading.Tasks.Task<int> IngresarFiltroAsync(string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
             return base.Channel.IngresarFiltroAsync(tipoFiltro, rosca, marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
-        public void EditarFiltro(int id, string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
-            base.Channel.EditarFiltro(id, tipoFiltro, rosca, marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
+        public int EditarFiltro(int id, string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
+            return base.Channel.EditarFiltro(id, tipoFiltro, rosca, marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
-        public System.Threading.Tasks.Task EditarFiltroAsync(int id, string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
+        public System.Threading.Tasks.Task<int> EditarFiltroAsync(int id, string tipoFiltro, string rosca, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
             return base.Channel.EditarFiltroAsync(id, tipoFiltro, rosca, marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
-        public void EliminarFiltro(int id) {
-            base.Channel.EliminarFiltro(id);
+        public int EliminarFiltro(int id) {
+            return base.Channel.EliminarFiltro(id);
         }
         
-        public System.Threading.Tasks.Task EliminarFiltroAsync(int id) {
+        public System.Threading.Tasks.Task<int> EliminarFiltroAsync(int id) {
             return base.Channel.EliminarFiltroAsync(id);
         }
         

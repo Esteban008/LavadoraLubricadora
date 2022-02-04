@@ -1320,7 +1320,9 @@
   </xs:element>
   <xs:element name="IngresarFiltroResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IngresarFiltroResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EditarFiltro">
@@ -1345,7 +1347,9 @@
   </xs:element>
   <xs:element name="EditarFiltroResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditarFiltroResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EliminarFiltro">
@@ -1357,7 +1361,9 @@
   </xs:element>
   <xs:element name="EliminarFiltroResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EliminarFiltroResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EliminarCodigosFiltro">

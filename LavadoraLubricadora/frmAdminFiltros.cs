@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using System.ServiceModel;
 
 namespace LavadoraLubricadora
 {
@@ -119,32 +120,55 @@ namespace LavadoraLubricadora
                 }
                 else
                 {
-                    cliente.IngresarFiltro(cbxTipoFiltro.SelectedItem.ToString(), txtRosca.Text, txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
+                    //Validacion de Combobox vacios
+                    if (cbxTipoFiltro.SelectedItem != null)
+                    {
+                        //Ingreso de Aceite a base de datos a través del servicio
+                        int resultado = cliente.IngresarFiltro(cbxTipoFiltro.SelectedItem.ToString(), txtRosca.Text, txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
                            Convert.ToInt32(txtCantidadMin.Text), Convert.ToDouble(txtPreSIva.Text), Convert.ToDouble(txtPreCIva.Text), Convert.ToDouble(txtPreVMayor.Text),
                            Convert.ToDouble(txtPrecioVMenor.Text), Convert.ToDouble(txtMargenMayor.Text), Convert.ToDouble(txtMargenMenor.Text));
 
-                    foreach (var idVehiculo in idVehiculos)
-                    {
-                        cliente.IngresarVehiculoFiltro(txtCodigoB.Text, idVehiculo);
+                        if (resultado==1)
+                        {
+                            foreach (var idVehiculo in idVehiculos)
+                            {
+                                cliente.IngresarVehiculoFiltro(txtCodigoB.Text, idVehiculo);
+                            }
+
+                            foreach (var codigo in codigos)
+                            {
+                                cliente.IngresarCodigoFiltro(txtCodigoB.Text, codigo);
+                            }
+
+                            DialogResult dialogResult = MessageBox.Show("Filtro ingresado con éxito", "Aviso", MessageBoxButtons.OK);
+
+                            LimpiarCampos();
+                            LimpiarCacheListaVehiculos();
+                        }
+
                     }
-
-                    foreach (var codigo in codigos)
+                    else
                     {
-                        cliente.IngresarCodigoFiltro(txtCodigoB.Text, codigo);
+                        MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
                     }
-
-                    DialogResult dialogResult = MessageBox.Show("Filtro ingresado con éxito", "Aviso", MessageBoxButtons.OK);
-
-                    LimpiarCampos();
-                    LimpiarCacheListaVehiculos();
+                    
                 }
             }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
-            
-            
+
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -243,7 +267,29 @@ namespace LavadoraLubricadora
             txtMargenMayor.Text = margenxMayor.ToString();
         }
 
-        private void txtPreSIva_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCantidadMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtPreSIva_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
             if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 45 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
@@ -253,6 +299,30 @@ namespace LavadoraLubricadora
                 return;
             }
         }
+
+        private void txtGananPorMayor_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 45 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números y la coma", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtPrecioVMenor_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 45 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números y la coma", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        
 
         private void txtPreSIva_KeyUp(object sender, KeyEventArgs e)
         {
@@ -274,16 +344,7 @@ namespace LavadoraLubricadora
             Recalcular();
         }
 
-        private void txtGananPorMayor_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
-            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 45 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Solo está permitido números y la coma", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Handled = true;
-                return;
-            }
-        }
+        
 
         private void txtGananPorMayor_KeyUp(object sender, KeyEventArgs e)
         {
@@ -307,16 +368,7 @@ namespace LavadoraLubricadora
             txtMargenMayor.Text = margenxMayor.ToString();
         }
 
-        private void txtPrecioVMenor_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
-            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 45 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Solo está permitido números y la coma", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Handled = true;
-                return;
-            }
-        }
+        
 
         private void txtPrecioVMenor_KeyUp(object sender, KeyEventArgs e)
         {
@@ -865,5 +917,6 @@ namespace LavadoraLubricadora
 
         #endregion
 
+        
     }
 }
