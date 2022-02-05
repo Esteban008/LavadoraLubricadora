@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -54,6 +55,7 @@ namespace LavadoraLubricadora
             {
                 dtLista.Rows.Clear();
                 dgvVehiculos2.DataSource = dtLista;
+                this.Close();
             }
         }
 
@@ -75,33 +77,53 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
+                //Validacion de Combobox vacios
+                if (cbxCriBusquedaE.SelectedItem != null)
                 {
-                    DataTable vehiculos = cliente.BuscarVehiculoMarca(txtBusquedaE.Text);
-                    dgvVehiculosE.DataSource = vehiculos;
+                    if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
+                    {
+                        DataTable vehiculos = cliente.BuscarVehiculoMarca(txtBusquedaE.Text);
+                        dgvVehiculosE.DataSource = vehiculos;
 
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Modelo"))
+                    {
+                        DataTable vehiculos = cliente.BuscarVehiculoModelo(txtBusquedaE.Text);
+                        dgvVehiculosE.DataSource = vehiculos;
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        DataTable vehiculos = cliente.ObtenerVehiculos();
+                        dgvVehiculosE.DataSource = vehiculos;
+                    }
                 }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Modelo"))
+                else
                 {
-                    DataTable vehiculos = cliente.BuscarVehiculoModelo(txtBusquedaE.Text);
-                    dgvVehiculosE.DataSource = vehiculos;
+                    MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
                 }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
-                {
-                    DataTable vehiculos = cliente.ObtenerVehiculos();
-                    dgvVehiculosE.DataSource = vehiculos;
-                }
+
             }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
-            
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            object[] v =
+            try
+            {
+                object[] v =
             {
                 dgvVehiculosE.SelectedCells[0].Value.ToString(),
                 dgvVehiculosE.SelectedCells[1].Value.ToString(),
@@ -110,12 +132,19 @@ namespace LavadoraLubricadora
                 dgvVehiculosE.SelectedCells[4].Value.ToString()
             };
 
-            dtLista.Rows.Add(v);
+                dtLista.Rows.Add(v);
 
-            EliminarRepetidos(dtLista);
-         
+                EliminarRepetidos(dtLista);
+
+
+                // dgvVehiculos2.DataSource = dtLista;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+                DialogResult dialogResult = MessageBox.Show("Vehículo no seleccionado", "Aviso", MessageBoxButtons.OK);
+            }
             
-           // dgvVehiculos2.DataSource = dtLista;
         }
 
         private void EliminarRepetidos(DataTable dtLista)
@@ -156,7 +185,7 @@ namespace LavadoraLubricadora
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
             
         }
