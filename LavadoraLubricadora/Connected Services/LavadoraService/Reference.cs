@@ -1625,22 +1625,22 @@ namespace LavadoraLubricadora.LavadoraService {
         System.Threading.Tasks.Task<int> ObtenerIDListaVehiculosAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProducto", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoResponse")]
-        void IngresarProducto(string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
+        int IngresarProducto(string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProducto", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoResponse")]
-        System.Threading.Tasks.Task IngresarProductoAsync(string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
+        System.Threading.Tasks.Task<int> IngresarProductoAsync(string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarProducto", ReplyAction="http://tempuri.org/ILavadoraService/EditarProductoResponse")]
-        void EditarProducto(int id, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
+        int EditarProducto(int id, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarProducto", ReplyAction="http://tempuri.org/ILavadoraService/EditarProductoResponse")]
-        System.Threading.Tasks.Task EditarProductoAsync(int id, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
+        System.Threading.Tasks.Task<int> EditarProductoAsync(int id, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarProducto", ReplyAction="http://tempuri.org/ILavadoraService/EliminarProductoResponse")]
-        void EliminarProducto(int id);
+        int EliminarProducto(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarProducto", ReplyAction="http://tempuri.org/ILavadoraService/EliminarProductoResponse")]
-        System.Threading.Tasks.Task EliminarProductoAsync(int id);
+        System.Threading.Tasks.Task<int> EliminarProductoAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarProducto", ReplyAction="http://tempuri.org/ILavadoraService/ValidarProductoResponse")]
         bool ValidarProducto(string codigoBarras);
@@ -2614,27 +2614,27 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.ObtenerIDListaVehiculosAsync();
         }
         
-        public void IngresarProducto(string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
-            base.Channel.IngresarProducto(marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
+        public int IngresarProducto(string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
+            return base.Channel.IngresarProducto(marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
-        public System.Threading.Tasks.Task IngresarProductoAsync(string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
+        public System.Threading.Tasks.Task<int> IngresarProductoAsync(string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
             return base.Channel.IngresarProductoAsync(marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
-        public void EditarProducto(int id, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
-            base.Channel.EditarProducto(id, marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
+        public int EditarProducto(int id, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
+            return base.Channel.EditarProducto(id, marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
-        public System.Threading.Tasks.Task EditarProductoAsync(int id, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
+        public System.Threading.Tasks.Task<int> EditarProductoAsync(int id, string marca, string descripcion, string codigoBarras, int cantidad, int cantidadMin, double precioSinIva, double precioConIva, double precioMayor, double precioMenor, double margenMayor, double margenMenor) {
             return base.Channel.EditarProductoAsync(id, marca, descripcion, codigoBarras, cantidad, cantidadMin, precioSinIva, precioConIva, precioMayor, precioMenor, margenMayor, margenMenor);
         }
         
-        public void EliminarProducto(int id) {
-            base.Channel.EliminarProducto(id);
+        public int EliminarProducto(int id) {
+            return base.Channel.EliminarProducto(id);
         }
         
-        public System.Threading.Tasks.Task EliminarProductoAsync(int id) {
+        public System.Threading.Tasks.Task<int> EliminarProductoAsync(int id) {
             return base.Channel.EliminarProductoAsync(id);
         }
         

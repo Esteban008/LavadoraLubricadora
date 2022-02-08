@@ -1725,7 +1725,9 @@
   </xs:element>
   <xs:element name="IngresarProductoResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IngresarProductoResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EditarProducto">
@@ -1748,7 +1750,9 @@
   </xs:element>
   <xs:element name="EditarProductoResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditarProductoResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EliminarProducto">
@@ -1760,7 +1764,9 @@
   </xs:element>
   <xs:element name="EliminarProductoResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EliminarProductoResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ValidarProducto">

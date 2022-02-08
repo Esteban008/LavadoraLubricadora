@@ -63,6 +63,7 @@ namespace LavadoraLubricadora
                     if (cbxPresentacion.SelectedItem != null && cbxSae.SelectedItem != null && cbxTipoCombustible.SelectedItem != null &&
                         cbxApi.SelectedItem != null && cbxTipoAceite.SelectedItem != null )
                     {
+                        
                         //Ingreso de Aceite a base de datos a través del servicio
                         int resultado = cliente.IngresarAceite(txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
                         Convert.ToInt32(txtCantidadMin.Text), cbxPresentacion.SelectedItem.ToString(), cbxSae.SelectedItem.ToString(),
@@ -400,7 +401,7 @@ namespace LavadoraLubricadora
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
            
         }
@@ -435,7 +436,7 @@ namespace LavadoraLubricadora
                     }
                     else
                     {
-                        DialogResult dialogResult = MessageBox.Show("Aceite no se ha podido actualizar verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                        DialogResult dialogResult = MessageBox.Show("Este aceite no se ha podido actualizar verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
                     }
 
                     
@@ -469,23 +470,31 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvAceiteE()
         {
-            if (busqueda.Equals("Codigo de Barras"))
+            try
             {
-                DataTable aceites = cliente.BuscarAceiteCodigo(valor);
-                dgvAceitesE.DataSource = aceites;
+                if (busqueda.Equals("Codigo de Barras"))
+                {
+                    DataTable aceites = cliente.BuscarAceiteCodigo(valor);
+                    dgvAceitesE.DataSource = aceites;
 
-            }
-            else if (busqueda.Equals("Marca"))
-            {
-                DataTable aceites = cliente.BuscarAceiteMarca(valor);
-                dgvAceitesE.DataSource = aceites;
+                }
+                else if (busqueda.Equals("Marca"))
+                {
+                    DataTable aceites = cliente.BuscarAceiteMarca(valor);
+                    dgvAceitesE.DataSource = aceites;
 
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable aceites = cliente.ObtenerAceite();
+                    dgvAceitesE.DataSource = aceites;
+                }
             }
-            else if (busqueda.Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable aceites = cliente.ObtenerAceite();
-                dgvAceitesE.DataSource = aceites;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
+
         }
 
         public void LoadEditar()
@@ -619,24 +628,31 @@ namespace LavadoraLubricadora
 
         private void dgvAceitesE_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            txtMarcaE.Text = dgvAceitesE.SelectedCells[1].Value.ToString();
-            txtDescripcionE.Text = dgvAceitesE.SelectedCells[2].Value.ToString();
-            cbxPresentacionE.SelectedItem = dgvAceitesE.SelectedCells[3].Value.ToString();
-            cbxSaeE.SelectedItem = dgvAceitesE.SelectedCells[4].Value.ToString();
-            cbxTipoAceiteE.SelectedItem = dgvAceitesE.SelectedCells[6].Value.ToString();
-            txtCodigoBE.Text = dgvAceitesE.SelectedCells[8].Value.ToString();
-            txtPreSIvaE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[9].Value.ToString()), 2).ToString();
-            txtPreCIvaE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[10].Value.ToString()), 2).ToString();
-            txtPreVMayorE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[11].Value.ToString()), 2).ToString();
-            txtPreVMenorE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[12].Value.ToString()), 2).ToString();
-            txtMargenMayorE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[13].Value.ToString()), 2).ToString();
-            txtMargenMenorE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[14].Value.ToString()), 2).ToString();
-            cbxTipoCombustibleE.SelectedItem = dgvAceitesE.SelectedCells[7].Value.ToString();
-            txtCantidadE.Text = dgvAceitesE.SelectedCells[15].Value.ToString();
-            txtCantidadMinE.Text = dgvAceitesE.SelectedCells[16].Value.ToString();
-            txtGananPorMayorE.Text = Math.Round((((Convert.ToDouble(txtPreVMayorE.Text) - Convert.ToDouble(txtPreCIvaE.Text))*100)/(Convert.ToDouble(txtPreCIvaE.Text)))).ToString();
-            cbxApiE.SelectedItem = dgvAceitesE.SelectedCells[5].Value.ToString();
+            try
+            {
+                txtMarcaE.Text = dgvAceitesE.SelectedCells[1].Value.ToString();
+                txtDescripcionE.Text = dgvAceitesE.SelectedCells[2].Value.ToString();
+                cbxPresentacionE.SelectedItem = dgvAceitesE.SelectedCells[3].Value.ToString();
+                cbxSaeE.SelectedItem = dgvAceitesE.SelectedCells[4].Value.ToString();
+                cbxTipoAceiteE.SelectedItem = dgvAceitesE.SelectedCells[6].Value.ToString();
+                txtCodigoBE.Text = dgvAceitesE.SelectedCells[8].Value.ToString();
+                txtPreSIvaE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[9].Value.ToString()), 2).ToString();
+                txtPreCIvaE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[10].Value.ToString()), 2).ToString();
+                txtPreVMayorE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[11].Value.ToString()), 2).ToString();
+                txtPreVMenorE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[12].Value.ToString()), 2).ToString();
+                txtMargenMayorE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[13].Value.ToString()), 2).ToString();
+                txtMargenMenorE.Text = Math.Round(Convert.ToDouble(dgvAceitesE.SelectedCells[14].Value.ToString()), 2).ToString();
+                cbxTipoCombustibleE.SelectedItem = dgvAceitesE.SelectedCells[7].Value.ToString();
+                txtCantidadE.Text = dgvAceitesE.SelectedCells[15].Value.ToString();
+                txtCantidadMinE.Text = dgvAceitesE.SelectedCells[16].Value.ToString();
+                txtGananPorMayorE.Text = Math.Round((((Convert.ToDouble(txtPreVMayorE.Text) - Convert.ToDouble(txtPreCIvaE.Text)) * 100) / (Convert.ToDouble(txtPreCIvaE.Text)))).ToString();
+                cbxApiE.SelectedItem = dgvAceitesE.SelectedCells[5].Value.ToString();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Selección no válida", "Aviso", MessageBoxButtons.OK);
+            }
+
         }
 
         private void cbxCriBusquedaE_SelectedValueChanged(object sender, EventArgs e)
@@ -912,23 +928,31 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvAceiteD()
         {
-            if (busqueda.Equals("Codigo de Barras"))
+            try
             {
-                DataTable aceites = cliente.BuscarAceiteCodigo(valor);
-                dgvAceitesD.DataSource = aceites;
+                if (busqueda.Equals("Codigo de Barras"))
+                {
+                    DataTable aceites = cliente.BuscarAceiteCodigo(valor);
+                    dgvAceitesD.DataSource = aceites;
 
-            }
-            else if (busqueda.Equals("Marca"))
-            {
-                DataTable aceites = cliente.BuscarAceiteMarca(valor);
-                dgvAceitesD.DataSource = aceites;
+                }
+                else if (busqueda.Equals("Marca"))
+                {
+                    DataTable aceites = cliente.BuscarAceiteMarca(valor);
+                    dgvAceitesD.DataSource = aceites;
 
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable aceites = cliente.ObtenerAceite();
+                    dgvAceitesD.DataSource = aceites;
+                }
             }
-            else if (busqueda.Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable aceites = cliente.ObtenerAceite();
-                dgvAceitesD.DataSource = aceites;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
+            
         }
 
 

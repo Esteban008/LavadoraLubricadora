@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -57,18 +58,36 @@ namespace LavadoraLubricadora
                 }
                 else
                 {
-                    cliente.IngresarProducto(txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
+                    int resultado = cliente.IngresarProducto(txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
                     Convert.ToInt32(txtCantidadMin.Text), Convert.ToDouble(txtPreSIva.Text), Convert.ToDouble(txtPreCIva.Text), Convert.ToDouble(txtPreVMayor.Text),
                     Convert.ToDouble(txtPrecioVMenor.Text), Convert.ToDouble(txtMargenMayor.Text), Convert.ToDouble(txtMargenMenor.Text));
 
-                    DialogResult dialogResult = MessageBox.Show("Producto ingresado con éxito", "Aviso", MessageBoxButtons.OK);
+                    if (resultado==1)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Producto ingresado con éxito", "Aviso", MessageBoxButtons.OK);
 
-                    LimpiarCampos();
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Producto no ingresado a la base de datos verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                    }
+
+                    
                 }
             }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
 
         }
@@ -210,6 +229,27 @@ namespace LavadoraLubricadora
             txtMargenMayor.Text = margenxMayor.ToString();
         }
 
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCantidadMin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
         private void txtPrecioVMenor_KeyPress(object sender, KeyPressEventArgs e)
         {
             //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
@@ -249,30 +289,37 @@ namespace LavadoraLubricadora
         {
             try
             {
-                LimpiarCamposE();
-                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
+                if (cbxCriBusquedaE.SelectedItem != null)
                 {
-                    DataTable productos = cliente.BuscarProductoCodigo(txtBusquedaE.Text);
-                    dgvProductoE.DataSource = productos;
+                    LimpiarCamposE();
+                    if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
+                    {
+                        DataTable productos = cliente.BuscarProductoCodigo(txtBusquedaE.Text);
+                        dgvProductoE.DataSource = productos;
 
-                }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
-                {
-                    DataTable productos = cliente.BuscarProductoMarca(txtBusquedaE.Text);
-                    dgvProductoE.DataSource = productos;
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
+                    {
+                        DataTable productos = cliente.BuscarProductoMarca(txtBusquedaE.Text);
+                        dgvProductoE.DataSource = productos;
 
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        DataTable productos = cliente.ObtenerProducto();
+                        dgvProductoE.DataSource = productos;
+                    }
+                    busqueda = cbxCriBusquedaE.SelectedItem.ToString();
+                    valor = txtBusquedaE.Text;
                 }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                else
                 {
-                    DataTable productos = cliente.ObtenerProducto();
-                    dgvProductoE.DataSource = productos;
+                    DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
                 }
-                busqueda = cbxCriBusquedaE.SelectedItem.ToString();
-                valor = txtBusquedaE.Text;
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
            
         }
@@ -281,24 +328,41 @@ namespace LavadoraLubricadora
         {
             try
             {
-                cliente.EditarProducto(Convert.ToInt32(dgvProductoE.SelectedCells[0].Value), txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
+                int resultado = cliente.EditarProducto(Convert.ToInt32(dgvProductoE.SelectedCells[0].Value), txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
                         Convert.ToInt32(txtCantidadMinE.Text), Convert.ToDouble(txtPreSIvaE.Text), Convert.ToDouble(txtPreCIvaE.Text), Convert.ToDouble(txtPreVMayorE.Text),
                         Convert.ToDouble(txtPreVMenorE.Text), Convert.ToDouble(txtMargenMayorE.Text), Convert.ToDouble(txtMargenMenorE.Text));
 
-                if (cliente.ValidarMinProducto(Convert.ToInt32(dgvProductoE.SelectedCells[0].Value.ToString())))
+                if (resultado==1)
                 {
-                    MessageBox.Show("Este producto está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                    if (cliente.ValidarMinProducto(Convert.ToInt32(dgvProductoE.SelectedCells[0].Value.ToString())))
+                    {
+                        MessageBox.Show("Este producto está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                    }
+
+                    DialogResult dialogResult = MessageBox.Show("Producto actualizado con éxito", "Aviso", MessageBoxButtons.OK);
+                    ActualizarDgvProductoE();
+                    LimpiarCamposE();
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Este producto no se ha podido actualizar verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
                 }
 
-                DialogResult dialogResult = MessageBox.Show("Producto actualizado con éxito", "Aviso", MessageBoxButtons.OK);
-                ActualizarDgvProductoE();
-                LimpiarCamposE();
             }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
-            
+
         }
 
         private void btnCancelarE_Click(object sender, EventArgs e)
@@ -308,23 +372,35 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvProductoE()
         {
-            if (busqueda.Equals("Codigo de Barras"))
+            try
             {
-                DataTable productos = cliente.BuscarProductoCodigo(valor);
-                dgvProductoE.DataSource = productos;
+                if (busqueda.Equals("Codigo de Barras"))
+                {
+                    DataTable productos = cliente.BuscarProductoCodigo(valor);
+                    dgvProductoE.DataSource = productos;
 
-            }
-            else if (busqueda.Equals("Marca"))
-            {
-                DataTable productos = cliente.BuscarProductoMarca(valor);
-                dgvProductoE.DataSource = productos;
+                }
+                else if (busqueda.Equals("Marca"))
+                {
+                    DataTable productos = cliente.BuscarProductoMarca(valor);
+                    dgvProductoE.DataSource = productos;
 
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable productos = cliente.ObtenerProducto();
+                    dgvProductoE.DataSource = productos;
+                }
             }
-            else if (busqueda.Equals("Mostrar Todos"))
+            catch (EndpointNotFoundException)
             {
-                DataTable productos = cliente.ObtenerProducto();
-                dgvProductoE.DataSource = productos;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+
         }
 
         public void LoadEditar()
@@ -438,18 +514,26 @@ namespace LavadoraLubricadora
 
         private void dgvProductoE_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMarcaE.Text = dgvProductoE.SelectedCells[1].Value.ToString();
-            txtDescripcionE.Text = dgvProductoE.SelectedCells[2].Value.ToString();
-            txtCodigoBE.Text = dgvProductoE.SelectedCells[3].Value.ToString();
-            txtPreSIvaE.Text = Math.Round(Convert.ToDouble(dgvProductoE.SelectedCells[4].Value.ToString()), 2).ToString();
-            txtPreCIvaE.Text = Math.Round(Convert.ToDouble(dgvProductoE.SelectedCells[5].Value.ToString()), 2).ToString();
-            txtPreVMayorE.Text = Math.Round(Convert.ToDouble(dgvProductoE.SelectedCells[6].Value.ToString()), 2).ToString();
-            txtPreVMenorE.Text = Math.Round(Convert.ToDouble(dgvProductoE.SelectedCells[7].Value.ToString()), 2).ToString();
-            txtMargenMayorE.Text = Math.Round(Convert.ToDouble(dgvProductoE.SelectedCells[8].Value.ToString()), 2).ToString();
-            txtMargenMenorE.Text = Math.Round(Convert.ToDouble(dgvProductoE.SelectedCells[9].Value.ToString()), 2).ToString();
-            txtCantidadE.Text = dgvProductoE.SelectedCells[10].Value.ToString();
-            txtCantidadMinE.Text = dgvProductoE.SelectedCells[11].Value.ToString();
-            txtGananPorMayorE.Text = Math.Round((((Convert.ToDouble(txtPreVMayorE.Text) - Convert.ToDouble(txtPreCIvaE.Text)) * 100) / (Convert.ToDouble(txtPreCIvaE.Text)))).ToString();
+            try
+            {
+                txtMarcaE.Text = dgvProductoE.SelectedCells[1].Value.ToString();
+                txtDescripcionE.Text = dgvProductoE.SelectedCells[2].Value.ToString();
+                txtCodigoBE.Text = dgvProductoE.SelectedCells[3].Value.ToString();
+                txtPreSIvaE.Text = Math.Round(Convert.ToDouble(dgvProductoE.SelectedCells[4].Value.ToString()), 2).ToString();
+                txtPreCIvaE.Text = Math.Round(Convert.ToDouble(dgvProductoE.SelectedCells[5].Value.ToString()), 2).ToString();
+                txtPreVMayorE.Text = Math.Round(Convert.ToDouble(dgvProductoE.SelectedCells[6].Value.ToString()), 2).ToString();
+                txtPreVMenorE.Text = Math.Round(Convert.ToDouble(dgvProductoE.SelectedCells[7].Value.ToString()), 2).ToString();
+                txtMargenMayorE.Text = Math.Round(Convert.ToDouble(dgvProductoE.SelectedCells[8].Value.ToString()), 2).ToString();
+                txtMargenMenorE.Text = Math.Round(Convert.ToDouble(dgvProductoE.SelectedCells[9].Value.ToString()), 2).ToString();
+                txtCantidadE.Text = dgvProductoE.SelectedCells[10].Value.ToString();
+                txtCantidadMinE.Text = dgvProductoE.SelectedCells[11].Value.ToString();
+                txtGananPorMayorE.Text = Math.Round((((Convert.ToDouble(txtPreVMayorE.Text) - Convert.ToDouble(txtPreCIvaE.Text)) * 100) / (Convert.ToDouble(txtPreCIvaE.Text)))).ToString();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Selección no válida", "Aviso", MessageBoxButtons.OK);
+            }
+            
 
         }
 
@@ -542,6 +626,28 @@ namespace LavadoraLubricadora
             }
         }
 
+        private void txtCantidadE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCantidadMinE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
         private void txtPreVMenorE_KeyUp(object sender, KeyEventArgs e)
         {
             double precioVMenorE = 0;
@@ -569,38 +675,70 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Codigo de Barras"))
+                if (cbxCriBusquedaD.SelectedItem != null)
                 {
-                    DataTable productos = cliente.BuscarProductoCodigo(txtBusquedaD.Text);
-                    dgvProductosD.DataSource = productos;
+                    if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Codigo de Barras"))
+                    {
+                        DataTable productos = cliente.BuscarProductoCodigo(txtBusquedaD.Text);
+                        dgvProductosD.DataSource = productos;
 
-                }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
-                {
-                    DataTable productos = cliente.BuscarProductoMarca(txtBusquedaD.Text);
-                    dgvProductosD.DataSource = productos;
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
+                    {
+                        DataTable productos = cliente.BuscarProductoMarca(txtBusquedaD.Text);
+                        dgvProductosD.DataSource = productos;
 
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        DataTable productos = cliente.ObtenerProducto();
+                        dgvProductosD.DataSource = productos;
+                    }
+                    busqueda = cbxCriBusquedaD.SelectedItem.ToString();
+                    valor = txtBusquedaD.Text;
                 }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                else
                 {
-                    DataTable productos = cliente.ObtenerProducto();
-                    dgvProductosD.DataSource = productos;
+                    DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
                 }
-                busqueda = cbxCriBusquedaD.SelectedItem.ToString();
-                valor = txtBusquedaD.Text;
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
           
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            cliente.EliminarProducto(Convert.ToInt32(dgvProductosD.SelectedCells[0].Value));
-            DialogResult dialogResult = MessageBox.Show("Producto eliminado con éxito", "Aviso", MessageBoxButtons.OK);
-            ActualizarDgvProductoD();
+            try
+            {
+                int resultado = cliente.EliminarProducto(Convert.ToInt32(dgvProductosD.SelectedCells[0].Value));
+                if (resultado == 1)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Producto eliminado con éxito", "Aviso", MessageBoxButtons.OK);
+                    ActualizarDgvProductoD();
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("No se puede eliminar este producto ya que pertenece a un proceso", "Aviso", MessageBoxButtons.OK);
+                }
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Selección no válida", "Aviso", MessageBoxButtons.OK);
+            }
+
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+
+
         }
         public void LoadEliminar()
         {
@@ -624,24 +762,35 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvProductoD()
         {
-            if (busqueda.Equals("Codigo de Barras"))
+            try
             {
-                DataTable productos = cliente.BuscarProductoCodigo(valor);
-                dgvProductosD.DataSource = productos;
+                if (busqueda.Equals("Codigo de Barras"))
+                {
+                    DataTable productos = cliente.BuscarProductoCodigo(valor);
+                    dgvProductosD.DataSource = productos;
 
-            }
-            else if (busqueda.Equals("Marca"))
-            {
-                DataTable productos = cliente.BuscarProductoMarca(valor);
-                dgvProductosD.DataSource = productos;
+                }
+                else if (busqueda.Equals("Marca"))
+                {
+                    DataTable productos = cliente.BuscarProductoMarca(valor);
+                    dgvProductosD.DataSource = productos;
 
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable productos = cliente.ObtenerProducto();
+                    dgvProductosD.DataSource = productos;
+                }
             }
-            else if (busqueda.Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable productos = cliente.ObtenerProducto();
-                dgvProductosD.DataSource = productos;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
+
         }
+
         #endregion
+
+        
     }
 }

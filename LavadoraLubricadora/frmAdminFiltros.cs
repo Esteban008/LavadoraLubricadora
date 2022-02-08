@@ -178,17 +178,44 @@ namespace LavadoraLubricadora
 
         private void btnAgregarVehiculos_Click(object sender, EventArgs e)
         {
+            try
+            {
                 cliente.GuardarEstadoListaVehiculos(false);
-                AbrirFormulario<frmAgregarVehiculo>();     
-         
+                AbrirFormulario<frmAgregarVehiculo>();
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+
+
         }
 
         private void LoadIngresar()
         {
-            cbxTipoFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxTipoFiltro.Items.AddRange(cliente.ObtenerTipoFiltro());
 
-            DeshabilitarCampos();
+            try
+            {
+                cbxTipoFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
+                cbxTipoFiltro.Items.AddRange(cliente.ObtenerTipoFiltro());
+
+                DeshabilitarCampos();
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+
 
         }
 
@@ -398,33 +425,44 @@ namespace LavadoraLubricadora
         {
             try
             {
-                LimpiarCamposE();
-                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
+
+                if (cbxCriBusquedaE.SelectedItem != null)
                 {
-                    DataTable filtros = cliente.BuscarFiltroCodigo(txtBusquedaE.Text);
-                    dgvFiltrosE.DataSource = filtros;
+                    LimpiarCamposE();
+                    if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Codigo de Barras"))
+                    {
+                        DataTable filtros = cliente.BuscarFiltroCodigo(txtBusquedaE.Text);
+                        dgvFiltrosE.DataSource = filtros;
+
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
+                    {
+                        DataTable filtros = cliente.BuscarFiltroMarca(txtBusquedaE.Text);
+                        dgvFiltrosE.DataSource = filtros;
+
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        DataTable filtros = cliente.ObtenerFiltros();
+                        dgvFiltrosE.DataSource = filtros;
+                    }
+                    busqueda = cbxCriBusquedaE.SelectedItem.ToString();
+                    valor = txtBusquedaE.Text;
+
 
                 }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
+                else
                 {
-                    DataTable filtros = cliente.BuscarFiltroMarca(txtBusquedaE.Text);
-                    dgvFiltrosE.DataSource = filtros;
+                    DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
+                }
 
                 }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
-                {
-                    DataTable filtros = cliente.ObtenerFiltros();
-                    dgvFiltrosE.DataSource = filtros;
-                }
-                busqueda = cbxCriBusquedaE.SelectedItem.ToString();
-                valor = txtBusquedaE.Text;
-            }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
 
-           
+
         }
 
         private void btnGuardarE_Click(object sender, EventArgs e)
@@ -432,53 +470,79 @@ namespace LavadoraLubricadora
             try
             {
 
-                idCodigos = cliente.ObtenerIdCodigosFiltro(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString())).ToList();
-
-                cliente.LimpiarRelacionCodigosBase(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()));
-
-                foreach (var item in idCodigos)
+                if (cbxTipoFiltroE.SelectedItem != null)
                 {
-                    cliente.LimpiarCodigosBase(Convert.ToInt32(item));
-                }
-                   
-                cliente.EditarFiltro(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()), cbxTipoFiltroE.SelectedItem.ToString(), txtRoscaE.Text, txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
-                           Convert.ToInt32(txtCantidadMinE.Text), Convert.ToDouble(txtPreSIvaE.Text), Convert.ToDouble(txtPreCIvaE.Text), Convert.ToDouble(txtPreVMayorE.Text),
-                           Convert.ToDouble(txtPreVMenorE.Text), Convert.ToDouble(txtMargenMayorE.Text), Convert.ToDouble(txtMargenMenorE.Text));
+                    idCodigos = cliente.ObtenerIdCodigosFiltro(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString())).ToList();
 
-                //Sila lista de vehiculos esta llena se limpia la referencia de los vehiculos y se agrega la nueva lista
-                if (cliente.ObtenerIDsVehiculos().Length != 0)
-                {
-                    cliente.LimpiarVehiculosBase(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()));
+                    cliente.LimpiarRelacionCodigosBase(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()));
 
-                    List<int> idVehiculos = cliente.ObtenerIDsVehiculos().ToList();
-
-                    foreach (var idVehiculo in idVehiculos)
+                    foreach (var item in idCodigos)
                     {
-                        cliente.IngresarVehiculoFiltro(txtCodigoBE.Text, idVehiculo);
+                        cliente.LimpiarCodigosBase(Convert.ToInt32(item));
                     }
+
+                    int resultado = cliente.EditarFiltro(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()), cbxTipoFiltroE.SelectedItem.ToString(), txtRoscaE.Text, txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
+                               Convert.ToInt32(txtCantidadMinE.Text), Convert.ToDouble(txtPreSIvaE.Text), Convert.ToDouble(txtPreCIvaE.Text), Convert.ToDouble(txtPreVMayorE.Text),
+                               Convert.ToDouble(txtPreVMenorE.Text), Convert.ToDouble(txtMargenMayorE.Text), Convert.ToDouble(txtMargenMenorE.Text));
+
+                    if (resultado == 1)
+                    {
+                        //Sila lista de vehiculos esta llena se limpia la referencia de los vehiculos y se agrega la nueva lista
+                        if (cliente.ObtenerIDsVehiculos().Length != 0)
+                        {
+                            cliente.LimpiarVehiculosBase(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()));
+
+                            List<int> idVehiculos = cliente.ObtenerIDsVehiculos().ToList();
+
+                            foreach (var idVehiculo in idVehiculos)
+                            {
+                                cliente.IngresarVehiculoFiltro(txtCodigoBE.Text, idVehiculo);
+                            }
+                        }
+
+                        List<string> codigosE = recuperarRtxtE();
+
+                        foreach (var codigo in codigosE)
+                        {
+                            cliente.IngresarCodigoFiltro(txtCodigoBE.Text, codigo);
+                        }
+
+                        if (cliente.ValidarMinFiltro(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString())))
+                        {
+                            MessageBox.Show("Este producto está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                        }
+                        DialogResult dialogResult = MessageBox.Show("Filtro actualizado con éxito", "Aviso", MessageBoxButtons.OK);
+
+                        LimpiarCamposE();
+                        ActualizarDgvFiltrosE();
+                        LimpiarCacheListaVehiculos();
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Filtro no se ha podido actualizar verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                    }
+
                 }
-
-                List<string> codigosE = recuperarRtxtE();
-
-                foreach (var codigo in codigosE)
+                else
                 {
-                    cliente.IngresarCodigoFiltro(txtCodigoBE.Text, codigo);
+                    MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
                 }
 
-                if (cliente.ValidarMinFiltro(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString())))
-                {
-                    MessageBox.Show("Este producto está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
-                }
-                DialogResult dialogResult = MessageBox.Show("Filtro actualizado con éxito", "Aviso", MessageBoxButtons.OK);
-
-                LimpiarCamposE();
-                ActualizarDgvFiltrosE();              
-                LimpiarCacheListaVehiculos();
+                
 
             }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
 
         }
@@ -506,35 +570,60 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvFiltrosE()
         {
-            if (busqueda.Equals("Codigo de Barras"))
-            {
-                DataTable filtros = cliente.BuscarFiltroCodigo(valor);
-                dgvFiltrosE.DataSource = filtros;
 
-            }
-            else if (busqueda.Equals("Marca"))
+            try
             {
-                DataTable filtros = cliente.BuscarFiltroMarca(valor);
-                dgvFiltrosE.DataSource = filtros;
+                if (busqueda.Equals("Codigo de Barras"))
+                {
+                    DataTable filtros = cliente.BuscarFiltroCodigo(valor);
+                    dgvFiltrosE.DataSource = filtros;
 
+                }
+                else if (busqueda.Equals("Marca"))
+                {
+                    DataTable filtros = cliente.BuscarFiltroMarca(valor);
+                    dgvFiltrosE.DataSource = filtros;
+
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable filtros = cliente.ObtenerFiltros();
+                    dgvFiltrosE.DataSource = filtros;
+                }
             }
-            else if (busqueda.Equals("Mostrar Todos"))
+            catch (EndpointNotFoundException)
             {
-                DataTable filtros = cliente.ObtenerFiltros();
-                dgvFiltrosE.DataSource = filtros;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+
         }
 
         private void LoadEditar()
         {
-            cbxCriBusquedaE.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxTipoFiltroE.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxTipoFiltroE.Items.AddRange(cliente.ObtenerTipoFiltro());
+            try
+            {
+                cbxCriBusquedaE.DropDownStyle = ComboBoxStyle.DropDownList;
+                cbxTipoFiltroE.DropDownStyle = ComboBoxStyle.DropDownList;
+                cbxTipoFiltroE.Items.AddRange(cliente.ObtenerTipoFiltro());
 
-            txtBusquedaE.Visible = false;
-            btnEditarVehiculos.Enabled = false;
+                txtBusquedaE.Visible = false;
+                btnEditarVehiculos.Enabled = false;
 
-            DeshabilitarCamposE();
+                DeshabilitarCamposE();
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+
 
         }
 
@@ -629,44 +718,7 @@ namespace LavadoraLubricadora
             txtMargenMayorE.Text = margenxMayorE.ToString();
         }
 
-        public void RecalcularE()
-        {
-            double precioVMenorE = 0;
-            double precioCompraConIvaE = 0;
-
-            //Conversion del valor en txtBaseImponible
-            Double.TryParse(txtPreVMenorE.Text, out precioVMenorE);
-            Double.TryParse(txtPreCIvaE.Text, out precioCompraConIvaE);
-
-            //Calculo del IVA
-            double magenxmenorE = Math.Round((precioVMenorE - precioCompraConIvaE), 2);
-
-
-
-            //Actualizacion de los campos correspondientes
-
-            txtMargenMenorE.Text = magenxmenorE.ToString();
-
-
-            double porcenGananciaE = 0;
-
-
-
-            //Conversion del valor en txtBaseImponible
-            Double.TryParse(txtGananPorMayorE.Text, out porcenGananciaE);
-
-
-            //Calculo del IVA
-            double margenxMayorE = Math.Round(((porcenGananciaE / 100) * precioCompraConIvaE), 2);
-
-            //Calculo del total
-            double precioVentaMayorE = Math.Round((precioCompraConIvaE + margenxMayorE), 2);
-
-            //Actualizacion de los campos correspondientes
-
-            txtPreVMayorE.Text = precioVentaMayorE.ToString();
-            txtMargenMayorE.Text = margenxMayorE.ToString();
-        }
+       
 
         private void cbxCriBusquedaE_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -684,26 +736,36 @@ namespace LavadoraLubricadora
 
         private void dgvFiltrosE_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMarcaE.Text = dgvFiltrosE.SelectedCells[1].Value.ToString();
-            txtDescripcionE.Text = dgvFiltrosE.SelectedCells[2].Value.ToString();
-            txtRoscaE.Text = dgvFiltrosE.SelectedCells[3].Value.ToString();
-            cbxTipoFiltroE.SelectedItem = dgvFiltrosE.SelectedCells[4].Value.ToString();
-            llenarRtxtE(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()));
-            txtCodigoBE.Text = dgvFiltrosE.SelectedCells[6].Value.ToString();
-            txtPreSIvaE.Text = Math.Round(Convert.ToDouble(dgvFiltrosE.SelectedCells[7].Value.ToString()), 2).ToString();
-            txtPreCIvaE.Text = Math.Round(Convert.ToDouble(dgvFiltrosE.SelectedCells[8].Value.ToString()), 2).ToString();
-            txtPreVMayorE.Text = Math.Round(Convert.ToDouble(dgvFiltrosE.SelectedCells[9].Value.ToString()), 2).ToString();
-            txtPreVMenorE.Text = Math.Round(Convert.ToDouble(dgvFiltrosE.SelectedCells[10].Value.ToString()), 2).ToString();
-            txtMargenMayorE.Text = Math.Round(Convert.ToDouble(dgvFiltrosE.SelectedCells[11].Value.ToString()), 2).ToString();
-            txtMargenMenorE.Text = Math.Round(Convert.ToDouble(dgvFiltrosE.SelectedCells[12].Value.ToString()), 2).ToString();
-            txtCantidadE.Text = dgvFiltrosE.SelectedCells[13].Value.ToString();
-            txtCantidadMinE.Text = dgvFiltrosE.SelectedCells[14].Value.ToString();
-            txtGananPorMayorE.Text = Math.Round((((Convert.ToDouble(txtPreVMayorE.Text) - Convert.ToDouble(txtPreCIvaE.Text)) * 100) / (Convert.ToDouble(txtPreCIvaE.Text)))).ToString();
 
-            codigos = recuperarRtxtE();
+            try
+            {
+                txtMarcaE.Text = dgvFiltrosE.SelectedCells[1].Value.ToString();
+                txtDescripcionE.Text = dgvFiltrosE.SelectedCells[2].Value.ToString();
+                txtRoscaE.Text = dgvFiltrosE.SelectedCells[3].Value.ToString();
+                cbxTipoFiltroE.SelectedItem = dgvFiltrosE.SelectedCells[4].Value.ToString();
+                llenarRtxtE(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString()));
+                txtCodigoBE.Text = dgvFiltrosE.SelectedCells[6].Value.ToString();
+                txtPreSIvaE.Text = Math.Round(Convert.ToDouble(dgvFiltrosE.SelectedCells[7].Value.ToString()), 2).ToString();
+                txtPreCIvaE.Text = Math.Round(Convert.ToDouble(dgvFiltrosE.SelectedCells[8].Value.ToString()), 2).ToString();
+                txtPreVMayorE.Text = Math.Round(Convert.ToDouble(dgvFiltrosE.SelectedCells[9].Value.ToString()), 2).ToString();
+                txtPreVMenorE.Text = Math.Round(Convert.ToDouble(dgvFiltrosE.SelectedCells[10].Value.ToString()), 2).ToString();
+                txtMargenMayorE.Text = Math.Round(Convert.ToDouble(dgvFiltrosE.SelectedCells[11].Value.ToString()), 2).ToString();
+                txtMargenMenorE.Text = Math.Round(Convert.ToDouble(dgvFiltrosE.SelectedCells[12].Value.ToString()), 2).ToString();
+                txtCantidadE.Text = dgvFiltrosE.SelectedCells[13].Value.ToString();
+                txtCantidadMinE.Text = dgvFiltrosE.SelectedCells[14].Value.ToString();
+                txtGananPorMayorE.Text = Math.Round((((Convert.ToDouble(txtPreVMayorE.Text) - Convert.ToDouble(txtPreCIvaE.Text)) * 100) / (Convert.ToDouble(txtPreCIvaE.Text)))).ToString();
 
-            btnEditarVehiculos.Enabled = true;
+                codigos = recuperarRtxtE();
+
+                btnEditarVehiculos.Enabled = true;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Selección no válida", "Aviso", MessageBoxButtons.OK);
+            }
+
         }
+
 
         private void txtPreSIvaE_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -780,6 +842,28 @@ namespace LavadoraLubricadora
             }
         }
 
+        private void txtCantidadE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números y la coma", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCantidadMinE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números y la coma", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
         private void txtPreVMenorE_KeyUp(object sender, KeyEventArgs e)
         {
             double precioVMenorE = 0;
@@ -807,30 +891,40 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Codigo de Barras"))
+
+                if (cbxCriBusquedaD.SelectedItem != null)
                 {
-                    DataTable filtros = cliente.BuscarFiltroCodigo(txtBusquedaD.Text);
-                    dgvFiltrosD.DataSource = filtros;
+                    if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Codigo de Barras"))
+                    {
+                        DataTable filtros = cliente.BuscarFiltroCodigo(txtBusquedaD.Text);
+                        dgvFiltrosD.DataSource = filtros;
+
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
+                    {
+                        DataTable filtros = cliente.BuscarFiltroMarca(txtBusquedaD.Text);
+                        dgvFiltrosD.DataSource = filtros;
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        DataTable filtros = cliente.ObtenerFiltros();
+                        dgvFiltrosD.DataSource = filtros;
+                    }
+                    busqueda = cbxCriBusquedaD.SelectedItem.ToString();
+                    valor = txtBusquedaD.Text;
+
 
                 }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
+                else
                 {
-                    DataTable filtros = cliente.BuscarFiltroMarca(txtBusquedaD.Text);
-                    dgvFiltrosD.DataSource = filtros;
+                    DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
                 }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
-                {
-                    DataTable filtros = cliente.ObtenerFiltros();
-                    dgvFiltrosD.DataSource = filtros;
-                }
-                busqueda = cbxCriBusquedaD.SelectedItem.ToString();
-                valor = txtBusquedaD.Text;
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
-           
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -841,20 +935,38 @@ namespace LavadoraLubricadora
 
                 cliente.LimpiarRelacionCodigosBase(Convert.ToInt32(dgvFiltrosD.SelectedCells[0].Value.ToString()));
 
+
+
                 foreach (var item in idCodigos)
                 {
                     cliente.LimpiarCodigosBase(Convert.ToInt32(item));
                 }
 
-                cliente.EliminarFiltro(Convert.ToInt32(dgvFiltrosD.SelectedCells[0].Value));
-                DialogResult dialogResult = MessageBox.Show("Filtro eliminado con éxito", "Aviso", MessageBoxButtons.OK);
-                ActualizarDgvFiltroD();
+                int resultado = cliente.EliminarFiltro(Convert.ToInt32(dgvFiltrosD.SelectedCells[0].Value));
+
+                if (resultado==1)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Filtro eliminado con éxito", "Aviso", MessageBoxButtons.OK);
+                    ActualizarDgvFiltroD();
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Ocurrió un error al eliminar el filtro", "Aviso", MessageBoxButtons.OK);
+                }
+                
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Selección no válida", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
-                 
         }
 
         private void LoadEliminar()
@@ -880,43 +992,38 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvFiltroD()
         {
-            if (busqueda.Equals("Codigo de Barras"))
+            try
             {
-                DataTable filtros = cliente.BuscarFiltroCodigo(valor);
-                dgvFiltrosD.DataSource = filtros;
-
-            }
-            else if (busqueda.Equals("Marca"))
-            {
-                DataTable filtros = cliente.BuscarFiltroMarca(valor);
-                dgvFiltrosD.DataSource = filtros;
-
-            }
-            else if (busqueda.Equals("Mostrar Todos"))
-            {
-                DataTable filtros = cliente.ObtenerFiltros();
-                dgvFiltrosD.DataSource = filtros;
-            }
-        }
-
-        public List<string> llenaCodigosD(int id)
-        {
-
-            List<string> codigos = new List<string>();
-
-            foreach (DataGridViewRow row in dgvFiltrosD.Rows)
-            {
-                if (Convert.ToInt32(row.Cells[0].Value.ToString()) == id)
+                if (busqueda.Equals("Codigo de Barras"))
                 {
-                    codigos.Add(row.Cells[5].Value.ToString());
+                    DataTable filtros = cliente.BuscarFiltroCodigo(valor);
+                    dgvFiltrosD.DataSource = filtros;
+
+                }
+                else if (busqueda.Equals("Marca"))
+                {
+                    DataTable filtros = cliente.BuscarFiltroMarca(valor);
+                    dgvFiltrosD.DataSource = filtros;
+
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable filtros = cliente.ObtenerFiltros();
+                    dgvFiltrosD.DataSource = filtros;
                 }
             }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
 
-            return codigos;
         }
+
+
+
 
         #endregion
 
-        
+       
     }
 }
