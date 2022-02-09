@@ -1673,22 +1673,22 @@ namespace LavadoraLubricadora.LavadoraService {
         System.Threading.Tasks.Task<int> BuscarVehiculoAsync(string marca, string modelo, string anio, string motor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarVehiculoResponse")]
-        void IngresarVehiculo(string marca, string modelo, string anio, string tipoMotor);
+        int IngresarVehiculo(string marca, string modelo, string anio, string tipoMotor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarVehiculoResponse")]
-        System.Threading.Tasks.Task IngresarVehiculoAsync(string marca, string modelo, string anio, string tipoMotor);
+        System.Threading.Tasks.Task<int> IngresarVehiculoAsync(string marca, string modelo, string anio, string tipoMotor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/EditarVehiculoResponse")]
-        void EditarVehiculo(int id, string marca, string modelo, string anio, string tipoMotor);
+        int EditarVehiculo(int id, string marca, string modelo, string anio, string tipoMotor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/EditarVehiculoResponse")]
-        System.Threading.Tasks.Task EditarVehiculoAsync(int id, string marca, string modelo, string anio, string tipoMotor);
+        System.Threading.Tasks.Task<int> EditarVehiculoAsync(int id, string marca, string modelo, string anio, string tipoMotor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/EliminarVehiculoResponse")]
-        void EliminarVehiculo(int id);
+        int EliminarVehiculo(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/EliminarVehiculoResponse")]
-        System.Threading.Tasks.Task EliminarVehiculoAsync(int id);
+        System.Threading.Tasks.Task<int> EliminarVehiculoAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerVehiculoResponse")]
         LavadoraLubricadora.LavadoraService.Vehiculo[] ObtenerVehiculo();
@@ -1733,10 +1733,10 @@ namespace LavadoraLubricadora.LavadoraService {
         System.Threading.Tasks.Task<System.Data.DataTable> BuscarVehiculoModeloAsync(string modelo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarMotorVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarMotorVehiculoResponse")]
-        void IngresarMotorVehiculo(string marca, string modelo, string anio, string tipoMotor);
+        int IngresarMotorVehiculo(string marca, string modelo, string anio, string tipoMotor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarMotorVehiculo", ReplyAction="http://tempuri.org/ILavadoraService/IngresarMotorVehiculoResponse")]
-        System.Threading.Tasks.Task IngresarMotorVehiculoAsync(string marca, string modelo, string anio, string tipoMotor);
+        System.Threading.Tasks.Task<int> IngresarMotorVehiculoAsync(string marca, string modelo, string anio, string tipoMotor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerVehiculos", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerVehiculosResponse")]
         System.Data.DataTable ObtenerVehiculos();
@@ -2678,27 +2678,27 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.BuscarVehiculoAsync(marca, modelo, anio, motor);
         }
         
-        public void IngresarVehiculo(string marca, string modelo, string anio, string tipoMotor) {
-            base.Channel.IngresarVehiculo(marca, modelo, anio, tipoMotor);
+        public int IngresarVehiculo(string marca, string modelo, string anio, string tipoMotor) {
+            return base.Channel.IngresarVehiculo(marca, modelo, anio, tipoMotor);
         }
         
-        public System.Threading.Tasks.Task IngresarVehiculoAsync(string marca, string modelo, string anio, string tipoMotor) {
+        public System.Threading.Tasks.Task<int> IngresarVehiculoAsync(string marca, string modelo, string anio, string tipoMotor) {
             return base.Channel.IngresarVehiculoAsync(marca, modelo, anio, tipoMotor);
         }
         
-        public void EditarVehiculo(int id, string marca, string modelo, string anio, string tipoMotor) {
-            base.Channel.EditarVehiculo(id, marca, modelo, anio, tipoMotor);
+        public int EditarVehiculo(int id, string marca, string modelo, string anio, string tipoMotor) {
+            return base.Channel.EditarVehiculo(id, marca, modelo, anio, tipoMotor);
         }
         
-        public System.Threading.Tasks.Task EditarVehiculoAsync(int id, string marca, string modelo, string anio, string tipoMotor) {
+        public System.Threading.Tasks.Task<int> EditarVehiculoAsync(int id, string marca, string modelo, string anio, string tipoMotor) {
             return base.Channel.EditarVehiculoAsync(id, marca, modelo, anio, tipoMotor);
         }
         
-        public void EliminarVehiculo(int id) {
-            base.Channel.EliminarVehiculo(id);
+        public int EliminarVehiculo(int id) {
+            return base.Channel.EliminarVehiculo(id);
         }
         
-        public System.Threading.Tasks.Task EliminarVehiculoAsync(int id) {
+        public System.Threading.Tasks.Task<int> EliminarVehiculoAsync(int id) {
             return base.Channel.EliminarVehiculoAsync(id);
         }
         
@@ -2758,11 +2758,11 @@ namespace LavadoraLubricadora.LavadoraService {
             return base.Channel.BuscarVehiculoModeloAsync(modelo);
         }
         
-        public void IngresarMotorVehiculo(string marca, string modelo, string anio, string tipoMotor) {
-            base.Channel.IngresarMotorVehiculo(marca, modelo, anio, tipoMotor);
+        public int IngresarMotorVehiculo(string marca, string modelo, string anio, string tipoMotor) {
+            return base.Channel.IngresarMotorVehiculo(marca, modelo, anio, tipoMotor);
         }
         
-        public System.Threading.Tasks.Task IngresarMotorVehiculoAsync(string marca, string modelo, string anio, string tipoMotor) {
+        public System.Threading.Tasks.Task<int> IngresarMotorVehiculoAsync(string marca, string modelo, string anio, string tipoMotor) {
             return base.Channel.IngresarMotorVehiculoAsync(marca, modelo, anio, tipoMotor);
         }
         

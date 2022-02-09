@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -68,11 +69,28 @@ namespace LavadoraLubricadora
 
         public void LlenarCombos()
         {
-            cbxMarcaVehiculo.Items.AddRange(cliente.ObtenerMarcaVehiculo());
-            cbxMarcaVehiculo.Items.Add("Otra Marca");
-            cbxModeloVehiculo.Items.Add("Otro Modelo");
-            cbxAnioVehiculo.Items.Add("Otro Año");
-            cbxMotorVehiculo.Items.Add("Otro Motor");
+            try
+            {
+                cbxMarcaVehiculo.Items.AddRange(cliente.ObtenerMarcaVehiculo());
+                cbxMarcaVehiculo.Items.Add("Otra Marca");
+                cbxModeloVehiculo.Items.Add("Otro Modelo");
+                cbxAnioVehiculo.Items.Add("Otro Año");
+                cbxMotorVehiculo.Items.Add("Otro Motor");
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+
         }
 
         public void HabilitarCamposMarca()
@@ -171,14 +189,31 @@ namespace LavadoraLubricadora
             }
             else
             {
-                cbxAnioVehiculo.Items.Clear();
-                cbxAnioVehiculo.Items.AddRange(cliente.ObtenerAnioVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
-                cbxAnioVehiculo.Items.Add("Otro Año");
+                try
+                {
+                    cbxAnioVehiculo.Items.Clear();
+                    cbxAnioVehiculo.Items.AddRange(cliente.ObtenerAnioVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
+                    cbxAnioVehiculo.Items.Add("Otro Año");
 
 
-                cbxMotorVehiculo.Items.Clear();
-                cbxMotorVehiculo.Items.AddRange(cliente.ObtenerMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
-                cbxMotorVehiculo.Items.Add("Otro Motor");
+                    cbxMotorVehiculo.Items.Clear();
+                    cbxMotorVehiculo.Items.AddRange(cliente.ObtenerMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
+                    cbxMotorVehiculo.Items.Add("Otro Motor");
+                }
+                catch (EndpointNotFoundException)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+                }
+                catch (OverflowException)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+                }
+
+                catch (Exception)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+                }
+
             }
         }
 
@@ -213,97 +248,72 @@ namespace LavadoraLubricadora
                 List<LavadoraService.Vehiculo> vehiculos = new List<LavadoraService.Vehiculo>(cliente.ObtenerVehiculo());
                 bool validacionIngreso = true;
 
-
-                if (cbxMarcaVehiculo.SelectedItem.Equals("Otra Marca"))
+                if (cbxMarcaVehiculo.SelectedItem != null && cbxModeloVehiculo.SelectedItem != null && cbxAnioVehiculo.SelectedItem != null && cbxMotorVehiculo.SelectedItem != null)
                 {
-                    //Se verifica que la marca no exista
-                    foreach (LavadoraService.Vehiculo vehiculo in vehiculos)
+                    if (cbxMarcaVehiculo.SelectedItem.Equals("Otra Marca"))
                     {
-                        if (vehiculo.Marca.Equals(txtIngresarMarca.Text))
-                        {
-                            validacionIngreso = false;
-                        }
-
-                    }
-                    if (validacionIngreso)
-                    {
-                        //Se crea un NUEVO vehiculo
-                        cliente.IngresarVehiculo(txtIngresarMarca.Text, txtIngresarModelo.Text, txtIngresarAnio.Text, txtIngresarMotor.Text);
-                        DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
-                        HabilitarCombos();
-                        LimpiarCombos();
-                        LlenarCombos();
-                        OcultartxtVehiculo(); ;
-                    }
-                    else
-                    {
-                        DialogResult dialogResult = MessageBox.Show("¡La marca ya existe!", "Aviso", MessageBoxButtons.OK);
-                    }
-                }
-                else
-                {
-                    //Si el usuario utiliza una marca existente se procede a verificar el modelo del vehiculo
-                    if (cbxModeloVehiculo.SelectedItem.Equals("Otro Modelo"))
-                    {
-
-                        //Se verifica que el modelo no existe
+                        //Se verifica que la marca no exista
                         foreach (LavadoraService.Vehiculo vehiculo in vehiculos)
                         {
-                            if (vehiculo.Marca.Equals(cbxMarcaVehiculo.SelectedItem.ToString()))
+                            if (vehiculo.Marca.Equals(txtIngresarMarca.Text))
                             {
-                                if (vehiculo.Modelo.Equals(txtIngresarModelo.Text))
-                                {
-
-                                    validacionIngreso = false;
-                                }
-
+                                validacionIngreso = false;
                             }
 
                         }
-                        //Si el usuario selecciono otro modelo se crea un NUEVO vehiculo de marca existente
-
                         if (validacionIngreso)
                         {
-                            //Se crea un NUEVO vehiculo 
-                            cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), txtIngresarModelo.Text, txtIngresarAnio.Text, txtIngresarMotor.Text);
-                            DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
-                            HabilitarCombos();
-                            LimpiarCombos();
-                            LlenarCombos();
-                            OcultartxtVehiculo();
+                            //Se crea un NUEVO vehiculo
+                            int resultado = cliente.IngresarVehiculo(txtIngresarMarca.Text, txtIngresarModelo.Text, txtIngresarAnio.Text, txtIngresarMotor.Text);
+
+                            if (resultado>=1)
+                            {
+                                DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
+                                HabilitarCombos();
+                                LimpiarCombos();
+                                LlenarCombos();
+                                OcultartxtVehiculo();
+                            }
+                            else
+                            {
+                                DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                            }
+
                         }
                         else
                         {
-                            DialogResult dialogResult = MessageBox.Show("¡El modelo ya existe!", "Aviso", MessageBoxButtons.OK);
+                            DialogResult dialogResult = MessageBox.Show("¡La marca ya existe!", "Aviso", MessageBoxButtons.OK);
                         }
-
                     }
                     else
                     {
-                        //Si el usuario utiliza una marca y modelo existente se procede a verificar el anio del vehiculo
-                        if (cbxAnioVehiculo.SelectedItem.Equals("Otro Año"))
+                        //Si el usuario utiliza una marca existente se procede a verificar el modelo del vehiculo
+                        if (cbxModeloVehiculo.SelectedItem.Equals("Otro Modelo"))
                         {
-                            //Si el usuario selecciono otro anio se crea un NUEVO vehiculo de marca y modelo existente
-                            //Se verifica que el año del vehiculo no existe
+
+                            //Se verifica que el modelo no existe
                             foreach (LavadoraService.Vehiculo vehiculo in vehiculos)
                             {
-                                if ((vehiculo.Marca.Equals(cbxMarcaVehiculo.SelectedItem.ToString())) && (vehiculo.Modelo.Equals(cbxModeloVehiculo.SelectedItem.ToString())))
+                                if (vehiculo.Marca.Equals(cbxMarcaVehiculo.SelectedItem.ToString()))
                                 {
-                                    if (vehiculo.Anio == txtIngresarAnio.Text)
+                                    if (vehiculo.Modelo.Equals(txtIngresarModelo.Text))
                                     {
+
                                         validacionIngreso = false;
                                     }
 
                                 }
+
                             }
+                            //Si el usuario selecciono otro modelo se crea un NUEVO vehiculo de marca existente
 
                             if (validacionIngreso)
                             {
+                                //Se crea un NUEVO vehiculo 
+                                int resultado = cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), txtIngresarModelo.Text, txtIngresarAnio.Text, txtIngresarMotor.Text);
 
-                                if (cbxMotorVehiculo.SelectedItem.Equals("Otro Motor"))
+                                if (resultado>=1)
                                 {
-                                    //Se crea un NUEVO vehiculo
-                                    cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, txtIngresarMotor.Text);
                                     DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
                                     HabilitarCombos();
                                     LimpiarCombos();
@@ -312,88 +322,184 @@ namespace LavadoraLubricadora
                                 }
                                 else
                                 {
-                                    //Se crea un NUEVO vehiculo
-                                    cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, cbxMotorVehiculo.SelectedItem.ToString());
-                                    DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
-                                    HabilitarCombos();
-                                    LimpiarCombos();
-                                    LlenarCombos();
-                                    OcultartxtVehiculo();
+                                    DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
                                 }
 
-
+                                
                             }
                             else
                             {
-                                DialogResult dialogResult = MessageBox.Show("¡El vehiculo con el mismo año ya existe!", "Aviso", MessageBoxButtons.OK);
+                                DialogResult dialogResult = MessageBox.Show("¡El modelo ya existe!", "Aviso", MessageBoxButtons.OK);
                             }
+
                         }
                         else
                         {
-                            //Si el usuario utiliza una marca, modelo y anio existente se procede a verificar el motor
-                            if (cbxMotorVehiculo.SelectedItem.Equals("Otro Motor"))
+                            //Si el usuario utiliza una marca y modelo existente se procede a verificar el anio del vehiculo
+                            if (cbxAnioVehiculo.SelectedItem.Equals("Otro Año"))
                             {
-                                //Si el usuario selecciono otro motor se añade el NUEVO motor al vehiculo existente
-                                //Se verifica que el motor del vehiculo no existe
+                                //Si el usuario selecciono otro anio se crea un NUEVO vehiculo de marca y modelo existente
+                                //Se verifica que el año del vehiculo no existe
                                 foreach (LavadoraService.Vehiculo vehiculo in vehiculos)
                                 {
-                                    if ((vehiculo.Marca.Equals(cbxMarcaVehiculo.SelectedItem.ToString())) && (vehiculo.Modelo.Equals(cbxModeloVehiculo.SelectedItem.ToString())) && (vehiculo.Anio == cbxAnioVehiculo.SelectedItem.ToString()))
+                                    if ((vehiculo.Marca.Equals(cbxMarcaVehiculo.SelectedItem.ToString())) && (vehiculo.Modelo.Equals(cbxModeloVehiculo.SelectedItem.ToString())))
                                     {
-                                        foreach (string motor in vehiculo.TipoMotor)
+                                        if (vehiculo.Anio == txtIngresarAnio.Text)
                                         {
-                                            if (motor.Equals(txtIngresarMotor.Text))
-                                            {
-                                                validacionIngreso = false;
-                                            }
-
+                                            validacionIngreso = false;
                                         }
+
                                     }
                                 }
 
                                 if (validacionIngreso)
                                 {
-                                    if (cbxAnioVehiculo.SelectedItem.Equals("Otro Año"))
+
+                                    if (cbxMotorVehiculo.SelectedItem.Equals("Otro Motor"))
                                     {
                                         //Se crea un NUEVO vehiculo
-                                        cliente.IngresarMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, txtIngresarMotor.Text);
-                                        DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
-                                        HabilitarCombos();
-                                        LimpiarCombos();
-                                        LlenarCombos();
-                                        OcultartxtVehiculo();
+                                        int resultado = cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, txtIngresarMotor.Text);
+
+                                        if (resultado>=1)
+                                        {
+                                            DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
+                                            HabilitarCombos();
+                                            LimpiarCombos();
+                                            LlenarCombos();
+                                            OcultartxtVehiculo();
+                                        }
+                                        else
+                                        {
+                                            DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                        }
+                                        
                                     }
                                     else
                                     {
                                         //Se crea un NUEVO vehiculo
-                                        cliente.IngresarMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), cbxAnioVehiculo.SelectedItem.ToString(), txtIngresarMotor.Text);
-                                        DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
-                                        HabilitarCombos();
-                                        LimpiarCombos();
-                                        LlenarCombos();
-                                        OcultartxtVehiculo();
+                                        int resultado = cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, cbxMotorVehiculo.SelectedItem.ToString());
+
+                                        if (resultado>=1)
+                                        {
+                                            DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
+                                            HabilitarCombos();
+                                            LimpiarCombos();
+                                            LlenarCombos();
+                                            OcultartxtVehiculo();
+                                        }
+                                        else
+                                        {
+                                            DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                        }
                                     }
 
 
                                 }
                                 else
                                 {
-                                    DialogResult dialogResult = MessageBox.Show("¡El vehiculo con el mismo motor ya existe!", "Aviso", MessageBoxButtons.OK);
+                                    DialogResult dialogResult = MessageBox.Show("¡El vehiculo con el mismo año ya existe!", "Aviso", MessageBoxButtons.OK);
                                 }
                             }
                             else
                             {
-                                //Caso contrario se procede a notificar que el vehiculo ya existe
-                                DialogResult dialogResult = MessageBox.Show("¡El vehiculo ya existe!", "Aviso", MessageBoxButtons.OK);
+                                //Si el usuario utiliza una marca, modelo y anio existente se procede a verificar el motor
+                                if (cbxMotorVehiculo.SelectedItem.Equals("Otro Motor"))
+                                {
+                                    //Si el usuario selecciono otro motor se añade el NUEVO motor al vehiculo existente
+                                    //Se verifica que el motor del vehiculo no existe
+                                    foreach (LavadoraService.Vehiculo vehiculo in vehiculos)
+                                    {
+                                        if ((vehiculo.Marca.Equals(cbxMarcaVehiculo.SelectedItem.ToString())) && (vehiculo.Modelo.Equals(cbxModeloVehiculo.SelectedItem.ToString())) && (vehiculo.Anio == cbxAnioVehiculo.SelectedItem.ToString()))
+                                        {
+                                            foreach (string motor in vehiculo.TipoMotor)
+                                            {
+                                                if (motor.Equals(txtIngresarMotor.Text))
+                                                {
+                                                    validacionIngreso = false;
+                                                }
+
+                                            }
+                                        }
+                                    }
+
+                                    if (validacionIngreso)
+                                    {
+                                        if (cbxAnioVehiculo.SelectedItem.Equals("Otro Año"))
+                                        {
+                                            //Se crea un NUEVO vehiculo
+                                            int resultado = cliente.IngresarMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, txtIngresarMotor.Text);
+
+                                            if (resultado>=1)
+                                            {
+                                                DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
+                                                HabilitarCombos();
+                                                LimpiarCombos();
+                                                LlenarCombos();
+                                                OcultartxtVehiculo();
+                                            }
+                                            else
+                                            {
+                                                DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            //Se crea un NUEVO vehiculo
+                                            int resultado = cliente.IngresarMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), cbxAnioVehiculo.SelectedItem.ToString(), txtIngresarMotor.Text);
+                                            Console.WriteLine(resultado);
+                                            if (resultado>=1)
+                                            {
+                                                DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
+                                                HabilitarCombos();
+                                                LimpiarCombos();
+                                                LlenarCombos();
+                                                OcultartxtVehiculo();
+                                            }
+                                            else
+                                            {
+                                                DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                            }
+
+                                        }
+
+
+                                    }
+                                    else
+                                    {
+                                        DialogResult dialogResult = MessageBox.Show("¡El vehiculo con el mismo motor ya existe!", "Aviso", MessageBoxButtons.OK);
+                                    }
+                                }
+                                else
+                                {
+                                    //Caso contrario se procede a notificar que el vehiculo ya existe
+                                    DialogResult dialogResult = MessageBox.Show("¡El vehiculo ya existe!", "Aviso", MessageBoxButtons.OK);
+                                }
                             }
                         }
                     }
                 }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Es necesario llenar todos los campos", "Aviso", MessageBoxButtons.OK);
+                }
+
+                
             }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
-            
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -420,29 +526,37 @@ namespace LavadoraLubricadora
         {
             try
             {
-                LimpiarCamposE();
-                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
+                if (cbxCriBusquedaE.SelectedItem != null)
                 {
-                    DataTable vehiculos = cliente.BuscarVehiculoMarca(txtBusquedaE.Text);
-                    dgvVehiculosE.DataSource = vehiculos;
+                    LimpiarCamposE();
+                    if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Marca"))
+                    {
+                        DataTable vehiculos = cliente.BuscarVehiculoMarca(txtBusquedaE.Text);
+                        dgvVehiculosE.DataSource = vehiculos;
 
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Modelo"))
+                    {
+                        DataTable vehiculos = cliente.BuscarVehiculoModelo(txtBusquedaE.Text);
+                        dgvVehiculosE.DataSource = vehiculos;
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        DataTable vehiculos = cliente.ObtenerVehiculos();
+                        dgvVehiculosE.DataSource = vehiculos;
+                    }
+                    busqueda = cbxCriBusquedaE.SelectedItem.ToString();
+                    valor = txtBusquedaE.Text;
                 }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Modelo"))
+                else
                 {
-                    DataTable vehiculos = cliente.BuscarVehiculoModelo(txtBusquedaE.Text);
-                    dgvVehiculosE.DataSource = vehiculos;
+                    DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
                 }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
-                {
-                    DataTable vehiculos = cliente.ObtenerVehiculos();
-                    dgvVehiculosE.DataSource = vehiculos;
-                }
-                busqueda = cbxCriBusquedaE.SelectedItem.ToString();
-                valor = txtBusquedaE.Text;
+                
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
           
         }
@@ -460,14 +574,23 @@ namespace LavadoraLubricadora
 
             try
             {
-                cliente.EditarVehiculo(Convert.ToInt32(dgvVehiculosE.SelectedCells[0].Value.ToString()), txtMarcaE.Text, txtModeloE.Text, txtAnioE.Text, txtTipoMotorE.Text);
-                DialogResult dialogResult = MessageBox.Show("Vehiculo actualizado exitosamente", "Aviso", MessageBoxButtons.OK);
-                LimpiarCamposE();
-                ActualizarDgvVehiculosE();
+                int resultado = cliente.EditarVehiculo(Convert.ToInt32(dgvVehiculosE.SelectedCells[0].Value.ToString()), txtMarcaE.Text, txtModeloE.Text, txtAnioE.Text, txtTipoMotorE.Text);
+
+                if (resultado>=1)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Vehículo actualizado exitosamente", "Aviso", MessageBoxButtons.OK);
+                    LimpiarCamposE();
+                    ActualizarDgvVehiculosE();
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Este vehículo no se ha podido actualizar verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                }
+                
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
          
         }
@@ -479,31 +602,47 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvVehiculosE()
         {
-            if (busqueda.Equals("Marca"))
+            try
             {
-                DataTable vehiculos = cliente.BuscarVehiculoMarca(valor);
-                dgvVehiculosE.DataSource = vehiculos;
+                if (busqueda.Equals("Marca"))
+                {
+                    DataTable vehiculos = cliente.BuscarVehiculoMarca(valor);
+                    dgvVehiculosE.DataSource = vehiculos;
 
-            }
-            else if (busqueda.Equals("Modelo"))
-            {
-                DataTable vehiculos = cliente.BuscarVehiculoModelo(valor);
-                dgvVehiculosE.DataSource = vehiculos;
+                }
+                else if (busqueda.Equals("Modelo"))
+                {
+                    DataTable vehiculos = cliente.BuscarVehiculoModelo(valor);
+                    dgvVehiculosE.DataSource = vehiculos;
 
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable vehiculos = cliente.ObtenerVehiculos();
+                    dgvVehiculosE.DataSource = vehiculos;
+                }
             }
-            else if (busqueda.Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable vehiculos = cliente.ObtenerVehiculos();
-                dgvVehiculosE.DataSource = vehiculos;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
+
         }
 
         private void dgvVehiculosE_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMarcaE.Text = dgvVehiculosE.SelectedCells[1].Value.ToString();
-            txtModeloE.Text = dgvVehiculosE.SelectedCells[2].Value.ToString();
-            txtAnioE.Text = dgvVehiculosE.SelectedCells[3].Value.ToString();
-            txtTipoMotorE.Text = dgvVehiculosE.SelectedCells[4].Value.ToString();
+            try
+            {
+                txtMarcaE.Text = dgvVehiculosE.SelectedCells[1].Value.ToString();
+                txtModeloE.Text = dgvVehiculosE.SelectedCells[2].Value.ToString();
+                txtAnioE.Text = dgvVehiculosE.SelectedCells[3].Value.ToString();
+                txtTipoMotorE.Text = dgvVehiculosE.SelectedCells[4].Value.ToString();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Selección no válida", "Aviso", MessageBoxButtons.OK);
+            }
+            
         }
 
         private void cbxCriBusquedaE_SelectedValueChanged(object sender, EventArgs e)
@@ -534,28 +673,35 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
+                if (cbxCriBusquedaE.SelectedItem != null)
                 {
-                    DataTable vehiculos = cliente.BuscarVehiculoMarca(txtBusquedaE.Text);
-                    dgvVehiculosD.DataSource = vehiculos;
+                    if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
+                    {
+                        DataTable vehiculos = cliente.BuscarVehiculoMarca(txtBusquedaE.Text);
+                        dgvVehiculosD.DataSource = vehiculos;
 
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Modelo"))
+                    {
+                        DataTable vehiculos = cliente.BuscarVehiculoModelo(txtBusquedaE.Text);
+                        dgvVehiculosD.DataSource = vehiculos;
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        DataTable vehiculos = cliente.ObtenerVehiculos();
+                        dgvVehiculosD.DataSource = vehiculos;
+                    }
+                    busqueda = cbxCriBusquedaD.SelectedItem.ToString();
+                    valor = txtBusquedaD.Text;
                 }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Modelo"))
+                else
                 {
-                    DataTable vehiculos = cliente.BuscarVehiculoModelo(txtBusquedaE.Text);
-                    dgvVehiculosD.DataSource = vehiculos;
+                    DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
                 }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
-                {
-                    DataTable vehiculos = cliente.ObtenerVehiculos();
-                    dgvVehiculosD.DataSource = vehiculos;
-                }
-                busqueda = cbxCriBusquedaD.SelectedItem.ToString();
-                valor = txtBusquedaD.Text;
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
             
         }
@@ -576,37 +722,63 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvVehiculosD()
         {
-            if (busqueda.Equals("Marca"))
+            try
             {
-                DataTable vehiculos = cliente.BuscarVehiculoMarca(valor);
-                dgvVehiculosD.DataSource = vehiculos;
+                if (busqueda.Equals("Marca"))
+                {
+                    DataTable vehiculos = cliente.BuscarVehiculoMarca(valor);
+                    dgvVehiculosD.DataSource = vehiculos;
 
-            }
-            else if (busqueda.Equals("Modelo"))
-            {
-                DataTable vehiculos = cliente.BuscarVehiculoModelo(valor);
-                dgvVehiculosD.DataSource = vehiculos;
+                }
+                else if (busqueda.Equals("Modelo"))
+                {
+                    DataTable vehiculos = cliente.BuscarVehiculoModelo(valor);
+                    dgvVehiculosD.DataSource = vehiculos;
 
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable vehiculos = cliente.ObtenerVehiculos();
+                    dgvVehiculosD.DataSource = vehiculos;
+                }
             }
-            else if (busqueda.Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable vehiculos = cliente.ObtenerVehiculos();
-                dgvVehiculosD.DataSource = vehiculos;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
-                cliente.EliminarVehiculo(Convert.ToInt32(dgvVehiculosD.SelectedCells[0].Value));
-                DialogResult dialogResult = MessageBox.Show("Vehículo eliminado con éxito", "Aviso", MessageBoxButtons.OK);
-                ActualizarDgvVehiculosD();
+                int resultado = cliente.EliminarVehiculo(Convert.ToInt32(dgvVehiculosD.SelectedCells[0].Value));
+
+                if (resultado>=1)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Vehículo eliminado con éxito", "Aviso", MessageBoxButtons.OK);
+                    ActualizarDgvVehiculosD();
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("No se puede eliminar este vehículo ya que pertenece a un proceso", "Aviso", MessageBoxButtons.OK);
+                }
+
             }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
-            }    
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
         }
 
         #endregion

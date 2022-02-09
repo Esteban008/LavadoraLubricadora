@@ -1888,7 +1888,9 @@
   </xs:element>
   <xs:element name="IngresarVehiculoResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IngresarVehiculoResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EditarVehiculo">
@@ -1904,7 +1906,9 @@
   </xs:element>
   <xs:element name="EditarVehiculoResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditarVehiculoResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EliminarVehiculo">
@@ -1916,7 +1920,9 @@
   </xs:element>
   <xs:element name="EliminarVehiculoResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EliminarVehiculoResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ObtenerVehiculo">
@@ -2051,7 +2057,9 @@
   </xs:element>
   <xs:element name="IngresarMotorVehiculoResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IngresarMotorVehiculoResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ObtenerVehiculos">
