@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Printing;
+using System.ServiceModel;
 
 namespace LavadoraLubricadora
 {
@@ -84,10 +85,14 @@ namespace LavadoraLubricadora
                     }
                 }
             }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
-            }          
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -147,9 +152,13 @@ namespace LavadoraLubricadora
                 }
 
             }
-            catch (Exception es)
+            catch (EndpointNotFoundException)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección ", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
 
         }
@@ -415,6 +424,29 @@ namespace LavadoraLubricadora
                 return;
             }
         }
+
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
         private void Imprimir(object sender,PrintPageEventArgs e)
         {
             Font font = new Font("Arial",14);
@@ -486,7 +518,6 @@ namespace LavadoraLubricadora
 
         #endregion
 
-
         #region Buscar
 
         private void btnBuscarB_Click(object sender, EventArgs e)
@@ -536,6 +567,16 @@ namespace LavadoraLubricadora
             cbxBusquedaB.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        private void txtBusquedaB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
         #endregion
 
         #region Anular
@@ -664,7 +705,16 @@ namespace LavadoraLubricadora
         {
             DeshablitarCampos();
         }
-
+        private void txtBusquedaD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
         private void DeshablitarCampos()
         {
 
@@ -706,6 +756,7 @@ namespace LavadoraLubricadora
         {
             dgvProductosD.DataSource = productos;
         }
+
 
         private void ImprimirAnulacion(object sender, PrintPageEventArgs e)
         {
@@ -765,7 +816,10 @@ namespace LavadoraLubricadora
         }
 
 
+
+
         #endregion
+
 
     }
 }
