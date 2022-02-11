@@ -45,10 +45,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtEmpresa = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtCorreoE = new System.Windows.Forms.TextBox();
@@ -61,27 +63,18 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtNombreE = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnCancelarE = new System.Windows.Forms.Button();
-            this.btnGuardarE = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDireccionE = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtEmpresaE = new System.Windows.Forms.TextBox();
+            this.btnGuardarE = new System.Windows.Forms.Button();
+            this.btnCancelarE = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.txtBusquedaE = new System.Windows.Forms.TextBox();
             this.cbxCriBusquedaE = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscarE = new System.Windows.Forms.Button();
             this.dgvProveedoresE = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtBusquedaD = new System.Windows.Forms.TextBox();
-            this.cbxCriBusquedaD = new System.Windows.Forms.ComboBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.btnBuscarD = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtEmpresa = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtEmpresaE = new System.Windows.Forms.TextBox();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,6 +83,7 @@
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvProveedoresD = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,6 +93,12 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtBusquedaD = new System.Windows.Forms.TextBox();
+            this.cbxCriBusquedaD = new System.Windows.Forms.ComboBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.btnBuscarD = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -109,8 +109,8 @@
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedoresE)).BeginInit();
             this.tabPage3.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedoresD)).BeginInit();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -238,9 +238,11 @@
             // 
             this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTelefono.Location = new System.Drawing.Point(70, 130);
+            this.txtTelefono.MaxLength = 15;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(211, 20);
             this.txtTelefono.TabIndex = 82;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label3
             // 
@@ -266,9 +268,11 @@
             // 
             this.txtRuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRuc.Location = new System.Drawing.Point(70, 90);
+            this.txtRuc.MaxLength = 13;
             this.txtRuc.Name = "txtRuc";
             this.txtRuc.Size = new System.Drawing.Size(211, 20);
             this.txtRuc.TabIndex = 81;
+            this.txtRuc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRuc_KeyPress);
             // 
             // label4
             // 
@@ -316,21 +320,41 @@
             this.label14.TabIndex = 80;
             this.label14.Text = "Teléfono:";
             // 
-            // btnCancelar
+            // label6
             // 
-            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnCancelar.Location = new System.Drawing.Point(391, 325);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(80, 35);
-            this.btnCancelar.TabIndex = 121;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 213);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 64;
+            this.label6.Text = "Dirección:";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDireccion.Location = new System.Drawing.Point(70, 210);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(211, 20);
+            this.txtDireccion.TabIndex = 122;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 253);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(51, 13);
+            this.label15.TabIndex = 123;
+            this.label15.Text = "Empresa:";
+            // 
+            // txtEmpresa
+            // 
+            this.txtEmpresa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmpresa.Location = new System.Drawing.Point(70, 250);
+            this.txtEmpresa.Name = "txtEmpresa";
+            this.txtEmpresa.Size = new System.Drawing.Size(211, 20);
+            this.txtEmpresa.TabIndex = 124;
             // 
             // btnGuardar
             // 
@@ -349,23 +373,21 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // label6
+            // btnCancelar
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 213);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
-            this.label6.TabIndex = 64;
-            this.label6.Text = "Dirección:";
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDireccion.Location = new System.Drawing.Point(70, 210);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(211, 20);
-            this.txtDireccion.TabIndex = 122;
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnCancelar.Location = new System.Drawing.Point(391, 325);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(80, 35);
+            this.btnCancelar.TabIndex = 121;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // tabPage2
             // 
@@ -511,39 +533,6 @@
             this.label11.TabIndex = 80;
             this.label11.Text = "Teléfono:";
             // 
-            // btnCancelarE
-            // 
-            this.btnCancelarE.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCancelarE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnCancelarE.FlatAppearance.BorderSize = 0;
-            this.btnCancelarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnCancelarE.Location = new System.Drawing.Point(405, 231);
-            this.btnCancelarE.Name = "btnCancelarE";
-            this.btnCancelarE.Size = new System.Drawing.Size(80, 32);
-            this.btnCancelarE.TabIndex = 121;
-            this.btnCancelarE.Text = "Cancelar";
-            this.btnCancelarE.UseVisualStyleBackColor = false;
-            this.btnCancelarE.Click += new System.EventHandler(this.btnCancelarE_Click);
-            // 
-            // btnGuardarE
-            // 
-            this.btnGuardarE.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnGuardarE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.tableLayoutPanel4.SetColumnSpan(this.btnGuardarE, 2);
-            this.btnGuardarE.FlatAppearance.BorderSize = 0;
-            this.btnGuardarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnGuardarE.Location = new System.Drawing.Point(187, 231);
-            this.btnGuardarE.Name = "btnGuardarE";
-            this.btnGuardarE.Size = new System.Drawing.Size(80, 32);
-            this.btnGuardarE.TabIndex = 120;
-            this.btnGuardarE.Text = "Guardar";
-            this.btnGuardarE.UseVisualStyleBackColor = false;
-            this.btnGuardarE.Click += new System.EventHandler(this.btnGuardarE_Click);
-            // 
             // label12
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -562,6 +551,57 @@
             this.txtDireccionE.Size = new System.Drawing.Size(256, 20);
             this.txtDireccionE.TabIndex = 122;
             // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(3, 175);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(51, 13);
+            this.label16.TabIndex = 123;
+            this.label16.Text = "Empresa:";
+            // 
+            // txtEmpresaE
+            // 
+            this.txtEmpresaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmpresaE.Location = new System.Drawing.Point(64, 172);
+            this.txtEmpresaE.Name = "txtEmpresaE";
+            this.txtEmpresaE.Size = new System.Drawing.Size(256, 20);
+            this.txtEmpresaE.TabIndex = 124;
+            // 
+            // btnGuardarE
+            // 
+            this.btnGuardarE.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGuardarE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.tableLayoutPanel4.SetColumnSpan(this.btnGuardarE, 2);
+            this.btnGuardarE.FlatAppearance.BorderSize = 0;
+            this.btnGuardarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnGuardarE.Location = new System.Drawing.Point(187, 231);
+            this.btnGuardarE.Name = "btnGuardarE";
+            this.btnGuardarE.Size = new System.Drawing.Size(80, 32);
+            this.btnGuardarE.TabIndex = 120;
+            this.btnGuardarE.Text = "Guardar";
+            this.btnGuardarE.UseVisualStyleBackColor = false;
+            this.btnGuardarE.Click += new System.EventHandler(this.btnGuardarE_Click);
+            // 
+            // btnCancelarE
+            // 
+            this.btnCancelarE.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancelarE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnCancelarE.FlatAppearance.BorderSize = 0;
+            this.btnCancelarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnCancelarE.Location = new System.Drawing.Point(405, 231);
+            this.btnCancelarE.Name = "btnCancelarE";
+            this.btnCancelarE.Size = new System.Drawing.Size(80, 32);
+            this.btnCancelarE.TabIndex = 121;
+            this.btnCancelarE.Text = "Cancelar";
+            this.btnCancelarE.UseVisualStyleBackColor = false;
+            this.btnCancelarE.Click += new System.EventHandler(this.btnCancelarE_Click);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -572,7 +612,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.Controls.Add(this.txtBusquedaE, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.cbxCriBusquedaE, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
@@ -588,7 +628,7 @@
             // txtBusquedaE
             // 
             this.txtBusquedaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaE.Location = new System.Drawing.Point(363, 13);
+            this.txtBusquedaE.Location = new System.Drawing.Point(362, 13);
             this.txtBusquedaE.Name = "txtBusquedaE";
             this.txtBusquedaE.Size = new System.Drawing.Size(186, 20);
             this.txtBusquedaE.TabIndex = 117;
@@ -626,7 +666,7 @@
             this.btnBuscarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarE.Location = new System.Drawing.Point(559, 6);
+            this.btnBuscarE.Location = new System.Drawing.Point(558, 6);
             this.btnBuscarE.Name = "btnBuscarE";
             this.btnBuscarE.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarE.TabIndex = 118;
@@ -664,143 +704,6 @@
             this.dgvProveedoresE.Size = new System.Drawing.Size(692, 130);
             this.dgvProveedoresE.TabIndex = 122;
             this.dgvProveedoresE.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedoresE_CellClick);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dgvProveedoresD);
-            this.tabPage3.Controls.Add(this.btnEliminar);
-            this.tabPage3.Controls.Add(this.tableLayoutPanel5);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(802, 518);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Eliminar Proveedor";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnEliminar.Location = new System.Drawing.Point(664, 252);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(80, 32);
-            this.btnEliminar.TabIndex = 126;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel5.ColumnCount = 6;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.47846F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.25842F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel5.Controls.Add(this.txtBusquedaD, 3, 0);
-            this.tableLayoutPanel5.Controls.Add(this.cbxCriBusquedaD, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label37, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.btnBuscarD, 4, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(52, 12);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(692, 47);
-            this.tableLayoutPanel5.TabIndex = 125;
-            // 
-            // txtBusquedaD
-            // 
-            this.txtBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaD.Location = new System.Drawing.Point(363, 13);
-            this.txtBusquedaD.Name = "txtBusquedaD";
-            this.txtBusquedaD.Size = new System.Drawing.Size(186, 20);
-            this.txtBusquedaD.TabIndex = 117;
-            // 
-            // cbxCriBusquedaD
-            // 
-            this.cbxCriBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxCriBusquedaD.FormattingEnabled = true;
-            this.cbxCriBusquedaD.Items.AddRange(new object[] {
-            "Ruc",
-            "Apellido",
-            "Empresa",
-            "Mostrar Todos"});
-            this.cbxCriBusquedaD.Location = new System.Drawing.Point(127, 13);
-            this.cbxCriBusquedaD.Name = "cbxCriBusquedaD";
-            this.cbxCriBusquedaD.Size = new System.Drawing.Size(172, 21);
-            this.cbxCriBusquedaD.TabIndex = 120;
-            this.cbxCriBusquedaD.SelectedValueChanged += new System.EventHandler(this.cbxCriBusquedaD_SelectedValueChanged);
-            // 
-            // label37
-            // 
-            this.label37.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(8, 17);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(107, 13);
-            this.label37.TabIndex = 116;
-            this.label37.Text = "Criterio de busqueda:";
-            // 
-            // btnBuscarD
-            // 
-            this.btnBuscarD.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnBuscarD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
-            this.btnBuscarD.FlatAppearance.BorderSize = 0;
-            this.btnBuscarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarD.Location = new System.Drawing.Point(559, 6);
-            this.btnBuscarD.Name = "btnBuscarD";
-            this.btnBuscarD.Size = new System.Drawing.Size(80, 35);
-            this.btnBuscarD.TabIndex = 118;
-            this.btnBuscarD.Text = "Buscar";
-            this.btnBuscarD.UseVisualStyleBackColor = false;
-            this.btnBuscarD.Click += new System.EventHandler(this.btnBuscarD_Click);
-            // 
-            // label15
-            // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 253);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 13);
-            this.label15.TabIndex = 123;
-            this.label15.Text = "Empresa:";
-            // 
-            // txtEmpresa
-            // 
-            this.txtEmpresa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmpresa.Location = new System.Drawing.Point(70, 250);
-            this.txtEmpresa.Name = "txtEmpresa";
-            this.txtEmpresa.Size = new System.Drawing.Size(211, 20);
-            this.txtEmpresa.TabIndex = 124;
-            // 
-            // label16
-            // 
-            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 175);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(51, 13);
-            this.label16.TabIndex = 123;
-            this.label16.Text = "Empresa:";
-            // 
-            // txtEmpresaE
-            // 
-            this.txtEmpresaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmpresaE.Location = new System.Drawing.Point(64, 172);
-            this.txtEmpresaE.Name = "txtEmpresaE";
-            this.txtEmpresaE.Size = new System.Drawing.Size(256, 20);
-            this.txtEmpresaE.TabIndex = 124;
             // 
             // ID
             // 
@@ -857,6 +760,19 @@
             this.Empresa.HeaderText = "Empresa";
             this.Empresa.Name = "Empresa";
             this.Empresa.ReadOnly = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dgvProveedoresD);
+            this.tabPage3.Controls.Add(this.btnEliminar);
+            this.tabPage3.Controls.Add(this.tableLayoutPanel5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(802, 518);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Eliminar Proveedor";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // dgvProveedoresD
             // 
@@ -944,6 +860,94 @@
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnEliminar.Location = new System.Drawing.Point(664, 252);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(80, 32);
+            this.btnEliminar.TabIndex = 126;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel5.ColumnCount = 6;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.47846F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.25842F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.txtBusquedaD, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.cbxCriBusquedaD, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label37, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btnBuscarD, 4, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(52, 12);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(692, 47);
+            this.tableLayoutPanel5.TabIndex = 125;
+            // 
+            // txtBusquedaD
+            // 
+            this.txtBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBusquedaD.Location = new System.Drawing.Point(362, 13);
+            this.txtBusquedaD.Name = "txtBusquedaD";
+            this.txtBusquedaD.Size = new System.Drawing.Size(186, 20);
+            this.txtBusquedaD.TabIndex = 117;
+            // 
+            // cbxCriBusquedaD
+            // 
+            this.cbxCriBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxCriBusquedaD.FormattingEnabled = true;
+            this.cbxCriBusquedaD.Items.AddRange(new object[] {
+            "Ruc",
+            "Apellido",
+            "Empresa",
+            "Mostrar Todos"});
+            this.cbxCriBusquedaD.Location = new System.Drawing.Point(127, 13);
+            this.cbxCriBusquedaD.Name = "cbxCriBusquedaD";
+            this.cbxCriBusquedaD.Size = new System.Drawing.Size(172, 21);
+            this.cbxCriBusquedaD.TabIndex = 120;
+            this.cbxCriBusquedaD.SelectedValueChanged += new System.EventHandler(this.cbxCriBusquedaD_SelectedValueChanged);
+            // 
+            // label37
+            // 
+            this.label37.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(8, 17);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(107, 13);
+            this.label37.TabIndex = 116;
+            this.label37.Text = "Criterio de busqueda:";
+            // 
+            // btnBuscarD
+            // 
+            this.btnBuscarD.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnBuscarD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(243)))));
+            this.btnBuscarD.FlatAppearance.BorderSize = 0;
+            this.btnBuscarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
+            this.btnBuscarD.Location = new System.Drawing.Point(558, 6);
+            this.btnBuscarD.Name = "btnBuscarD";
+            this.btnBuscarD.Size = new System.Drawing.Size(80, 35);
+            this.btnBuscarD.TabIndex = 118;
+            this.btnBuscarD.Text = "Buscar";
+            this.btnBuscarD.UseVisualStyleBackColor = false;
+            this.btnBuscarD.Click += new System.EventHandler(this.btnBuscarD_Click);
+            // 
             // frmAdminProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -969,9 +973,9 @@
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedoresE)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedoresD)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedoresD)).EndInit();
             this.ResumeLayout(false);
 
         }

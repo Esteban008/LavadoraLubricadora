@@ -48,6 +48,7 @@ namespace LavadoraLubricadora
         {
             try
             {
+
                 if (cliente.ValidarProveedor(txtRuc.Text))
                 {
                     MessageBox.Show("\t      Este Proveedor ya existe. \nSi desea actualizar los datos seleccione el boton Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -61,7 +62,7 @@ namespace LavadoraLubricadora
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -81,6 +82,28 @@ namespace LavadoraLubricadora
             txtEmpresa.Clear();
         }
 
+        private void txtRuc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
         #endregion
 
         #region Editar
@@ -89,36 +112,44 @@ namespace LavadoraLubricadora
         {
             try
             {
-                LimpiarCamposE();
-                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Ruc"))
+                if (cbxCriBusquedaE.SelectedItem != null)
                 {
-                    DataTable proveedores = cliente.BuscarProveedorRuc(txtBusquedaE.Text);
-                    dgvProveedoresE.DataSource = proveedores;
+                        LimpiarCamposE();
+                    if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Ruc"))
+                    {
+                        DataTable proveedores = cliente.BuscarProveedorRuc(txtBusquedaE.Text);
+                        dgvProveedoresE.DataSource = proveedores;
+
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Apellido"))
+                    {
+                        DataTable proveedores = cliente.BuscarProveedorApellido(txtBusquedaE.Text);
+                        dgvProveedoresE.DataSource = proveedores;
+
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Empresa"))
+                    {
+                        DataTable proveedores = cliente.BuscarProveedorEmpresa(txtBusquedaE.Text);
+                        dgvProveedoresE.DataSource = proveedores;
+
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        DataTable proveedores = cliente.ObtenerProveedor();
+                        dgvProveedoresE.DataSource = proveedores;
+                    }
+                    busqueda = cbxCriBusquedaE.SelectedItem.ToString();
+                    valor = txtBusquedaE.Text;
 
                 }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Apellido"))
+                else
                 {
-                    DataTable proveedores = cliente.BuscarProveedorApellido(txtBusquedaE.Text);
-                    dgvProveedoresE.DataSource = proveedores;
-
+                    DialogResult dialogResult = MessageBox.Show("Selecione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
                 }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Empresa"))
-                {
-                    DataTable proveedores = cliente.BuscarProveedorEmpresa(txtBusquedaE.Text);
-                    dgvProveedoresE.DataSource = proveedores;
-
-                }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
-                {
-                    DataTable proveedores = cliente.ObtenerProveedor();
-                    dgvProveedoresE.DataSource = proveedores;
-                }
-                busqueda = cbxCriBusquedaE.SelectedItem.ToString();
-                valor = txtBusquedaE.Text;
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
 
         }
@@ -134,7 +165,7 @@ namespace LavadoraLubricadora
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -151,29 +182,37 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvProveedorE()
         {
-            if (busqueda.Equals("Ruc"))
+            try
             {
-                DataTable clientes = cliente.BuscarProveedorRuc(valor);
-                dgvProveedoresE.DataSource = clientes;
+                if (busqueda.Equals("Ruc"))
+                {
+                    DataTable clientes = cliente.BuscarProveedorRuc(valor);
+                    dgvProveedoresE.DataSource = clientes;
 
-            }
-            else if (busqueda.Equals("Apellido"))
-            {
-                DataTable clientes = cliente.BuscarUsuarioApellido(valor);
-                dgvProveedoresE.DataSource = clientes;
+                }
+                else if (busqueda.Equals("Apellido"))
+                {
+                    DataTable clientes = cliente.BuscarUsuarioApellido(valor);
+                    dgvProveedoresE.DataSource = clientes;
 
-            }
-            else if (busqueda.Equals("Empresa"))
-            {
-                DataTable clientes = cliente.BuscarProveedorEmpresa(valor);
-                dgvProveedoresE.DataSource = clientes;
+                }
+                else if (busqueda.Equals("Empresa"))
+                {
+                    DataTable clientes = cliente.BuscarProveedorEmpresa(valor);
+                    dgvProveedoresE.DataSource = clientes;
 
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable clientes = cliente.ObtenerProveedor();
+                    dgvProveedoresE.DataSource = clientes;
+                }
             }
-            else if (busqueda.Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable clientes = cliente.ObtenerProveedor();
-                dgvProveedoresE.DataSource = clientes;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
+            
         }
 
         public void LimpiarCamposE()
@@ -205,13 +244,21 @@ namespace LavadoraLubricadora
 
         private void dgvProveedoresE_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtNombreE.Text = dgvProveedoresE.SelectedCells[1].Value.ToString();
-            txtApellidoE.Text = dgvProveedoresE.SelectedCells[2].Value.ToString();
-            txtRucE.Text = dgvProveedoresE.SelectedCells[3].Value.ToString();
-            txtTelefonoE.Text = dgvProveedoresE.SelectedCells[4].Value.ToString();
-            txtCorreoE.Text = dgvProveedoresE.SelectedCells[5].Value.ToString();
-            txtDireccionE.Text = dgvProveedoresE.SelectedCells[6].Value.ToString();
-            txtEmpresaE.Text = dgvProveedoresE.SelectedCells[7].Value.ToString();
+            try
+            {
+                txtNombreE.Text = dgvProveedoresE.SelectedCells[1].Value.ToString();
+                txtApellidoE.Text = dgvProveedoresE.SelectedCells[2].Value.ToString();
+                txtRucE.Text = dgvProveedoresE.SelectedCells[3].Value.ToString();
+                txtTelefonoE.Text = dgvProveedoresE.SelectedCells[4].Value.ToString();
+                txtCorreoE.Text = dgvProveedoresE.SelectedCells[5].Value.ToString();
+                txtDireccionE.Text = dgvProveedoresE.SelectedCells[6].Value.ToString();
+                txtEmpresaE.Text = dgvProveedoresE.SelectedCells[7].Value.ToString();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Selección no válida", "Aviso", MessageBoxButtons.OK);
+            }
+            
         }
         #endregion
 
@@ -227,35 +274,42 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Ruc"))
+                if (cbxCriBusquedaD.SelectedItem != null)
                 {
-                    DataTable proveedores = cliente.BuscarProveedorRuc(txtBusquedaD.Text);
-                    dgvProveedoresE.DataSource = proveedores;
+                        if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Ruc"))
+                    {
+                        DataTable proveedores = cliente.BuscarProveedorRuc(txtBusquedaD.Text);
+                        dgvProveedoresE.DataSource = proveedores;
 
-                }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Apellido"))
-                {
-                    DataTable proveedores = cliente.BuscarProveedorApellido(txtBusquedaD.Text);
-                    dgvProveedoresE.DataSource = proveedores;
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Apellido"))
+                    {
+                        DataTable proveedores = cliente.BuscarProveedorApellido(txtBusquedaD.Text);
+                        dgvProveedoresE.DataSource = proveedores;
 
-                }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Empresa"))
-                {
-                    DataTable proveedores = cliente.BuscarProveedorEmpresa(txtBusquedaD.Text);
-                    dgvProveedoresE.DataSource = proveedores;
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Empresa"))
+                    {
+                        DataTable proveedores = cliente.BuscarProveedorEmpresa(txtBusquedaD.Text);
+                        dgvProveedoresE.DataSource = proveedores;
 
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        DataTable proveedores = cliente.ObtenerProveedor();
+                        dgvProveedoresD.DataSource = proveedores;
+                    }
+                    busqueda = cbxCriBusquedaD.SelectedItem.ToString();
+                    valor = txtBusquedaD.Text;
                 }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                else
                 {
-                    DataTable proveedores = cliente.ObtenerProveedor();
-                    dgvProveedoresD.DataSource = proveedores;
+                    DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
                 }
-                busqueda = cbxCriBusquedaD.SelectedItem.ToString();
-                valor = txtBusquedaD.Text;
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -269,7 +323,7 @@ namespace LavadoraLubricadora
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -289,31 +343,41 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvProveedorD()
         {
-            if (busqueda.Equals("Ruc"))
+            try
             {
-                DataTable clientes = cliente.BuscarProveedorRuc(valor);
-                dgvProveedoresD.DataSource = clientes;
+                if (busqueda.Equals("Ruc"))
+                {
+                    DataTable clientes = cliente.BuscarProveedorRuc(valor);
+                    dgvProveedoresD.DataSource = clientes;
 
-            }
-            else if (busqueda.Equals("Apellido"))
-            {
-                DataTable clientes = cliente.BuscarProveedorApellido(valor);
-                dgvProveedoresD.DataSource = clientes;
+                }
+                else if (busqueda.Equals("Apellido"))
+                {
+                    DataTable clientes = cliente.BuscarProveedorApellido(valor);
+                    dgvProveedoresD.DataSource = clientes;
 
-            }
-            else if (busqueda.Equals("Empresa"))
-            {
-                DataTable clientes = cliente.BuscarProveedorEmpresa(valor);
-                dgvProveedoresD.DataSource = clientes;
+                }
+                else if (busqueda.Equals("Empresa"))
+                {
+                    DataTable clientes = cliente.BuscarProveedorEmpresa(valor);
+                    dgvProveedoresD.DataSource = clientes;
 
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable clientes = cliente.ObtenerProveedor();
+                    dgvProveedoresD.DataSource = clientes;
+                }
             }
-            else if (busqueda.Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable clientes = cliente.ObtenerProveedor();
-                dgvProveedoresD.DataSource = clientes;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
+
         }
 
-    #endregion
+        #endregion
+
+        
     }
 }

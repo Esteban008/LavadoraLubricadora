@@ -75,9 +75,9 @@ namespace LavadoraLubricadora
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Cliente no encontrado, Desea ingresar el cliente", "Aviso", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Cliente no encontrado, ingrese los datos del cliente", "Aviso", MessageBoxButtons.OK);
 
-                    if (dialogResult == DialogResult.Yes)
+                    if (dialogResult == DialogResult.OK)
                     {
                         DesbloquearCampos();
                         estadoIngresar = true;
@@ -110,7 +110,7 @@ namespace LavadoraLubricadora
                 }
                 
 
-                if (productoObj.Id != 0)
+                if (txtCodigoBarras.Text != String.Empty && productoObj.Id != 0)
                 {
                     if (txtCantidad.Text != String.Empty && productoObj.CantidadActual >= Convert.ToInt32(txtCantidad.Text))
                     {
@@ -140,10 +140,12 @@ namespace LavadoraLubricadora
                         ActualizarDgv();
 
                         Calcular();
+                        txtCodigoBarras.Clear();
+                        txtCantidad.Clear();
                     }
                     else
                     {
-                        DialogResult dialogResult = MessageBox.Show("No se dispone esa cantidad de productos", "Aviso", MessageBoxButtons.OK);
+                        DialogResult dialogResult = MessageBox.Show("Cantidad ingresada no válida", "Aviso", MessageBoxButtons.OK);
                     }
                 }
                 else
@@ -165,11 +167,20 @@ namespace LavadoraLubricadora
 
         private void btnEliminarDgv_Click(object sender, EventArgs e)
         {
+            try
+            {
                 dtProductos.Rows.RemoveAt(dgvProductosI.SelectedCells[2].RowIndex);
 
                 dtProductos.AcceptChanges();
 
                 dgvProductosI.DataSource = dtProductos;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+                DialogResult dialogResult = MessageBox.Show("Seleccione un producto", "Aviso", MessageBoxButtons.OK);
+            }
+                
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -183,13 +194,12 @@ namespace LavadoraLubricadora
 
             try
             {
-                if (cbxTipoPago.SelectedIndex >= 0)
-                {
+                
                     if (estadoIngresar)
                     {
                         cliente.IngresarCliente(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtCedula.Text, txtDireccion.Text);
 
-                        idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 0, (cbxTipoPago.SelectedIndex +1), DateTime.Now);
+                        idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 0, DateTime.Now);
 
                         foreach (DataGridViewRow row in dgvProductosI.Rows)
                         {
@@ -221,7 +231,7 @@ namespace LavadoraLubricadora
                     }
                     else
                     {
-                        idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 0, (cbxTipoPago.SelectedIndex + 1), DateTime.Now);
+                        idComprobante = cliente.IngresarComprobanteVenta(txtCedulaBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 0, DateTime.Now);
 
                         foreach (DataGridViewRow row in dgvProductosI.Rows)
                         {
@@ -252,10 +262,7 @@ namespace LavadoraLubricadora
                         }
                     }
 
-                    if (cbxTipoPago.SelectedIndex == 1)
-                    {
-                        cliente.IngresarCreditoCliente(txtCedula.Text, DateTime.Now, Convert.ToDouble(txtTotal.Text), idComprobante);
-                    }
+                    
 
                     //Parte para imprimir comprobante
                     prtdComprobante = new PrintDocument();
@@ -274,16 +281,20 @@ namespace LavadoraLubricadora
 
 
 
-                }
-                else
-                {
-                    DialogResult dialogResult = MessageBox.Show("Seleccione Tipo de Pago", "Aviso", MessageBoxButtons.OK);
-                }    
                
+
             }
-            catch (Exception ex)
+            catch (FormatException)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección"+ex, "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Uno o más campos estan vacios", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (CommunicationException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Se perdio la conexión. Cierre sesión e inicie nuevamente", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }     
         }
 
@@ -304,7 +315,7 @@ namespace LavadoraLubricadora
             txtIva.Enabled = false;
             txtTotal.Enabled = false;
             
-            cbxTipoPago.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void BloquearCampos()
@@ -346,7 +357,7 @@ namespace LavadoraLubricadora
 
             dtProductos.Rows.Clear();
             ActualizarDgv();
-            cbxTipoPago.SelectedIndex = -1;
+
         }
 
         private bool ValidarProducto(string codigoBarras)
@@ -396,11 +407,21 @@ namespace LavadoraLubricadora
         {
             double descuento = 0;
 
-            //Conversion del valor en txtBaseImponible
-            Double.TryParse(txtDescuento.Text, out descuento);
+            try
+            {
+                //Conversion del valor en txtBaseImponible
+                Double.TryParse(txtDescuento.Text, out descuento);
 
 
-            txtTotal.Text = Convert.ToString(Math.Round((Convert.ToDouble(txtSubtotal.Text) + Convert.ToDouble(txtIva.Text))*(1-(descuento/100)), 2));
+                txtTotal.Text = Convert.ToString(Math.Round((Convert.ToDouble(txtSubtotal.Text) + Convert.ToDouble(txtIva.Text)) * (1 - (descuento / 100)), 2));
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Agregue al menos un producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDescuento.Clear();
+            }
+            
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -476,7 +497,7 @@ namespace LavadoraLubricadora
             e.Graphics.DrawString("COMPROBANTE DE VENTA: ", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
             e.Graphics.DrawString("No.: " + txtNFactura.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
             e.Graphics.DrawString("FECHA: " + DateTime.Now.ToString(), font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
-            e.Graphics.DrawString("TIPO PAGO: "+cbxTipoPago.SelectedItem.ToString(), font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+
 
             e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
 
@@ -524,23 +545,32 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (cbxBusquedaB.SelectedItem.Equals("Cédula de Cliente"))
+                if (cbxBusquedaB.SelectedItem != null)
                 {
-                    DataTable comprobantes = cliente.BuscarComprobanteCedula(txtBusquedaB.Text);
-                    dgvComprobantes.DataSource = comprobantes;
-                }
-                else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Venta"))
-                {
-                    DateTime fechaCompra = dtpFechaCompra.Value;
+                    if (cbxBusquedaB.SelectedItem.Equals("Cédula de Cliente"))
+                    {
+                        DataTable comprobantes = cliente.BuscarComprobanteCedula(txtBusquedaB.Text);
+                        dgvComprobantes.DataSource = comprobantes;
+                    }
+                    else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Venta"))
+                    {
+                        DateTime fechaCompra = dtpFechaCompra.Value;
 
 
-                    DataTable comprobantes = cliente.BuscarComprobanteFecha(fechaCompra.ToString("yyyy'-'MM'-'dd"));
-                    dgvComprobantes.DataSource = comprobantes;
+                        DataTable comprobantes = cliente.BuscarComprobanteFecha(fechaCompra.ToString("yyyy'-'MM'-'dd"));
+                        dgvComprobantes.DataSource = comprobantes;
+                    }
+                    
                 }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
+                }
+
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
             
         }
@@ -605,7 +635,7 @@ namespace LavadoraLubricadora
                         txtSubTotalD.Text = comprobanteVenta.Subtotal.ToString();
                         txtIVAD.Text = comprobanteVenta.Iva.ToString();
                         txtTotalD.Text = comprobanteVenta.Total.ToString();
-                        txtTipoPago.Text = comprobanteVenta.TipoPago;
+                        
 
                         productos = cliente.BuscarProductosComprobanteVenta(txtBusquedaD.Text);
                         dgvProductosD.DataSource = productos;
@@ -623,7 +653,7 @@ namespace LavadoraLubricadora
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -633,18 +663,10 @@ namespace LavadoraLubricadora
 
             try
                {
-                if (txtTipoPago.Text.Equals("Efectivo"))
-                {
-                    idComprobante = cliente.IngresarComprobanteVenta(txtCedulaD.Text, txtNFacturaD.Text, -Convert.ToDouble(txtSubTotalD.Text), -Convert.ToDouble(txtIVAD.Text), -Convert.ToDouble(txtTotalD.Text), 1, (1), DateTime.Now);
 
-                }
-                if (txtTipoPago.Text.Equals("Credito"))
-                {
-                    idComprobante = cliente.IngresarComprobanteVenta(txtCedulaD.Text, txtNFacturaD.Text, -Convert.ToDouble(txtSubTotalD.Text), -Convert.ToDouble(txtIVAD.Text), -Convert.ToDouble(txtTotalD.Text), 1, (2), DateTime.Now);
+                    idComprobante = cliente.IngresarComprobanteVenta(txtCedulaD.Text, txtNFacturaD.Text, -Convert.ToDouble(txtSubTotalD.Text), -Convert.ToDouble(txtIVAD.Text), -Convert.ToDouble(txtTotalD.Text), 1, DateTime.Now);
 
-                    cliente.IngresarCreditoCliente(txtCedulaD.Text, DateTime.Now, -Convert.ToDouble(txtTotalD.Text), idComprobante);
-                    
-                }
+               
 
                 foreach (DataGridViewRow row in dgvProductosD.Rows)
                 {
@@ -688,11 +710,15 @@ namespace LavadoraLubricadora
 
                 LimpiarCamposD();
 
-                }
-                catch (Exception)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
-                }
+            }
+            catch (FormatException)
+            {
+            DialogResult dialogResult = MessageBox.Show("Ingrese un ID de comprobante válido", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
                       
         }
 
@@ -728,7 +754,7 @@ namespace LavadoraLubricadora
             txtSubTotalD.Enabled = false;
             txtIVAD.Enabled = false;
             txtTotalD.Enabled = false;
-            txtTipoPago.Enabled = false;
+
         }
 
         public void LimpiarCamposD()
@@ -745,7 +771,6 @@ namespace LavadoraLubricadora
             txtTotalD.Clear();
             txtBusquedaD.Clear();
             txtBusquedaD.Enabled = true;
-            txtTipoPago.Clear();
 
 
             productos.Rows.Clear();
@@ -789,7 +814,7 @@ namespace LavadoraLubricadora
             e.Graphics.DrawString("ANULACIÓN DE COMPROBANTE DE VENTA: ", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
             e.Graphics.DrawString("No.: " + txtNFacturaD.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
             e.Graphics.DrawString("FECHA DE ANULACIÓN: " + DateTime.Now.ToString(), font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
-            e.Graphics.DrawString("TIPO PAGO: " + txtTipoPago.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+
 
             e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
 
@@ -818,8 +843,18 @@ namespace LavadoraLubricadora
 
 
 
+
         #endregion
 
-
+        private void txtTelefonoD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }

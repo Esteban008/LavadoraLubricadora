@@ -62,7 +62,7 @@ namespace LavadoraLubricadora
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }          
         }
 
@@ -81,6 +81,28 @@ namespace LavadoraLubricadora
             txtDireccion.Clear();
         }
 
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
         #endregion
 
         #region Editar
@@ -89,30 +111,38 @@ namespace LavadoraLubricadora
         {
             try
             {
-                LimpiarCamposE();
-                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Cédula"))
+                if (cbxCriBusquedaE.SelectedItem != null)
                 {
-                    DataTable clientes = cliente.BuscarClienteCedula(txtBusquedaE.Text);
-                    dgvClientesE.DataSource = clientes;
+                    LimpiarCamposE();
+                    if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Cédula"))
+                    {
+                        DataTable clientes = cliente.BuscarClienteCedula(txtBusquedaE.Text);
+                        dgvClientesE.DataSource = clientes;
 
-                }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Apellido"))
-                {
-                    DataTable clientes = cliente.BuscarClienteApellido(txtBusquedaE.Text);
-                    dgvClientesE.DataSource = clientes;
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Apellido"))
+                    {
+                        DataTable clientes = cliente.BuscarClienteApellido(txtBusquedaE.Text);
+                        dgvClientesE.DataSource = clientes;
 
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        DataTable clientes = cliente.ObtenerClientes();
+                        dgvClientesE.DataSource = clientes;
+                    }
+                    busqueda = cbxCriBusquedaE.SelectedItem.ToString();
+                    valor = txtBusquedaE.Text;
                 }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                else
                 {
-                    DataTable clientes = cliente.ObtenerClientes();
-                    dgvClientesE.DataSource = clientes;
+                    DialogResult dialogResult = MessageBox.Show("Selecione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
                 }
-                busqueda = cbxCriBusquedaE.SelectedItem.ToString();
-                valor = txtBusquedaE.Text;
+                
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }                      
         }
 
@@ -127,7 +157,7 @@ namespace LavadoraLubricadora
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -144,23 +174,31 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvClienteE()
         {
-            if (busqueda.Equals("Cédula"))
+            try
             {
-                DataTable clientes = cliente.BuscarClienteCedula(valor);
-                dgvClientesE.DataSource = clientes;
+                if (busqueda.Equals("Cédula"))
+                {
+                    DataTable clientes = cliente.BuscarClienteCedula(valor);
+                    dgvClientesE.DataSource = clientes;
 
-            }
-            else if (busqueda.Equals("Apellido"))
-            {
-                DataTable clientes = cliente.BuscarClienteApellido(valor);
-                dgvClientesE.DataSource = clientes;
+                }
+                else if (busqueda.Equals("Apellido"))
+                {
+                    DataTable clientes = cliente.BuscarClienteApellido(valor);
+                    dgvClientesE.DataSource = clientes;
 
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable clientes = cliente.ObtenerClientes();
+                    dgvClientesE.DataSource = clientes;
+                }
             }
-            else if (busqueda.Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable clientes = cliente.ObtenerClientes();
-                dgvClientesE.DataSource = clientes;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
+
         }
 
         public void LimpiarCamposE()
@@ -189,12 +227,20 @@ namespace LavadoraLubricadora
 
         private void dgvClientesE_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtNombreE.Text = dgvClientesE.SelectedCells[1].Value.ToString();
-            txtApellidoE.Text = dgvClientesE.SelectedCells[2].Value.ToString();
-            txtTelefonoE.Text = dgvClientesE.SelectedCells[3].Value.ToString();
-            txtCorreoE.Text = dgvClientesE.SelectedCells[4].Value.ToString();
-            txtCedulaE.Text = dgvClientesE.SelectedCells[5].Value.ToString();
-            txtDireccionE.Text = dgvClientesE.SelectedCells[6].Value.ToString();
+            try
+            {
+                txtNombreE.Text = dgvClientesE.SelectedCells[1].Value.ToString();
+                txtApellidoE.Text = dgvClientesE.SelectedCells[2].Value.ToString();
+                txtTelefonoE.Text = dgvClientesE.SelectedCells[3].Value.ToString();
+                txtCorreoE.Text = dgvClientesE.SelectedCells[4].Value.ToString();
+                txtCedulaE.Text = dgvClientesE.SelectedCells[5].Value.ToString();
+                txtDireccionE.Text = dgvClientesE.SelectedCells[6].Value.ToString();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Selección no válida", "Aviso", MessageBoxButtons.OK);
+            }
+
         }
 
         #endregion
@@ -211,29 +257,37 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Cédula"))
+                if (cbxCriBusquedaD.SelectedItem != null)
                 {
-                    DataTable clientes = cliente.BuscarClienteCedula(txtBusquedaD.Text);
-                    dgvClientesD.DataSource = clientes;
+                    if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Cédula"))
+                    {
+                        DataTable clientes = cliente.BuscarClienteCedula(txtBusquedaD.Text);
+                        dgvClientesD.DataSource = clientes;
 
-                }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Apellido"))
-                {
-                    DataTable clientes = cliente.BuscarClienteApellido(txtBusquedaD.Text);
-                    dgvClientesD.DataSource = clientes;
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Apellido"))
+                    {
+                        DataTable clientes = cliente.BuscarClienteApellido(txtBusquedaD.Text);
+                        dgvClientesD.DataSource = clientes;
 
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        DataTable clientes = cliente.ObtenerClientes();
+                        dgvClientesD.DataSource = clientes;
+                    }
+                    busqueda = cbxCriBusquedaD.SelectedItem.ToString();
+                    valor = txtBusquedaD.Text;
                 }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                else
                 {
-                    DataTable clientes = cliente.ObtenerClientes();
-                    dgvClientesD.DataSource = clientes;
+                    DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
                 }
-                busqueda = cbxCriBusquedaD.SelectedItem.ToString();
-                valor = txtBusquedaD.Text;
+
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
             
          
@@ -249,7 +303,7 @@ namespace LavadoraLubricadora
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -269,24 +323,34 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvClienteD()
         {
-            if (busqueda.Equals("Cédula"))
+            try
             {
-                DataTable clientes = cliente.BuscarClienteCedula(valor);
-                dgvClientesD.DataSource = clientes;
+                if (busqueda.Equals("Cédula"))
+                {
+                    DataTable clientes = cliente.BuscarClienteCedula(valor);
+                    dgvClientesD.DataSource = clientes;
 
-            }
-            else if (busqueda.Equals("Apellido"))
-            {
-                DataTable clientes = cliente.BuscarClienteApellido(valor);
-                dgvClientesD.DataSource = clientes;
+                }
+                else if (busqueda.Equals("Apellido"))
+                {
+                    DataTable clientes = cliente.BuscarClienteApellido(valor);
+                    dgvClientesD.DataSource = clientes;
 
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable clientes = cliente.ObtenerClientes();
+                    dgvClientesD.DataSource = clientes;
+                }
             }
-            else if (busqueda.Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable clientes = cliente.ObtenerClientes();
-                dgvClientesD.DataSource = clientes;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
+
         }
         #endregion
+
+       
     }
 }

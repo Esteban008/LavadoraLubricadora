@@ -171,12 +171,6 @@
   <wsdl:message name="ILavadoraService_IngresarProductoComprobanteVenta_OutputMessage">
     <wsdl:part name="parameters" element="tns:IngresarProductoComprobanteVentaResponse" />
   </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarCreditoCliente_InputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarCreditoCliente" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarCreditoCliente_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarCreditoClienteResponse" />
-  </wsdl:message>
   <wsdl:message name="ILavadoraService_BuscarInfoComprobanteVenta_InputMessage">
     <wsdl:part name="parameters" element="tns:BuscarInfoComprobanteVenta" />
   </wsdl:message>
@@ -248,12 +242,6 @@
   </wsdl:message>
   <wsdl:message name="ILavadoraService_IngresarProductoComprobanteCompra_OutputMessage">
     <wsdl:part name="parameters" element="tns:IngresarProductoComprobanteCompraResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarCreditoProveedor_InputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarCreditoProveedor" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarCreditoProveedor_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarCreditoProveedorResponse" />
   </wsdl:message>
   <wsdl:message name="ILavadoraService_BuscarProductosComprobanteCompra_InputMessage">
     <wsdl:part name="parameters" element="tns:BuscarProductosComprobanteCompra" />
@@ -826,10 +814,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta" message="tns:ILavadoraService_IngresarProductoComprobanteVenta_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVentaResponse" message="tns:ILavadoraService_IngresarProductoComprobanteVenta_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="IngresarCreditoCliente">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarCreditoCliente" message="tns:ILavadoraService_IngresarCreditoCliente_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarCreditoClienteResponse" message="tns:ILavadoraService_IngresarCreditoCliente_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="BuscarInfoComprobanteVenta">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVenta" message="tns:ILavadoraService_BuscarInfoComprobanteVenta_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVentaResponse" message="tns:ILavadoraService_BuscarInfoComprobanteVenta_OutputMessage" />
@@ -877,10 +861,6 @@
     <wsdl:operation name="IngresarProductoComprobanteCompra">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompra" message="tns:ILavadoraService_IngresarProductoComprobanteCompra_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompraResponse" message="tns:ILavadoraService_IngresarProductoComprobanteCompra_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IngresarCreditoProveedor">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarCreditoProveedor" message="tns:ILavadoraService_IngresarCreditoProveedor_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarCreditoProveedorResponse" message="tns:ILavadoraService_IngresarCreditoProveedor_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="BuscarProductosComprobanteCompra">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompra" message="tns:ILavadoraService_BuscarProductosComprobanteCompra_InputMessage" />
@@ -1436,15 +1416,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="IngresarCreditoCliente">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarCreditoCliente" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="BuscarInfoComprobanteVenta">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVenta" style="document" />
       <wsdl:input>
@@ -1546,15 +1517,6 @@
     </wsdl:operation>
     <wsdl:operation name="IngresarProductoComprobanteCompra">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompra" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IngresarCreditoProveedor">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarCreditoProveedor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

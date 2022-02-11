@@ -466,7 +466,6 @@
         <xs:element minOccurs="0" name="iva" type="xs:double" />
         <xs:element minOccurs="0" name="total" type="xs:double" />
         <xs:element minOccurs="0" name="estado" type="xs:int" />
-        <xs:element minOccurs="0" name="idTipoPago" type="xs:int" />
         <xs:element minOccurs="0" name="fechaVenta" type="xs:dateTime" />
       </xs:sequence>
     </xs:complexType>
@@ -516,21 +515,6 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="IngresarProductoComprobanteVentaResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="IngresarCreditoCliente">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="cedula" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="fecha" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="monto" type="xs:double" />
-        <xs:element minOccurs="0" name="idComprobante" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="IngresarCreditoClienteResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -691,7 +675,6 @@
         <xs:element minOccurs="0" name="iva" type="xs:double" />
         <xs:element minOccurs="0" name="total" type="xs:double" />
         <xs:element minOccurs="0" name="estado" type="xs:int" />
-        <xs:element minOccurs="0" name="idTipoPago" type="xs:int" />
         <xs:element minOccurs="0" name="fechaCompra" type="xs:dateTime" />
       </xs:sequence>
     </xs:complexType>
@@ -741,21 +724,6 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="IngresarProductoComprobanteCompraResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="IngresarCreditoProveedor">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ruc" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="fecha" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="monto" type="xs:double" />
-        <xs:element minOccurs="0" name="idComprobante" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="IngresarCreditoProveedorResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -2130,7 +2098,9 @@
   </xs:element>
   <xs:element name="EliminarClienteResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EliminarClienteResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ObtenerClientes">

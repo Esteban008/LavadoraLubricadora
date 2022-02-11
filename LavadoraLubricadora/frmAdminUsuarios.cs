@@ -70,9 +70,9 @@ namespace LavadoraLubricadora
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección" + ex, "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -122,6 +122,17 @@ namespace LavadoraLubricadora
             }
         }
 
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
+
         #endregion
 
         #region Editar
@@ -130,37 +141,46 @@ namespace LavadoraLubricadora
         {
             try
             {
-                LimpiarCamposE();
-
-                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Rol"))
+                if (cbxCriBusquedaE.SelectedItem != null)
                 {
-                    DataTable usuarios = cliente.BuscarUsuarioRol(txtBusquedaE.Text);
-                    dgvUsuariosE.DataSource = usuarios;
+
+                    LimpiarCamposE();
+
+                    if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Rol"))
+                    {
+                        DataTable usuarios = cliente.BuscarUsuarioRol(txtBusquedaE.Text);
+                        dgvUsuariosE.DataSource = usuarios;
+
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Nombre"))
+                    {
+                        DataTable usuarios = cliente.BuscarUsuarioNombre(txtBusquedaE.Text);
+                        dgvUsuariosE.DataSource = usuarios;
+
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Apellido"))
+                    {
+                        DataTable usuarios = cliente.BuscarUsuarioApellido(txtBusquedaE.Text);
+                        dgvUsuariosE.DataSource = usuarios;
+
+                    }
+                    else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        DataTable usuarios = cliente.ObtenerUsuarios();
+                        dgvUsuariosE.DataSource = usuarios;
+                    }
+                    busqueda = cbxCriBusquedaE.SelectedItem.ToString();
+                    valor = txtBusquedaE.Text;
 
                 }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Nombre"))
+                else
                 {
-                    DataTable usuarios = cliente.BuscarUsuarioNombre(txtBusquedaE.Text);
-                    dgvUsuariosE.DataSource = usuarios;
-
+                    DialogResult dialogResult = MessageBox.Show("Selecione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
                 }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Apellido"))
-                {
-                    DataTable usuarios = cliente.BuscarUsuarioApellido(txtBusquedaE.Text);
-                    dgvUsuariosE.DataSource = usuarios;
-
-                }
-                else if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
-                {
-                    DataTable usuarios = cliente.ObtenerUsuarios();
-                    dgvUsuariosE.DataSource = usuarios;
-                }
-                busqueda = cbxCriBusquedaE.SelectedItem.ToString();
-                valor = txtBusquedaE.Text;
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -186,7 +206,7 @@ namespace LavadoraLubricadora
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -211,29 +231,37 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvUsuariosE()
         {
-            if (busqueda.Equals("Rol"))
+            try
             {
-                DataTable usuarios = cliente.BuscarUsuarioRol(valor);
-                dgvUsuariosE.DataSource = usuarios;
+                if (busqueda.Equals("Rol"))
+                {
+                    DataTable usuarios = cliente.BuscarUsuarioRol(valor);
+                    dgvUsuariosE.DataSource = usuarios;
 
-            }
-            else if (busqueda.Equals("Nombre"))
-            {
-                DataTable usuarios = cliente.BuscarUsuarioNombre(valor);
-                dgvUsuariosE.DataSource = usuarios;
+                }
+                else if (busqueda.Equals("Nombre"))
+                {
+                    DataTable usuarios = cliente.BuscarUsuarioNombre(valor);
+                    dgvUsuariosE.DataSource = usuarios;
 
-            }
-            else if (busqueda.Equals("Apellido"))
-            {
-                DataTable usuarios = cliente.BuscarUsuarioApellido(valor);
-                dgvUsuariosE.DataSource = usuarios;
+                }
+                else if (busqueda.Equals("Apellido"))
+                {
+                    DataTable usuarios = cliente.BuscarUsuarioApellido(valor);
+                    dgvUsuariosE.DataSource = usuarios;
 
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable usuarios = cliente.ObtenerUsuarios();
+                    dgvUsuariosE.DataSource = usuarios;
+                }
             }
-            else if (busqueda.Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable usuarios = cliente.ObtenerUsuarios();
-                dgvUsuariosE.DataSource = usuarios;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
+           
         }
 
         public void LimpiarCamposE()
@@ -263,11 +291,19 @@ namespace LavadoraLubricadora
 
         private void dgvUsuariosE_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtNombreE.Text = dgvUsuariosE.SelectedCells[1].Value.ToString();
-            txtApellidoE.Text = dgvUsuariosE.SelectedCells[2].Value.ToString();
-            txtTelefonoE.Text = dgvUsuariosE.SelectedCells[3].Value.ToString();
-            txtCorreoE.Text = dgvUsuariosE.SelectedCells[4].Value.ToString();
-            txtRolE.Text = dgvUsuariosE.SelectedCells[5].Value.ToString();
+            try
+            {
+                txtNombreE.Text = dgvUsuariosE.SelectedCells[1].Value.ToString();
+                txtApellidoE.Text = dgvUsuariosE.SelectedCells[2].Value.ToString();
+                txtTelefonoE.Text = dgvUsuariosE.SelectedCells[3].Value.ToString();
+                txtCorreoE.Text = dgvUsuariosE.SelectedCells[4].Value.ToString();
+                txtRolE.Text = dgvUsuariosE.SelectedCells[5].Value.ToString();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Selección no válida", "Aviso", MessageBoxButtons.OK);
+            }
+            
         }
 
         private void checkboxCNuevaE_CheckedChanged(object sender, EventArgs e)
@@ -330,35 +366,43 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Rol"))
+                if (cbxCriBusquedaD.SelectedItem != null)
                 {
-                    DataTable clientes = cliente.BuscarUsuarioRol(txtBusquedaD.Text);
-                    dgvUsuariosD.DataSource = clientes;
+                        if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Rol"))
+                    {
+                        DataTable clientes = cliente.BuscarUsuarioRol(txtBusquedaD.Text);
+                        dgvUsuariosD.DataSource = clientes;
+
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Nombre"))
+                    {
+                        DataTable clientes = cliente.BuscarUsuarioNombre(txtBusquedaD.Text);
+                        dgvUsuariosD.DataSource = clientes;
+
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Apellido"))
+                    {
+                        DataTable clientes = cliente.BuscarUsuarioApellido(txtBusquedaD.Text);
+                        dgvUsuariosD.DataSource = clientes;
+
+                    }
+                    else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        DataTable clientes = cliente.ObtenerUsuarios();
+                        dgvUsuariosD.DataSource = clientes;
+                    }
+                    busqueda = cbxCriBusquedaD.SelectedItem.ToString();
+                    valor = txtBusquedaD.Text;
 
                 }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Nombre"))
+                else
                 {
-                    DataTable clientes = cliente.BuscarUsuarioNombre(txtBusquedaD.Text);
-                    dgvUsuariosD.DataSource = clientes;
-
+                    DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
                 }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Apellido"))
-                {
-                    DataTable clientes = cliente.BuscarUsuarioApellido(txtBusquedaD.Text);
-                    dgvUsuariosD.DataSource = clientes;
-
-                }
-                else if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
-                {
-                    DataTable clientes = cliente.ObtenerUsuarios();
-                    dgvUsuariosD.DataSource = clientes;
-                }
-                busqueda = cbxCriBusquedaD.SelectedItem.ToString();
-                valor = txtBusquedaD.Text;
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -380,7 +424,7 @@ namespace LavadoraLubricadora
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -400,34 +444,43 @@ namespace LavadoraLubricadora
 
         public void ActualizarDgvUsuarioD()
         {
-            if (busqueda.Equals("Rol"))
+            try
             {
-                DataTable usuarios = cliente.BuscarUsuarioRol(valor);
-                dgvUsuariosD.DataSource = usuarios;
+                if (busqueda.Equals("Rol"))
+                {
+                    DataTable usuarios = cliente.BuscarUsuarioRol(valor);
+                    dgvUsuariosD.DataSource = usuarios;
 
-            }
-            else if (busqueda.Equals("Nombre"))
-            {
-                DataTable usuarios = cliente.BuscarUsuarioNombre(valor);
-                dgvUsuariosD.DataSource = usuarios;
+                }
+                else if (busqueda.Equals("Nombre"))
+                {
+                    DataTable usuarios = cliente.BuscarUsuarioNombre(valor);
+                    dgvUsuariosD.DataSource = usuarios;
 
-            }
-            else if (busqueda.Equals("Apellido"))
-            {
-                DataTable usuarios = cliente.BuscarUsuarioApellido(valor);
-                dgvUsuariosD.DataSource = usuarios;
+                }
+                else if (busqueda.Equals("Apellido"))
+                {
+                    DataTable usuarios = cliente.BuscarUsuarioApellido(valor);
+                    dgvUsuariosD.DataSource = usuarios;
 
+                }
+                else if (busqueda.Equals("Mostrar Todos"))
+                {
+                    DataTable usuarios = cliente.ObtenerUsuarios();
+                    dgvUsuariosD.DataSource = usuarios;
+                }
             }
-            else if (busqueda.Equals("Mostrar Todos"))
+            catch (Exception)
             {
-                DataTable usuarios = cliente.ObtenerUsuarios();
-                dgvUsuariosD.DataSource = usuarios;
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
+            
         }
+
 
 
         #endregion
 
-
+        
     }
 }

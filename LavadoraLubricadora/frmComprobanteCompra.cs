@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Printing;
+using System.ServiceModel;
 
 namespace LavadoraLubricadora
 {
@@ -70,18 +71,23 @@ namespace LavadoraLubricadora
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Proveedor no encontrado, Desea ingresar el proveedor", "Aviso", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Proveedor no encontrado, ingrese los datos del proveedor", "Aviso", MessageBoxButtons.OK);
 
-                    if (dialogResult == DialogResult.Yes)
+                    if (dialogResult == DialogResult.OK)
                     {
                         DesbloquearCampos();
                         estadoIngresar = true;
+
                     }
                 }
             }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -94,9 +100,10 @@ namespace LavadoraLubricadora
                  productoObj = cliente.BuscarProductoCCompra(txtCodigoBarras.Text);
 
 
-                if (productoObj.Id != 0) 
-                { 
-                
+                if (txtCodigoBarras.Text != String.Empty && productoObj.Id != 0) 
+                {
+                    if (txtCantidad.Text != String.Empty)
+                    {
                         productoObj.Cantidad = Convert.ToInt32(txtCantidad.Text);
                         productoObj.PrecioTotal = (Convert.ToInt32(txtCantidad.Text) * productoObj.Precio);
 
@@ -121,6 +128,14 @@ namespace LavadoraLubricadora
                         ActualizarDgv();
 
                         Calcular();
+                        txtCodigoBarras.Clear();
+                        txtCantidad.Clear();
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Cantidad ingresada no válida", "Aviso", MessageBoxButtons.OK);
+                    }
+
                 }
                 else
                 {
@@ -129,9 +144,13 @@ namespace LavadoraLubricadora
                 }
 
             }
-            catch (Exception es)
+            catch (EndpointNotFoundException)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección " + es, "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
 
 
@@ -140,14 +159,22 @@ namespace LavadoraLubricadora
 
         private void btnEliminarDgv_Click(object sender, EventArgs e)
         {
-
+            try
+            {
                 dtProductos.Rows.RemoveAt(dgvProductosI.SelectedCells[2].RowIndex);
 
                 dtProductos.AcceptChanges();
 
                 dgvProductosI.DataSource = dtProductos;
-
             }
+            catch (ArgumentOutOfRangeException)
+            {
+
+                DialogResult dialogResult = MessageBox.Show("Seleccione un producto", "Aviso", MessageBoxButtons.OK);
+            }
+            
+
+        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -160,13 +187,12 @@ namespace LavadoraLubricadora
 
             try
             {
-                if (cbxTipoPago.SelectedIndex >= 0)
-                {
+
                     if (estadoIngresar)
                     {
                         cliente.IngresarProveedor(txtRucBuscar.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text,  txtDireccion.Text, txtEmpresa.Text);
 
-                        idComprobante = cliente.IngresarComprobanteCompra(txtRucBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 0, (cbxTipoPago.SelectedIndex + 1), DateTime.Now);
+                        idComprobante = cliente.IngresarComprobanteCompra(txtRucBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 0, DateTime.Now);
 
                         foreach (DataGridViewRow row in dgvProductosI.Rows)
                         {
@@ -198,7 +224,7 @@ namespace LavadoraLubricadora
                     }
                     else
                     {
-                        idComprobante = cliente.IngresarComprobanteCompra(txtRucBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 0, (cbxTipoPago.SelectedIndex + 1), DateTime.Now);
+                        idComprobante = cliente.IngresarComprobanteCompra(txtRucBuscar.Text, txtNFactura.Text, Convert.ToDouble(txtSubtotal.Text), Convert.ToDouble(txtIva.Text), Convert.ToDouble(txtTotal.Text), 0, DateTime.Now);
 
                         foreach (DataGridViewRow row in dgvProductosI.Rows)
                         {
@@ -229,10 +255,6 @@ namespace LavadoraLubricadora
                         }
                     }
 
-                    if (cbxTipoPago.SelectedIndex == 1)
-                    {
-                        cliente.IngresarCreditoProveedor(txtRucBuscar.Text, DateTime.Now, Convert.ToDouble(txtTotal.Text), idComprobante);
-                    }
 
                     //Parte para imprimir comprobante
                     prtdComprobante = new PrintDocument();
@@ -251,16 +273,20 @@ namespace LavadoraLubricadora
 
 
 
-                }
-                else
-                {
-                    DialogResult dialogResult = MessageBox.Show("Seleccione Tipo de Pago", "Aviso", MessageBoxButtons.OK);
-                }
+
 
             }
-            catch (Exception ex)
+            catch (FormatException)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Uno o más campos estan vacios", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (CommunicationException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Se perdio la conexión. Cierre sesión e inicie nuevamente", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -281,7 +307,7 @@ namespace LavadoraLubricadora
             txtIva.Enabled = false;
             txtTotal.Enabled = false;
 
-            cbxTipoPago.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void BloquearCampos()
@@ -322,7 +348,7 @@ namespace LavadoraLubricadora
 
             dtProductos.Rows.Clear();
             ActualizarDgv();
-            cbxTipoPago.SelectedIndex = -1;
+
         }
 
         private bool ValidarProducto(string codigoBarras)
@@ -336,6 +362,17 @@ namespace LavadoraLubricadora
                 }
             }
             return estado;
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
         }
 
         private void ActualizarDgv()
@@ -409,7 +446,6 @@ namespace LavadoraLubricadora
             e.Graphics.DrawString("COMPROBANTE DE COMPRA: ", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
             e.Graphics.DrawString("No.: " + txtNFactura.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
             e.Graphics.DrawString("FECHA: " + DateTime.Now.ToString(), font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
-            e.Graphics.DrawString("TIPO PAGO: " + cbxTipoPago.SelectedItem.ToString(), font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
 
             e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
 
@@ -448,25 +484,33 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (cbxBusquedaB.SelectedItem.Equals("Ruc Proveedor"))
+                if (cbxBusquedaB.SelectedItem != null)
                 {
-                    DataTable comprobantes = cliente.BuscarComprobanteRuc(txtBusquedaB.Text);
-                    dgvComprobantes.DataSource = comprobantes;
-                }
-                else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Compra"))
-                {
-                    DateTime fechaCompra = dtpFechaCompra.Value;
+                    if (cbxBusquedaB.SelectedItem.Equals("Ruc Proveedor"))
+                    {
+                        DataTable comprobantes = cliente.BuscarComprobanteRuc(txtBusquedaB.Text);
+                        dgvComprobantes.DataSource = comprobantes;
+                    }
+                    else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Compra"))
+                    {
+                        DateTime fechaCompra = dtpFechaCompra.Value;
 
 
-                    DataTable comprobantes = cliente.BuscarComprobanteCompraFecha(fechaCompra.ToString("yyyy'-'MM'-'dd"));
-                    dgvComprobantes.DataSource = comprobantes;
+                        DataTable comprobantes = cliente.BuscarComprobanteCompraFecha(fechaCompra.ToString("yyyy'-'MM'-'dd"));
+                        dgvComprobantes.DataSource = comprobantes;
+                    }
                 }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
+                }
+                
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
-            
+
         }
 
         private void cbxBusquedaB_SelectedValueChanged(object sender, EventArgs e)
@@ -490,6 +534,17 @@ namespace LavadoraLubricadora
             dtpFechaCompra.Enabled = false;
 
             cbxBusquedaB.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void txtBusquedaB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
         }
 
         #endregion
@@ -520,7 +575,6 @@ namespace LavadoraLubricadora
                         txtSubTotalD.Text = comprobanteCompra.Subtotal.ToString();
                         txtIVAD.Text = comprobanteCompra.Iva.ToString();
                         txtTotalD.Text = comprobanteCompra.Total.ToString();
-                        txtTipoPago.Text = comprobanteCompra.TipoPago;
 
                         productos = cliente.BuscarProductosComprobanteCompra(txtBusquedaD.Text);
                         dgvProductosD.DataSource = productos;
@@ -538,7 +592,7 @@ namespace LavadoraLubricadora
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -548,18 +602,10 @@ namespace LavadoraLubricadora
 
             try
             {
-                if (txtTipoPago.Text.Equals("Efectivo"))
-                {
-                    idComprobante = cliente.IngresarComprobanteCompra(txtRucD.Text, txtNFacturaD.Text, -Convert.ToDouble(txtSubTotalD.Text), -Convert.ToDouble(txtIVAD.Text), -Convert.ToDouble(txtTotalD.Text), 1, (1), DateTime.Now);
 
-                }
-                if (txtTipoPago.Text.Equals("Credito"))
-                {
-                    idComprobante = cliente.IngresarComprobanteCompra(txtRucD.Text, txtNFacturaD.Text, -Convert.ToDouble(txtSubTotalD.Text), -Convert.ToDouble(txtIVAD.Text), -Convert.ToDouble(txtTotalD.Text), 1, (2), DateTime.Now);
+                idComprobante = cliente.IngresarComprobanteCompra(txtRucD.Text, txtNFacturaD.Text, -Convert.ToDouble(txtSubTotalD.Text), -Convert.ToDouble(txtIVAD.Text), -Convert.ToDouble(txtTotalD.Text), 1, DateTime.Now);
 
-                    cliente.IngresarCreditoProveedor(txtRucD.Text, DateTime.Now, -Convert.ToDouble(txtTotalD.Text), idComprobante);
 
-                }
 
                 foreach (DataGridViewRow row in dgvProductosD.Rows)
                 {
@@ -604,9 +650,14 @@ namespace LavadoraLubricadora
                 LimpiarCamposD();
 
             }
+            catch (FormatException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ingrese un ID de comprobante válido", "Aviso", MessageBoxButtons.OK);
+            }
+
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -634,7 +685,6 @@ namespace LavadoraLubricadora
             txtSubTotalD.Enabled = false;
             txtIVAD.Enabled = false;
             txtTotalD.Enabled = false;
-            txtTipoPago.Enabled = false;
         }
 
         public void LimpiarCamposD()
@@ -695,7 +745,6 @@ namespace LavadoraLubricadora
             e.Graphics.DrawString("ANULACIÓN DE COMPROBANTE DE COMPRA: ", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
             e.Graphics.DrawString("No.: " + txtNFacturaD.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
             e.Graphics.DrawString("FECHA DE ANULACIÓN: " + DateTime.Now.ToString(), font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
-            e.Graphics.DrawString("TIPO PAGO: " + txtTipoPago.Text, font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
 
             e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
 
@@ -721,6 +770,31 @@ namespace LavadoraLubricadora
 
         }
 
+
+
         #endregion
+
+        private void txtBusquedaD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+              //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+                if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+                {
+                    MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    e.Handled = true;
+                    return;
+                }
+            
+        }
+
+        private void txtTelefonoD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //defenimos el rango de codigos ASCII que admite solo numeros a la entrada
+            if ((e.KeyChar >= 32 && e.KeyChar <= 43) || (e.KeyChar >= 44 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo está permitido números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }
