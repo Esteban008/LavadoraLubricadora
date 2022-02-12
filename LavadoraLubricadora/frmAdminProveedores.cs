@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -48,21 +49,41 @@ namespace LavadoraLubricadora
         {
             try
             {
-
-                if (cliente.ValidarProveedor(txtRuc.Text))
+                if (txtRuc.Text != "" && txtNombre.Text != "" && txtApellido.Text != "" && txtTelefono.Text != "" && txtCorreo.Text != "" && txtDireccion.Text != "" && 
+                    txtEmpresa.Text != "")
                 {
-                    MessageBox.Show("\t      Este Proveedor ya existe. \nSi desea actualizar los datos seleccione el boton Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (cliente.ValidarProveedor(txtRuc.Text))
+                    {
+                        MessageBox.Show("\t      Este Proveedor ya existe. \nSi desea actualizar los datos seleccione el boton Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        cliente.IngresarProveedor(txtRuc.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtDireccion.Text, txtEmpresa.Text);
+                        DialogResult dialogResult = MessageBox.Show("Proveedor ingresado con éxito", "Aviso", MessageBoxButtons.OK);
+                        LimpiarCampos();
+                    }
                 }
                 else
                 {
-                    cliente.IngresarProveedor(txtRuc.Text,txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtDireccion.Text, txtEmpresa.Text);
-                    DialogResult dialogResult = MessageBox.Show("Proveedor ingresado con éxito", "Aviso", MessageBoxButtons.OK);
-                    LimpiarCampos();
+                    MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
                 }
+
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (FormatException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -158,14 +179,35 @@ namespace LavadoraLubricadora
         {
             try
             {
-                cliente.EditarProveedor(Convert.ToInt32(dgvProveedoresE.SelectedCells[0].Value), txtRucE.Text, txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, txtDireccionE.Text, txtEmpresaE.Text);
-                DialogResult dialogResult = MessageBox.Show("Proveedor actualizado con éxito", "Aviso", MessageBoxButtons.OK);
-                LimpiarCamposE();
-                ActualizarDgvProveedorE();
+                if (txtRucE.Text != "" && txtNombreE.Text != "" && txtApellidoE.Text != "" && txtTelefonoE.Text != "" && txtCorreoE.Text != "" && 
+                    txtDireccionE.Text != "" && txtEmpresaE.Text != "")
+                {
+                    cliente.EditarProveedor(Convert.ToInt32(dgvProveedoresE.SelectedCells[0].Value), txtRucE.Text, txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, txtDireccionE.Text, txtEmpresaE.Text);
+                    DialogResult dialogResult = MessageBox.Show("Proveedor actualizado con éxito", "Aviso", MessageBoxButtons.OK);
+                    LimpiarCamposE();
+                    ActualizarDgvProveedorE();
+                }
+                else
+                {
+                    MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+                }
+
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (FormatException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
         }
 

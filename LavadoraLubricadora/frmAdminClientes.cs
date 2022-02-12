@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -55,10 +56,23 @@ namespace LavadoraLubricadora
                 }
                 else
                 {
-                    cliente.IngresarCliente(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtCedula.Text, txtDireccion.Text);
-                    DialogResult dialogResult = MessageBox.Show("Cliente ingresado con éxito", "Aviso", MessageBoxButtons.OK);
-                    LimpiarCampos();
+                    if (txtNombre.Text!="" && txtApellido.Text != "" && txtTelefono.Text != "" && txtCorreo.Text != "" && txtCedula.Text != "" && 
+                        txtDireccion.Text != "")
+                    {
+                        cliente.IngresarCliente(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtCedula.Text, txtDireccion.Text);
+                        DialogResult dialogResult = MessageBox.Show("Cliente ingresado con éxito", "Aviso", MessageBoxButtons.OK);
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+                    }
+
                 }
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
             catch (Exception)
             {
@@ -150,10 +164,19 @@ namespace LavadoraLubricadora
         {
             try
             {
+                if (txtNombreE.Text != "" && txtApellidoE.Text != "" && txtTelefonoE.Text != "" && txtCorreoE.Text != "" && txtCedulaE.Text != "" &&
+                        txtDireccionE.Text != "")
+                {
                     cliente.EditarCliente(Convert.ToInt32(dgvClientesE.SelectedCells[0].Value), txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, txtCedulaE.Text, txtDireccionE.Text);
                     DialogResult dialogResult = MessageBox.Show("Cliente actualizado con éxito", "Aviso", MessageBoxButtons.OK);
                     LimpiarCamposE();
-                    ActualizarDgvClienteE();         
+                    ActualizarDgvClienteE();
+                }
+                else
+                {
+                    MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+                }
+
             }
             catch (Exception)
             {

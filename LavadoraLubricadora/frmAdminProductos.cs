@@ -58,22 +58,31 @@ namespace LavadoraLubricadora
                 }
                 else
                 {
-                    int resultado = cliente.IngresarProducto(txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
+                    if (txtMarca.Text != "" && txtDescripcion.Text != "" && txtCodigoB.Text != "" && txtCantidad.Text != "" && txtCantidadMin.Text != "" && 
+                        txtPreSIva.Text != "" && txtGananPorMayor.Text != "" && txtPrecioVMenor.Text != "")
+                    {
+                        int resultado = cliente.IngresarProducto(txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
                     Convert.ToInt32(txtCantidadMin.Text), Convert.ToDouble(txtPreSIva.Text), Convert.ToDouble(txtPreCIva.Text), Convert.ToDouble(txtPreVMayor.Text),
                     Convert.ToDouble(txtPrecioVMenor.Text), Convert.ToDouble(txtMargenMayor.Text), Convert.ToDouble(txtMargenMenor.Text));
 
-                    if (resultado==1)
-                    {
-                        DialogResult dialogResult = MessageBox.Show("Producto ingresado con éxito", "Aviso", MessageBoxButtons.OK);
+                        if (resultado == 1)
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Producto ingresado con éxito", "Aviso", MessageBoxButtons.OK);
 
-                        LimpiarCampos();
+                            LimpiarCampos();
+                        }
+                        else
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Producto no ingresado a la base de datos verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                        }
                     }
                     else
                     {
-                        DialogResult dialogResult = MessageBox.Show("Producto no ingresado a la base de datos verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                        MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
                     }
 
-                    
+
+
                 }
             }
             catch (EndpointNotFoundException)
@@ -84,7 +93,10 @@ namespace LavadoraLubricadora
             {
                 DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
             }
-
+            catch (FormatException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+            }
             catch (Exception)
             {
                 DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
@@ -328,25 +340,34 @@ namespace LavadoraLubricadora
         {
             try
             {
-                int resultado = cliente.EditarProducto(Convert.ToInt32(dgvProductoE.SelectedCells[0].Value), txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
+                if (txtMarcaE.Text != "" && txtDescripcionE.Text != "" && txtCodigoBE.Text != "" && txtCantidadE.Text != "" && txtCantidadMinE.Text != "" &&
+                        txtPreSIvaE.Text != "" && txtGananPorMayorE.Text != "" && txtPreVMenorE.Text != "")
+                {
+                    int resultado = cliente.EditarProducto(Convert.ToInt32(dgvProductoE.SelectedCells[0].Value), txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
                         Convert.ToInt32(txtCantidadMinE.Text), Convert.ToDouble(txtPreSIvaE.Text), Convert.ToDouble(txtPreCIvaE.Text), Convert.ToDouble(txtPreVMayorE.Text),
                         Convert.ToDouble(txtPreVMenorE.Text), Convert.ToDouble(txtMargenMayorE.Text), Convert.ToDouble(txtMargenMenorE.Text));
 
-                if (resultado==1)
-                {
-                    if (cliente.ValidarMinProducto(Convert.ToInt32(dgvProductoE.SelectedCells[0].Value.ToString())))
+                    if (resultado == 1)
                     {
-                        MessageBox.Show("Este producto está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
-                    }
+                        if (cliente.ValidarMinProducto(Convert.ToInt32(dgvProductoE.SelectedCells[0].Value.ToString())))
+                        {
+                            MessageBox.Show("Este producto está próximo a agotarse", "Aviso", MessageBoxButtons.OK);
+                        }
 
-                    DialogResult dialogResult = MessageBox.Show("Producto actualizado con éxito", "Aviso", MessageBoxButtons.OK);
-                    ActualizarDgvProductoE();
-                    LimpiarCamposE();
+                        DialogResult dialogResult = MessageBox.Show("Producto actualizado con éxito", "Aviso", MessageBoxButtons.OK);
+                        ActualizarDgvProductoE();
+                        LimpiarCamposE();
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Este producto no se ha podido actualizar verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                    }
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Este producto no se ha podido actualizar verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
                 }
+
 
             }
             catch (EndpointNotFoundException)
@@ -357,7 +378,10 @@ namespace LavadoraLubricadora
             {
                 DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
             }
-
+            catch (FormatException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+            }
             catch (Exception)
             {
                 DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -50,29 +51,50 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (cliente.ValidarUsuarioIngresar(txtCorreo.Text))
+                if (txtNombre.Text != "" && txtApellido.Text != "" && txtTelefono.Text != "" && txtCorreo.Text != "" && txtClaveNueva.Text != "" && 
+                    txtCRepetir.Text != "" && txtRol.Text != "")
                 {
-                    MessageBox.Show("\t      Este Usuario ya existe. \nSi desea actualizar los datos seleccione el boton Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    if (txtCRepetir.Text.Equals(txtClaveNueva.Text))
+                    if (cliente.ValidarUsuarioIngresar(txtCorreo.Text))
                     {
-                        cliente.IngresarUsuario(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtRol.Text, txtCRepetir.Text);
-                        DialogResult dialogResult = MessageBox.Show("Usuario ingresado con éxito", "Aviso", MessageBoxButtons.OK);
-                        LimpiarCampos();
+                        MessageBox.Show("\t      Este Usuario ya existe. \nSi desea actualizar los datos seleccione el boton Editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        DialogResult dialogResult = MessageBox.Show("Las contraseñas no coinciden", "Aviso", MessageBoxButtons.OK);
-                        txtClaveNueva.Clear();
-                        txtCRepetir.Clear();
+                        if (txtCRepetir.Text.Equals(txtClaveNueva.Text))
+                        {
+                            cliente.IngresarUsuario(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtRol.Text, txtCRepetir.Text);
+                            DialogResult dialogResult = MessageBox.Show("Usuario ingresado con éxito", "Aviso", MessageBoxButtons.OK);
+                            LimpiarCampos();
+                        }
+                        else
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Las contraseñas no coinciden", "Aviso", MessageBoxButtons.OK);
+                            txtClaveNueva.Clear();
+                            txtCRepetir.Clear();
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+                }
+
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (FormatException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
             }
             catch (Exception)
             {
-                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -188,25 +210,55 @@ namespace LavadoraLubricadora
         {
             try
             {
+                
                 if (checkCambioC.Checked)
                 {
-                    cliente.EditarUsuario(Convert.ToInt32(dgvUsuariosE.SelectedCells[0].Value), txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, txtRolE.Text, txtCRepetir.Text);
-                    DialogResult dialogResult = MessageBox.Show("Usuario actualizado con éxito", "Aviso", MessageBoxButtons.OK);
-                    LimpiarCamposE();
-                    ActualizarDgvUsuariosE();
+                    if (txtNombreE.Text != "" && txtApellidoE.Text != "" && txtTelefonoE.Text != "" && txtCorreoE.Text != "" && txtClaveNuevaE.Text != "" &&
+                    txtCRepetirE.Text != "" && txtRolE.Text != "")
+                    {
+                        cliente.EditarUsuario(Convert.ToInt32(dgvUsuariosE.SelectedCells[0].Value), txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, txtRolE.Text, txtCRepetir.Text);
+                        DialogResult dialogResult = MessageBox.Show("Usuario actualizado con éxito", "Aviso", MessageBoxButtons.OK);
+                        LimpiarCamposE();
+                        ActualizarDgvUsuariosE();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+                    }
+
                 }
                 else
                 {
-                    cliente.EditarUsuarioSinContrasenia(Convert.ToInt32(dgvUsuariosE.SelectedCells[0].Value), txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, txtRolE.Text);
-                    DialogResult dialogResult = MessageBox.Show("Usuario actualizado con éxito", "Aviso", MessageBoxButtons.OK);
-                    LimpiarCamposE();
-                    ActualizarDgvUsuariosE();                    
+                    if (txtNombreE.Text != "" && txtApellidoE.Text != "" && txtTelefonoE.Text != "" && txtCorreoE.Text != "" && txtRolE.Text != "")
+                    {
+                        cliente.EditarUsuarioSinContrasenia(Convert.ToInt32(dgvUsuariosE.SelectedCells[0].Value), txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, txtRolE.Text);
+                        DialogResult dialogResult = MessageBox.Show("Usuario actualizado con éxito", "Aviso", MessageBoxButtons.OK);
+                        LimpiarCamposE();
+                        ActualizarDgvUsuariosE();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+                    }
+                                        
                 }
                 
             }
-            catch (Exception)
+            catch (EndpointNotFoundException)
             {
                 DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (FormatException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
             }
         }
 

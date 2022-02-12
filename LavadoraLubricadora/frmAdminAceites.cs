@@ -61,7 +61,9 @@ namespace LavadoraLubricadora
                 {
                     //Validacion de Combobox vacios
                     if (cbxPresentacion.SelectedItem != null && cbxSae.SelectedItem != null && cbxTipoCombustible.SelectedItem != null &&
-                        cbxApi.SelectedItem != null && cbxTipoAceite.SelectedItem != null )
+                        cbxApi.SelectedItem != null && cbxTipoAceite.SelectedItem != null && txtMarca.Text!="" && txtDescripcion.Text!=""
+                        && txtCodigoB.Text!="" && txtCantidad.Text != "" && txtCantidadMin.Text != "" && txtPreSIva.Text != "" && txtGananPorMayor.Text != "" && 
+                        txtPrecioVMenor.Text != "")
                     {
                         
                         //Ingreso de Aceite a base de datos a través del servicio
@@ -98,7 +100,10 @@ namespace LavadoraLubricadora
             {
                 DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
             }
-
+            catch (FormatException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+            }
             catch (Exception)
             {
                 DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
@@ -412,7 +417,9 @@ namespace LavadoraLubricadora
             {
 
                 if (cbxPresentacionE.SelectedItem != null && cbxSaeE.SelectedItem != null && cbxTipoCombustibleE.SelectedItem != null &&
-                        cbxApiE.SelectedItem != null && cbxTipoAceiteE.SelectedItem != null)
+                        cbxApiE.SelectedItem != null && cbxTipoAceiteE.SelectedItem != null && txtMarcaE.Text != "" && txtDescripcionE.Text != ""
+                        && txtCodigoBE.Text != "" && txtCantidadE.Text != "" && txtCantidadMinE.Text != "" && txtPreSIvaE.Text != "" && txtGananPorMayorE.Text != "" &&
+                        txtPreVMenorE.Text != "")
                 {
                     int resultado = cliente.EditarAceite(Convert.ToInt32(dgvAceitesE.SelectedCells[0].Value), txtMarcaE.Text, txtDescripcionE.Text, txtCodigoBE.Text, Convert.ToInt32(txtCantidadE.Text),
                                                    Convert.ToInt32(txtCantidadMinE.Text), cbxPresentacionE.SelectedItem.ToString(), cbxSaeE.SelectedItem.ToString(),
@@ -455,7 +462,10 @@ namespace LavadoraLubricadora
             {
                 DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
             }
-
+            catch (FormatException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+            }
             catch (Exception)
             {
                 DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
@@ -511,10 +521,22 @@ namespace LavadoraLubricadora
         }
         public void llenarCbxsE()
         {
-            cbxPresentacionE.Items.AddRange(cliente.ObtenerPresentacion());
-            cbxSaeE.Items.AddRange(cliente.ObtenerSAE());
-            cbxTipoCombustibleE.Items.AddRange(cliente.ObtenerTipoCombustible());
-            cbxTipoAceiteE.Items.AddRange(cliente.ObtenerTipoAceite());
+            try
+            {
+                cbxPresentacionE.Items.AddRange(cliente.ObtenerPresentacion());
+                cbxSaeE.Items.AddRange(cliente.ObtenerSAE());
+                cbxTipoCombustibleE.Items.AddRange(cliente.ObtenerTipoCombustible());
+                cbxTipoAceiteE.Items.AddRange(cliente.ObtenerTipoAceite());
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+
         }
 
         public void DeshabilitarCamposE()

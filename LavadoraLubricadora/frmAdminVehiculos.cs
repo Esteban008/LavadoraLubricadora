@@ -263,21 +263,29 @@ namespace LavadoraLubricadora
                         }
                         if (validacionIngreso)
                         {
-                            //Se crea un NUEVO vehiculo
-                            int resultado = cliente.IngresarVehiculo(txtIngresarMarca.Text, txtIngresarModelo.Text, txtIngresarAnio.Text, txtIngresarMotor.Text);
-
-                            if (resultado>=1)
+                            if (txtIngresarMarca.Text != "" && txtIngresarModelo.Text != "" && txtIngresarAnio.Text != "" && txtIngresarMotor.Text != "")
                             {
-                                DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
-                                HabilitarCombos();
-                                LimpiarCombos();
-                                LlenarCombos();
-                                OcultartxtVehiculo();
+                                //Se crea un NUEVO vehiculo
+                                int resultado = cliente.IngresarVehiculo(txtIngresarMarca.Text, txtIngresarModelo.Text, txtIngresarAnio.Text, txtIngresarMotor.Text);
+
+                                if (resultado >= 1)
+                                {
+                                    DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
+                                    HabilitarCombos();
+                                    LimpiarCombos();
+                                    LlenarCombos();
+                                    OcultartxtVehiculo();
+                                }
+                                else
+                                {
+                                    DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                }
                             }
                             else
                             {
-                                DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
                             }
+
 
                         }
                         else
@@ -309,23 +317,31 @@ namespace LavadoraLubricadora
 
                             if (validacionIngreso)
                             {
-                                //Se crea un NUEVO vehiculo 
-                                int resultado = cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), txtIngresarModelo.Text, txtIngresarAnio.Text, txtIngresarMotor.Text);
-
-                                if (resultado>=1)
+                                if (cbxMarcaVehiculo.SelectedItem != null && txtIngresarModelo.Text != "" && txtIngresarAnio.Text != "" && txtIngresarMotor.Text != "")
                                 {
-                                    DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
-                                    HabilitarCombos();
-                                    LimpiarCombos();
-                                    LlenarCombos();
-                                    OcultartxtVehiculo();
+                                    //Se crea un NUEVO vehiculo 
+                                    int resultado = cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), txtIngresarModelo.Text, txtIngresarAnio.Text, txtIngresarMotor.Text);
+
+                                    if (resultado >= 1)
+                                    {
+                                        DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
+                                        HabilitarCombos();
+                                        LimpiarCombos();
+                                        LlenarCombos();
+                                        OcultartxtVehiculo();
+                                    }
+                                    else
+                                    {
+                                        DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                    }
                                 }
                                 else
                                 {
-                                    DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                    MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
                                 }
 
-                                
+
+
                             }
                             else
                             {
@@ -357,40 +373,56 @@ namespace LavadoraLubricadora
 
                                     if (cbxMotorVehiculo.SelectedItem.Equals("Otro Motor"))
                                     {
-                                        //Se crea un NUEVO vehiculo
-                                        int resultado = cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, txtIngresarMotor.Text);
-
-                                        if (resultado>=1)
+                                        if (cbxMarcaVehiculo.SelectedItem != null && cbxModeloVehiculo.SelectedItem != null && txtIngresarAnio.Text != "" && txtIngresarMotor.Text != "")
                                         {
-                                            DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
-                                            HabilitarCombos();
-                                            LimpiarCombos();
-                                            LlenarCombos();
-                                            OcultartxtVehiculo();
+                                            //Se crea un NUEVO vehiculo
+                                            int resultado = cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, txtIngresarMotor.Text);
+
+                                            if (resultado >= 1)
+                                            {
+                                                DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
+                                                HabilitarCombos();
+                                                LimpiarCombos();
+                                                LlenarCombos();
+                                                OcultartxtVehiculo();
+                                            }
+                                            else
+                                            {
+                                                DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                            }
                                         }
                                         else
                                         {
-                                            DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                            MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
                                         }
+                                        
                                         
                                     }
                                     else
                                     {
-                                        //Se crea un NUEVO vehiculo
-                                        int resultado = cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, cbxMotorVehiculo.SelectedItem.ToString());
-
-                                        if (resultado>=1)
+                                        if (cbxMarcaVehiculo.SelectedItem != null && cbxModeloVehiculo.SelectedItem != null && txtIngresarAnio.Text != "" && cbxMotorVehiculo.SelectedItem != null)
                                         {
-                                            DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
-                                            HabilitarCombos();
-                                            LimpiarCombos();
-                                            LlenarCombos();
-                                            OcultartxtVehiculo();
+                                            //Se crea un NUEVO vehiculo
+                                            int resultado = cliente.IngresarVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, cbxMotorVehiculo.SelectedItem.ToString());
+
+                                            if (resultado >= 1)
+                                            {
+                                                DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
+                                                HabilitarCombos();
+                                                LimpiarCombos();
+                                                LlenarCombos();
+                                                OcultartxtVehiculo();
+                                            }
+                                            else
+                                            {
+                                                DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                            }
                                         }
                                         else
                                         {
-                                            DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                            MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
                                         }
+
                                     }
 
 
@@ -426,40 +458,56 @@ namespace LavadoraLubricadora
                                     {
                                         if (cbxAnioVehiculo.SelectedItem.Equals("Otro Año"))
                                         {
-                                            //Se crea un NUEVO vehiculo
-                                            int resultado = cliente.IngresarMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, txtIngresarMotor.Text);
-
-                                            if (resultado>=1)
+                                            if (cbxMarcaVehiculo.SelectedItem != null && cbxModeloVehiculo.SelectedItem != null && txtIngresarAnio.Text != "" && txtIngresarMotor.Text != "")
                                             {
-                                                DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
-                                                HabilitarCombos();
-                                                LimpiarCombos();
-                                                LlenarCombos();
-                                                OcultartxtVehiculo();
+                                                //Se crea un NUEVO vehiculo
+                                                int resultado = cliente.IngresarMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), txtIngresarAnio.Text, txtIngresarMotor.Text);
+
+                                                if (resultado >= 1)
+                                                {
+                                                    DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
+                                                    HabilitarCombos();
+                                                    LimpiarCombos();
+                                                    LlenarCombos();
+                                                    OcultartxtVehiculo();
+                                                }
+                                                else
+                                                {
+                                                    DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                                }
                                             }
                                             else
                                             {
-                                                DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                                MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
                                             }
+
 
                                         }
                                         else
                                         {
-                                            //Se crea un NUEVO vehiculo
-                                            int resultado = cliente.IngresarMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), cbxAnioVehiculo.SelectedItem.ToString(), txtIngresarMotor.Text);
-                                            Console.WriteLine(resultado);
-                                            if (resultado>=1)
+                                            if (cbxMarcaVehiculo.SelectedItem != null && cbxModeloVehiculo.SelectedItem != null && txtIngresarMotor.Text != "" && cbxAnioVehiculo.SelectedItem != null)
                                             {
-                                                DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
-                                                HabilitarCombos();
-                                                LimpiarCombos();
-                                                LlenarCombos();
-                                                OcultartxtVehiculo();
+                                                //Se crea un NUEVO vehiculo
+                                                int resultado = cliente.IngresarMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString(), cbxAnioVehiculo.SelectedItem.ToString(), txtIngresarMotor.Text);
+                                                Console.WriteLine(resultado);
+                                                if (resultado >= 1)
+                                                {
+                                                    DialogResult dialogResult = MessageBox.Show("Vehiculo ingresado exitosamente", "Aviso", MessageBoxButtons.OK);
+                                                    HabilitarCombos();
+                                                    LimpiarCombos();
+                                                    LlenarCombos();
+                                                    OcultartxtVehiculo();
+                                                }
+                                                else
+                                                {
+                                                    DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                                }
                                             }
                                             else
                                             {
-                                                DialogResult dialogResult = MessageBox.Show("Vehiculo no ingresado verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                                                MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
                                             }
+
 
                                         }
 
@@ -574,25 +622,42 @@ namespace LavadoraLubricadora
 
             try
             {
-                int resultado = cliente.EditarVehiculo(Convert.ToInt32(dgvVehiculosE.SelectedCells[0].Value.ToString()), txtMarcaE.Text, txtModeloE.Text, txtAnioE.Text, txtTipoMotorE.Text);
-
-                if (resultado>=1)
+                if (txtMarcaE.Text != "" && txtModeloE.Text != "" && txtAnioE.Text != "" && txtTipoMotorE.Text != "")
                 {
-                    DialogResult dialogResult = MessageBox.Show("Vehículo actualizado exitosamente", "Aviso", MessageBoxButtons.OK);
-                    LimpiarCamposE();
-                    ActualizarDgvVehiculosE();
+                    int resultado = cliente.EditarVehiculo(Convert.ToInt32(dgvVehiculosE.SelectedCells[0].Value.ToString()), txtMarcaE.Text, txtModeloE.Text, txtAnioE.Text, txtTipoMotorE.Text);
+
+                    if (resultado >= 1)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Vehículo actualizado exitosamente", "Aviso", MessageBoxButtons.OK);
+                        LimpiarCamposE();
+                        ActualizarDgvVehiculosE();
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Este vehículo no se ha podido actualizar verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                    }
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Este vehículo no se ha podido actualizar verifique los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
                 }
-                
+
+
             }
-            catch (Exception)
+            catch (EndpointNotFoundException)
             {
                 DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
             }
-         
+            catch (OverflowException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+            }
+
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+
         }
 
         private void btnCancelarE_Click(object sender, EventArgs e)

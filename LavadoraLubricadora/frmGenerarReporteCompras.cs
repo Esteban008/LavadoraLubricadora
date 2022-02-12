@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,39 +30,87 @@ namespace LavadoraLubricadora
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            DateTime fechaInicio = dtpFechaInicio.Value;
-            DateTime fechaFin = dtpFechaFin.Value;
+            try
+            {
+                DateTime fechaInicio = dtpFechaInicio.Value;
+                DateTime fechaFin = dtpFechaFin.Value;
 
 
-            ComprobanteCompraBindingSource.DataSource = cliente.BuscarComprobanteCompraRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
-            this.rvpCompras.RefreshReport();
+                ComprobanteCompraBindingSource.DataSource = cliente.BuscarComprobanteCompraRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
+                this.rvpCompras.RefreshReport();
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+            
         }
 
         private void btnHoy_Click(object sender, EventArgs e)
         {
-            var fechaInicio = DateTime.Now;
-            var fechaFin = DateTime.Now;
+            try
+            {
+                var fechaInicio = DateTime.Now;
+                var fechaFin = DateTime.Now;
 
-            ComprobanteCompraBindingSource.DataSource = cliente.BuscarComprobanteCompraRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
-            this.rvpCompras.RefreshReport();
+                ComprobanteCompraBindingSource.DataSource = cliente.BuscarComprobanteCompraRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
+                this.rvpCompras.RefreshReport();
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+            
         }
 
         private void btnSemana_Click(object sender, EventArgs e)
         {
-            var fechaInicio = DateTime.Now.AddDays(-7);
-            var fechaFin = DateTime.Now;
+            try
+            {
+                var fechaInicio = DateTime.Now.AddDays(-7);
+                var fechaFin = DateTime.Now;
 
-            ComprobanteCompraBindingSource.DataSource = cliente.BuscarComprobanteCompraRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
-            this.rvpCompras.RefreshReport();
+                ComprobanteCompraBindingSource.DataSource = cliente.BuscarComprobanteCompraRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
+                this.rvpCompras.RefreshReport();
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+            
         }
 
         private void btnMes_Click(object sender, EventArgs e)
         {
-            var fechaInicio = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            var fechaFin = DateTime.Now;
+            try
+            {
+                var fechaInicio = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                var fechaFin = DateTime.Now;
 
-            ComprobanteCompraBindingSource.DataSource = cliente.BuscarComprobanteCompraRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
-            this.rvpCompras.RefreshReport();
+                ComprobanteCompraBindingSource.DataSource = cliente.BuscarComprobanteCompraRangoFecha(fechaInicio.ToString("yyyy'-'MM'-'dd"), fechaFin.ToString("yyyy'-'MM'-'dd"));
+                this.rvpCompras.RefreshReport();
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+            
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

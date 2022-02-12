@@ -101,8 +101,21 @@ namespace LavadoraLubricadora
 
         public void LimpiarCacheListaVehiculos()
         {
-            idVehiculos.Clear();
-            cliente.GuardarIDsVehiculos(idVehiculos.ToArray());
+            try
+            {
+                idVehiculos.Clear();
+                cliente.GuardarIDsVehiculos(idVehiculos.ToArray());
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+
         }
 
 
@@ -121,12 +134,15 @@ namespace LavadoraLubricadora
                 else
                 {
                     //Validacion de Combobox vacios
-                    if (cbxTipoFiltro.SelectedItem != null)
+                    if (cbxTipoFiltro.SelectedItem != null && txtRosca.Text != "" && txtMarca.Text != "" && txtDescripcion.Text != "" && txtCodigoB.Text != "" && 
+                        txtCantidad.Text != "" && txtCantidadMin.Text != "" && txtPreSIva.Text != "" && txtGananPorMayor.Text != "" && txtPrecioVMenor.Text != "" 
+                        && rtxtCodigos.Text != "")
                     {
                         //Ingreso de Aceite a base de datos a través del servicio
-                        int resultado = cliente.IngresarFiltro(cbxTipoFiltro.SelectedItem.ToString(), txtRosca.Text, txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, Convert.ToInt32(txtCantidad.Text),
-                           Convert.ToInt32(txtCantidadMin.Text), Convert.ToDouble(txtPreSIva.Text), Convert.ToDouble(txtPreCIva.Text), Convert.ToDouble(txtPreVMayor.Text),
-                           Convert.ToDouble(txtPrecioVMenor.Text), Convert.ToDouble(txtMargenMayor.Text), Convert.ToDouble(txtMargenMenor.Text));
+                        int resultado = cliente.IngresarFiltro(cbxTipoFiltro.SelectedItem.ToString(), txtRosca.Text, txtMarca.Text, txtDescripcion.Text, txtCodigoB.Text, 
+                           Convert.ToInt32(txtCantidad.Text), Convert.ToInt32(txtCantidadMin.Text), Convert.ToDouble(txtPreSIva.Text), Convert.ToDouble(txtPreCIva.Text), 
+                           Convert.ToDouble(txtPreVMayor.Text), Convert.ToDouble(txtPrecioVMenor.Text), Convert.ToDouble(txtMargenMayor.Text), 
+                           Convert.ToDouble(txtMargenMenor.Text));
 
                         if (resultado==1)
                         {
@@ -145,6 +161,10 @@ namespace LavadoraLubricadora
                             LimpiarCampos();
                             LimpiarCacheListaVehiculos();
                         }
+                        else
+                        {
+                            MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+                        }
 
                     }
                     else
@@ -162,7 +182,10 @@ namespace LavadoraLubricadora
             {
                 DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
             }
-
+            catch (FormatException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+            }
             catch (Exception)
             {
                 DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
@@ -470,7 +493,9 @@ namespace LavadoraLubricadora
             try
             {
 
-                if (cbxTipoFiltroE.SelectedItem != null)
+                if (cbxTipoFiltroE.SelectedItem != null && txtRoscaE.Text != "" && txtMarcaE.Text != "" && txtDescripcionE.Text != "" && txtCodigoBE.Text != "" &&
+                        txtCantidadE.Text != "" && txtCantidadMinE.Text != "" && txtPreSIvaE.Text != "" && txtGananPorMayorE.Text != "" && txtPreVMenorE.Text != ""
+                        && rtxtCodigos.Text != "")
                 {
                     idCodigos = cliente.ObtenerIdCodigosFiltro(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString())).ToList();
 
@@ -539,7 +564,10 @@ namespace LavadoraLubricadora
             {
                 DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
             }
-
+            catch (FormatException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Uno o más campos están vacíos", "Aviso", MessageBoxButtons.OK);
+            }
             catch (Exception)
             {
                 DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);

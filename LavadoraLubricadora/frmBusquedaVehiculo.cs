@@ -17,10 +17,22 @@ namespace LavadoraLubricadora
 
         private void frmBusquedaVehiculo_Load(object sender, EventArgs e)
         {
-            cliente = new LavadoraService.LavadoraServiceClient();
-            BloquearEdicionCombos();
-            //Llenado de combo
-            cbxMarcaVehiculo.Items.AddRange(cliente.ObtenerMarcaVehiculo());
+            try
+            {
+                cliente = new LavadoraService.LavadoraServiceClient();
+                BloquearEdicionCombos();
+                //Llenado de combo
+                cbxMarcaVehiculo.Items.AddRange(cliente.ObtenerMarcaVehiculo());
+            }
+            catch (EndpointNotFoundException)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+            }
+
         }
 
         public frmBusquedaVehiculo()
