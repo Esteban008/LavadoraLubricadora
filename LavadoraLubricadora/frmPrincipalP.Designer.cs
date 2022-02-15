@@ -459,7 +459,7 @@
             this.btnBusquedaxVehiculo.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnBusquedaxVehiculo.Size = new System.Drawing.Size(233, 40);
             this.btnBusquedaxVehiculo.TabIndex = 3;
-            this.btnBusquedaxVehiculo.Text = "Busqueda Por Vehículo";
+            this.btnBusquedaxVehiculo.Text = "Búsqueda Por Vehículo";
             this.btnBusquedaxVehiculo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBusquedaxVehiculo.UseVisualStyleBackColor = true;
             this.btnBusquedaxVehiculo.Click += new System.EventHandler(this.btnBusquedaxVehiculo_Click);
