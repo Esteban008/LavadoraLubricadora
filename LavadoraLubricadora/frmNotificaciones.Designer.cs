@@ -112,7 +112,7 @@ namespace LavadoraLubricadora
             // Notificaciones
             // 
             this.Notificaciones.DataPropertyName = "Notificaciones";
-            this.Notificaciones.HeaderText = "Productos Proximos a Agotarse";
+            this.Notificaciones.HeaderText = "Productos Próximos a Agotarse";
             this.Notificaciones.Name = "Notificaciones";
             this.Notificaciones.ReadOnly = true;
             // 

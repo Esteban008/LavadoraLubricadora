@@ -495,7 +495,7 @@ namespace LavadoraLubricadora
 
                 if (cbxTipoFiltroE.SelectedItem != null && txtRoscaE.Text != "" && txtMarcaE.Text != "" && txtDescripcionE.Text != "" && txtCodigoBE.Text != "" &&
                         txtCantidadE.Text != "" && txtCantidadMinE.Text != "" && txtPreSIvaE.Text != "" && txtGananPorMayorE.Text != "" && txtPreVMenorE.Text != ""
-                        && rtxtCodigos.Text != "")
+                        && rtxtCodigosE.Text != "")
                 {
                     idCodigos = cliente.ObtenerIdCodigosFiltro(Convert.ToInt32(dgvFiltrosE.SelectedCells[0].Value.ToString())).ToList();
 
