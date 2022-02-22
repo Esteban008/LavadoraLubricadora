@@ -60,6 +60,7 @@
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlAdmin = new System.Windows.Forms.Panel();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.pnlSubMenuNotificaciones.SuspendLayout();
             this.pnlSubmenuAdmin.SuspendLayout();
@@ -75,6 +76,7 @@
             // 
             this.panelMenu.AutoScroll = true;
             this.panelMenu.BackColor = System.Drawing.Color.White;
+            this.panelMenu.Controls.Add(this.btnCerrarSesion);
             this.panelMenu.Controls.Add(this.pnlSubMenuNotificaciones);
             this.panelMenu.Controls.Add(this.btnNotificacion);
             this.panelMenu.Controls.Add(this.pnlSubmenuAdmin);
@@ -560,6 +562,24 @@
             this.pnlAdmin.Size = new System.Drawing.Size(834, 697);
             this.pnlAdmin.TabIndex = 1;
             // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(38)))), ((int)(((byte)(92)))));
+            this.btnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 1114);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(233, 45);
+            this.btnCerrarSesion.TabIndex = 14;
+            this.btnCerrarSesion.Text = "Cerrar Sesión";
+            this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            // 
             // frmPrincipalP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -570,7 +590,7 @@
             this.MinimumSize = new System.Drawing.Size(1100, 736);
             this.Name = "frmPrincipalP";
             this.Text = "frmPrincipalP";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPrincipalP_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipalP_FormClosing);
             this.panelMenu.ResumeLayout(false);
             this.pnlSubMenuNotificaciones.ResumeLayout(false);
             this.pnlSubmenuAdmin.ResumeLayout(false);
@@ -618,5 +638,6 @@
         private System.Windows.Forms.Panel pnlSubMenuNotificaciones;
         private System.Windows.Forms.Button btnVNotificacion;
         private System.Windows.Forms.Button btnNotificacion;
+        private System.Windows.Forms.Button btnCerrarSesion;
     }
 }

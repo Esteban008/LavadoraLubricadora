@@ -92,10 +92,8 @@ namespace LavadoraLubricadora
                         {
                             frmPrincipalP frmPrincipal = new frmPrincipalP();
                             frmPrincipal.Show();
-                            this.Hide();
-                            lblMensajeError.Text = "";
-                            txtCorreo.Clear();
-                            txtPassword.Clear();
+                            frmPrincipal.FormClosed += Logout;
+                            this.Hide();                           
                         }
                         else
                         {
@@ -130,6 +128,14 @@ namespace LavadoraLubricadora
         private void frmLogin_Load(object sender, EventArgs e)
         {
             cliente = new LavadoraService.LavadoraServiceClient();
+        }
+
+        private void Logout(object sender, FormClosedEventArgs e)
+        {
+            txtPassword.Clear();
+            txtCorreo.Clear();
+            lblMensajeError.Visible = false;
+            this.Show();
         }
     }
 }

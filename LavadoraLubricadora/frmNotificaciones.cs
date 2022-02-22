@@ -33,9 +33,7 @@ namespace LavadoraLubricadora
             {
 
                 DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de connección", "Aviso", MessageBoxButtons.OK);
-            }
-            
-            
+            }                  
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

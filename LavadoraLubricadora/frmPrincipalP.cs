@@ -322,9 +322,15 @@ namespace LavadoraLubricadora
             btnVNotificacion.BackColor = Color.FromArgb(199, 207, 225);
         }
 
-        private void frmPrincipalP_FormClosed(object sender, FormClosedEventArgs e)
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            Environment.Exit(1);
+                this.Close();
+        }
+
+        private void frmPrincipalP_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Esta seguro de salir?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                this.Close();
         }
     }
 }
