@@ -329,8 +329,17 @@ namespace LavadoraLubricadora
 
         private void frmPrincipalP_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Esta seguro de salir?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-                this.Close();
+            if (e.CloseReason != CloseReason.UserClosing)
+            {
+                return;
+            } 
+
+            DialogResult dialog = MessageBox.Show("¿Esta seguro de salir?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialog != DialogResult.Yes)
+            {
+                e.Cancel = true;
+            }
+
         }
     }
 }

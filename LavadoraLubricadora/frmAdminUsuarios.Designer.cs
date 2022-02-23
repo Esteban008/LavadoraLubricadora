@@ -46,7 +46,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtRol = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtClaveNueva = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -73,7 +72,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtCorreoE = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtRolE = new System.Windows.Forms.TextBox();
             this.lblCRepetir = new System.Windows.Forms.Label();
             this.lblCNueva = new System.Windows.Forms.Label();
             this.txtCRepetirE = new System.Windows.Forms.TextBox();
@@ -100,6 +98,8 @@
             this.cbxCriBusquedaD = new System.Windows.Forms.ComboBox();
             this.label37 = new System.Windows.Forms.Label();
             this.btnBuscarD = new System.Windows.Forms.Button();
+            this.cbxRol = new System.Windows.Forms.ComboBox();
+            this.cbxRolE = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -208,13 +208,13 @@
             this.tableLayoutPanel2.Controls.Add(this.label13, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.txtCorreo, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.label6, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.txtRol, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.label5, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtClaveNueva, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.label15, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.txtCRepetir, 4, 1);
             this.tableLayoutPanel2.Controls.Add(this.checkboxCNueva, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.checkboxCRepetir, 5, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cbxRol, 1, 4);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(53, 6);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 8;
@@ -345,14 +345,6 @@
             this.label6.Size = new System.Drawing.Size(26, 13);
             this.label6.TabIndex = 64;
             this.label6.Text = "Rol:";
-            // 
-            // txtRol
-            // 
-            this.txtRol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRol.Location = new System.Drawing.Point(85, 188);
-            this.txtRol.Name = "txtRol";
-            this.txtRol.Size = new System.Drawing.Size(210, 20);
-            this.txtRol.TabIndex = 122;
             // 
             // label5
             // 
@@ -517,7 +509,6 @@
             this.tableLayoutPanel4.Controls.Add(this.label8, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.txtCorreoE, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.label10, 0, 4);
-            this.tableLayoutPanel4.Controls.Add(this.txtRolE, 1, 4);
             this.tableLayoutPanel4.Controls.Add(this.lblCRepetir, 3, 3);
             this.tableLayoutPanel4.Controls.Add(this.lblCNueva, 3, 2);
             this.tableLayoutPanel4.Controls.Add(this.txtCRepetirE, 4, 3);
@@ -525,6 +516,7 @@
             this.tableLayoutPanel4.Controls.Add(this.checkboxCRepetirE, 5, 3);
             this.tableLayoutPanel4.Controls.Add(this.checkboxCNuevaE, 5, 2);
             this.tableLayoutPanel4.Controls.Add(this.checkCambioC, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.cbxRolE, 1, 4);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(52, 231);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 8;
@@ -654,14 +646,6 @@
             this.label10.TabIndex = 79;
             this.label10.Text = "Rol:";
             // 
-            // txtRolE
-            // 
-            this.txtRolE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRolE.Location = new System.Drawing.Point(70, 120);
-            this.txtRolE.Name = "txtRolE";
-            this.txtRolE.Size = new System.Drawing.Size(220, 20);
-            this.txtRolE.TabIndex = 81;
-            // 
             // lblCRepetir
             // 
             this.lblCRepetir.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -745,7 +729,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel3.Controls.Add(this.txtBusquedaE, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.cbxCriBusquedaE, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
@@ -761,7 +745,7 @@
             // txtBusquedaE
             // 
             this.txtBusquedaE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaE.Location = new System.Drawing.Point(363, 13);
+            this.txtBusquedaE.Location = new System.Drawing.Point(362, 13);
             this.txtBusquedaE.Name = "txtBusquedaE";
             this.txtBusquedaE.Size = new System.Drawing.Size(186, 20);
             this.txtBusquedaE.TabIndex = 117;
@@ -799,7 +783,7 @@
             this.btnBuscarE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarE.Location = new System.Drawing.Point(559, 6);
+            this.btnBuscarE.Location = new System.Drawing.Point(558, 6);
             this.btnBuscarE.Name = "btnBuscarE";
             this.btnBuscarE.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarE.TabIndex = 118;
@@ -913,7 +897,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.47132F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.79181F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel5.Controls.Add(this.txtBusquedaD, 3, 0);
             this.tableLayoutPanel5.Controls.Add(this.cbxCriBusquedaD, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.label37, 0, 0);
@@ -929,7 +913,7 @@
             // txtBusquedaD
             // 
             this.txtBusquedaD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusquedaD.Location = new System.Drawing.Point(363, 13);
+            this.txtBusquedaD.Location = new System.Drawing.Point(362, 13);
             this.txtBusquedaD.Name = "txtBusquedaD";
             this.txtBusquedaD.Size = new System.Drawing.Size(186, 20);
             this.txtBusquedaD.TabIndex = 117;
@@ -966,13 +950,37 @@
             this.btnBuscarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(62)))), ((int)(((byte)(110)))));
-            this.btnBuscarD.Location = new System.Drawing.Point(559, 6);
+            this.btnBuscarD.Location = new System.Drawing.Point(558, 6);
             this.btnBuscarD.Name = "btnBuscarD";
             this.btnBuscarD.Size = new System.Drawing.Size(80, 35);
             this.btnBuscarD.TabIndex = 118;
             this.btnBuscarD.Text = "Buscar";
             this.btnBuscarD.UseVisualStyleBackColor = false;
             this.btnBuscarD.Click += new System.EventHandler(this.btnBuscarD_Click);
+            // 
+            // cbxRol
+            // 
+            this.cbxRol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxRol.FormattingEnabled = true;
+            this.cbxRol.Items.AddRange(new object[] {
+            "Administrador",
+            "Empleado"});
+            this.cbxRol.Location = new System.Drawing.Point(85, 187);
+            this.cbxRol.Name = "cbxRol";
+            this.cbxRol.Size = new System.Drawing.Size(210, 21);
+            this.cbxRol.TabIndex = 127;
+            // 
+            // cbxRolE
+            // 
+            this.cbxRolE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxRolE.FormattingEnabled = true;
+            this.cbxRolE.Items.AddRange(new object[] {
+            "Administrador",
+            "Empleado"});
+            this.cbxRolE.Location = new System.Drawing.Point(70, 120);
+            this.cbxRolE.Name = "cbxRolE";
+            this.cbxRolE.Size = new System.Drawing.Size(220, 21);
+            this.cbxRolE.TabIndex = 134;
             // 
             // frmAdminUsuarios
             // 
@@ -1026,7 +1034,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtRol;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtClaveNueva;
         private System.Windows.Forms.TabPage tabPage2;
@@ -1035,7 +1042,6 @@
         private System.Windows.Forms.TextBox txtTelefonoE;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtRolE;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtApellidoE;
         private System.Windows.Forms.Label label10;
@@ -1080,5 +1086,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.CheckBox checkCambioC;
+        private System.Windows.Forms.ComboBox cbxRol;
+        private System.Windows.Forms.ComboBox cbxRolE;
     }
 }

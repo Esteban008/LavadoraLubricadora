@@ -80,6 +80,7 @@ namespace LavadoraLubricadora
             }
         }
 
+        
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             try
@@ -90,10 +91,20 @@ namespace LavadoraLubricadora
                     {
                         if (cliente.Login(txtCorreo.Text, txtPassword.Text))
                         {
-                            frmPrincipalP frmPrincipal = new frmPrincipalP();
-                            frmPrincipal.Show();
-                            frmPrincipal.FormClosed += Logout;
-                            this.Hide();                           
+                            if (cliente.LoginAdminitrador())
+                            {
+                                frmPrincipalP frmPrincipal = new frmPrincipalP();
+                                frmPrincipal.Show();
+                                frmPrincipal.FormClosed += Logout;
+                                this.Hide();
+                            }
+                            else
+                            {
+                                frmPrincipalU frmPrincipalU = new frmPrincipalU();
+                                frmPrincipalU.Show();
+                                frmPrincipalU.FormClosed += Logout;
+                                this.Hide();
+                            }                       
                         }
                         else
                         {

@@ -9,6 +9,12 @@
       <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ILavadoraService_ObtenerClientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerClientes" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerClientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerClientesResponse" />
+  </wsdl:message>
   <wsdl:message name="ILavadoraService_BuscarClienteApellido_InputMessage">
     <wsdl:part name="parameters" element="tns:BuscarClienteApellido" />
   </wsdl:message>
@@ -326,6 +332,12 @@
   </wsdl:message>
   <wsdl:message name="ILavadoraService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_LoginAdminitrador_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginAdminitrador" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_LoginAdminitrador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginAdminitradorResponse" />
   </wsdl:message>
   <wsdl:message name="ILavadoraService_IngresarAceite_InputMessage">
     <wsdl:part name="parameters" element="tns:IngresarAceite" />
@@ -699,13 +711,11 @@
   <wsdl:message name="ILavadoraService_EliminarCliente_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarClienteResponse" />
   </wsdl:message>
-  <wsdl:message name="ILavadoraService_ObtenerClientes_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerClientes" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ObtenerClientes_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerClientesResponse" />
-  </wsdl:message>
   <wsdl:portType name="ILavadoraService">
+    <wsdl:operation name="ObtenerClientes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerClientes" message="tns:ILavadoraService_ObtenerClientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerClientesResponse" message="tns:ILavadoraService_ObtenerClientes_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="BuscarClienteApellido">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteApellido" message="tns:ILavadoraService_BuscarClienteApellido_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteApellidoResponse" message="tns:ILavadoraService_BuscarClienteApellido_OutputMessage" />
@@ -917,6 +927,10 @@
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/Login" message="tns:ILavadoraService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/LoginResponse" message="tns:ILavadoraService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginAdminitrador">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/LoginAdminitrador" message="tns:ILavadoraService_LoginAdminitrador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/LoginAdminitradorResponse" message="tns:ILavadoraService_LoginAdminitrador_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="IngresarAceite">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarAceite" message="tns:ILavadoraService_IngresarAceite_InputMessage" />
@@ -1166,13 +1180,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarCliente" message="tns:ILavadoraService_EliminarCliente_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarClienteResponse" message="tns:ILavadoraService_EliminarCliente_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerClientes">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerClientes" message="tns:ILavadoraService_ObtenerClientes_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerClientesResponse" message="tns:ILavadoraService_ObtenerClientes_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILavadoraService" type="tns:ILavadoraService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerClientes">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="BuscarClienteApellido">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarClienteApellido" style="document" />
       <wsdl:input>
@@ -1643,6 +1662,15 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAdminitrador">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/LoginAdminitrador" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2201,15 +2229,6 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarCliente">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarCliente" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerClientes">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerClientes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

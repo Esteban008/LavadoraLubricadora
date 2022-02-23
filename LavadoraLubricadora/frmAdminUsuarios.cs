@@ -52,7 +52,7 @@ namespace LavadoraLubricadora
             try
             {
                 if (txtNombre.Text != "" && txtApellido.Text != "" && txtTelefono.Text != "" && txtCorreo.Text != "" && txtClaveNueva.Text != "" && 
-                    txtCRepetir.Text != "" && txtRol.Text != "")
+                    txtCRepetir.Text != "" && cbxRol.SelectedItem != null)
                 {
                     if (cliente.ValidarUsuarioIngresar(txtCorreo.Text))
                     {
@@ -62,7 +62,7 @@ namespace LavadoraLubricadora
                     {
                         if (txtCRepetir.Text.Equals(txtClaveNueva.Text))
                         {
-                            cliente.IngresarUsuario(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtRol.Text, txtCRepetir.Text);
+                            cliente.IngresarUsuario(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, cbxRol.SelectedItem.ToString(), txtCRepetir.Text);
                             DialogResult dialogResult = MessageBox.Show("Usuario ingresado con éxito", "Aviso", MessageBoxButtons.OK);
                             LimpiarCampos();
                         }
@@ -117,7 +117,7 @@ namespace LavadoraLubricadora
             txtCorreo.Clear();
             txtClaveNueva.Clear();
             txtCRepetir.Clear();
-            txtRol.Clear();
+            cbxRol.SelectedIndex = -1;
         }
 
         private void checkboxCNueva_CheckedChanged(object sender, EventArgs e)
@@ -214,9 +214,9 @@ namespace LavadoraLubricadora
                 if (checkCambioC.Checked)
                 {
                     if (txtNombreE.Text != "" && txtApellidoE.Text != "" && txtTelefonoE.Text != "" && txtCorreoE.Text != "" && txtClaveNuevaE.Text != "" &&
-                    txtCRepetirE.Text != "" && txtRolE.Text != "")
+                    txtCRepetirE.Text != "" && cbxRolE.SelectedItem != null)
                     {
-                        cliente.EditarUsuario(Convert.ToInt32(dgvUsuariosE.SelectedCells[0].Value), txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, txtRolE.Text, txtCRepetir.Text);
+                        cliente.EditarUsuario(Convert.ToInt32(dgvUsuariosE.SelectedCells[0].Value), txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, cbxRolE.SelectedItem.ToString(), txtCRepetir.Text);
                         DialogResult dialogResult = MessageBox.Show("Usuario actualizado con éxito", "Aviso", MessageBoxButtons.OK);
                         LimpiarCamposE();
                         ActualizarDgvUsuariosE();
@@ -229,9 +229,9 @@ namespace LavadoraLubricadora
                 }
                 else
                 {
-                    if (txtNombreE.Text != "" && txtApellidoE.Text != "" && txtTelefonoE.Text != "" && txtCorreoE.Text != "" && txtRolE.Text != "")
+                    if (txtNombreE.Text != "" && txtApellidoE.Text != "" && txtTelefonoE.Text != "" && txtCorreoE.Text != "" && cbxRolE.SelectedItem != null)
                     {
-                        cliente.EditarUsuarioSinContrasenia(Convert.ToInt32(dgvUsuariosE.SelectedCells[0].Value), txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, txtRolE.Text);
+                        cliente.EditarUsuarioSinContrasenia(Convert.ToInt32(dgvUsuariosE.SelectedCells[0].Value), txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, cbxRolE.SelectedItem.ToString());
                         DialogResult dialogResult = MessageBox.Show("Usuario actualizado con éxito", "Aviso", MessageBoxButtons.OK);
                         LimpiarCamposE();
                         ActualizarDgvUsuariosE();
@@ -324,7 +324,7 @@ namespace LavadoraLubricadora
             txtCorreoE.Clear();
             txtCRepetirE.Clear();
             txtClaveNuevaE.Clear();
-            txtRolE.Clear();
+            cbxRolE.SelectedIndex = -1;
         }
 
         private void cbxCriBusquedaE_SelectedValueChanged(object sender, EventArgs e)
@@ -349,7 +349,7 @@ namespace LavadoraLubricadora
                 txtApellidoE.Text = dgvUsuariosE.SelectedCells[2].Value.ToString();
                 txtTelefonoE.Text = dgvUsuariosE.SelectedCells[3].Value.ToString();
                 txtCorreoE.Text = dgvUsuariosE.SelectedCells[4].Value.ToString();
-                txtRolE.Text = dgvUsuariosE.SelectedCells[5].Value.ToString();
+                cbxRolE.SelectedItem = dgvUsuariosE.SelectedCells[5].Value.ToString();
             }
             catch (ArgumentOutOfRangeException)
             {
