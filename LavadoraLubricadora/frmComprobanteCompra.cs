@@ -449,7 +449,7 @@ namespace LavadoraLubricadora
 
             e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
 
-            e.Graphics.DrawString("DESCRIPCIÓN          CANT.   P. COMPRA   TOTAL: ", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
+            e.Graphics.DrawString("DESCRIPCIÓN          CANT.   P.UNIT   TOTAL: ", font, Brushes.Black, new RectangleF(0, y += 30, ancho, 20));
 
             e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", font, Brushes.Black, new RectangleF(0, y += 20, ancho, 20));
 
