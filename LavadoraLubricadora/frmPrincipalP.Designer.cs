@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipalP));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.pnlSubMenuNotificaciones = new System.Windows.Forms.Panel();
@@ -61,6 +62,7 @@
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlAdmin = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.pnlSubMenuNotificaciones.SuspendLayout();
             this.pnlSubmenuAdmin.SuspendLayout();
@@ -70,6 +72,8 @@
             this.pnlSubmenuBuscar.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlAdmin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -574,11 +578,24 @@
             // pnlAdmin
             // 
             this.pnlAdmin.BackColor = System.Drawing.Color.White;
+            this.pnlAdmin.Controls.Add(this.pictureBox2);
             this.pnlAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlAdmin.Location = new System.Drawing.Point(250, 0);
             this.pnlAdmin.Name = "pnlAdmin";
             this.pnlAdmin.Size = new System.Drawing.Size(834, 697);
             this.pnlAdmin.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(166, 243);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(502, 211);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
             // frmPrincipalP
             // 
@@ -600,6 +617,8 @@
             this.pnlSubmenuBuscar.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlAdmin.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -639,5 +658,6 @@
         private System.Windows.Forms.Button btnVNotificacion;
         private System.Windows.Forms.Button btnNotificacion;
         private System.Windows.Forms.Button btnCerrarSesion;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

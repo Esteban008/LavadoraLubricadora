@@ -29,6 +29,7 @@ namespace LavadoraLubricadora
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipalU));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.pnlSubMenuNotificaciones = new System.Windows.Forms.Panel();
@@ -50,6 +51,7 @@ namespace LavadoraLubricadora
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlAdmin = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.pnlSubMenuNotificaciones.SuspendLayout();
             this.pnlSubmenuAdmin.SuspendLayout();
@@ -57,6 +59,8 @@ namespace LavadoraLubricadora
             this.pnlSubmenuBuscar.SuspendLayout();
             this.pnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlAdmin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -349,12 +353,25 @@ namespace LavadoraLubricadora
             // 
             // pnlAdmin
             // 
-            this.pnlAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(247)))));
+            this.pnlAdmin.BackColor = System.Drawing.Color.White;
+            this.pnlAdmin.Controls.Add(this.pictureBox2);
             this.pnlAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlAdmin.Location = new System.Drawing.Point(250, 0);
             this.pnlAdmin.Name = "pnlAdmin";
             this.pnlAdmin.Size = new System.Drawing.Size(834, 697);
             this.pnlAdmin.TabIndex = 2;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(164, 197);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(502, 211);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // frmPrincipalU
             // 
@@ -373,6 +390,8 @@ namespace LavadoraLubricadora
             this.pnlSubmenuBuscar.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlAdmin.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -400,5 +419,6 @@ namespace LavadoraLubricadora
         private System.Windows.Forms.Panel pnlLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlAdmin;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
