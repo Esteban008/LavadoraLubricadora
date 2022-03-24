@@ -31,9 +31,11 @@ namespace LavadoraLubricadora
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.ComprobanteCompraBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rvpCompras = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnMes = new System.Windows.Forms.Button();
@@ -44,14 +46,16 @@ namespace LavadoraLubricadora
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
-            this.rvpCompras = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.ComprobanteCompraBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ComprobanteCompraBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ComprobanteCompraBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ComprobanteCompraBindingSource
+            // 
+            this.ComprobanteCompraBindingSource.DataSource = typeof(LavadoraLubricadora.LavadoraService.ComprobanteCompra);
             // 
             // panel3
             // 
@@ -87,6 +91,19 @@ namespace LavadoraLubricadora
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(993, 501);
             this.panel1.TabIndex = 4;
+            // 
+            // rvpCompras
+            // 
+            this.rvpCompras.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "ComprobanteCompraA";
+            reportDataSource1.Value = this.ComprobanteCompraBindingSource;
+            this.rvpCompras.LocalReport.DataSources.Add(reportDataSource1);
+            this.rvpCompras.LocalReport.ReportEmbeddedResource = "LavadoraLubricadora.Report.ReportesCompra.rdlc";
+            this.rvpCompras.Location = new System.Drawing.Point(0, 0);
+            this.rvpCompras.Name = "rvpCompras";
+            this.rvpCompras.ServerReport.BearerToken = null;
+            this.rvpCompras.Size = new System.Drawing.Size(793, 501);
+            this.rvpCompras.TabIndex = 2;
             // 
             // panel2
             // 
@@ -232,23 +249,6 @@ namespace LavadoraLubricadora
             this.dtpFechaInicio.Size = new System.Drawing.Size(94, 20);
             this.dtpFechaInicio.TabIndex = 0;
             // 
-            // rvpCompras
-            // 
-            this.rvpCompras.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "ComprobanteCompraA";
-            reportDataSource1.Value = this.ComprobanteCompraBindingSource;
-            this.rvpCompras.LocalReport.DataSources.Add(reportDataSource1);
-            this.rvpCompras.LocalReport.ReportEmbeddedResource = "LavadoraLubricadora.Report.ReportesCompra.rdlc";
-            this.rvpCompras.Location = new System.Drawing.Point(0, 0);
-            this.rvpCompras.Name = "rvpCompras";
-            this.rvpCompras.ServerReport.BearerToken = null;
-            this.rvpCompras.Size = new System.Drawing.Size(793, 501);
-            this.rvpCompras.TabIndex = 2;
-            // 
-            // ComprobanteCompraBindingSource
-            // 
-            this.ComprobanteCompraBindingSource.DataSource = typeof(LavadoraLubricadora.LavadoraService.ComprobanteCompra);
-            // 
             // frmGenerarReporteCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,12 +259,12 @@ namespace LavadoraLubricadora
             this.Name = "frmGenerarReporteCompras";
             this.Text = "frmGenerarReporteCompras";
             this.Load += new System.EventHandler(this.frmGenerarReporteCompras_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ComprobanteCompraBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ComprobanteCompraBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
