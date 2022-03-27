@@ -58,9 +58,17 @@ namespace LavadoraLubricadora
                     }
                     else
                     {
-                        cliente.IngresarProveedor(txtRuc.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtDireccion.Text, txtEmpresa.Text);
-                        DialogResult dialogResult = MessageBox.Show("Proveedor ingresado con éxito", "Aviso", MessageBoxButtons.OK);
-                        LimpiarCampos();
+                        int resultado = cliente.IngresarProveedor(txtRuc.Text, txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtDireccion.Text, txtEmpresa.Text);
+                        if (resultado==1)
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Proveedor ingresado con éxito", "Aviso", MessageBoxButtons.OK);
+                            LimpiarCampos();
+                        }
+                        else
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Proveedor no ingresado! Revise los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                        }
+                        
                     }
                 }
                 else
@@ -182,10 +190,19 @@ namespace LavadoraLubricadora
                 if (txtRucE.Text != "" && txtNombreE.Text != "" && txtApellidoE.Text != "" && txtTelefonoE.Text != "" && txtCorreoE.Text != "" && 
                     txtDireccionE.Text != "" && txtEmpresaE.Text != "")
                 {
-                    cliente.EditarProveedor(Convert.ToInt32(dgvProveedoresE.SelectedCells[0].Value), txtRucE.Text, txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, txtDireccionE.Text, txtEmpresaE.Text);
-                    DialogResult dialogResult = MessageBox.Show("Proveedor actualizado con éxito", "Aviso", MessageBoxButtons.OK);
-                    LimpiarCamposE();
-                    ActualizarDgvProveedorE();
+                    int resultado = cliente.EditarProveedor(Convert.ToInt32(dgvProveedoresE.SelectedCells[0].Value), txtRucE.Text, txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, txtDireccionE.Text, txtEmpresaE.Text);
+
+                    if (resultado==1)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Proveedor actualizado con éxito", "Aviso", MessageBoxButtons.OK);
+                        LimpiarCamposE();
+                        ActualizarDgvProveedorE();
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Proveedor no actualizado! Revise los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                    }
+                    
                 }
                 else
                 {
@@ -359,9 +376,17 @@ namespace LavadoraLubricadora
         {
             try
             {
-                cliente.EliminarProveedor(Convert.ToInt32(dgvProveedoresD.SelectedCells[0].Value));
-                DialogResult dialogResult = MessageBox.Show("Proveedor eliminado con éxito", "Aviso", MessageBoxButtons.OK);
-                ActualizarDgvProveedorD();
+                int resultado = cliente.EliminarProveedor(Convert.ToInt32(dgvProveedoresD.SelectedCells[0].Value));
+                if (resultado==1)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Proveedor eliminado con éxito", "Aviso", MessageBoxButtons.OK);
+                    ActualizarDgvProveedorD();
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Proveedor no eliminado ya que pertenece a un proceso", "Aviso", MessageBoxButtons.OK);
+                }
+                
             }
             catch (Exception)
             {

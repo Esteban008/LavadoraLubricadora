@@ -59,9 +59,17 @@ namespace LavadoraLubricadora
                     if (txtNombre.Text!="" && txtApellido.Text != "" && txtTelefono.Text != "" && txtCorreo.Text != "" && txtCedula.Text != "" && 
                         txtDireccion.Text != "")
                     {
-                        cliente.IngresarCliente(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtCedula.Text, txtDireccion.Text);
-                        DialogResult dialogResult = MessageBox.Show("Cliente ingresado con éxito", "Aviso", MessageBoxButtons.OK);
-                        LimpiarCampos();
+                        int resuitado = cliente.IngresarCliente(txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtCorreo.Text, txtCedula.Text, txtDireccion.Text);
+                        if (resuitado==1)
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Cliente ingresado con éxito", "Aviso", MessageBoxButtons.OK);
+                            LimpiarCampos();
+                        }
+                        else
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Cliente no ingresado! Revise los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                        }
+                        
                     }
                     else
                     {
@@ -167,10 +175,18 @@ namespace LavadoraLubricadora
                 if (txtNombreE.Text != "" && txtApellidoE.Text != "" && txtTelefonoE.Text != "" && txtCorreoE.Text != "" && txtCedulaE.Text != "" &&
                         txtDireccionE.Text != "")
                 {
-                    cliente.EditarCliente(Convert.ToInt32(dgvClientesE.SelectedCells[0].Value), txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, txtCedulaE.Text, txtDireccionE.Text);
-                    DialogResult dialogResult = MessageBox.Show("Cliente actualizado con éxito", "Aviso", MessageBoxButtons.OK);
-                    LimpiarCamposE();
-                    ActualizarDgvClienteE();
+                    int resultado = cliente.EditarCliente(Convert.ToInt32(dgvClientesE.SelectedCells[0].Value), txtNombreE.Text, txtApellidoE.Text, txtTelefonoE.Text, txtCorreoE.Text, txtCedulaE.Text, txtDireccionE.Text);
+                    if (resultado==1)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Cliente actualizado con éxito", "Aviso", MessageBoxButtons.OK);
+                        LimpiarCamposE();
+                        ActualizarDgvClienteE();
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Cliente no actualizado! Revise los datos ingresados", "Aviso", MessageBoxButtons.OK);
+                    }
+                    
                 }
                 else
                 {
