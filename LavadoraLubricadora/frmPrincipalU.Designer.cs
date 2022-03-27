@@ -99,6 +99,7 @@ namespace LavadoraLubricadora
             this.btnCerrarSesion.Text = "Cerrar Sesión";
             this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // pnlSubMenuNotificaciones
             // 
@@ -124,6 +125,7 @@ namespace LavadoraLubricadora
             this.btnVNotificacion.Text = "Visualizar Notificaciones";
             this.btnVNotificacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVNotificacion.UseVisualStyleBackColor = true;
+            this.btnVNotificacion.Click += new System.EventHandler(this.btnVNotificacion_Click);
             // 
             // btnNotificacion
             // 
@@ -140,6 +142,7 @@ namespace LavadoraLubricadora
             this.btnNotificacion.Text = "Notificaciones";
             this.btnNotificacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNotificacion.UseVisualStyleBackColor = false;
+            this.btnNotificacion.Click += new System.EventHandler(this.btnNotificacion_Click);
             // 
             // pnlSubmenuAdmin
             // 
@@ -165,6 +168,7 @@ namespace LavadoraLubricadora
             this.btnGReportesVentas.Text = "Generar Reportes Ventas";
             this.btnGReportesVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGReportesVentas.UseVisualStyleBackColor = true;
+            this.btnGReportesVentas.Click += new System.EventHandler(this.btnGReportesVentas_Click);
             // 
             // btnAdministracion
             // 
@@ -181,6 +185,7 @@ namespace LavadoraLubricadora
             this.btnAdministracion.Text = "Administración";
             this.btnAdministracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdministracion.UseVisualStyleBackColor = false;
+            this.btnAdministracion.Click += new System.EventHandler(this.btnAdministracion_Click);
             // 
             // pnlSubmenuVentas
             // 
@@ -207,6 +212,7 @@ namespace LavadoraLubricadora
             this.btnAdminClientes.Text = "Administrar Clientes";
             this.btnAdminClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdminClientes.UseVisualStyleBackColor = true;
+            this.btnAdminClientes.Click += new System.EventHandler(this.btnAdminClientes_Click);
             // 
             // btnComprobanteVenta
             // 
@@ -223,6 +229,7 @@ namespace LavadoraLubricadora
             this.btnComprobanteVenta.Text = "Comprobante de Venta";
             this.btnComprobanteVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnComprobanteVenta.UseVisualStyleBackColor = true;
+            this.btnComprobanteVenta.Click += new System.EventHandler(this.btnComprobanteVenta_Click);
             // 
             // btnVentas
             // 
@@ -239,6 +246,7 @@ namespace LavadoraLubricadora
             this.btnVentas.Text = "Ventas";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVentas.UseVisualStyleBackColor = false;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
             // pnlSubmenuBuscar
             // 
@@ -267,6 +275,7 @@ namespace LavadoraLubricadora
             this.btnBusquedaxVehiculo.Text = "Búsqueda Por Vehículo";
             this.btnBusquedaxVehiculo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBusquedaxVehiculo.UseVisualStyleBackColor = true;
+            this.btnBusquedaxVehiculo.Click += new System.EventHandler(this.btnBusquedaxVehiculo_Click);
             // 
             // btnBuscarOtros
             // 
@@ -283,6 +292,7 @@ namespace LavadoraLubricadora
             this.btnBuscarOtros.Text = "Otro";
             this.btnBuscarOtros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarOtros.UseVisualStyleBackColor = true;
+            this.btnBuscarOtros.Click += new System.EventHandler(this.btnBuscarOtros_Click);
             // 
             // btnBuscarFiltro
             // 
@@ -299,6 +309,7 @@ namespace LavadoraLubricadora
             this.btnBuscarFiltro.Text = "Filtro";
             this.btnBuscarFiltro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarFiltro.UseVisualStyleBackColor = true;
+            this.btnBuscarFiltro.Click += new System.EventHandler(this.btnBuscarFiltro_Click);
             // 
             // btnBuscarAceite
             // 
@@ -315,6 +326,7 @@ namespace LavadoraLubricadora
             this.btnBuscarAceite.Text = "Aceite";
             this.btnBuscarAceite.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarAceite.UseVisualStyleBackColor = true;
+            this.btnBuscarAceite.Click += new System.EventHandler(this.btnBuscarAceite_Click);
             // 
             // btnBuscarProductos
             // 
@@ -331,6 +343,7 @@ namespace LavadoraLubricadora
             this.btnBuscarProductos.Text = "Buscar Productos";
             this.btnBuscarProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarProductos.UseVisualStyleBackColor = false;
+            this.btnBuscarProductos.Click += new System.EventHandler(this.btnBuscarProductos_Click);
             // 
             // pnlLogo
             // 
@@ -367,7 +380,7 @@ namespace LavadoraLubricadora
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(164, 197);
+            this.pictureBox2.Location = new System.Drawing.Point(166, 243);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(502, 211);
             this.pictureBox2.TabIndex = 0;
@@ -383,6 +396,7 @@ namespace LavadoraLubricadora
             this.MinimumSize = new System.Drawing.Size(1100, 736);
             this.Name = "frmPrincipalU";
             this.Text = "frmPrincipalU";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipalU_FormClosing);
             this.panelMenu.ResumeLayout(false);
             this.pnlSubMenuNotificaciones.ResumeLayout(false);
             this.pnlSubmenuAdmin.ResumeLayout(false);
