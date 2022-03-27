@@ -469,7 +469,7 @@ namespace LavadoraLubricadora
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("No es posible eliminar el administrador actual", "Aviso", MessageBoxButtons.OK);
+                    DialogResult dialogResult = MessageBox.Show("      No es posible eliminar el usuario \n El usuario es utilizado en otro proceso", "Aviso", MessageBoxButtons.OK);
                 }
                 
                

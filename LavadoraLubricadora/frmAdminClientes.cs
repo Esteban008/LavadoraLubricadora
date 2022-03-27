@@ -320,9 +320,17 @@ namespace LavadoraLubricadora
         {
             try
             {
-                cliente.EliminarCliente(Convert.ToInt32(dgvClientesD.SelectedCells[0].Value));
-                DialogResult dialogResult = MessageBox.Show("Cliente eliminado con éxito", "Aviso", MessageBoxButtons.OK);
-                ActualizarDgvClienteD();
+                int resultado = cliente.EliminarCliente(Convert.ToInt32(dgvClientesD.SelectedCells[0].Value));
+
+                if (resultado == 1)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Cliente eliminado con éxito", "Aviso", MessageBoxButtons.OK);
+                    ActualizarDgvClienteD();
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("No se puede eliminar este cliente ya que pertenece a un proceso", "Aviso", MessageBoxButtons.OK);
+                }
             }
             catch (Exception)
             {
