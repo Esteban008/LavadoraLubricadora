@@ -349,6 +349,9 @@
     <None Include="Resources\icons8-warning-25.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\LavadorayLubricadoraNegritos2.png" />
+    <None Include="Resources\icons8-sign-out-35 %281%29.png" />
+    <None Include="Resources\icons8-sign-out-25.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
