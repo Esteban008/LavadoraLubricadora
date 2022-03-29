@@ -979,7 +979,7 @@ namespace LavadoraLubricadora
                 }
                 else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Ocurrió un error al eliminar el filtro", "Aviso", MessageBoxButtons.OK);
+                    DialogResult dialogResult = MessageBox.Show("No se puede eliminar este filtro ya que pertenece a un proceso", "Aviso", MessageBoxButtons.OK);
                 }
                 
             }

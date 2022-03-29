@@ -738,7 +738,7 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (cbxCriBusquedaE.SelectedItem != null)
+                if (cbxCriBusquedaD.SelectedItem != null)
                 {
                     if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Marca"))
                     {
