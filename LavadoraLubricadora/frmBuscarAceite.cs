@@ -112,7 +112,7 @@ namespace LavadoraLubricadora
             {
                 DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.YesNo);
             }

@@ -515,16 +515,19 @@ namespace LavadoraLubricadora
 
         private void cbxBusquedaB_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxBusquedaB.SelectedItem.Equals("Ruc Proveedor"))
+            if (cbxBusquedaB.SelectedItem != null)
             {
-                txtBusquedaB.Enabled = true;
-                dtpFechaCompra.Enabled = false;
+                if (cbxBusquedaB.SelectedItem.Equals("Ruc Proveedor"))
+                {
+                    txtBusquedaB.Enabled = true;
+                    dtpFechaCompra.Enabled = false;
 
-            }
-            else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Compra"))
-            {
-                txtBusquedaB.Enabled = false;
-                dtpFechaCompra.Enabled = true;
+                }
+                else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Compra"))
+                {
+                    txtBusquedaB.Enabled = false;
+                    dtpFechaCompra.Enabled = true;
+                }
             }
         }
 

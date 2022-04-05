@@ -77,15 +77,29 @@ namespace LavadoraLubricadora
         //para el criterio de busqueda seleccionado
         private void cbxCriBusqueda_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxCriBusqueda.SelectedItem.ToString().Equals("Mostrar Todos"))
+            try
             {
-                txtBusqueda.Visible = false;
-                txtBusqueda.Clear();
+                if (cbxCriBusqueda.SelectedItem != null)
+                {
+                    if (cbxCriBusqueda.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        txtBusqueda.Visible = false;
+                        txtBusqueda.Clear();
+                    }
+                    else
+                    {
+                        txtBusqueda.Visible = true;
+                        txtBusqueda.Clear();
+                    }
+                }
             }
-            else
+            catch (NullReferenceException)
             {
-                txtBusqueda.Visible = true;
-                txtBusqueda.Clear();
+                DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.YesNo);
             }
         }
 

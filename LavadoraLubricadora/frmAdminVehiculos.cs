@@ -139,97 +139,107 @@ namespace LavadoraLubricadora
 
         private void cbxMarcaVehiculo_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxMarcaVehiculo.SelectedItem.Equals("Otra Marca"))
+            if (cbxMarcaVehiculo.SelectedItem != null)
             {
-                HabilitarCamposMarca();
+                if (cbxMarcaVehiculo.SelectedItem.Equals("Otra Marca"))
+                {
+                    HabilitarCamposMarca();
 
-                //Campos de Modelo
-                HabilitarCamposModelo();
-                cbxModeloVehiculo.SelectedItem = "Otro Modelo";
+                    //Campos de Modelo
+                    HabilitarCamposModelo();
+                    cbxModeloVehiculo.SelectedItem = "Otro Modelo";
 
-                //Campos de Anio
-                HabilitarCamposAnio();
-                cbxAnioVehiculo.SelectedItem = "Otro Año";
+                    //Campos de Anio
+                    HabilitarCamposAnio();
+                    cbxAnioVehiculo.SelectedItem = "Otro Año";
 
-                //Campos de Motor
-                HabilitarCamposMotor();
-                cbxMotorVehiculo.Items.Add("Otro Motor");
+                    //Campos de Motor
+                    HabilitarCamposMotor();
+                    cbxMotorVehiculo.Items.Add("Otro Motor");
+                }
+                else
+                {
+                    cbxModeloVehiculo.Items.Clear();
+                    cbxAnioVehiculo.Items.Clear();
+                    cbxMotorVehiculo.Items.Clear();
+                    cbxModeloVehiculo.Items.AddRange(cliente.ObtenerModeloVehiculo(cbxMarcaVehiculo.SelectedItem.ToString()));
+                    cbxModeloVehiculo.Items.Add("Otro Modelo");
+                    cbxAnioVehiculo.Items.Add("Otro Año");
+                    cbxMotorVehiculo.Items.Add("Otro Motor");
 
-
-            }
-            else
-            {
-                cbxModeloVehiculo.Items.Clear();
-                cbxAnioVehiculo.Items.Clear();
-                cbxMotorVehiculo.Items.Clear();
-                cbxModeloVehiculo.Items.AddRange(cliente.ObtenerModeloVehiculo(cbxMarcaVehiculo.SelectedItem.ToString()));
-                cbxModeloVehiculo.Items.Add("Otro Modelo");
-                cbxAnioVehiculo.Items.Add("Otro Año");
-                cbxMotorVehiculo.Items.Add("Otro Motor");
-
+                }
             }
         }
 
 
         private void cbxModeloVehiculo_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxModeloVehiculo.SelectedItem.Equals("Otro Modelo"))
+            if (cbxModeloVehiculo.SelectedItem != null)
             {
-                //Campo Modelo 
-                HabilitarCamposModelo();
-
-
-                //Campos de Anio
-                HabilitarCamposAnio();
-                cbxAnioVehiculo.SelectedItem = "Otro Año";
-
-                //Campos de Motor
-                HabilitarCamposMotor();
-                cbxMotorVehiculo.SelectedItem = "Otro Motor";
-            }
-            else
-            {
-                try
+                if (cbxModeloVehiculo.SelectedItem.Equals("Otro Modelo"))
                 {
-                    cbxAnioVehiculo.Items.Clear();
-                    cbxAnioVehiculo.Items.AddRange(cliente.ObtenerAnioVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
-                    cbxAnioVehiculo.Items.Add("Otro Año");
+                    //Campo Modelo 
+                    HabilitarCamposModelo();
 
 
-                    cbxMotorVehiculo.Items.Clear();
-                    cbxMotorVehiculo.Items.AddRange(cliente.ObtenerMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
-                    cbxMotorVehiculo.Items.Add("Otro Motor");
+                    //Campos de Anio
+                    HabilitarCamposAnio();
+                    cbxAnioVehiculo.SelectedItem = "Otro Año";
+
+                    //Campos de Motor
+                    HabilitarCamposMotor();
+                    cbxMotorVehiculo.SelectedItem = "Otro Motor";
                 }
-                catch (EndpointNotFoundException)
+                else
                 {
-                    DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
-                }
-                catch (OverflowException)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
-                }
+                    try
+                    {
+                        cbxAnioVehiculo.Items.Clear();
+                        cbxAnioVehiculo.Items.AddRange(cliente.ObtenerAnioVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
+                        cbxAnioVehiculo.Items.Add("Otro Año");
 
-                catch (Exception)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
-                }
 
+                        cbxMotorVehiculo.Items.Clear();
+                        cbxMotorVehiculo.Items.AddRange(cliente.ObtenerMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
+                        cbxMotorVehiculo.Items.Add("Otro Motor");
+                    }
+                    catch (EndpointNotFoundException)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error de conexión", "Aviso", MessageBoxButtons.OK);
+                    }
+                    catch (OverflowException)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Valor numerico fuera de rango", "Aviso", MessageBoxButtons.OK);
+                    }
+
+                    catch (Exception)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.OK);
+                    }
+
+                }
             }
         }
 
         private void cbxAnioVehiculo_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxAnioVehiculo.SelectedItem.Equals("Otro Año"))
+            if (cbxAnioVehiculo.SelectedItem != null)
             {
-                HabilitarCamposAnio();
+                if (cbxAnioVehiculo.SelectedItem.Equals("Otro Año"))
+                {
+                    HabilitarCamposAnio();
+                }
             }
         }
 
         private void cbxMotorVehiculo_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxMotorVehiculo.SelectedItem.Equals("Otro Motor"))
+            if (cbxMotorVehiculo.SelectedItem != null)
             {
-                HabilitarCamposMotor();
+                if (cbxMotorVehiculo.SelectedItem.Equals("Otro Motor"))
+                {
+                    HabilitarCamposMotor();
+                }
             }
         }
 

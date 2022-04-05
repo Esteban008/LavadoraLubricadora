@@ -61,15 +61,18 @@ namespace LavadoraLubricadora
 
         private void cbxCriBusquedaE_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+            if (cbxCriBusquedaE.SelectedItem != null)
             {
-                txtBusquedaE.Visible = false;
-                txtBusquedaE.Clear();
-            }
-            else
-            {
-                txtBusquedaE.Visible = true;
-                txtBusquedaE.Clear();
+                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    txtBusquedaE.Visible = false;
+                    txtBusquedaE.Clear();
+                }
+                else
+                {
+                    txtBusquedaE.Visible = true;
+                    txtBusquedaE.Clear();
+                }
             }
         }
 

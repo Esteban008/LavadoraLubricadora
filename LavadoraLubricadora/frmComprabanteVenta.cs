@@ -576,16 +576,19 @@ namespace LavadoraLubricadora
         }
         private void cbxBusquedaB_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxBusquedaB.SelectedItem.Equals("Cédula de Cliente"))
+            if (cbxBusquedaB.SelectedItem != null)
             {
-                txtBusquedaB.Enabled = true;
-                dtpFechaCompra.Enabled = false;
+                if (cbxBusquedaB.SelectedItem.Equals("Cédula de Cliente"))
+                {
+                    txtBusquedaB.Enabled = true;
+                    dtpFechaCompra.Enabled = false;
 
-            }
-            else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Venta"))
-            {
-                txtBusquedaB.Enabled = false;
-                dtpFechaCompra.Enabled = true;
+                }
+                else if (cbxBusquedaB.SelectedItem.Equals("Fecha de Venta"))
+                {
+                    txtBusquedaB.Enabled = false;
+                    dtpFechaCompra.Enabled = true;
+                }
             }
         }
 

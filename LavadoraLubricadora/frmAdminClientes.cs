@@ -252,15 +252,29 @@ namespace LavadoraLubricadora
 
         private void cbxCriBusquedaE_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+            try
             {
-                txtBusquedaE.Visible = false;
-                txtBusquedaE.Clear();
+                if (cbxCriBusquedaE.SelectedItem != null)
+                {
+                    if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        txtBusquedaE.Visible = false;
+                        txtBusquedaE.Clear();
+                    }
+                    else
+                    {
+                        txtBusquedaE.Visible = true;
+                        txtBusquedaE.Clear();
+                    }
+                }
             }
-            else
+            catch (NullReferenceException)
             {
-                txtBusquedaE.Visible = true;
-                txtBusquedaE.Clear();
+                DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.YesNo);
             }
         }
 
@@ -356,15 +370,30 @@ namespace LavadoraLubricadora
 
         private void cbxCriBusquedaD_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+
+            try
             {
-                txtBusquedaD.Visible = false;
-                txtBusquedaD.Clear();
+                if (cbxCriBusquedaD.SelectedItem != null)
+                {
+                    if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        txtBusquedaD.Visible = false;
+                        txtBusquedaD.Clear();
+                    }
+                    else
+                    {
+                        txtBusquedaD.Visible = true;
+                        txtBusquedaD.Clear();
+                    }
+                }
             }
-            else
+            catch (NullReferenceException)
             {
-                txtBusquedaD.Visible = true;
-                txtBusquedaD.Clear();
+                DialogResult dialogResult = MessageBox.Show("Seleccione un criterio de búsqueda", "Aviso", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error", "Aviso", MessageBoxButtons.YesNo);
             }
         }
 

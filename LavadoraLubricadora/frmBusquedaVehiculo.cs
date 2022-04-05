@@ -61,22 +61,28 @@ namespace LavadoraLubricadora
 
         private void cbxMarcaVehiculo_SelectedValueChanged(object sender, EventArgs e)
         {
-            cbxModeloVehiculo.Items.Clear();
-            cbxAnioVehiculo.Items.Clear();
-            cbxMotorVehiculo.Items.Clear();
+            if (cbxMarcaVehiculo.SelectedItem != null)
+            {
+                cbxModeloVehiculo.Items.Clear();
+                cbxAnioVehiculo.Items.Clear();
+                cbxMotorVehiculo.Items.Clear();
 
-            //Obtiene todos los modelos de la marca seleccionada
-            cbxModeloVehiculo.Items.AddRange(cliente.ObtenerModeloVehiculo(cbxMarcaVehiculo.SelectedItem.ToString()));
+                //Obtiene todos los modelos de la marca seleccionada
+                cbxModeloVehiculo.Items.AddRange(cliente.ObtenerModeloVehiculo(cbxMarcaVehiculo.SelectedItem.ToString()));
+            }
         }
 
         private void cbxModeloVehiculo_SelectedValueChanged(object sender, EventArgs e)
         {
-            cbxAnioVehiculo.Items.Clear();
-            cbxMotorVehiculo.Items.Clear();
+            if (cbxModeloVehiculo.SelectedItem != null)
+            {
+                cbxAnioVehiculo.Items.Clear();
+                cbxMotorVehiculo.Items.Clear();
 
-            //Obtiene todos los años y motorizaciones de la marca y modelo selecionada
-            cbxAnioVehiculo.Items.AddRange(cliente.ObtenerAnioVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
-            cbxMotorVehiculo.Items.AddRange(cliente.ObtenerMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
+                //Obtiene todos los años y motorizaciones de la marca y modelo selecionada
+                cbxAnioVehiculo.Items.AddRange(cliente.ObtenerAnioVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
+                cbxMotorVehiculo.Items.AddRange(cliente.ObtenerMotorVehiculo(cbxMarcaVehiculo.SelectedItem.ToString(), cbxModeloVehiculo.SelectedItem.ToString()));
+            }
 
 
         }

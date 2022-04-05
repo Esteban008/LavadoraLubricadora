@@ -222,20 +222,23 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (cbxTipoCombustible.SelectedItem.ToString().Equals("Gasolina"))
+                if (cbxTipoCombustible.SelectedItem != null)
                 {
-                    cbxApi.Items.Clear();
-                    cbxApi.Items.AddRange(cliente.ObtenerApi(1));
-                }
-                else if (cbxTipoCombustible.SelectedItem.ToString().Equals("Diesel"))
-                {
-                    cbxApi.Items.Clear();
-                    cbxApi.Items.AddRange(cliente.ObtenerApi(2));
-                }
-                else if (cbxTipoCombustible.SelectedItem.ToString().Equals("N/A"))
-                {
-                    cbxApi.Items.Clear();
-                    cbxApi.Items.AddRange(cliente.ObtenerApi(3));
+                    if (cbxTipoCombustible.SelectedItem.ToString().Equals("Gasolina"))
+                    {
+                        cbxApi.Items.Clear();
+                        cbxApi.Items.AddRange(cliente.ObtenerApi(1));
+                    }
+                    else if (cbxTipoCombustible.SelectedItem.ToString().Equals("Diesel"))
+                    {
+                        cbxApi.Items.Clear();
+                        cbxApi.Items.AddRange(cliente.ObtenerApi(2));
+                    }
+                    else if (cbxTipoCombustible.SelectedItem.ToString().Equals("N/A"))
+                    {
+                        cbxApi.Items.Clear();
+                        cbxApi.Items.AddRange(cliente.ObtenerApi(3));
+                    }
                 }
 
             }
@@ -681,15 +684,19 @@ namespace LavadoraLubricadora
         {
             try
             {
-                if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                if (cbxCriBusquedaE.SelectedItem != null)
                 {
-                    txtBusquedaE.Visible = false;
-                    txtBusquedaE.Clear();
-                }
-                else
-                {
-                    txtBusquedaE.Visible = true;
-                    txtBusquedaE.Clear();
+
+                    if (cbxCriBusquedaE.SelectedItem.ToString().Equals("Mostrar Todos"))
+                    {
+                        txtBusquedaE.Visible = false;
+                        txtBusquedaE.Clear();
+                    }
+                    else
+                    {
+                        txtBusquedaE.Visible = true;
+                        txtBusquedaE.Clear();
+                    }
                 }
             }
             catch (EndpointNotFoundException)
@@ -935,15 +942,18 @@ namespace LavadoraLubricadora
 
         private void cbxCriBusquedaD_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+            if (cbxCriBusquedaD.SelectedItem != null)
             {
-                txtBusquedaD.Visible = false;
-                txtBusquedaD.Clear();
-            }
-            else
-            {
-                txtBusquedaD.Visible = true;
-                txtBusquedaD.Clear();
+                if (cbxCriBusquedaD.SelectedItem.ToString().Equals("Mostrar Todos"))
+                {
+                    txtBusquedaD.Visible = false;
+                    txtBusquedaD.Clear();
+                }
+                else
+                {
+                    txtBusquedaD.Visible = true;
+                    txtBusquedaD.Clear();
+                }
             }
         }
 
