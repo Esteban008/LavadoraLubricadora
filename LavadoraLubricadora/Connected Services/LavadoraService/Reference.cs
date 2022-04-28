@@ -15,6 +15,115 @@ namespace LavadoraLubricadora.LavadoraService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Vehiculo", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
+    [System.SerializableAttribute()]
+    public partial class Vehiculo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AnioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdVehiculoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MarcaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModeloField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] TipoMotorField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Anio {
+            get {
+                return this.AnioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnioField, value) != true)) {
+                    this.AnioField = value;
+                    this.RaisePropertyChanged("Anio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdVehiculo {
+            get {
+                return this.IdVehiculoField;
+            }
+            set {
+                if ((this.IdVehiculoField.Equals(value) != true)) {
+                    this.IdVehiculoField = value;
+                    this.RaisePropertyChanged("IdVehiculo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Marca {
+            get {
+                return this.MarcaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MarcaField, value) != true)) {
+                    this.MarcaField = value;
+                    this.RaisePropertyChanged("Marca");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Modelo {
+            get {
+                return this.ModeloField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModeloField, value) != true)) {
+                    this.ModeloField = value;
+                    this.RaisePropertyChanged("Modelo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] TipoMotor {
+            get {
+                return this.TipoMotorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoMotorField, value) != true)) {
+                    this.TipoMotorField = value;
+                    this.RaisePropertyChanged("TipoMotor");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductoComprobante", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
     [System.SerializableAttribute()]
     public partial class ProductoComprobante : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -881,436 +990,9 @@ namespace LavadoraLubricadora.LavadoraService {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Vehiculo", Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora")]
-    [System.SerializableAttribute()]
-    public partial class Vehiculo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AnioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdVehiculoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MarcaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ModeloField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] TipoMotorField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Anio {
-            get {
-                return this.AnioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AnioField, value) != true)) {
-                    this.AnioField = value;
-                    this.RaisePropertyChanged("Anio");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdVehiculo {
-            get {
-                return this.IdVehiculoField;
-            }
-            set {
-                if ((this.IdVehiculoField.Equals(value) != true)) {
-                    this.IdVehiculoField = value;
-                    this.RaisePropertyChanged("IdVehiculo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Marca {
-            get {
-                return this.MarcaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MarcaField, value) != true)) {
-                    this.MarcaField = value;
-                    this.RaisePropertyChanged("Marca");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Modelo {
-            get {
-                return this.ModeloField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ModeloField, value) != true)) {
-                    this.ModeloField = value;
-                    this.RaisePropertyChanged("Modelo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] TipoMotor {
-            get {
-                return this.TipoMotorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TipoMotorField, value) != true)) {
-                    this.TipoMotorField = value;
-                    this.RaisePropertyChanged("TipoMotor");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LavadoraService.ILavadoraService")]
     public interface ILavadoraService {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerClientes", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerClientesResponse")]
-        System.Data.DataTable ObtenerClientes();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerClientes", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerClientesResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerClientesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteApellidoResponse")]
-        System.Data.DataTable BuscarClienteApellido(string apellido);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteApellidoResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteApellidoAsync(string apellido);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedula", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaResponse")]
-        System.Data.DataTable BuscarClienteCedula(string cedula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedula", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteCedulaAsync(string cedula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarCliente", ReplyAction="http://tempuri.org/ILavadoraService/ValidarClienteResponse")]
-        bool ValidarCliente(string cedula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarCliente", ReplyAction="http://tempuri.org/ILavadoraService/ValidarClienteResponse")]
-        System.Threading.Tasks.Task<bool> ValidarClienteAsync(string cedula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProveedorResponse")]
-        int IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProveedorResponse")]
-        System.Threading.Tasks.Task<int> IngresarProveedorAsync(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EditarProveedorResponse")]
-        int EditarProveedor(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EditarProveedorResponse")]
-        System.Threading.Tasks.Task<int> EditarProveedorAsync(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EliminarProveedorResponse")]
-        int EliminarProveedor(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EliminarProveedorResponse")]
-        System.Threading.Tasks.Task<int> EliminarProveedorAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProveedorResponse")]
-        System.Data.DataTable ObtenerProveedor();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProveedorResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerProveedorAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorApellidoResponse")]
-        System.Data.DataTable BuscarProveedorApellido(string apellido);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorApellidoResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorApellidoAsync(string apellido);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorRuc", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucResponse")]
-        System.Data.DataTable BuscarProveedorRuc(string ruc);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorRuc", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorRucAsync(string ruc);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresa", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresaResponse")]
-        System.Data.DataTable BuscarProveedorEmpresa(string empresa);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresa", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresaResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorEmpresaAsync(string empresa);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ValidarProveedorResponse")]
-        bool ValidarProveedor(string ruc);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ValidarProveedorResponse")]
-        System.Threading.Tasks.Task<bool> ValidarProveedorAsync(string ruc);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerUsuarios", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerUsuariosResponse")]
-        System.Data.DataTable ObtenerUsuarios();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerUsuarios", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerUsuariosResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerUsuariosAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/IngresarUsuarioResponse")]
-        void IngresarUsuario(string nombre, string apellido, string telefono, string correo, string rol, string clave);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/IngresarUsuarioResponse")]
-        System.Threading.Tasks.Task IngresarUsuarioAsync(string nombre, string apellido, string telefono, string correo, string rol, string clave);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EditarUsuarioResponse")]
-        void EditarUsuario(int id, string nombre, string apellido, string telefono, string correo, string rol, string clave);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EditarUsuarioResponse")]
-        System.Threading.Tasks.Task EditarUsuarioAsync(int id, string nombre, string apellido, string telefono, string correo, string rol, string clave);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarUsuarioSinContrasenia", ReplyAction="http://tempuri.org/ILavadoraService/EditarUsuarioSinContraseniaResponse")]
-        void EditarUsuarioSinContrasenia(int id, string nombre, string apellido, string telefono, string correo, string rol);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarUsuarioSinContrasenia", ReplyAction="http://tempuri.org/ILavadoraService/EditarUsuarioSinContraseniaResponse")]
-        System.Threading.Tasks.Task EditarUsuarioSinContraseniaAsync(int id, string nombre, string apellido, string telefono, string correo, string rol);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse")]
-        bool EliminarUsuario(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse")]
-        System.Threading.Tasks.Task<bool> EliminarUsuarioAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioNombre", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioNombreResponse")]
-        System.Data.DataTable BuscarUsuarioNombre(string nombre);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioNombre", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioNombreResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioNombreAsync(string nombre);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioApellidoResponse")]
-        System.Data.DataTable BuscarUsuarioApellido(string apellido);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioApellidoResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioApellidoAsync(string apellido);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse")]
-        System.Data.DataTable BuscarUsuarioRol(string rol);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioRolAsync(string rol);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresar", ReplyAction="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresarResponse")]
-        bool ValidarUsuarioIngresar(string correo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresar", ReplyAction="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresarResponse")]
-        System.Threading.Tasks.Task<bool> ValidarUsuarioIngresarAsync(string correo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayor", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayorResponse")]
-        LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMayor(string codigo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayor", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayorResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasMayorAsync(string codigo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenor", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenorResponse")]
-        LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMenor(string codigo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenor", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenorResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasMenorAsync(string codigo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObj", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObjResponse")]
-        LavadoraLubricadora.LavadoraService.Cliente BuscarClienteCedulaObj(string cedula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObj", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObjResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Cliente> BuscarClienteCedulaObjAsync(string cedula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarComprobanteVentaResponse")]
-        int IngresarComprobanteVenta(string cedulaCliente, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaVenta);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarComprobanteVentaResponse")]
-        System.Threading.Tasks.Task<int> IngresarComprobanteVentaAsync(string cedulaCliente, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaVenta);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVentaResponse")]
-        void IngresarFiltroComprobanteVenta(int idFiltro, int idComprobanteVenta, int cantidad);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVentaResponse")]
-        System.Threading.Tasks.Task IngresarFiltroComprobanteVentaAsync(int idFiltro, int idComprobanteVenta, int cantidad);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVentaResponse")]
-        void IngresarAceiteComprobanteVenta(int idAceite, int idComprobanteVenta, int cantidad);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVentaResponse")]
-        System.Threading.Tasks.Task IngresarAceiteComprobanteVentaAsync(int idAceite, int idComprobanteVenta, int cantidad);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVentaResponse")]
-        void IngresarProductoComprobanteVenta(int idProducto, int idComprobanteVenta, int cantidad);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVentaResponse")]
-        System.Threading.Tasks.Task IngresarProductoComprobanteVentaAsync(int idProducto, int idComprobanteVenta, int cantidad);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVentaResponse")]
-        LavadoraLubricadora.LavadoraService.ComprobanteVenta BuscarInfoComprobanteVenta(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVentaResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteVenta> BuscarInfoComprobanteVentaAsync(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVentaResponse")]
-        System.Data.DataTable BuscarProductosComprobanteVenta(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVentaResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProductosComprobanteVentaAsync(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVentaResponse")]
-        void ActualizarEstadoComprobanteVenta(int valor);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVentaResponse")]
-        System.Threading.Tasks.Task ActualizarEstadoComprobanteVentaAsync(int valor);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCedula", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCedulaResponse")]
-        System.Data.DataTable BuscarComprobanteCedula(string cedula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCedula", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCedulaResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteCedulaAsync(string cedula);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteFechaResponse")]
-        System.Data.DataTable BuscarComprobanteFecha(string fecha);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteFechaResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteFechaAsync(string fecha);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFechaResponse")]
-        LavadoraLubricadora.LavadoraService.ComprobanteVenta[] BuscarComprobanteRangoFecha(string fechaInicio, string fechaFin);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFechaResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteVenta[]> BuscarComprobanteRangoFechaAsync(string fechaInicio, string fechaFin);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductoCCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductoCCompraResponse")]
-        LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductoCCompra(string codigo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductoCCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductoCCompraResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductoCCompraAsync(string codigo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorRucObj", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucObjResponse")]
-        LavadoraLubricadora.LavadoraService.Proveedor BuscarProveedorRucObj(string ruc);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorRucObj", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucObjResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Proveedor> BuscarProveedorRucObjAsync(string ruc);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarComprobanteCompraResponse")]
-        int IngresarComprobanteCompra(string rucProveedor, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaCompra);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarComprobanteCompraResponse")]
-        System.Threading.Tasks.Task<int> IngresarComprobanteCompraAsync(string rucProveedor, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaCompra);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompraResponse")]
-        void IngresarFiltroComprobanteCompra(int idFiltro, int idComprobanteCompra, int cantidad);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompraResponse")]
-        System.Threading.Tasks.Task IngresarFiltroComprobanteCompraAsync(int idFiltro, int idComprobanteCompra, int cantidad);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompraResponse")]
-        void IngresarAceiteComprobanteCompra(int idAceite, int idComprobanteCompra, int cantidad);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompraResponse")]
-        System.Threading.Tasks.Task IngresarAceiteComprobanteCompraAsync(int idAceite, int idComprobanteCompra, int cantidad);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompraResponse")]
-        void IngresarProductoComprobanteCompra(int idProducto, int idComprobanteCompra, int cantidad);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompraResponse")]
-        System.Threading.Tasks.Task IngresarProductoComprobanteCompraAsync(int idProducto, int idComprobanteCompra, int cantidad);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompraResponse")]
-        System.Data.DataTable BuscarProductosComprobanteCompra(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompraResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProductosComprobanteCompraAsync(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompraResponse")]
-        LavadoraLubricadora.LavadoraService.ComprobanteCompra BuscarInfoComprobanteCompra(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompraResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra> BuscarInfoComprobanteCompraAsync(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompraResponse")]
-        void ActualizarEstadoComprobanteCompra(int valor);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompraResponse")]
-        System.Threading.Tasks.Task ActualizarEstadoComprobanteCompraAsync(int valor);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRuc", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRucResponse")]
-        System.Data.DataTable BuscarComprobanteRuc(string ruc);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRuc", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRucResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteRucAsync(string ruc);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFechaResponse")]
-        System.Data.DataTable BuscarComprobanteCompraFecha(string fecha);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFechaResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteCompraFechaAsync(string fecha);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFechaResponse")]
-        LavadoraLubricadora.LavadoraService.ComprobanteCompra[] BuscarComprobanteCompraRangoFecha(string fechaInicio, string fechaFin);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFechaResponse")]
-        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra[]> BuscarComprobanteCompraRangoFechaAsync(string fechaInicio, string fechaFin);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltroResponse")]
-        void EliminarNotificacionFiltro(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltroResponse")]
-        System.Threading.Tasks.Task EliminarNotificacionFiltroAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionAceite", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionAceiteResponse")]
-        void EliminarNotificacionAceite(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionAceite", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionAceiteResponse")]
-        System.Threading.Tasks.Task EliminarNotificacionAceiteAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionProducto", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionProductoResponse")]
-        void EliminarNotificacionProducto(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionProducto", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionProductoResponse")]
-        System.Threading.Tasks.Task EliminarNotificacionProductoAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinFiltroResponse")]
-        bool ValidarMinFiltro(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinFiltroResponse")]
-        System.Threading.Tasks.Task<bool> ValidarMinFiltroAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinAceite", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinAceiteResponse")]
-        bool ValidarMinAceite(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinAceite", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinAceiteResponse")]
-        System.Threading.Tasks.Task<bool> ValidarMinAceiteAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinProducto", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinProductoResponse")]
-        bool ValidarMinProducto(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinProducto", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinProductoResponse")]
-        System.Threading.Tasks.Task<bool> ValidarMinProductoAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerNotificaciones", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerNotificacionesResponse")]
-        System.Data.DataTable ObtenerNotificaciones();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerNotificaciones", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerNotificacionesResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerNotificacionesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/Login", ReplyAction="http://tempuri.org/ILavadoraService/LoginResponse")]
         bool Login(string correo, string clave);
@@ -1761,6 +1443,324 @@ namespace LavadoraLubricadora.LavadoraService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarCliente", ReplyAction="http://tempuri.org/ILavadoraService/EliminarClienteResponse")]
         System.Threading.Tasks.Task<int> EliminarClienteAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerClientes", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerClientesResponse")]
+        System.Data.DataTable ObtenerClientes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerClientes", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerClientesResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerClientesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteApellidoResponse")]
+        System.Data.DataTable BuscarClienteApellido(string apellido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteApellidoResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteApellidoAsync(string apellido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedula", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaResponse")]
+        System.Data.DataTable BuscarClienteCedula(string cedula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedula", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteCedulaAsync(string cedula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarCliente", ReplyAction="http://tempuri.org/ILavadoraService/ValidarClienteResponse")]
+        bool ValidarCliente(string cedula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarCliente", ReplyAction="http://tempuri.org/ILavadoraService/ValidarClienteResponse")]
+        System.Threading.Tasks.Task<bool> ValidarClienteAsync(string cedula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProveedorResponse")]
+        int IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProveedorResponse")]
+        System.Threading.Tasks.Task<int> IngresarProveedorAsync(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EditarProveedorResponse")]
+        int EditarProveedor(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EditarProveedorResponse")]
+        System.Threading.Tasks.Task<int> EditarProveedorAsync(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EliminarProveedorResponse")]
+        int EliminarProveedor(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/EliminarProveedorResponse")]
+        System.Threading.Tasks.Task<int> EliminarProveedorAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProveedorResponse")]
+        System.Data.DataTable ObtenerProveedor();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerProveedorResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerProveedorAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorApellidoResponse")]
+        System.Data.DataTable BuscarProveedorApellido(string apellido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorApellidoResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorApellidoAsync(string apellido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorRuc", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucResponse")]
+        System.Data.DataTable BuscarProveedorRuc(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorRuc", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorRucAsync(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresa", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresaResponse")]
+        System.Data.DataTable BuscarProveedorEmpresa(string empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresa", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorEmpresaAsync(string empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ValidarProveedorResponse")]
+        bool ValidarProveedor(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarProveedor", ReplyAction="http://tempuri.org/ILavadoraService/ValidarProveedorResponse")]
+        System.Threading.Tasks.Task<bool> ValidarProveedorAsync(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerUsuarios", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerUsuariosResponse")]
+        System.Data.DataTable ObtenerUsuarios();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerUsuarios", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerUsuariosResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerUsuariosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/IngresarUsuarioResponse")]
+        void IngresarUsuario(string nombre, string apellido, string telefono, string correo, string rol, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/IngresarUsuarioResponse")]
+        System.Threading.Tasks.Task IngresarUsuarioAsync(string nombre, string apellido, string telefono, string correo, string rol, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EditarUsuarioResponse")]
+        void EditarUsuario(int id, string nombre, string apellido, string telefono, string correo, string rol, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EditarUsuarioResponse")]
+        System.Threading.Tasks.Task EditarUsuarioAsync(int id, string nombre, string apellido, string telefono, string correo, string rol, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarUsuarioSinContrasenia", ReplyAction="http://tempuri.org/ILavadoraService/EditarUsuarioSinContraseniaResponse")]
+        void EditarUsuarioSinContrasenia(int id, string nombre, string apellido, string telefono, string correo, string rol);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EditarUsuarioSinContrasenia", ReplyAction="http://tempuri.org/ILavadoraService/EditarUsuarioSinContraseniaResponse")]
+        System.Threading.Tasks.Task EditarUsuarioSinContraseniaAsync(int id, string nombre, string apellido, string telefono, string correo, string rol);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse")]
+        bool EliminarUsuario(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarUsuario", ReplyAction="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse")]
+        System.Threading.Tasks.Task<bool> EliminarUsuarioAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioNombre", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioNombreResponse")]
+        System.Data.DataTable BuscarUsuarioNombre(string nombre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioNombre", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioNombreResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioNombreAsync(string nombre);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioApellidoResponse")]
+        System.Data.DataTable BuscarUsuarioApellido(string apellido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioApellido", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioApellidoResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioApellidoAsync(string apellido);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse")]
+        System.Data.DataTable BuscarUsuarioRol(string rol);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol", ReplyAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioRolAsync(string rol);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresar", ReplyAction="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresarResponse")]
+        bool ValidarUsuarioIngresar(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresar", ReplyAction="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresarResponse")]
+        System.Threading.Tasks.Task<bool> ValidarUsuarioIngresarAsync(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayor", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayorResponse")]
+        LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMayor(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayor", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayorResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasMayorAsync(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenor", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenorResponse")]
+        LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMenor(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenor", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenorResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasMenorAsync(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObj", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObjResponse")]
+        LavadoraLubricadora.LavadoraService.Cliente BuscarClienteCedulaObj(string cedula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObj", ReplyAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObjResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Cliente> BuscarClienteCedulaObjAsync(string cedula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarComprobanteVentaResponse")]
+        int IngresarComprobanteVenta(string cedulaCliente, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaVenta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarComprobanteVentaResponse")]
+        System.Threading.Tasks.Task<int> IngresarComprobanteVentaAsync(string cedulaCliente, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaVenta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVentaResponse")]
+        void IngresarFiltroComprobanteVenta(int idFiltro, int idComprobanteVenta, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVentaResponse")]
+        System.Threading.Tasks.Task IngresarFiltroComprobanteVentaAsync(int idFiltro, int idComprobanteVenta, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVentaResponse")]
+        void IngresarAceiteComprobanteVenta(int idAceite, int idComprobanteVenta, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVentaResponse")]
+        System.Threading.Tasks.Task IngresarAceiteComprobanteVentaAsync(int idAceite, int idComprobanteVenta, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVentaResponse")]
+        void IngresarProductoComprobanteVenta(int idProducto, int idComprobanteVenta, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVentaResponse")]
+        System.Threading.Tasks.Task IngresarProductoComprobanteVentaAsync(int idProducto, int idComprobanteVenta, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVentaResponse")]
+        LavadoraLubricadora.LavadoraService.ComprobanteVenta BuscarInfoComprobanteVenta(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVentaResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteVenta> BuscarInfoComprobanteVentaAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVentaResponse")]
+        System.Data.DataTable BuscarProductosComprobanteVenta(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVentaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProductosComprobanteVentaAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVentaResponse")]
+        void ActualizarEstadoComprobanteVenta(int valor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVenta", ReplyAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVentaResponse")]
+        System.Threading.Tasks.Task ActualizarEstadoComprobanteVentaAsync(int valor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCedula", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCedulaResponse")]
+        System.Data.DataTable BuscarComprobanteCedula(string cedula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCedula", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCedulaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteCedulaAsync(string cedula);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteFechaResponse")]
+        System.Data.DataTable BuscarComprobanteFecha(string fecha);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteFechaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteFechaAsync(string fecha);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFechaResponse")]
+        LavadoraLubricadora.LavadoraService.ComprobanteVenta[] BuscarComprobanteRangoFecha(string fechaInicio, string fechaFin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFechaResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteVenta[]> BuscarComprobanteRangoFechaAsync(string fechaInicio, string fechaFin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductoCCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductoCCompraResponse")]
+        LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductoCCompra(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductoCCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductoCCompraResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductoCCompraAsync(string codigo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorRucObj", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucObjResponse")]
+        LavadoraLubricadora.LavadoraService.Proveedor BuscarProveedorRucObj(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProveedorRucObj", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucObjResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Proveedor> BuscarProveedorRucObjAsync(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarComprobanteCompraResponse")]
+        int IngresarComprobanteCompra(string rucProveedor, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaCompra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarComprobanteCompraResponse")]
+        System.Threading.Tasks.Task<int> IngresarComprobanteCompraAsync(string rucProveedor, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaCompra);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompraResponse")]
+        void IngresarFiltroComprobanteCompra(int idFiltro, int idComprobanteCompra, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompraResponse")]
+        System.Threading.Tasks.Task IngresarFiltroComprobanteCompraAsync(int idFiltro, int idComprobanteCompra, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompraResponse")]
+        void IngresarAceiteComprobanteCompra(int idAceite, int idComprobanteCompra, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompraResponse")]
+        System.Threading.Tasks.Task IngresarAceiteComprobanteCompraAsync(int idAceite, int idComprobanteCompra, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompraResponse")]
+        void IngresarProductoComprobanteCompra(int idProducto, int idComprobanteCompra, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompraResponse")]
+        System.Threading.Tasks.Task IngresarProductoComprobanteCompraAsync(int idProducto, int idComprobanteCompra, int cantidad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompraResponse")]
+        System.Data.DataTable BuscarProductosComprobanteCompra(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompraResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarProductosComprobanteCompraAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompraResponse")]
+        LavadoraLubricadora.LavadoraService.ComprobanteCompra BuscarInfoComprobanteCompra(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompraResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra> BuscarInfoComprobanteCompraAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompraResponse")]
+        void ActualizarEstadoComprobanteCompra(int valor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompra", ReplyAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompraResponse")]
+        System.Threading.Tasks.Task ActualizarEstadoComprobanteCompraAsync(int valor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRuc", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRucResponse")]
+        System.Data.DataTable BuscarComprobanteRuc(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRuc", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRucResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteRucAsync(string ruc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFechaResponse")]
+        System.Data.DataTable BuscarComprobanteCompraFecha(string fecha);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFechaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteCompraFechaAsync(string fecha);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFechaResponse")]
+        LavadoraLubricadora.LavadoraService.ComprobanteCompra[] BuscarComprobanteCompraRangoFecha(string fechaInicio, string fechaFin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFecha", ReplyAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFechaResponse")]
+        System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra[]> BuscarComprobanteCompraRangoFechaAsync(string fechaInicio, string fechaFin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltroResponse")]
+        void EliminarNotificacionFiltro(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltro", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltroResponse")]
+        System.Threading.Tasks.Task EliminarNotificacionFiltroAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionAceite", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionAceiteResponse")]
+        void EliminarNotificacionAceite(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionAceite", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionAceiteResponse")]
+        System.Threading.Tasks.Task EliminarNotificacionAceiteAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionProducto", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionProductoResponse")]
+        void EliminarNotificacionProducto(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/EliminarNotificacionProducto", ReplyAction="http://tempuri.org/ILavadoraService/EliminarNotificacionProductoResponse")]
+        System.Threading.Tasks.Task EliminarNotificacionProductoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinFiltroResponse")]
+        bool ValidarMinFiltro(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinFiltro", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinFiltroResponse")]
+        System.Threading.Tasks.Task<bool> ValidarMinFiltroAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinAceite", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinAceiteResponse")]
+        bool ValidarMinAceite(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinAceite", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinAceiteResponse")]
+        System.Threading.Tasks.Task<bool> ValidarMinAceiteAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinProducto", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinProductoResponse")]
+        bool ValidarMinProducto(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ValidarMinProducto", ReplyAction="http://tempuri.org/ILavadoraService/ValidarMinProductoResponse")]
+        System.Threading.Tasks.Task<bool> ValidarMinProductoAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerNotificaciones", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerNotificacionesResponse")]
+        System.Data.DataTable ObtenerNotificaciones();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILavadoraService/ObtenerNotificaciones", ReplyAction="http://tempuri.org/ILavadoraService/ObtenerNotificacionesResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ObtenerNotificacionesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1788,430 +1788,6 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public LavadoraServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public System.Data.DataTable ObtenerClientes() {
-            return base.Channel.ObtenerClientes();
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerClientesAsync() {
-            return base.Channel.ObtenerClientesAsync();
-        }
-        
-        public System.Data.DataTable BuscarClienteApellido(string apellido) {
-            return base.Channel.BuscarClienteApellido(apellido);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteApellidoAsync(string apellido) {
-            return base.Channel.BuscarClienteApellidoAsync(apellido);
-        }
-        
-        public System.Data.DataTable BuscarClienteCedula(string cedula) {
-            return base.Channel.BuscarClienteCedula(cedula);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteCedulaAsync(string cedula) {
-            return base.Channel.BuscarClienteCedulaAsync(cedula);
-        }
-        
-        public bool ValidarCliente(string cedula) {
-            return base.Channel.ValidarCliente(cedula);
-        }
-        
-        public System.Threading.Tasks.Task<bool> ValidarClienteAsync(string cedula) {
-            return base.Channel.ValidarClienteAsync(cedula);
-        }
-        
-        public int IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
-            return base.Channel.IngresarProveedor(ruc, nombre, apellido, telefono, correo, direccion, empresa);
-        }
-        
-        public System.Threading.Tasks.Task<int> IngresarProveedorAsync(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
-            return base.Channel.IngresarProveedorAsync(ruc, nombre, apellido, telefono, correo, direccion, empresa);
-        }
-        
-        public int EditarProveedor(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
-            return base.Channel.EditarProveedor(id, ruc, nombre, apellido, telefono, correo, direccion, empresa);
-        }
-        
-        public System.Threading.Tasks.Task<int> EditarProveedorAsync(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
-            return base.Channel.EditarProveedorAsync(id, ruc, nombre, apellido, telefono, correo, direccion, empresa);
-        }
-        
-        public int EliminarProveedor(int id) {
-            return base.Channel.EliminarProveedor(id);
-        }
-        
-        public System.Threading.Tasks.Task<int> EliminarProveedorAsync(int id) {
-            return base.Channel.EliminarProveedorAsync(id);
-        }
-        
-        public System.Data.DataTable ObtenerProveedor() {
-            return base.Channel.ObtenerProveedor();
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerProveedorAsync() {
-            return base.Channel.ObtenerProveedorAsync();
-        }
-        
-        public System.Data.DataTable BuscarProveedorApellido(string apellido) {
-            return base.Channel.BuscarProveedorApellido(apellido);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorApellidoAsync(string apellido) {
-            return base.Channel.BuscarProveedorApellidoAsync(apellido);
-        }
-        
-        public System.Data.DataTable BuscarProveedorRuc(string ruc) {
-            return base.Channel.BuscarProveedorRuc(ruc);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorRucAsync(string ruc) {
-            return base.Channel.BuscarProveedorRucAsync(ruc);
-        }
-        
-        public System.Data.DataTable BuscarProveedorEmpresa(string empresa) {
-            return base.Channel.BuscarProveedorEmpresa(empresa);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorEmpresaAsync(string empresa) {
-            return base.Channel.BuscarProveedorEmpresaAsync(empresa);
-        }
-        
-        public bool ValidarProveedor(string ruc) {
-            return base.Channel.ValidarProveedor(ruc);
-        }
-        
-        public System.Threading.Tasks.Task<bool> ValidarProveedorAsync(string ruc) {
-            return base.Channel.ValidarProveedorAsync(ruc);
-        }
-        
-        public System.Data.DataTable ObtenerUsuarios() {
-            return base.Channel.ObtenerUsuarios();
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerUsuariosAsync() {
-            return base.Channel.ObtenerUsuariosAsync();
-        }
-        
-        public void IngresarUsuario(string nombre, string apellido, string telefono, string correo, string rol, string clave) {
-            base.Channel.IngresarUsuario(nombre, apellido, telefono, correo, rol, clave);
-        }
-        
-        public System.Threading.Tasks.Task IngresarUsuarioAsync(string nombre, string apellido, string telefono, string correo, string rol, string clave) {
-            return base.Channel.IngresarUsuarioAsync(nombre, apellido, telefono, correo, rol, clave);
-        }
-        
-        public void EditarUsuario(int id, string nombre, string apellido, string telefono, string correo, string rol, string clave) {
-            base.Channel.EditarUsuario(id, nombre, apellido, telefono, correo, rol, clave);
-        }
-        
-        public System.Threading.Tasks.Task EditarUsuarioAsync(int id, string nombre, string apellido, string telefono, string correo, string rol, string clave) {
-            return base.Channel.EditarUsuarioAsync(id, nombre, apellido, telefono, correo, rol, clave);
-        }
-        
-        public void EditarUsuarioSinContrasenia(int id, string nombre, string apellido, string telefono, string correo, string rol) {
-            base.Channel.EditarUsuarioSinContrasenia(id, nombre, apellido, telefono, correo, rol);
-        }
-        
-        public System.Threading.Tasks.Task EditarUsuarioSinContraseniaAsync(int id, string nombre, string apellido, string telefono, string correo, string rol) {
-            return base.Channel.EditarUsuarioSinContraseniaAsync(id, nombre, apellido, telefono, correo, rol);
-        }
-        
-        public bool EliminarUsuario(int id) {
-            return base.Channel.EliminarUsuario(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> EliminarUsuarioAsync(int id) {
-            return base.Channel.EliminarUsuarioAsync(id);
-        }
-        
-        public System.Data.DataTable BuscarUsuarioNombre(string nombre) {
-            return base.Channel.BuscarUsuarioNombre(nombre);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioNombreAsync(string nombre) {
-            return base.Channel.BuscarUsuarioNombreAsync(nombre);
-        }
-        
-        public System.Data.DataTable BuscarUsuarioApellido(string apellido) {
-            return base.Channel.BuscarUsuarioApellido(apellido);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioApellidoAsync(string apellido) {
-            return base.Channel.BuscarUsuarioApellidoAsync(apellido);
-        }
-        
-        public System.Data.DataTable BuscarUsuarioRol(string rol) {
-            return base.Channel.BuscarUsuarioRol(rol);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioRolAsync(string rol) {
-            return base.Channel.BuscarUsuarioRolAsync(rol);
-        }
-        
-        public bool ValidarUsuarioIngresar(string correo) {
-            return base.Channel.ValidarUsuarioIngresar(correo);
-        }
-        
-        public System.Threading.Tasks.Task<bool> ValidarUsuarioIngresarAsync(string correo) {
-            return base.Channel.ValidarUsuarioIngresarAsync(correo);
-        }
-        
-        public LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMayor(string codigo) {
-            return base.Channel.BuscarProductosCBarrasMayor(codigo);
-        }
-        
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasMayorAsync(string codigo) {
-            return base.Channel.BuscarProductosCBarrasMayorAsync(codigo);
-        }
-        
-        public LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMenor(string codigo) {
-            return base.Channel.BuscarProductosCBarrasMenor(codigo);
-        }
-        
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasMenorAsync(string codigo) {
-            return base.Channel.BuscarProductosCBarrasMenorAsync(codigo);
-        }
-        
-        public LavadoraLubricadora.LavadoraService.Cliente BuscarClienteCedulaObj(string cedula) {
-            return base.Channel.BuscarClienteCedulaObj(cedula);
-        }
-        
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Cliente> BuscarClienteCedulaObjAsync(string cedula) {
-            return base.Channel.BuscarClienteCedulaObjAsync(cedula);
-        }
-        
-        public int IngresarComprobanteVenta(string cedulaCliente, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaVenta) {
-            return base.Channel.IngresarComprobanteVenta(cedulaCliente, numDocumento, subtotal, iva, total, estado, fechaVenta);
-        }
-        
-        public System.Threading.Tasks.Task<int> IngresarComprobanteVentaAsync(string cedulaCliente, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaVenta) {
-            return base.Channel.IngresarComprobanteVentaAsync(cedulaCliente, numDocumento, subtotal, iva, total, estado, fechaVenta);
-        }
-        
-        public void IngresarFiltroComprobanteVenta(int idFiltro, int idComprobanteVenta, int cantidad) {
-            base.Channel.IngresarFiltroComprobanteVenta(idFiltro, idComprobanteVenta, cantidad);
-        }
-        
-        public System.Threading.Tasks.Task IngresarFiltroComprobanteVentaAsync(int idFiltro, int idComprobanteVenta, int cantidad) {
-            return base.Channel.IngresarFiltroComprobanteVentaAsync(idFiltro, idComprobanteVenta, cantidad);
-        }
-        
-        public void IngresarAceiteComprobanteVenta(int idAceite, int idComprobanteVenta, int cantidad) {
-            base.Channel.IngresarAceiteComprobanteVenta(idAceite, idComprobanteVenta, cantidad);
-        }
-        
-        public System.Threading.Tasks.Task IngresarAceiteComprobanteVentaAsync(int idAceite, int idComprobanteVenta, int cantidad) {
-            return base.Channel.IngresarAceiteComprobanteVentaAsync(idAceite, idComprobanteVenta, cantidad);
-        }
-        
-        public void IngresarProductoComprobanteVenta(int idProducto, int idComprobanteVenta, int cantidad) {
-            base.Channel.IngresarProductoComprobanteVenta(idProducto, idComprobanteVenta, cantidad);
-        }
-        
-        public System.Threading.Tasks.Task IngresarProductoComprobanteVentaAsync(int idProducto, int idComprobanteVenta, int cantidad) {
-            return base.Channel.IngresarProductoComprobanteVentaAsync(idProducto, idComprobanteVenta, cantidad);
-        }
-        
-        public LavadoraLubricadora.LavadoraService.ComprobanteVenta BuscarInfoComprobanteVenta(string id) {
-            return base.Channel.BuscarInfoComprobanteVenta(id);
-        }
-        
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteVenta> BuscarInfoComprobanteVentaAsync(string id) {
-            return base.Channel.BuscarInfoComprobanteVentaAsync(id);
-        }
-        
-        public System.Data.DataTable BuscarProductosComprobanteVenta(string id) {
-            return base.Channel.BuscarProductosComprobanteVenta(id);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProductosComprobanteVentaAsync(string id) {
-            return base.Channel.BuscarProductosComprobanteVentaAsync(id);
-        }
-        
-        public void ActualizarEstadoComprobanteVenta(int valor) {
-            base.Channel.ActualizarEstadoComprobanteVenta(valor);
-        }
-        
-        public System.Threading.Tasks.Task ActualizarEstadoComprobanteVentaAsync(int valor) {
-            return base.Channel.ActualizarEstadoComprobanteVentaAsync(valor);
-        }
-        
-        public System.Data.DataTable BuscarComprobanteCedula(string cedula) {
-            return base.Channel.BuscarComprobanteCedula(cedula);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteCedulaAsync(string cedula) {
-            return base.Channel.BuscarComprobanteCedulaAsync(cedula);
-        }
-        
-        public System.Data.DataTable BuscarComprobanteFecha(string fecha) {
-            return base.Channel.BuscarComprobanteFecha(fecha);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteFechaAsync(string fecha) {
-            return base.Channel.BuscarComprobanteFechaAsync(fecha);
-        }
-        
-        public LavadoraLubricadora.LavadoraService.ComprobanteVenta[] BuscarComprobanteRangoFecha(string fechaInicio, string fechaFin) {
-            return base.Channel.BuscarComprobanteRangoFecha(fechaInicio, fechaFin);
-        }
-        
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteVenta[]> BuscarComprobanteRangoFechaAsync(string fechaInicio, string fechaFin) {
-            return base.Channel.BuscarComprobanteRangoFechaAsync(fechaInicio, fechaFin);
-        }
-        
-        public LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductoCCompra(string codigo) {
-            return base.Channel.BuscarProductoCCompra(codigo);
-        }
-        
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductoCCompraAsync(string codigo) {
-            return base.Channel.BuscarProductoCCompraAsync(codigo);
-        }
-        
-        public LavadoraLubricadora.LavadoraService.Proveedor BuscarProveedorRucObj(string ruc) {
-            return base.Channel.BuscarProveedorRucObj(ruc);
-        }
-        
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Proveedor> BuscarProveedorRucObjAsync(string ruc) {
-            return base.Channel.BuscarProveedorRucObjAsync(ruc);
-        }
-        
-        public int IngresarComprobanteCompra(string rucProveedor, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaCompra) {
-            return base.Channel.IngresarComprobanteCompra(rucProveedor, numDocumento, subtotal, iva, total, estado, fechaCompra);
-        }
-        
-        public System.Threading.Tasks.Task<int> IngresarComprobanteCompraAsync(string rucProveedor, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaCompra) {
-            return base.Channel.IngresarComprobanteCompraAsync(rucProveedor, numDocumento, subtotal, iva, total, estado, fechaCompra);
-        }
-        
-        public void IngresarFiltroComprobanteCompra(int idFiltro, int idComprobanteCompra, int cantidad) {
-            base.Channel.IngresarFiltroComprobanteCompra(idFiltro, idComprobanteCompra, cantidad);
-        }
-        
-        public System.Threading.Tasks.Task IngresarFiltroComprobanteCompraAsync(int idFiltro, int idComprobanteCompra, int cantidad) {
-            return base.Channel.IngresarFiltroComprobanteCompraAsync(idFiltro, idComprobanteCompra, cantidad);
-        }
-        
-        public void IngresarAceiteComprobanteCompra(int idAceite, int idComprobanteCompra, int cantidad) {
-            base.Channel.IngresarAceiteComprobanteCompra(idAceite, idComprobanteCompra, cantidad);
-        }
-        
-        public System.Threading.Tasks.Task IngresarAceiteComprobanteCompraAsync(int idAceite, int idComprobanteCompra, int cantidad) {
-            return base.Channel.IngresarAceiteComprobanteCompraAsync(idAceite, idComprobanteCompra, cantidad);
-        }
-        
-        public void IngresarProductoComprobanteCompra(int idProducto, int idComprobanteCompra, int cantidad) {
-            base.Channel.IngresarProductoComprobanteCompra(idProducto, idComprobanteCompra, cantidad);
-        }
-        
-        public System.Threading.Tasks.Task IngresarProductoComprobanteCompraAsync(int idProducto, int idComprobanteCompra, int cantidad) {
-            return base.Channel.IngresarProductoComprobanteCompraAsync(idProducto, idComprobanteCompra, cantidad);
-        }
-        
-        public System.Data.DataTable BuscarProductosComprobanteCompra(string id) {
-            return base.Channel.BuscarProductosComprobanteCompra(id);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProductosComprobanteCompraAsync(string id) {
-            return base.Channel.BuscarProductosComprobanteCompraAsync(id);
-        }
-        
-        public LavadoraLubricadora.LavadoraService.ComprobanteCompra BuscarInfoComprobanteCompra(string id) {
-            return base.Channel.BuscarInfoComprobanteCompra(id);
-        }
-        
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra> BuscarInfoComprobanteCompraAsync(string id) {
-            return base.Channel.BuscarInfoComprobanteCompraAsync(id);
-        }
-        
-        public void ActualizarEstadoComprobanteCompra(int valor) {
-            base.Channel.ActualizarEstadoComprobanteCompra(valor);
-        }
-        
-        public System.Threading.Tasks.Task ActualizarEstadoComprobanteCompraAsync(int valor) {
-            return base.Channel.ActualizarEstadoComprobanteCompraAsync(valor);
-        }
-        
-        public System.Data.DataTable BuscarComprobanteRuc(string ruc) {
-            return base.Channel.BuscarComprobanteRuc(ruc);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteRucAsync(string ruc) {
-            return base.Channel.BuscarComprobanteRucAsync(ruc);
-        }
-        
-        public System.Data.DataTable BuscarComprobanteCompraFecha(string fecha) {
-            return base.Channel.BuscarComprobanteCompraFecha(fecha);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteCompraFechaAsync(string fecha) {
-            return base.Channel.BuscarComprobanteCompraFechaAsync(fecha);
-        }
-        
-        public LavadoraLubricadora.LavadoraService.ComprobanteCompra[] BuscarComprobanteCompraRangoFecha(string fechaInicio, string fechaFin) {
-            return base.Channel.BuscarComprobanteCompraRangoFecha(fechaInicio, fechaFin);
-        }
-        
-        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra[]> BuscarComprobanteCompraRangoFechaAsync(string fechaInicio, string fechaFin) {
-            return base.Channel.BuscarComprobanteCompraRangoFechaAsync(fechaInicio, fechaFin);
-        }
-        
-        public void EliminarNotificacionFiltro(int id) {
-            base.Channel.EliminarNotificacionFiltro(id);
-        }
-        
-        public System.Threading.Tasks.Task EliminarNotificacionFiltroAsync(int id) {
-            return base.Channel.EliminarNotificacionFiltroAsync(id);
-        }
-        
-        public void EliminarNotificacionAceite(int id) {
-            base.Channel.EliminarNotificacionAceite(id);
-        }
-        
-        public System.Threading.Tasks.Task EliminarNotificacionAceiteAsync(int id) {
-            return base.Channel.EliminarNotificacionAceiteAsync(id);
-        }
-        
-        public void EliminarNotificacionProducto(int id) {
-            base.Channel.EliminarNotificacionProducto(id);
-        }
-        
-        public System.Threading.Tasks.Task EliminarNotificacionProductoAsync(int id) {
-            return base.Channel.EliminarNotificacionProductoAsync(id);
-        }
-        
-        public bool ValidarMinFiltro(int id) {
-            return base.Channel.ValidarMinFiltro(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> ValidarMinFiltroAsync(int id) {
-            return base.Channel.ValidarMinFiltroAsync(id);
-        }
-        
-        public bool ValidarMinAceite(int id) {
-            return base.Channel.ValidarMinAceite(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> ValidarMinAceiteAsync(int id) {
-            return base.Channel.ValidarMinAceiteAsync(id);
-        }
-        
-        public bool ValidarMinProducto(int id) {
-            return base.Channel.ValidarMinProducto(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> ValidarMinProductoAsync(int id) {
-            return base.Channel.ValidarMinProductoAsync(id);
-        }
-        
-        public System.Data.DataTable ObtenerNotificaciones() {
-            return base.Channel.ObtenerNotificaciones();
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerNotificacionesAsync() {
-            return base.Channel.ObtenerNotificacionesAsync();
         }
         
         public bool Login(string correo, string clave) {
@@ -2790,6 +2366,430 @@ namespace LavadoraLubricadora.LavadoraService {
         
         public System.Threading.Tasks.Task<int> EliminarClienteAsync(int id) {
             return base.Channel.EliminarClienteAsync(id);
+        }
+        
+        public System.Data.DataTable ObtenerClientes() {
+            return base.Channel.ObtenerClientes();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerClientesAsync() {
+            return base.Channel.ObtenerClientesAsync();
+        }
+        
+        public System.Data.DataTable BuscarClienteApellido(string apellido) {
+            return base.Channel.BuscarClienteApellido(apellido);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteApellidoAsync(string apellido) {
+            return base.Channel.BuscarClienteApellidoAsync(apellido);
+        }
+        
+        public System.Data.DataTable BuscarClienteCedula(string cedula) {
+            return base.Channel.BuscarClienteCedula(cedula);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarClienteCedulaAsync(string cedula) {
+            return base.Channel.BuscarClienteCedulaAsync(cedula);
+        }
+        
+        public bool ValidarCliente(string cedula) {
+            return base.Channel.ValidarCliente(cedula);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarClienteAsync(string cedula) {
+            return base.Channel.ValidarClienteAsync(cedula);
+        }
+        
+        public int IngresarProveedor(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
+            return base.Channel.IngresarProveedor(ruc, nombre, apellido, telefono, correo, direccion, empresa);
+        }
+        
+        public System.Threading.Tasks.Task<int> IngresarProveedorAsync(string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
+            return base.Channel.IngresarProveedorAsync(ruc, nombre, apellido, telefono, correo, direccion, empresa);
+        }
+        
+        public int EditarProveedor(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
+            return base.Channel.EditarProveedor(id, ruc, nombre, apellido, telefono, correo, direccion, empresa);
+        }
+        
+        public System.Threading.Tasks.Task<int> EditarProveedorAsync(int id, string ruc, string nombre, string apellido, string telefono, string correo, string direccion, string empresa) {
+            return base.Channel.EditarProveedorAsync(id, ruc, nombre, apellido, telefono, correo, direccion, empresa);
+        }
+        
+        public int EliminarProveedor(int id) {
+            return base.Channel.EliminarProveedor(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> EliminarProveedorAsync(int id) {
+            return base.Channel.EliminarProveedorAsync(id);
+        }
+        
+        public System.Data.DataTable ObtenerProveedor() {
+            return base.Channel.ObtenerProveedor();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerProveedorAsync() {
+            return base.Channel.ObtenerProveedorAsync();
+        }
+        
+        public System.Data.DataTable BuscarProveedorApellido(string apellido) {
+            return base.Channel.BuscarProveedorApellido(apellido);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorApellidoAsync(string apellido) {
+            return base.Channel.BuscarProveedorApellidoAsync(apellido);
+        }
+        
+        public System.Data.DataTable BuscarProveedorRuc(string ruc) {
+            return base.Channel.BuscarProveedorRuc(ruc);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorRucAsync(string ruc) {
+            return base.Channel.BuscarProveedorRucAsync(ruc);
+        }
+        
+        public System.Data.DataTable BuscarProveedorEmpresa(string empresa) {
+            return base.Channel.BuscarProveedorEmpresa(empresa);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProveedorEmpresaAsync(string empresa) {
+            return base.Channel.BuscarProveedorEmpresaAsync(empresa);
+        }
+        
+        public bool ValidarProveedor(string ruc) {
+            return base.Channel.ValidarProveedor(ruc);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarProveedorAsync(string ruc) {
+            return base.Channel.ValidarProveedorAsync(ruc);
+        }
+        
+        public System.Data.DataTable ObtenerUsuarios() {
+            return base.Channel.ObtenerUsuarios();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerUsuariosAsync() {
+            return base.Channel.ObtenerUsuariosAsync();
+        }
+        
+        public void IngresarUsuario(string nombre, string apellido, string telefono, string correo, string rol, string clave) {
+            base.Channel.IngresarUsuario(nombre, apellido, telefono, correo, rol, clave);
+        }
+        
+        public System.Threading.Tasks.Task IngresarUsuarioAsync(string nombre, string apellido, string telefono, string correo, string rol, string clave) {
+            return base.Channel.IngresarUsuarioAsync(nombre, apellido, telefono, correo, rol, clave);
+        }
+        
+        public void EditarUsuario(int id, string nombre, string apellido, string telefono, string correo, string rol, string clave) {
+            base.Channel.EditarUsuario(id, nombre, apellido, telefono, correo, rol, clave);
+        }
+        
+        public System.Threading.Tasks.Task EditarUsuarioAsync(int id, string nombre, string apellido, string telefono, string correo, string rol, string clave) {
+            return base.Channel.EditarUsuarioAsync(id, nombre, apellido, telefono, correo, rol, clave);
+        }
+        
+        public void EditarUsuarioSinContrasenia(int id, string nombre, string apellido, string telefono, string correo, string rol) {
+            base.Channel.EditarUsuarioSinContrasenia(id, nombre, apellido, telefono, correo, rol);
+        }
+        
+        public System.Threading.Tasks.Task EditarUsuarioSinContraseniaAsync(int id, string nombre, string apellido, string telefono, string correo, string rol) {
+            return base.Channel.EditarUsuarioSinContraseniaAsync(id, nombre, apellido, telefono, correo, rol);
+        }
+        
+        public bool EliminarUsuario(int id) {
+            return base.Channel.EliminarUsuario(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EliminarUsuarioAsync(int id) {
+            return base.Channel.EliminarUsuarioAsync(id);
+        }
+        
+        public System.Data.DataTable BuscarUsuarioNombre(string nombre) {
+            return base.Channel.BuscarUsuarioNombre(nombre);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioNombreAsync(string nombre) {
+            return base.Channel.BuscarUsuarioNombreAsync(nombre);
+        }
+        
+        public System.Data.DataTable BuscarUsuarioApellido(string apellido) {
+            return base.Channel.BuscarUsuarioApellido(apellido);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioApellidoAsync(string apellido) {
+            return base.Channel.BuscarUsuarioApellidoAsync(apellido);
+        }
+        
+        public System.Data.DataTable BuscarUsuarioRol(string rol) {
+            return base.Channel.BuscarUsuarioRol(rol);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarUsuarioRolAsync(string rol) {
+            return base.Channel.BuscarUsuarioRolAsync(rol);
+        }
+        
+        public bool ValidarUsuarioIngresar(string correo) {
+            return base.Channel.ValidarUsuarioIngresar(correo);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarUsuarioIngresarAsync(string correo) {
+            return base.Channel.ValidarUsuarioIngresarAsync(correo);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMayor(string codigo) {
+            return base.Channel.BuscarProductosCBarrasMayor(codigo);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasMayorAsync(string codigo) {
+            return base.Channel.BuscarProductosCBarrasMayorAsync(codigo);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductosCBarrasMenor(string codigo) {
+            return base.Channel.BuscarProductosCBarrasMenor(codigo);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductosCBarrasMenorAsync(string codigo) {
+            return base.Channel.BuscarProductosCBarrasMenorAsync(codigo);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.Cliente BuscarClienteCedulaObj(string cedula) {
+            return base.Channel.BuscarClienteCedulaObj(cedula);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Cliente> BuscarClienteCedulaObjAsync(string cedula) {
+            return base.Channel.BuscarClienteCedulaObjAsync(cedula);
+        }
+        
+        public int IngresarComprobanteVenta(string cedulaCliente, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaVenta) {
+            return base.Channel.IngresarComprobanteVenta(cedulaCliente, numDocumento, subtotal, iva, total, estado, fechaVenta);
+        }
+        
+        public System.Threading.Tasks.Task<int> IngresarComprobanteVentaAsync(string cedulaCliente, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaVenta) {
+            return base.Channel.IngresarComprobanteVentaAsync(cedulaCliente, numDocumento, subtotal, iva, total, estado, fechaVenta);
+        }
+        
+        public void IngresarFiltroComprobanteVenta(int idFiltro, int idComprobanteVenta, int cantidad) {
+            base.Channel.IngresarFiltroComprobanteVenta(idFiltro, idComprobanteVenta, cantidad);
+        }
+        
+        public System.Threading.Tasks.Task IngresarFiltroComprobanteVentaAsync(int idFiltro, int idComprobanteVenta, int cantidad) {
+            return base.Channel.IngresarFiltroComprobanteVentaAsync(idFiltro, idComprobanteVenta, cantidad);
+        }
+        
+        public void IngresarAceiteComprobanteVenta(int idAceite, int idComprobanteVenta, int cantidad) {
+            base.Channel.IngresarAceiteComprobanteVenta(idAceite, idComprobanteVenta, cantidad);
+        }
+        
+        public System.Threading.Tasks.Task IngresarAceiteComprobanteVentaAsync(int idAceite, int idComprobanteVenta, int cantidad) {
+            return base.Channel.IngresarAceiteComprobanteVentaAsync(idAceite, idComprobanteVenta, cantidad);
+        }
+        
+        public void IngresarProductoComprobanteVenta(int idProducto, int idComprobanteVenta, int cantidad) {
+            base.Channel.IngresarProductoComprobanteVenta(idProducto, idComprobanteVenta, cantidad);
+        }
+        
+        public System.Threading.Tasks.Task IngresarProductoComprobanteVentaAsync(int idProducto, int idComprobanteVenta, int cantidad) {
+            return base.Channel.IngresarProductoComprobanteVentaAsync(idProducto, idComprobanteVenta, cantidad);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.ComprobanteVenta BuscarInfoComprobanteVenta(string id) {
+            return base.Channel.BuscarInfoComprobanteVenta(id);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteVenta> BuscarInfoComprobanteVentaAsync(string id) {
+            return base.Channel.BuscarInfoComprobanteVentaAsync(id);
+        }
+        
+        public System.Data.DataTable BuscarProductosComprobanteVenta(string id) {
+            return base.Channel.BuscarProductosComprobanteVenta(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProductosComprobanteVentaAsync(string id) {
+            return base.Channel.BuscarProductosComprobanteVentaAsync(id);
+        }
+        
+        public void ActualizarEstadoComprobanteVenta(int valor) {
+            base.Channel.ActualizarEstadoComprobanteVenta(valor);
+        }
+        
+        public System.Threading.Tasks.Task ActualizarEstadoComprobanteVentaAsync(int valor) {
+            return base.Channel.ActualizarEstadoComprobanteVentaAsync(valor);
+        }
+        
+        public System.Data.DataTable BuscarComprobanteCedula(string cedula) {
+            return base.Channel.BuscarComprobanteCedula(cedula);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteCedulaAsync(string cedula) {
+            return base.Channel.BuscarComprobanteCedulaAsync(cedula);
+        }
+        
+        public System.Data.DataTable BuscarComprobanteFecha(string fecha) {
+            return base.Channel.BuscarComprobanteFecha(fecha);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteFechaAsync(string fecha) {
+            return base.Channel.BuscarComprobanteFechaAsync(fecha);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.ComprobanteVenta[] BuscarComprobanteRangoFecha(string fechaInicio, string fechaFin) {
+            return base.Channel.BuscarComprobanteRangoFecha(fechaInicio, fechaFin);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteVenta[]> BuscarComprobanteRangoFechaAsync(string fechaInicio, string fechaFin) {
+            return base.Channel.BuscarComprobanteRangoFechaAsync(fechaInicio, fechaFin);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.ProductoComprobante BuscarProductoCCompra(string codigo) {
+            return base.Channel.BuscarProductoCCompra(codigo);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ProductoComprobante> BuscarProductoCCompraAsync(string codigo) {
+            return base.Channel.BuscarProductoCCompraAsync(codigo);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.Proveedor BuscarProveedorRucObj(string ruc) {
+            return base.Channel.BuscarProveedorRucObj(ruc);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.Proveedor> BuscarProveedorRucObjAsync(string ruc) {
+            return base.Channel.BuscarProveedorRucObjAsync(ruc);
+        }
+        
+        public int IngresarComprobanteCompra(string rucProveedor, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaCompra) {
+            return base.Channel.IngresarComprobanteCompra(rucProveedor, numDocumento, subtotal, iva, total, estado, fechaCompra);
+        }
+        
+        public System.Threading.Tasks.Task<int> IngresarComprobanteCompraAsync(string rucProveedor, string numDocumento, double subtotal, double iva, double total, int estado, System.DateTime fechaCompra) {
+            return base.Channel.IngresarComprobanteCompraAsync(rucProveedor, numDocumento, subtotal, iva, total, estado, fechaCompra);
+        }
+        
+        public void IngresarFiltroComprobanteCompra(int idFiltro, int idComprobanteCompra, int cantidad) {
+            base.Channel.IngresarFiltroComprobanteCompra(idFiltro, idComprobanteCompra, cantidad);
+        }
+        
+        public System.Threading.Tasks.Task IngresarFiltroComprobanteCompraAsync(int idFiltro, int idComprobanteCompra, int cantidad) {
+            return base.Channel.IngresarFiltroComprobanteCompraAsync(idFiltro, idComprobanteCompra, cantidad);
+        }
+        
+        public void IngresarAceiteComprobanteCompra(int idAceite, int idComprobanteCompra, int cantidad) {
+            base.Channel.IngresarAceiteComprobanteCompra(idAceite, idComprobanteCompra, cantidad);
+        }
+        
+        public System.Threading.Tasks.Task IngresarAceiteComprobanteCompraAsync(int idAceite, int idComprobanteCompra, int cantidad) {
+            return base.Channel.IngresarAceiteComprobanteCompraAsync(idAceite, idComprobanteCompra, cantidad);
+        }
+        
+        public void IngresarProductoComprobanteCompra(int idProducto, int idComprobanteCompra, int cantidad) {
+            base.Channel.IngresarProductoComprobanteCompra(idProducto, idComprobanteCompra, cantidad);
+        }
+        
+        public System.Threading.Tasks.Task IngresarProductoComprobanteCompraAsync(int idProducto, int idComprobanteCompra, int cantidad) {
+            return base.Channel.IngresarProductoComprobanteCompraAsync(idProducto, idComprobanteCompra, cantidad);
+        }
+        
+        public System.Data.DataTable BuscarProductosComprobanteCompra(string id) {
+            return base.Channel.BuscarProductosComprobanteCompra(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarProductosComprobanteCompraAsync(string id) {
+            return base.Channel.BuscarProductosComprobanteCompraAsync(id);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.ComprobanteCompra BuscarInfoComprobanteCompra(string id) {
+            return base.Channel.BuscarInfoComprobanteCompra(id);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra> BuscarInfoComprobanteCompraAsync(string id) {
+            return base.Channel.BuscarInfoComprobanteCompraAsync(id);
+        }
+        
+        public void ActualizarEstadoComprobanteCompra(int valor) {
+            base.Channel.ActualizarEstadoComprobanteCompra(valor);
+        }
+        
+        public System.Threading.Tasks.Task ActualizarEstadoComprobanteCompraAsync(int valor) {
+            return base.Channel.ActualizarEstadoComprobanteCompraAsync(valor);
+        }
+        
+        public System.Data.DataTable BuscarComprobanteRuc(string ruc) {
+            return base.Channel.BuscarComprobanteRuc(ruc);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteRucAsync(string ruc) {
+            return base.Channel.BuscarComprobanteRucAsync(ruc);
+        }
+        
+        public System.Data.DataTable BuscarComprobanteCompraFecha(string fecha) {
+            return base.Channel.BuscarComprobanteCompraFecha(fecha);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> BuscarComprobanteCompraFechaAsync(string fecha) {
+            return base.Channel.BuscarComprobanteCompraFechaAsync(fecha);
+        }
+        
+        public LavadoraLubricadora.LavadoraService.ComprobanteCompra[] BuscarComprobanteCompraRangoFecha(string fechaInicio, string fechaFin) {
+            return base.Channel.BuscarComprobanteCompraRangoFecha(fechaInicio, fechaFin);
+        }
+        
+        public System.Threading.Tasks.Task<LavadoraLubricadora.LavadoraService.ComprobanteCompra[]> BuscarComprobanteCompraRangoFechaAsync(string fechaInicio, string fechaFin) {
+            return base.Channel.BuscarComprobanteCompraRangoFechaAsync(fechaInicio, fechaFin);
+        }
+        
+        public void EliminarNotificacionFiltro(int id) {
+            base.Channel.EliminarNotificacionFiltro(id);
+        }
+        
+        public System.Threading.Tasks.Task EliminarNotificacionFiltroAsync(int id) {
+            return base.Channel.EliminarNotificacionFiltroAsync(id);
+        }
+        
+        public void EliminarNotificacionAceite(int id) {
+            base.Channel.EliminarNotificacionAceite(id);
+        }
+        
+        public System.Threading.Tasks.Task EliminarNotificacionAceiteAsync(int id) {
+            return base.Channel.EliminarNotificacionAceiteAsync(id);
+        }
+        
+        public void EliminarNotificacionProducto(int id) {
+            base.Channel.EliminarNotificacionProducto(id);
+        }
+        
+        public System.Threading.Tasks.Task EliminarNotificacionProductoAsync(int id) {
+            return base.Channel.EliminarNotificacionProductoAsync(id);
+        }
+        
+        public bool ValidarMinFiltro(int id) {
+            return base.Channel.ValidarMinFiltro(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarMinFiltroAsync(int id) {
+            return base.Channel.ValidarMinFiltroAsync(id);
+        }
+        
+        public bool ValidarMinAceite(int id) {
+            return base.Channel.ValidarMinAceite(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarMinAceiteAsync(int id) {
+            return base.Channel.ValidarMinAceiteAsync(id);
+        }
+        
+        public bool ValidarMinProducto(int id) {
+            return base.Channel.ValidarMinProducto(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ValidarMinProductoAsync(int id) {
+            return base.Channel.ValidarMinProductoAsync(id);
+        }
+        
+        public System.Data.DataTable ObtenerNotificaciones() {
+            return base.Channel.ObtenerNotificaciones();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ObtenerNotificacionesAsync() {
+            return base.Channel.ObtenerNotificacionesAsync();
         }
     }
 }

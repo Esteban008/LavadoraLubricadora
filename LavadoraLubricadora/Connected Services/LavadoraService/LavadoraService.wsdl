@@ -1,332 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LavadoraService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LavadoraService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" />
-      <xsd:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost/LavadoraService/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/LavadoraService/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/LavadoraService/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost/LavadoraService/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost/LavadoraService/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ILavadoraService_ObtenerClientes_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerClientes" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ObtenerClientes_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerClientesResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarClienteApellido_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarClienteApellido" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarClienteApellido_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarClienteApellidoResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarClienteCedula_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarClienteCedula" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarClienteCedula_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarClienteCedulaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarCliente_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarCliente" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarCliente_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarClienteResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarProveedor_InputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarProveedor" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarProveedor_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarProveedorResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EditarProveedor_InputMessage">
-    <wsdl:part name="parameters" element="tns:EditarProveedor" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EditarProveedor_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EditarProveedorResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EliminarProveedor_InputMessage">
-    <wsdl:part name="parameters" element="tns:EliminarProveedor" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EliminarProveedor_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EliminarProveedorResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ObtenerProveedor_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerProveedor" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ObtenerProveedor_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerProveedorResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProveedorApellido_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProveedorApellido" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProveedorApellido_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProveedorApellidoResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProveedorRuc_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProveedorRuc" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProveedorRuc_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProveedorRucResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProveedorEmpresa_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProveedorEmpresa" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProveedorEmpresa_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProveedorEmpresaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarProveedor_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarProveedor" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarProveedor_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarProveedorResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ObtenerUsuarios_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerUsuarios" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ObtenerUsuarios_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerUsuariosResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarUsuario_InputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarUsuario" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarUsuario_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarUsuarioResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EditarUsuario_InputMessage">
-    <wsdl:part name="parameters" element="tns:EditarUsuario" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EditarUsuario_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EditarUsuarioResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EditarUsuarioSinContrasenia_InputMessage">
-    <wsdl:part name="parameters" element="tns:EditarUsuarioSinContrasenia" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EditarUsuarioSinContrasenia_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EditarUsuarioSinContraseniaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EliminarUsuario_InputMessage">
-    <wsdl:part name="parameters" element="tns:EliminarUsuario" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EliminarUsuario_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarUsuarioNombre_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarUsuarioNombre" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarUsuarioNombre_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarUsuarioNombreResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarUsuarioApellido_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarUsuarioApellido" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarUsuarioApellido_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarUsuarioApellidoResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarUsuarioRol_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarUsuarioRol" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarUsuarioRol_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarUsuarioRolResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarUsuarioIngresar_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarUsuarioIngresar" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarUsuarioIngresar_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarUsuarioIngresarResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProductosCBarrasMayor_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProductosCBarrasMayor" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProductosCBarrasMayor_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProductosCBarrasMayorResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProductosCBarrasMenor_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProductosCBarrasMenor" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProductosCBarrasMenor_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProductosCBarrasMenorResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarClienteCedulaObj_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarClienteCedulaObj" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarClienteCedulaObj_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarClienteCedulaObjResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarComprobanteVenta_InputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarComprobanteVenta" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarComprobanteVenta_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarComprobanteVentaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarFiltroComprobanteVenta_InputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarFiltroComprobanteVenta" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarFiltroComprobanteVenta_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarFiltroComprobanteVentaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarAceiteComprobanteVenta_InputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarAceiteComprobanteVenta" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarAceiteComprobanteVenta_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarAceiteComprobanteVentaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarProductoComprobanteVenta_InputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarProductoComprobanteVenta" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarProductoComprobanteVenta_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarProductoComprobanteVentaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarInfoComprobanteVenta_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarInfoComprobanteVenta" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarInfoComprobanteVenta_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarInfoComprobanteVentaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProductosComprobanteVenta_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProductosComprobanteVenta" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProductosComprobanteVenta_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProductosComprobanteVentaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ActualizarEstadoComprobanteVenta_InputMessage">
-    <wsdl:part name="parameters" element="tns:ActualizarEstadoComprobanteVenta" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ActualizarEstadoComprobanteVenta_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ActualizarEstadoComprobanteVentaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarComprobanteCedula_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarComprobanteCedula" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarComprobanteCedula_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarComprobanteCedulaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarComprobanteFecha_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarComprobanteFecha" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarComprobanteFecha_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarComprobanteFechaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarComprobanteRangoFecha_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarComprobanteRangoFecha" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarComprobanteRangoFecha_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarComprobanteRangoFechaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProductoCCompra_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProductoCCompra" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProductoCCompra_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProductoCCompraResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProveedorRucObj_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProveedorRucObj" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProveedorRucObj_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProveedorRucObjResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarComprobanteCompra_InputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarComprobanteCompra" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarComprobanteCompra_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarComprobanteCompraResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarFiltroComprobanteCompra_InputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarFiltroComprobanteCompra" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarFiltroComprobanteCompra_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarFiltroComprobanteCompraResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarAceiteComprobanteCompra_InputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarAceiteComprobanteCompra" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarAceiteComprobanteCompra_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarAceiteComprobanteCompraResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarProductoComprobanteCompra_InputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarProductoComprobanteCompra" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_IngresarProductoComprobanteCompra_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IngresarProductoComprobanteCompraResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProductosComprobanteCompra_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProductosComprobanteCompra" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarProductosComprobanteCompra_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarProductosComprobanteCompraResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarInfoComprobanteCompra_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarInfoComprobanteCompra" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarInfoComprobanteCompra_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarInfoComprobanteCompraResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ActualizarEstadoComprobanteCompra_InputMessage">
-    <wsdl:part name="parameters" element="tns:ActualizarEstadoComprobanteCompra" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ActualizarEstadoComprobanteCompra_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ActualizarEstadoComprobanteCompraResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarComprobanteRuc_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarComprobanteRuc" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarComprobanteRuc_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarComprobanteRucResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarComprobanteCompraFecha_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarComprobanteCompraFecha" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarComprobanteCompraFecha_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarComprobanteCompraFechaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarComprobanteCompraRangoFecha_InputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarComprobanteCompraRangoFecha" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_BuscarComprobanteCompraRangoFecha_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BuscarComprobanteCompraRangoFechaResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EliminarNotificacionFiltro_InputMessage">
-    <wsdl:part name="parameters" element="tns:EliminarNotificacionFiltro" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EliminarNotificacionFiltro_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EliminarNotificacionFiltroResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EliminarNotificacionAceite_InputMessage">
-    <wsdl:part name="parameters" element="tns:EliminarNotificacionAceite" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EliminarNotificacionAceite_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EliminarNotificacionAceiteResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EliminarNotificacionProducto_InputMessage">
-    <wsdl:part name="parameters" element="tns:EliminarNotificacionProducto" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_EliminarNotificacionProducto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:EliminarNotificacionProductoResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarMinFiltro_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarMinFiltro" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarMinFiltro_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarMinFiltroResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarMinAceite_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarMinAceite" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarMinAceite_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarMinAceiteResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarMinProducto_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarMinProducto" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ValidarMinProducto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarMinProductoResponse" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ObtenerNotificaciones_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerNotificaciones" />
-  </wsdl:message>
-  <wsdl:message name="ILavadoraService_ObtenerNotificaciones_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerNotificacionesResponse" />
-  </wsdl:message>
   <wsdl:message name="ILavadoraService_Login_InputMessage">
     <wsdl:part name="parameters" element="tns:Login" />
   </wsdl:message>
@@ -711,219 +393,325 @@
   <wsdl:message name="ILavadoraService_EliminarCliente_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarClienteResponse" />
   </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerClientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerClientes" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerClientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarClienteApellido_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarClienteApellido" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarClienteApellido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarClienteApellidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarClienteCedula_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarClienteCedula" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarClienteCedula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarClienteCedulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarCliente" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarProveedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarProveedor" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarProveedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarProveedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EditarProveedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarProveedor" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EditarProveedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarProveedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EliminarProveedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarProveedor" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EliminarProveedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarProveedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerProveedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProveedor" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerProveedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerProveedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProveedorApellido_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProveedorApellido" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProveedorApellido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProveedorApellidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProveedorRuc_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProveedorRuc" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProveedorRuc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProveedorRucResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProveedorEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProveedorEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProveedorEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProveedorEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarProveedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarProveedor" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarProveedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarProveedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerUsuarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerUsuarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EditarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EditarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EditarUsuarioSinContrasenia_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarUsuarioSinContrasenia" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EditarUsuarioSinContrasenia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarUsuarioSinContraseniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EliminarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EliminarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarUsuarioNombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioNombre" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarUsuarioNombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarUsuarioApellido_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioApellido" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarUsuarioApellido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioApellidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarUsuarioRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioRol" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarUsuarioRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarUsuarioRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarUsuarioIngresar_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarUsuarioIngresar" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarUsuarioIngresar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarUsuarioIngresarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProductosCBarrasMayor_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProductosCBarrasMayor" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProductosCBarrasMayor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProductosCBarrasMayorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProductosCBarrasMenor_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProductosCBarrasMenor" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProductosCBarrasMenor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProductosCBarrasMenorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarClienteCedulaObj_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarClienteCedulaObj" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarClienteCedulaObj_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarClienteCedulaObjResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarComprobanteVenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarComprobanteVenta" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarComprobanteVenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarComprobanteVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarFiltroComprobanteVenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarFiltroComprobanteVenta" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarFiltroComprobanteVenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarFiltroComprobanteVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarAceiteComprobanteVenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarAceiteComprobanteVenta" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarAceiteComprobanteVenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarAceiteComprobanteVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarProductoComprobanteVenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarProductoComprobanteVenta" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarProductoComprobanteVenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarProductoComprobanteVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarInfoComprobanteVenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarInfoComprobanteVenta" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarInfoComprobanteVenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarInfoComprobanteVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProductosComprobanteVenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProductosComprobanteVenta" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProductosComprobanteVenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProductosComprobanteVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ActualizarEstadoComprobanteVenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstadoComprobanteVenta" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ActualizarEstadoComprobanteVenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstadoComprobanteVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteCedula_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteCedula" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteCedula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteCedulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteFecha" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteRangoFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteRangoFecha" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteRangoFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteRangoFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProductoCCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProductoCCompra" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProductoCCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProductoCCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProveedorRucObj_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProveedorRucObj" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProveedorRucObj_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProveedorRucObjResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarComprobanteCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarComprobanteCompra" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarComprobanteCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarComprobanteCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarFiltroComprobanteCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarFiltroComprobanteCompra" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarFiltroComprobanteCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarFiltroComprobanteCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarAceiteComprobanteCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarAceiteComprobanteCompra" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarAceiteComprobanteCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarAceiteComprobanteCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarProductoComprobanteCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarProductoComprobanteCompra" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_IngresarProductoComprobanteCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IngresarProductoComprobanteCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProductosComprobanteCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProductosComprobanteCompra" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarProductosComprobanteCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProductosComprobanteCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarInfoComprobanteCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarInfoComprobanteCompra" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarInfoComprobanteCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarInfoComprobanteCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ActualizarEstadoComprobanteCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstadoComprobanteCompra" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ActualizarEstadoComprobanteCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstadoComprobanteCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteRuc_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteRuc" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteRuc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteRucResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteCompraFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteCompraFecha" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteCompraFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteCompraFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteCompraRangoFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteCompraRangoFecha" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_BuscarComprobanteCompraRangoFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarComprobanteCompraRangoFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EliminarNotificacionFiltro_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarNotificacionFiltro" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EliminarNotificacionFiltro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarNotificacionFiltroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EliminarNotificacionAceite_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarNotificacionAceite" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EliminarNotificacionAceite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarNotificacionAceiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EliminarNotificacionProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarNotificacionProducto" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_EliminarNotificacionProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarNotificacionProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarMinFiltro_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarMinFiltro" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarMinFiltro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarMinFiltroResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarMinAceite_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarMinAceite" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarMinAceite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarMinAceiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarMinProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarMinProducto" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ValidarMinProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarMinProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerNotificaciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNotificaciones" />
+  </wsdl:message>
+  <wsdl:message name="ILavadoraService_ObtenerNotificaciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNotificacionesResponse" />
+  </wsdl:message>
   <wsdl:portType name="ILavadoraService">
-    <wsdl:operation name="ObtenerClientes">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerClientes" message="tns:ILavadoraService_ObtenerClientes_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerClientesResponse" message="tns:ILavadoraService_ObtenerClientes_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarClienteApellido">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteApellido" message="tns:ILavadoraService_BuscarClienteApellido_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteApellidoResponse" message="tns:ILavadoraService_BuscarClienteApellido_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarClienteCedula">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedula" message="tns:ILavadoraService_BuscarClienteCedula_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaResponse" message="tns:ILavadoraService_BuscarClienteCedula_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ValidarCliente">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarCliente" message="tns:ILavadoraService_ValidarCliente_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarClienteResponse" message="tns:ILavadoraService_ValidarCliente_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IngresarProveedor">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProveedor" message="tns:ILavadoraService_IngresarProveedor_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProveedorResponse" message="tns:ILavadoraService_IngresarProveedor_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EditarProveedor">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EditarProveedor" message="tns:ILavadoraService_EditarProveedor_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EditarProveedorResponse" message="tns:ILavadoraService_EditarProveedor_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EliminarProveedor">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarProveedor" message="tns:ILavadoraService_EliminarProveedor_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarProveedorResponse" message="tns:ILavadoraService_EliminarProveedor_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerProveedor">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerProveedor" message="tns:ILavadoraService_ObtenerProveedor_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerProveedorResponse" message="tns:ILavadoraService_ObtenerProveedor_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProveedorApellido">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorApellido" message="tns:ILavadoraService_BuscarProveedorApellido_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorApellidoResponse" message="tns:ILavadoraService_BuscarProveedorApellido_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProveedorRuc">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorRuc" message="tns:ILavadoraService_BuscarProveedorRuc_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorRucResponse" message="tns:ILavadoraService_BuscarProveedorRuc_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProveedorEmpresa">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresa" message="tns:ILavadoraService_BuscarProveedorEmpresa_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresaResponse" message="tns:ILavadoraService_BuscarProveedorEmpresa_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ValidarProveedor">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarProveedor" message="tns:ILavadoraService_ValidarProveedor_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarProveedorResponse" message="tns:ILavadoraService_ValidarProveedor_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerUsuarios">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerUsuarios" message="tns:ILavadoraService_ObtenerUsuarios_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerUsuariosResponse" message="tns:ILavadoraService_ObtenerUsuarios_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IngresarUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarUsuario" message="tns:ILavadoraService_IngresarUsuario_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarUsuarioResponse" message="tns:ILavadoraService_IngresarUsuario_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EditarUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EditarUsuario" message="tns:ILavadoraService_EditarUsuario_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EditarUsuarioResponse" message="tns:ILavadoraService_EditarUsuario_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EditarUsuarioSinContrasenia">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EditarUsuarioSinContrasenia" message="tns:ILavadoraService_EditarUsuarioSinContrasenia_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EditarUsuarioSinContraseniaResponse" message="tns:ILavadoraService_EditarUsuarioSinContrasenia_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EliminarUsuario">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarUsuario" message="tns:ILavadoraService_EliminarUsuario_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse" message="tns:ILavadoraService_EliminarUsuario_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarUsuarioNombre">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioNombre" message="tns:ILavadoraService_BuscarUsuarioNombre_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioNombreResponse" message="tns:ILavadoraService_BuscarUsuarioNombre_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarUsuarioApellido">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioApellido" message="tns:ILavadoraService_BuscarUsuarioApellido_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioApellidoResponse" message="tns:ILavadoraService_BuscarUsuarioApellido_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarUsuarioRol">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol" message="tns:ILavadoraService_BuscarUsuarioRol_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse" message="tns:ILavadoraService_BuscarUsuarioRol_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ValidarUsuarioIngresar">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresar" message="tns:ILavadoraService_ValidarUsuarioIngresar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresarResponse" message="tns:ILavadoraService_ValidarUsuarioIngresar_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProductosCBarrasMayor">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayor" message="tns:ILavadoraService_BuscarProductosCBarrasMayor_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayorResponse" message="tns:ILavadoraService_BuscarProductosCBarrasMayor_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProductosCBarrasMenor">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenor" message="tns:ILavadoraService_BuscarProductosCBarrasMenor_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenorResponse" message="tns:ILavadoraService_BuscarProductosCBarrasMenor_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarClienteCedulaObj">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObj" message="tns:ILavadoraService_BuscarClienteCedulaObj_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObjResponse" message="tns:ILavadoraService_BuscarClienteCedulaObj_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IngresarComprobanteVenta">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarComprobanteVenta" message="tns:ILavadoraService_IngresarComprobanteVenta_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarComprobanteVentaResponse" message="tns:ILavadoraService_IngresarComprobanteVenta_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IngresarFiltroComprobanteVenta">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVenta" message="tns:ILavadoraService_IngresarFiltroComprobanteVenta_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVentaResponse" message="tns:ILavadoraService_IngresarFiltroComprobanteVenta_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IngresarAceiteComprobanteVenta">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVenta" message="tns:ILavadoraService_IngresarAceiteComprobanteVenta_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVentaResponse" message="tns:ILavadoraService_IngresarAceiteComprobanteVenta_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IngresarProductoComprobanteVenta">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta" message="tns:ILavadoraService_IngresarProductoComprobanteVenta_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVentaResponse" message="tns:ILavadoraService_IngresarProductoComprobanteVenta_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarInfoComprobanteVenta">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVenta" message="tns:ILavadoraService_BuscarInfoComprobanteVenta_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVentaResponse" message="tns:ILavadoraService_BuscarInfoComprobanteVenta_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProductosComprobanteVenta">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVenta" message="tns:ILavadoraService_BuscarProductosComprobanteVenta_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVentaResponse" message="tns:ILavadoraService_BuscarProductosComprobanteVenta_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ActualizarEstadoComprobanteVenta">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVenta" message="tns:ILavadoraService_ActualizarEstadoComprobanteVenta_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVentaResponse" message="tns:ILavadoraService_ActualizarEstadoComprobanteVenta_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarComprobanteCedula">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCedula" message="tns:ILavadoraService_BuscarComprobanteCedula_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCedulaResponse" message="tns:ILavadoraService_BuscarComprobanteCedula_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarComprobanteFecha">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteFecha" message="tns:ILavadoraService_BuscarComprobanteFecha_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteFechaResponse" message="tns:ILavadoraService_BuscarComprobanteFecha_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarComprobanteRangoFecha">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFecha" message="tns:ILavadoraService_BuscarComprobanteRangoFecha_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFechaResponse" message="tns:ILavadoraService_BuscarComprobanteRangoFecha_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProductoCCompra">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductoCCompra" message="tns:ILavadoraService_BuscarProductoCCompra_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductoCCompraResponse" message="tns:ILavadoraService_BuscarProductoCCompra_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProveedorRucObj">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorRucObj" message="tns:ILavadoraService_BuscarProveedorRucObj_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorRucObjResponse" message="tns:ILavadoraService_BuscarProveedorRucObj_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IngresarComprobanteCompra">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarComprobanteCompra" message="tns:ILavadoraService_IngresarComprobanteCompra_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarComprobanteCompraResponse" message="tns:ILavadoraService_IngresarComprobanteCompra_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IngresarFiltroComprobanteCompra">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompra" message="tns:ILavadoraService_IngresarFiltroComprobanteCompra_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompraResponse" message="tns:ILavadoraService_IngresarFiltroComprobanteCompra_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IngresarAceiteComprobanteCompra">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompra" message="tns:ILavadoraService_IngresarAceiteComprobanteCompra_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompraResponse" message="tns:ILavadoraService_IngresarAceiteComprobanteCompra_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IngresarProductoComprobanteCompra">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompra" message="tns:ILavadoraService_IngresarProductoComprobanteCompra_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompraResponse" message="tns:ILavadoraService_IngresarProductoComprobanteCompra_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProductosComprobanteCompra">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompra" message="tns:ILavadoraService_BuscarProductosComprobanteCompra_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompraResponse" message="tns:ILavadoraService_BuscarProductosComprobanteCompra_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarInfoComprobanteCompra">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompra" message="tns:ILavadoraService_BuscarInfoComprobanteCompra_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompraResponse" message="tns:ILavadoraService_BuscarInfoComprobanteCompra_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ActualizarEstadoComprobanteCompra">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompra" message="tns:ILavadoraService_ActualizarEstadoComprobanteCompra_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompraResponse" message="tns:ILavadoraService_ActualizarEstadoComprobanteCompra_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarComprobanteRuc">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRuc" message="tns:ILavadoraService_BuscarComprobanteRuc_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRucResponse" message="tns:ILavadoraService_BuscarComprobanteRuc_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarComprobanteCompraFecha">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFecha" message="tns:ILavadoraService_BuscarComprobanteCompraFecha_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFechaResponse" message="tns:ILavadoraService_BuscarComprobanteCompraFecha_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarComprobanteCompraRangoFecha">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFecha" message="tns:ILavadoraService_BuscarComprobanteCompraRangoFecha_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFechaResponse" message="tns:ILavadoraService_BuscarComprobanteCompraRangoFecha_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EliminarNotificacionFiltro">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltro" message="tns:ILavadoraService_EliminarNotificacionFiltro_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltroResponse" message="tns:ILavadoraService_EliminarNotificacionFiltro_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EliminarNotificacionAceite">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarNotificacionAceite" message="tns:ILavadoraService_EliminarNotificacionAceite_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarNotificacionAceiteResponse" message="tns:ILavadoraService_EliminarNotificacionAceite_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EliminarNotificacionProducto">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarNotificacionProducto" message="tns:ILavadoraService_EliminarNotificacionProducto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarNotificacionProductoResponse" message="tns:ILavadoraService_EliminarNotificacionProducto_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ValidarMinFiltro">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarMinFiltro" message="tns:ILavadoraService_ValidarMinFiltro_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarMinFiltroResponse" message="tns:ILavadoraService_ValidarMinFiltro_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ValidarMinAceite">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarMinAceite" message="tns:ILavadoraService_ValidarMinAceite_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarMinAceiteResponse" message="tns:ILavadoraService_ValidarMinAceite_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ValidarMinProducto">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarMinProducto" message="tns:ILavadoraService_ValidarMinProducto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarMinProductoResponse" message="tns:ILavadoraService_ValidarMinProducto_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerNotificaciones">
-      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerNotificaciones" message="tns:ILavadoraService_ObtenerNotificaciones_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerNotificacionesResponse" message="tns:ILavadoraService_ObtenerNotificaciones_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/Login" message="tns:ILavadoraService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/LoginResponse" message="tns:ILavadoraService_Login_OutputMessage" />
@@ -1180,486 +968,221 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarCliente" message="tns:ILavadoraService_EliminarCliente_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarClienteResponse" message="tns:ILavadoraService_EliminarCliente_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ObtenerClientes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerClientes" message="tns:ILavadoraService_ObtenerClientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerClientesResponse" message="tns:ILavadoraService_ObtenerClientes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarClienteApellido">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteApellido" message="tns:ILavadoraService_BuscarClienteApellido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteApellidoResponse" message="tns:ILavadoraService_BuscarClienteApellido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarClienteCedula">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedula" message="tns:ILavadoraService_BuscarClienteCedula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaResponse" message="tns:ILavadoraService_BuscarClienteCedula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarCliente" message="tns:ILavadoraService_ValidarCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarClienteResponse" message="tns:ILavadoraService_ValidarCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarProveedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProveedor" message="tns:ILavadoraService_IngresarProveedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProveedorResponse" message="tns:ILavadoraService_IngresarProveedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarProveedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EditarProveedor" message="tns:ILavadoraService_EditarProveedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EditarProveedorResponse" message="tns:ILavadoraService_EditarProveedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProveedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarProveedor" message="tns:ILavadoraService_EliminarProveedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarProveedorResponse" message="tns:ILavadoraService_EliminarProveedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProveedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerProveedor" message="tns:ILavadoraService_ObtenerProveedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerProveedorResponse" message="tns:ILavadoraService_ObtenerProveedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProveedorApellido">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorApellido" message="tns:ILavadoraService_BuscarProveedorApellido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorApellidoResponse" message="tns:ILavadoraService_BuscarProveedorApellido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProveedorRuc">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorRuc" message="tns:ILavadoraService_BuscarProveedorRuc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorRucResponse" message="tns:ILavadoraService_BuscarProveedorRuc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProveedorEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresa" message="tns:ILavadoraService_BuscarProveedorEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresaResponse" message="tns:ILavadoraService_BuscarProveedorEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarProveedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarProveedor" message="tns:ILavadoraService_ValidarProveedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarProveedorResponse" message="tns:ILavadoraService_ValidarProveedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerUsuarios" message="tns:ILavadoraService_ObtenerUsuarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerUsuariosResponse" message="tns:ILavadoraService_ObtenerUsuarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarUsuario" message="tns:ILavadoraService_IngresarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarUsuarioResponse" message="tns:ILavadoraService_IngresarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EditarUsuario" message="tns:ILavadoraService_EditarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EditarUsuarioResponse" message="tns:ILavadoraService_EditarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarUsuarioSinContrasenia">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EditarUsuarioSinContrasenia" message="tns:ILavadoraService_EditarUsuarioSinContrasenia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EditarUsuarioSinContraseniaResponse" message="tns:ILavadoraService_EditarUsuarioSinContrasenia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarUsuario" message="tns:ILavadoraService_EliminarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarUsuarioResponse" message="tns:ILavadoraService_EliminarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioNombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioNombre" message="tns:ILavadoraService_BuscarUsuarioNombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioNombreResponse" message="tns:ILavadoraService_BuscarUsuarioNombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioApellido">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioApellido" message="tns:ILavadoraService_BuscarUsuarioApellido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioApellidoResponse" message="tns:ILavadoraService_BuscarUsuarioApellido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRol" message="tns:ILavadoraService_BuscarUsuarioRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarUsuarioRolResponse" message="tns:ILavadoraService_BuscarUsuarioRol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarUsuarioIngresar">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresar" message="tns:ILavadoraService_ValidarUsuarioIngresar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresarResponse" message="tns:ILavadoraService_ValidarUsuarioIngresar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProductosCBarrasMayor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayor" message="tns:ILavadoraService_BuscarProductosCBarrasMayor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayorResponse" message="tns:ILavadoraService_BuscarProductosCBarrasMayor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProductosCBarrasMenor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenor" message="tns:ILavadoraService_BuscarProductosCBarrasMenor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenorResponse" message="tns:ILavadoraService_BuscarProductosCBarrasMenor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarClienteCedulaObj">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObj" message="tns:ILavadoraService_BuscarClienteCedulaObj_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObjResponse" message="tns:ILavadoraService_BuscarClienteCedulaObj_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarComprobanteVenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarComprobanteVenta" message="tns:ILavadoraService_IngresarComprobanteVenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarComprobanteVentaResponse" message="tns:ILavadoraService_IngresarComprobanteVenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarFiltroComprobanteVenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVenta" message="tns:ILavadoraService_IngresarFiltroComprobanteVenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVentaResponse" message="tns:ILavadoraService_IngresarFiltroComprobanteVenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarAceiteComprobanteVenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVenta" message="tns:ILavadoraService_IngresarAceiteComprobanteVenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVentaResponse" message="tns:ILavadoraService_IngresarAceiteComprobanteVenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarProductoComprobanteVenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta" message="tns:ILavadoraService_IngresarProductoComprobanteVenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVentaResponse" message="tns:ILavadoraService_IngresarProductoComprobanteVenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarInfoComprobanteVenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVenta" message="tns:ILavadoraService_BuscarInfoComprobanteVenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVentaResponse" message="tns:ILavadoraService_BuscarInfoComprobanteVenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProductosComprobanteVenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVenta" message="tns:ILavadoraService_BuscarProductosComprobanteVenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVentaResponse" message="tns:ILavadoraService_BuscarProductosComprobanteVenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstadoComprobanteVenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVenta" message="tns:ILavadoraService_ActualizarEstadoComprobanteVenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVentaResponse" message="tns:ILavadoraService_ActualizarEstadoComprobanteVenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteCedula">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCedula" message="tns:ILavadoraService_BuscarComprobanteCedula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCedulaResponse" message="tns:ILavadoraService_BuscarComprobanteCedula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteFecha" message="tns:ILavadoraService_BuscarComprobanteFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteFechaResponse" message="tns:ILavadoraService_BuscarComprobanteFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteRangoFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFecha" message="tns:ILavadoraService_BuscarComprobanteRangoFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFechaResponse" message="tns:ILavadoraService_BuscarComprobanteRangoFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProductoCCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductoCCompra" message="tns:ILavadoraService_BuscarProductoCCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductoCCompraResponse" message="tns:ILavadoraService_BuscarProductoCCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProveedorRucObj">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorRucObj" message="tns:ILavadoraService_BuscarProveedorRucObj_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProveedorRucObjResponse" message="tns:ILavadoraService_BuscarProveedorRucObj_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarComprobanteCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarComprobanteCompra" message="tns:ILavadoraService_IngresarComprobanteCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarComprobanteCompraResponse" message="tns:ILavadoraService_IngresarComprobanteCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarFiltroComprobanteCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompra" message="tns:ILavadoraService_IngresarFiltroComprobanteCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompraResponse" message="tns:ILavadoraService_IngresarFiltroComprobanteCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarAceiteComprobanteCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompra" message="tns:ILavadoraService_IngresarAceiteComprobanteCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompraResponse" message="tns:ILavadoraService_IngresarAceiteComprobanteCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IngresarProductoComprobanteCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompra" message="tns:ILavadoraService_IngresarProductoComprobanteCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompraResponse" message="tns:ILavadoraService_IngresarProductoComprobanteCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProductosComprobanteCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompra" message="tns:ILavadoraService_BuscarProductosComprobanteCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompraResponse" message="tns:ILavadoraService_BuscarProductosComprobanteCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarInfoComprobanteCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompra" message="tns:ILavadoraService_BuscarInfoComprobanteCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompraResponse" message="tns:ILavadoraService_BuscarInfoComprobanteCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstadoComprobanteCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompra" message="tns:ILavadoraService_ActualizarEstadoComprobanteCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompraResponse" message="tns:ILavadoraService_ActualizarEstadoComprobanteCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteRuc">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRuc" message="tns:ILavadoraService_BuscarComprobanteRuc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteRucResponse" message="tns:ILavadoraService_BuscarComprobanteRuc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteCompraFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFecha" message="tns:ILavadoraService_BuscarComprobanteCompraFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFechaResponse" message="tns:ILavadoraService_BuscarComprobanteCompraFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteCompraRangoFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFecha" message="tns:ILavadoraService_BuscarComprobanteCompraRangoFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFechaResponse" message="tns:ILavadoraService_BuscarComprobanteCompraRangoFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarNotificacionFiltro">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltro" message="tns:ILavadoraService_EliminarNotificacionFiltro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltroResponse" message="tns:ILavadoraService_EliminarNotificacionFiltro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarNotificacionAceite">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarNotificacionAceite" message="tns:ILavadoraService_EliminarNotificacionAceite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarNotificacionAceiteResponse" message="tns:ILavadoraService_EliminarNotificacionAceite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarNotificacionProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/EliminarNotificacionProducto" message="tns:ILavadoraService_EliminarNotificacionProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/EliminarNotificacionProductoResponse" message="tns:ILavadoraService_EliminarNotificacionProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarMinFiltro">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarMinFiltro" message="tns:ILavadoraService_ValidarMinFiltro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarMinFiltroResponse" message="tns:ILavadoraService_ValidarMinFiltro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarMinAceite">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarMinAceite" message="tns:ILavadoraService_ValidarMinAceite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarMinAceiteResponse" message="tns:ILavadoraService_ValidarMinAceite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarMinProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ValidarMinProducto" message="tns:ILavadoraService_ValidarMinProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ValidarMinProductoResponse" message="tns:ILavadoraService_ValidarMinProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNotificaciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerNotificaciones" message="tns:ILavadoraService_ObtenerNotificaciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILavadoraService/ObtenerNotificacionesResponse" message="tns:ILavadoraService_ObtenerNotificaciones_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ILavadoraService" type="tns:ILavadoraService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="ObtenerClientes">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerClientes" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarClienteApellido">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarClienteApellido" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarClienteCedula">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarClienteCedula" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ValidarCliente">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarCliente" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IngresarProveedor">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarProveedor" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EditarProveedor">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EditarProveedor" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EliminarProveedor">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarProveedor" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerProveedor">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerProveedor" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProveedorApellido">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProveedorApellido" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProveedorRuc">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProveedorRuc" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProveedorEmpresa">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresa" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ValidarProveedor">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarProveedor" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerUsuarios">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerUsuarios" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IngresarUsuario">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarUsuario" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EditarUsuario">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EditarUsuario" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EditarUsuarioSinContrasenia">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EditarUsuarioSinContrasenia" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EliminarUsuario">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarUsuario" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarUsuarioNombre">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarUsuarioNombre" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarUsuarioApellido">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarUsuarioApellido" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarUsuarioRol">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRol" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ValidarUsuarioIngresar">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresar" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProductosCBarrasMayor">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayor" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProductosCBarrasMenor">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenor" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarClienteCedulaObj">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObj" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IngresarComprobanteVenta">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarComprobanteVenta" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IngresarFiltroComprobanteVenta">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVenta" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IngresarAceiteComprobanteVenta">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVenta" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IngresarProductoComprobanteVenta">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarInfoComprobanteVenta">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVenta" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProductosComprobanteVenta">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVenta" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ActualizarEstadoComprobanteVenta">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVenta" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarComprobanteCedula">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCedula" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarComprobanteFecha">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteFecha" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarComprobanteRangoFecha">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFecha" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProductoCCompra">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProductoCCompra" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProveedorRucObj">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucObj" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IngresarComprobanteCompra">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarComprobanteCompra" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IngresarFiltroComprobanteCompra">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompra" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IngresarAceiteComprobanteCompra">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompra" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IngresarProductoComprobanteCompra">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompra" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarProductosComprobanteCompra">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompra" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarInfoComprobanteCompra">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompra" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ActualizarEstadoComprobanteCompra">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompra" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarComprobanteRuc">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRuc" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarComprobanteCompraFecha">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFecha" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarComprobanteCompraRangoFecha">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFecha" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EliminarNotificacionFiltro">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltro" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EliminarNotificacionAceite">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarNotificacionAceite" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EliminarNotificacionProducto">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarNotificacionProducto" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ValidarMinFiltro">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarMinFiltro" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ValidarMinAceite">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarMinAceite" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ValidarMinProducto">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarMinProducto" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerNotificaciones">
-      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerNotificaciones" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/ILavadoraService/Login" style="document" />
       <wsdl:input>
@@ -2236,10 +1759,487 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ObtenerClientes">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarClienteApellido">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarClienteApellido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarClienteCedula">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarClienteCedula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCliente">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarProveedor">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarProveedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarProveedor">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EditarProveedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProveedor">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarProveedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProveedor">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerProveedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProveedorApellido">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProveedorApellido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProveedorRuc">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProveedorRuc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProveedorEmpresa">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProveedorEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarProveedor">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarProveedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuarios">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EditarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarUsuarioSinContrasenia">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EditarUsuarioSinContrasenia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioNombre">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarUsuarioNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioApellido">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarUsuarioApellido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarUsuarioRol">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarUsuarioRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarUsuarioIngresar">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarUsuarioIngresar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProductosCBarrasMayor">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMayor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProductosCBarrasMenor">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProductosCBarrasMenor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarClienteCedulaObj">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarClienteCedulaObj" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarComprobanteVenta">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarComprobanteVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarFiltroComprobanteVenta">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarAceiteComprobanteVenta">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarProductoComprobanteVenta">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarInfoComprobanteVenta">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProductosComprobanteVenta">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstadoComprobanteVenta">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteCedula">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCedula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteFecha">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteRangoFecha">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRangoFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProductoCCompra">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProductoCCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProveedorRucObj">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProveedorRucObj" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarComprobanteCompra">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarComprobanteCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarFiltroComprobanteCompra">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarFiltroComprobanteCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarAceiteComprobanteCompra">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarAceiteComprobanteCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngresarProductoComprobanteCompra">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/IngresarProductoComprobanteCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProductosComprobanteCompra">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarProductosComprobanteCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarInfoComprobanteCompra">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarInfoComprobanteCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstadoComprobanteCompra">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ActualizarEstadoComprobanteCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteRuc">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteRuc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteCompraFecha">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComprobanteCompraRangoFecha">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/BuscarComprobanteCompraRangoFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarNotificacionFiltro">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarNotificacionFiltro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarNotificacionAceite">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarNotificacionAceite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarNotificacionProducto">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/EliminarNotificacionProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarMinFiltro">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarMinFiltro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarMinAceite">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarMinAceite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarMinProducto">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ValidarMinProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNotificaciones">
+      <soap:operation soapAction="http://tempuri.org/ILavadoraService/ObtenerNotificaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="LavadoraService">
     <wsdl:port name="BasicHttpBinding_ILavadoraService" binding="tns:BasicHttpBinding_ILavadoraService">
-      <soap:address location="http://localhost:53640/Service1.svc" />
+      <soap:address location="http://localhost/LavadoraService/Service1.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -328,30 +328,19 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\LavadoraService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\LavadoraService\Service1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\LavadoraService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\LavadoraService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\LavadoraService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8-warning-25.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LavadorayLubricadoraNegritos2.png" />
     <None Include="Resources\icons8-sign-out-35 %281%29.png" />
     <None Include="Resources\icons8-sign-out-25.png" />
+    <None Include="Connected Services\LavadoraService\Service1.disco" />
+    <None Include="Connected Services\LavadoraService\configuration91.svcinfo" />
+    <None Include="Connected Services\LavadoraService\configuration.svcinfo" />
+    <None Include="Connected Services\LavadoraService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -366,6 +355,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\LavadoraService\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="280957ab-09e8-45d0-8353-f21af43e881d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3bd47b6c-c439-48d8-a7bd-e81cca39f8d2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,16 +19,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:53640/Service1.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/LavadoraService/Service1.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service14.xsd" MetadataType="Schema" ID="70596e25-ba62-4917-9c89-6e40b4fda8a7" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?xsd=xsd4" />
-    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="e95e2f16-fe0c-4826-9974-15a18847d5ff" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?xsd=xsd2" />
-    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="af85fe98-948c-4617-a8d7-67243f55cf2a" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?xsd=xsd3" />
-    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="74a18226-4318-4784-9e07-76202388e5ea" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?xsd=xsd1" />
-    <MetadataFile FileName="LavadoraService.wsdl" MetadataType="Wsdl" ID="d1e9b3da-f695-42e7-b2e9-5c7e2c40a02c" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?wsdl" />
-    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="4158fffb-1ec6-4e4d-bf8f-4c684ab36b5a" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?disco" />
-    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="e61e985a-dc9f-4832-b9f0-454f9487310c" SourceId="1" SourceUrl="http://localhost:53640/Service1.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="67a821c4-7bde-4d64-a77a-2f4bf0ada456" SourceId="1" SourceUrl="http://localhost/LavadoraService/Service1.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="08b90d8d-0003-4368-aa3e-17d55ac863a8" SourceId="1" SourceUrl="http://localhost/LavadoraService/Service1.svc?xsd=xsd4" />
+    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="a33110b1-4f72-4cc1-98d4-f8ce2221e9a8" SourceId="1" SourceUrl="http://localhost/LavadoraService/Service1.svc?xsd=xsd2" />
+    <MetadataFile FileName="LavadoraService.wsdl" MetadataType="Wsdl" ID="7a6e729a-348a-48e0-9dd5-b6db0c33bf5a" SourceId="1" SourceUrl="http://localhost/LavadoraService/Service1.svc?wsdl" />
+    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="abe529b5-15e4-4a38-a280-feaba8b0eab6" SourceId="1" SourceUrl="http://localhost/LavadoraService/Service1.svc?disco" />
+    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="215a162c-2f62-42c4-81ec-395929ce83e9" SourceId="1" SourceUrl="http://localhost/LavadoraService/Service1.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service14.xsd" MetadataType="Schema" ID="aef63bfe-af96-4934-adeb-4f328315bffa" SourceId="1" SourceUrl="http://localhost/LavadoraService/Service1.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

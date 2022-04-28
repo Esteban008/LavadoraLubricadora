@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BibliotecaClasesLavadora" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:53640/Service1.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/LavadoraService/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfVehiculo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vehiculo" nillable="true" type="tns:Vehiculo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehiculo" nillable="true" type="tns:ArrayOfVehiculo" />
+  <xs:complexType name="Vehiculo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Anio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdVehiculo" type="xs:int" />
+      <xs:element minOccurs="0" name="Marca" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Modelo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TipoMotor" nillable="true" type="q1:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Vehiculo" nillable="true" type="tns:Vehiculo" />
   <xs:complexType name="ProductoComprobante">
     <xs:sequence>
       <xs:element minOccurs="0" name="Cantidad" type="xs:int" />
@@ -97,20 +113,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfComprobanteCompra" nillable="true" type="tns:ArrayOfComprobanteCompra" />
-  <xs:complexType name="ArrayOfVehiculo">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vehiculo" nillable="true" type="tns:Vehiculo" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfVehiculo" nillable="true" type="tns:ArrayOfVehiculo" />
-  <xs:complexType name="Vehiculo">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Anio" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IdVehiculo" type="xs:int" />
-      <xs:element minOccurs="0" name="Marca" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Modelo" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TipoMotor" nillable="true" type="q1:ArrayOfstring" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Vehiculo" nillable="true" type="tns:Vehiculo" />
 </xs:schema>
